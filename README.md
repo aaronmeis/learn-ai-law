@@ -1,6 +1,6 @@
 # Learn AI Law
 
-![Learn AI Law: Contracts, Intellectual Property, Regulation](assets/readme/header.png)
+![Learn AI Law: Contracts, Intellectual Property, US Regulation, EU AI Act, Privacy](assets/readme/header.png)
 
 A personal, self-contained study console for a 6-week study program covering AI contracts, intellectual property, regulation, and Responsible AI. Built for an enterprise architect audience.
 
