@@ -1,7 +1,8 @@
 # AI Regulation & Litigation — Revision Deck
 
-Pillar 3 of the AI Law Deep Dive (30% weight). US federal + states + EU AI Act + privacy +
-sector rules + the cases. Current to 2026-09-02. Verify any date before relying on it.
+Pillar 3 of the AI Law Deep Dive (30% weight). US federal + defense/national-security AI +
+states + EU AI Act + privacy + sector rules + the cases. Current to 2026-09-08. Verify any
+date before relying on it.
 
 ---
 
@@ -18,11 +19,24 @@ sector rules + the cases. Current to 2026-09-02. Verify any date before relying 
 
 ## US federal posture in 2026
 
-- No omnibus AI statute; policy set by executive order + an action plan; harms pursued under generally applicable laws.
+- No omnibus *civilian* AI statute; civilian policy set by executive order + an action plan; harms pursued under generally applicable laws.
 - EO 14110 (2023) **rescinded** 20 Jan 2025 by EO 14148.
 - **EO 14179** ("Removing Barriers to American Leadership in AI," 23 Jan 2025) + **"Winning the Race: America's AI Action Plan"** (23 Jul 2025) — deregulatory; directs NIST to revise the AI RMF and the FTC to review burdensome AI consent orders.
 - **EO 14319** ("Preventing Woke AI in the Federal Government," Jul 2025).
 - **EO 14365** (state-preemption strategy, 11 Dec 2025) — DOJ litigation task force + funding conditions; named the Colorado AI Act.
+- **FY2026 NDAA (P.L. 119-60, enacted 18 Dec 2025)** — the main *congressional* defense AI vehicle (Title XV Subtitle D).
+
+---
+
+## Defense / national security AI
+
+- **CRS IF13197** — short map of FY2026 NDAA cyber + AI provisions.
+- **§1532** — restricts DOD use/acquisition of **covered AI systems** (incl. DeepSeek / High Flyer and covered-nation systems); limited SECDEF waivers.
+- **§1533** — cross-functional team for AI model assessment, testing, oversight, ethical standards.
+- **§1534** — AI sandbox environments for safe experimentation + department-wide standards.
+- **§1535** — **AI Futures Steering Committee** for advanced / agentic AI planning (stand up by 1 Apr 2026; report by 31 Jan 2027).
+- Nearby: **§1512** AI/ML cybersecurity governance; **§1513** procurement hardening.
+- **NSCAI Final Report (1 Mar 2021)** — still the landmark strategy backdrop (Schmidt chair): defense readiness, talent, U.S.–China competition, justified confidence, democratic guardrails.
 
 ---
 

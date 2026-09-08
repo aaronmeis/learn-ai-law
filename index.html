@@ -299,6 +299,29 @@
   .gterm p{font-size:.84rem;color:var(--text-secondary);margin-top:.2rem;line-height:1.55}
   .gterm .sa{font-size:.76rem;color:var(--text-dim);margin-top:.35rem}
 
+  /* Shorts gallery (vertical phone frame + episode rail) */
+  .shorts-gallery{display:grid;grid-template-columns:minmax(0,1fr);gap:1.1rem;align-items:start}
+  .shorts-player{display:flex;flex-direction:column;gap:.65rem;max-width:320px;width:100%;margin:0 auto}
+  .shorts-player .row{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+  .carousel{width:100%;max-width:320px;aspect-ratio:9/16;max-height:min(70vh,620px);border:1px solid var(--border-color);background:#05080f;border-radius:16px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,.35);display:flex;flex-direction:column}
+  .carousel-stage{flex:1 1 auto;min-height:0;background:#000;position:relative}
+  .carousel video{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:contain;background:#000}
+  .carousel-cap{flex:0 0 auto;padding:.65rem .8rem;border-top:1px solid var(--border-color);font-size:.88rem;color:var(--accent-color);text-align:center;background:rgba(7,11,20,.92)}
+  .thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.55rem;max-height:min(70vh,620px);overflow:auto;padding-right:2px;align-content:start}
+  .thumbs button{width:100%;min-height:84px;text-align:left;font-family:inherit;font-size:.74rem;line-height:1.35;padding:.7rem .75rem;border-radius:10px;border:1px solid var(--border-color);background:var(--card-bg);color:var(--text-secondary);cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;gap:.45rem}
+  .thumbs button.active,.thumbs button:hover{border-color:var(--accent-color);color:var(--text-primary)}
+  .thumbs button.ready{border-left:3px solid var(--good)}
+  .thumbs button.pending{border-left:3px solid var(--bad);opacity:.85}
+  .thumbs .tagpill{font-size:.68rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.04em}
+  @media(min-width:900px){
+    .shorts-gallery{grid-template-columns:320px minmax(0,1fr)}
+    .shorts-player{margin:0}
+  }
+  @media(max-width:899px){
+    .shorts-gallery{justify-items:center}
+    .thumbs{width:100%;max-height:none}
+  }
+
   /* Prompts */
   .promptcat h3{margin-top:1.2rem;font-size:1rem}
   .promptbox{background:var(--card-bg);border:1px solid var(--border-color);border-radius:10px;margin:.5rem 0}
@@ -457,6 +480,7 @@
     <li class="nav-item" data-v="curriculum"><span class="ni-ic">▪</span>Curriculum</li>
     <li class="nav-item" data-v="map"><span class="ni-ic">▪</span>Progress map</li>
     <li class="nav-item" data-v="flash"><span class="ni-ic">▪</span>Flashcards</li>
+    <li class="nav-item" data-v="shorts"><span class="ni-ic">▪</span>Shorts</li>
     <li class="nav-item" data-v="quiz"><span class="ni-ic">▪</span>Quiz</li>
     <li class="nav-item" data-v="glossary"><span class="ni-ic">▪</span>Glossary</li>
     <li class="nav-item" data-v="prompts"><span class="ni-ic">▪</span>Prompts</li>
@@ -485,6 +509,7 @@
   <section class="view" id="v-curriculum"></section>
   <section class="view" id="v-map"></section>
   <section class="view" id="v-flash"></section>
+  <section class="view" id="v-shorts"></section>
   <section class="view" id="v-quiz"></section>
   <section class="view" id="v-glossary"></section>
   <section class="view" id="v-prompts"></section>
@@ -650,6 +675,28 @@ const EXTERNAL_REFS = {
       "sources": [
         "readings-regulatory.md"
       ]
+    },
+    {
+      "url": "https://www.congress.gov/119/plaws/publ60/PLAW-119publ60.pdf",
+      "anchor": "www.congress.gov",
+      "sources": [
+        "readings-regulatory.md",
+        "00 - AI Law Learning Hub.md"
+      ]
+    },
+    {
+      "url": "https://www.congress.gov/crs-product/IF13197",
+      "anchor": "www.congress.gov",
+      "sources": [
+        "readings-regulatory.md"
+      ]
+    },
+    {
+      "url": "https://www.congress.gov/crs-product/IF13151",
+      "anchor": "www.congress.gov",
+      "sources": [
+        "readings-regulatory.md"
+      ]
     }
   ],
   "Court Opinions & Case Law": [
@@ -769,6 +816,14 @@ const EXTERNAL_REFS = {
       "anchor": "www.nist.gov",
       "sources": [
         "feeds.md"
+      ]
+    },
+    {
+      "url": "https://reports.nscai.gov/final-report/",
+      "anchor": "reports.nscai.gov",
+      "sources": [
+        "readings-regulatory.md",
+        "00 - AI Law Learning Hub.md"
       ]
     },
     {
@@ -5244,6 +5299,62 @@ const EXPANDED_GLOSSARY = [
     "essential": true
   },
   {
+    "category": "National Security",
+    "term": "NDAA FY2026 (P.L. 119-60)",
+    "definition": "FY2026 National Defense Authorization Act (enacted Dec 18, 2025). Main congressional vehicle for defense AI rules; Title XV Subtitle D covers §§1532–1535. Not a civilian omnibus AI statute.",
+    "rung": 100,
+    "essential": true
+  },
+  {
+    "category": "National Security",
+    "term": "Covered AI System (NDAA §1532)",
+    "definition": "Restricts DOD use/acquisition of covered AI systems, including DeepSeek/High Flyer-linked systems and systems tied to China, Russia, Iran, or North Korea, with limited SECDEF waivers.",
+    "rung": 200,
+    "essential": true
+  },
+  {
+    "category": "National Security",
+    "term": "AI Model Assessment Team (§1533)",
+    "definition": "DOD cross-functional team directed to build a department-wide framework for AI model testing, procurement oversight, security, documentation, and ethical-AI standards.",
+    "rung": 200,
+    "essential": true
+  },
+  {
+    "category": "National Security",
+    "term": "AI Sandbox (DOD §1534)",
+    "definition": "Isolated, controlled DOD computing environment for safe AI experimentation, testing, training, and development, with department-wide sandbox standards.",
+    "rung": 200,
+    "essential": true
+  },
+  {
+    "category": "National Security",
+    "term": "AI Futures Steering Committee (§1535)",
+    "definition": "Senior DOD committee (stand up by Apr 1, 2026; report by Jan 31, 2027) planning adoption and risk mitigation for advanced AI, including agentic AI and AGI trajectories.",
+    "rung": 200,
+    "essential": true
+  },
+  {
+    "category": "National Security",
+    "term": "Agentic AI (Defense Framing)",
+    "definition": "AI that plans and executes multi-step actions with limited human direction; expressly within the FY2026 NDAA §1535 Futures Steering Committee analytical mandate.",
+    "rung": 300,
+    "essential": false
+  },
+  {
+    "category": "National Security",
+    "term": "NSCAI Final Report (2021)",
+    "definition": "National Security Commission on Artificial Intelligence final report (Mar 1, 2021; Schmidt chair). Landmark strategy on defense AI adoption, talent, U.S.–China competition, and democratic guardrails.",
+    "rung": 100,
+    "essential": true
+  },
+  {
+    "category": "National Security",
+    "term": "AI/ML Cybersecurity Framework (§1512)",
+    "definition": "NDAA directive for DOD AI/ML cybersecurity and governance policy covering risks such as data poisoning, jailbreaks, counterfeit parts, and unauthorized access.",
+    "rung": 200,
+    "essential": false
+  },
+  {
     "category": "Privacy",
     "term": "GDPR Article 22",
     "definition": "EU data protection rule granting individuals the right not to be subject to solely automated decision-making.",
@@ -5603,7 +5714,7 @@ const EXPANDED_GLOSSARY = [
   {
     "category": "Enterprise Architecture",
     "term": "DoDAF Standards Viewpoint (StdV-1)",
-    "definition": "DoDAF view listing technical and legal standards including NIST AI RMF, ISO 42001, and EU AI Act Articles.",
+    "definition": "DoDAF view listing technical and legal standards including NIST AI RMF, ISO 42001, EU AI Act Articles, and FY2026 NDAA defense AI provisions.",
     "rung": 200,
     "essential": false
   },
@@ -5771,14 +5882,18 @@ const DATA = {
        {t:"Warranties in Contracts for AI Products (How to Contract)",u:"https://www.youtube.com/watch?v=21kQVeeupbg",m:"10 min · probabilistic tech"}
      ]},
     {n:5,title:"Regulation and Responsible AI (100 to 300)",rungs:"100-300",
-     opener:"AI regulation and Responsible AI (RAI) frameworks enforce technical requirements with fines and audit duties. Architects must integrate NIST AI RMF, ISO 42001, and statutory rules directly into engineering pipelines.",
-     obj:"US executive actions, FTC enforcement, state laws, EU AI Act obligations, and Responsible AI (NIST AI RMF, ISO 42001, explainability, red-teaming).",
+     opener:"AI regulation and Responsible AI (RAI) frameworks enforce technical requirements with fines and audit duties. Architects must integrate NIST AI RMF, ISO 42001, and statutory rules directly into engineering pipelines. Defense work also has to account for FY2026 NDAA AI provisions and the older NSCAI strategy backdrop.",
+     obj:"US executive actions, FY2026 NDAA defense AI rules, NSCAI strategy, FTC enforcement, state laws, EU AI Act obligations, and Responsible AI (NIST AI RMF, ISO 42001, explainability, red-teaming).",
      deliv:"Regulation and Responsible AI deck, plus a one-page applicable law summary.",
      mods:[
        {t:"US federal policy: EO 14179, America's AI Action Plan, EO 14319, EO 14365, OMB M-25-21 and M-25-22",rl:"Regulatory · 200",
         action:"Review OMB M-25-21 and M-25-22 mandates for agency AI procurement and safety baselines.",
         lookLike:"<b>What Does This Look Like in Practice? (OMB M-25-21 Compliance Verification)</b><pre>Requirement 1: CAIO Approval registered in Agency AI Inventory [PASSED]\nRequirement 2: Impact Assessment completed before deployment [PASSED]\nRequirement 3: Continuous monitoring for disparate impact [ACTIVE - Weekly Scan Execution]</pre>",
         whyMatters:"Federal AI directives control government AI use, federal contractor compliance, and security oversight."},
+       {t:"Defense AI statute: FY2026 NDAA (P.L. 119-60) §§1532–1535 + CRS IF13197; NSCAI Final Report (2021)",rl:"National Security · 200",
+        action:"Inventory model provenance for DOD-facing work and map §§1532–1535 duties (covered AI ban, assessment team, sandboxes, Futures Committee).",
+        lookLike:"<b>What Does This Look Like in Practice? (NDAA Defense AI Compliance Checklist)</b><pre>§1532 Covered AI: Model vendor / weight lineage screened for DeepSeek, High Flyer, and covered-nation ties [PASS / WAIVER NEEDED]\n§1533 Oversight: Model cards + eval harness aligned to DOD ethical-AI principles [IN PROGRESS]\n§1534 Sandbox: Prototype runs only in isolated enclave before production ATO [REQUIRED]\n§1535 Futures: Agentic workflow flagged for advanced-AI governance review [ESCALATE]</pre>",
+        whyMatters:"There is still no civilian US AI Act, but the NDAA already imposes hard defense AI rules. Contractors hosting or integrating models for DOD need provenance controls and sandboxable test paths."},
        {t:"US enforcement: FTC actions (Rite Aid, Rytr, Operation AI Comply) and state preemption debates",rl:"Regulatory · 300",
         action:"Audit marketing copy and system prompt claims against FTC Section 5 deceptive practice standards.",
         lookLike:"<b>What Does This Look Like in Practice? (FTC Section 5 Audit Review)</b><pre>Audit Object: External Web Landing Page Claim: '100% Error-Free Autonomous Legal Contracting'\nFinding: Deceptive claim under FTC Act § 5 (Probabilistic LLMs produce hallucinations)\nCorrection: 'AI-Assisted Contract Drafting Tool - Subject to Mandatory Human Attorney Review'</pre>",
@@ -5981,31 +6096,31 @@ const DATA = {
 
   eaFrameworks: {
     togaf: [
-      {phase: "Phase A: Architecture Vision", t: "AI Legal Risk Framing and Governance Principles", items: ["Align AI deployment goals with corporate risk policy.", "Establish core rules: no confidential text or unvetted data in public models.", "Identify applicable legal jurisdictions (US Federal, State, EU AI Act)."]},
-      {phase: "Phase B: Business Architecture", t: "Role Scoping and Process Compliance", items: ["Define legal role: Provider vs. Deployer (EU AI Act); Controller vs. Processor (GDPR).", "Establish Human-in-The-Loop (HITL) review workflows for high-risk decisions.", "Publish acceptable-use policies (AUP) and internal usage rules."]},
-      {phase: "Phase C: Information Systems Architecture", t: "Data Lineage and IP Asset Classification", items: ["Data Architecture: Audit training datasets, RAG vector stores, and prompt trade secret protections.", "Application Architecture: Verify zero-data-retention (ZDR) API settings and sub-processor DPAs.", "Set up data subject opt-out controls and automated decision disclosures."]},
-      {phase: "Phase D: Technology Architecture", t: "Model Infrastructure and Security Controls", items: ["Check open-weight model licenses (OSAID 1.0, Llama 4) for commercial limits.", "Deploy content filtering guardrails to maintain IP indemnity eligibility.", "Log model telemetry and inference history for Article 11 technical documentation."]},
-      {phase: "Phase G: Architecture Governance", t: "Contract Enforcement and Continuous Oversight", items: ["Execute Common Paper or Bonterms AI Contract Addenda with cloud vendors.", "Conduct annual algorithmic bias audits for hiring and lending tools.", "Maintain an active litigation tracker to adjust vendor indemnification caps."]}
+      {phase: "Phase A: Architecture Vision", t: "AI Legal Risk Framing and Governance Principles", items: ["Align AI deployment goals with corporate risk policy.", "Establish core rules: no confidential text or unvetted data in public models.", "Identify applicable legal jurisdictions (US Federal, State, EU AI Act, FY2026 NDAA for DOD-facing work).", "For defense pathways, frame advanced/agentic AI against NSCAI strategy + NDAA §1535 Futures Committee expectations."]},
+      {phase: "Phase B: Business Architecture", t: "Role Scoping and Process Compliance", items: ["Define legal role: Provider vs. Deployer (EU AI Act); Controller vs. Processor (GDPR).", "Establish Human-in-The-Loop (HITL) review workflows for high-risk decisions.", "Publish acceptable-use policies (AUP) and internal usage rules.", "Map DOD-facing model evaluation workflows to NDAA §1533 assessment/oversight duties."]},
+      {phase: "Phase C: Information Systems Architecture", t: "Data Lineage and IP Asset Classification", items: ["Data Architecture: Audit training datasets, RAG vector stores, and prompt trade secret protections.", "Application Architecture: Verify zero-data-retention (ZDR) API settings and sub-processor DPAs.", "Set up data subject opt-out controls and automated decision disclosures.", "Tag model-vendor provenance for NDAA §1532 covered-AI screening (DeepSeek / High Flyer / covered nations)."]},
+      {phase: "Phase D: Technology Architecture", t: "Model Infrastructure and Security Controls", items: ["Check open-weight model licenses (OSAID 1.0, Llama 4) for commercial limits.", "Deploy content filtering guardrails to maintain IP indemnity eligibility.", "Log model telemetry and inference history for Article 11 technical documentation.", "For DOD work: route prototypes through §1534 AI sandboxes; apply §1512 AI/ML cybersecurity controls (poisoning, jailbreaks, unauthorized access)."]},
+      {phase: "Phase G: Architecture Governance", t: "Contract Enforcement and Continuous Oversight", items: ["Execute Common Paper or Bonterms AI Contract Addenda with cloud vendors.", "Conduct annual algorithmic bias audits for hiring and lending tools.", "Maintain an active litigation tracker to adjust vendor indemnification caps.", "Track NDAA §1535 Futures Committee / advanced-AI governance gates for agentic workflows on defense programs."]}
     ],
     zachman: [
-      {col: "Column 1: WHAT (Data)", t: "Data Lineage, IP Rights, and RAG Corpora", items: ["Copyrighted training inputs vs. licensed datasets.", "Trade secret protection for system prompts and model weights.", "Customer data retention rules and DPA deletion schedules."]},
-      {col: "Column 2: HOW (Function)", t: "Algorithms, Profiling, and Decision Logic", items: ["Automated decision logic (GDPR Art. 22, CPPA ADMT).", "Content moderation and guardrail filtering.", "Adverse action notice generation (ECOA, Regulation B)."]},
-      {col: "Column 3: WHERE (Network)", t: "Data Residency and Cross-Border Flows", items: ["Data transfers (EU-US Data Privacy Framework).", "Regional API routing for GDPR and state privacy compliance.", "On-premises vs. cloud model hosting boundaries."]},
-      {col: "Column 4: WHO (People)", t: "Authorship, Roles, and Governance Liaisons", items: ["Human authorship rules for copyright (Thaler v. Perlmutter).", "Provider vs. Deployer accountability assignment.", "Architect to legal counsel liaison workflow."]},
-      {col: "Column 5: WHEN (Time)", t: "Regulatory Dates and Deprecation Windows", items: ["Compliance timelines (EU AI Act phased enforcement dates).", "Vendor model deprecation notice windows (SLA terms).", "Data retention and deletion schedules under DPAs."]},
-      {col: "Column 6: WHY (Motivation)", t: "Legal Frameworks and Contract Rules", items: ["Statutory mandates (EU AI Act, State AI Acts, FTC Act § 5).", "Contractual risk allocation (Indemnities, Liability limits, Warranties).", "Corporate risk policy and ethical AI guidelines."]}
+      {col: "Column 1: WHAT (Data)", t: "Data Lineage, IP Rights, and RAG Corpora", items: ["Copyrighted training inputs vs. licensed datasets.", "Trade secret protection for system prompts and model weights.", "Customer data retention rules and DPA deletion schedules.", "Model weight / vendor provenance tags for NDAA §1532 covered-AI checks."]},
+      {col: "Column 2: HOW (Function)", t: "Algorithms, Profiling, and Decision Logic", items: ["Automated decision logic (GDPR Art. 22, CPPA ADMT).", "Content moderation and guardrail filtering.", "Adverse action notice generation (ECOA, Regulation B).", "DOD model assessment / eval harness rules under NDAA §1533."]},
+      {col: "Column 3: WHERE (Network)", t: "Data Residency and Cross-Border Flows", items: ["Data transfers (EU-US Data Privacy Framework).", "Regional API routing for GDPR and state privacy compliance.", "On-premises vs. cloud model hosting boundaries.", "Isolated §1534 AI sandbox enclaves vs production networks for defense experimentation."]},
+      {col: "Column 4: WHO (People)", t: "Authorship, Roles, and Governance Liaisons", items: ["Human authorship rules for copyright (Thaler v. Perlmutter).", "Provider vs. Deployer accountability assignment.", "Architect to legal counsel liaison workflow.", "DOD AI Futures Steering Committee / CAIO escalation for advanced and agentic AI."]},
+      {col: "Column 5: WHEN (Time)", t: "Regulatory Dates and Deprecation Windows", items: ["Compliance timelines (EU AI Act phased enforcement dates).", "Vendor model deprecation notice windows (SLA terms).", "Data retention and deletion schedules under DPAs.", "NDAA §1535 stand-up (by Apr 1, 2026) and report (by Jan 31, 2027) milestones."]},
+      {col: "Column 6: WHY (Motivation)", t: "Legal Frameworks and Contract Rules", items: ["Statutory mandates (EU AI Act, State AI Acts, FTC Act § 5, FY2026 NDAA §§1532–1535).", "Contractual risk allocation (Indemnities, Liability limits, Warranties).", "Corporate risk policy and ethical AI guidelines.", "NSCAI Final Report (2021) national-security AI strategy backdrop for defense adoption."]}
     ],
     dodaf: [
-      {view: "All Viewpoint (AV-1 / AV-2)", t: "Executive AI Vision and Dictionary", items: ["AV-1: High-level AI Architecture Vision and legal risk boundaries.", "AV-2: Integrated Dictionary of AI Legal Terms (116-term glossary)."]},
-      {view: "Operational Viewpoint (OV-1 / OV-3 / OV-6a)", t: "Operational Workflows and Compliance Nodes", items: ["OV-1: Concept of Operations (CONOPS) for AI workflows.", "OV-3: Resource Flow Matrix for customer data vs. vendor APIs.", "OV-6a: Operational Rule Model embedding regulatory compliance rules."]},
-      {view: "Data & Information Viewpoint (DIV-1 / DIV-2)", t: "Data Lineage and IP Metadata Tagging", items: ["DIV-1: Conceptual Data Model classifying Public, Internal, PII, and IP assets.", "DIV-2: Logical Data Model tracking RAG vector provenance and trade secret tags."]},
-      {view: "Standards Viewpoint (StdV-1 / StdV-2)", t: "Regulatory and Contractual Standards", items: ["StdV-1: Technical and Legal Standards Profile (NIST AI RMF, ISO/IEC 42001, EU AI Act).", "StdV-2: Standards Forecast tracking litigation and AI legislation."]}
+      {view: "All Viewpoint (AV-1 / AV-2)", t: "Executive AI Vision and Dictionary", items: ["AV-1: High-level AI Architecture Vision and legal risk boundaries, including NDAA defense AI scope.", "AV-2: Integrated Dictionary of AI Legal Terms (includes National Security glossary section).", "AV-1 also carries NSCAI strategy themes (readiness, competition, justified confidence) for long-range planning."]},
+      {view: "Operational Viewpoint (OV-1 / OV-3 / OV-6a)", t: "Operational Workflows and Compliance Nodes", items: ["OV-1: Concept of Operations (CONOPS) for AI workflows, including sandbox-to-production handoff (§1534).", "OV-3: Resource Flow Matrix for customer data vs. vendor APIs.", "OV-6a: Operational Rule Model embedding regulatory compliance rules, including §1533 assessment gates and §1532 covered-AI prohibitions."]},
+      {view: "Data & Information Viewpoint (DIV-1 / DIV-2)", t: "Data Lineage and IP Metadata Tagging", items: ["DIV-1: Conceptual Data Model classifying Public, Internal, PII, and IP assets.", "DIV-2: Logical Data Model tracking RAG vector provenance, trade secret tags, and covered-AI vendor lineage (§1532)."]},
+      {view: "Standards Viewpoint (StdV-1 / StdV-2)", t: "Regulatory and Contractual Standards", items: ["StdV-1: Technical and Legal Standards Profile (NIST AI RMF, ISO/IEC 42001, EU AI Act, FY2026 NDAA §§1512–1535).", "StdV-2: Standards Forecast tracking litigation, AI legislation, and Futures Committee advanced/agentic AI guidance."]}
     ],
     rai: [
-      {pillar: "GOVERN", t: "NIST AI RMF 1.0 & ISO 42001 Governance", items: ["Plug-in Point: TOGAF Phase A/G, Zachman Col 6 (Why).", "Sets corporate AI risk tolerance, ethical rules, and accountability.", "Integrates executive oversight with vendor AI addenda (Common Paper/Bonterms)."]},
-      {pillar: "MAP", t: "System Categorization & Legal Context", items: ["Plug-in Point: TOGAF Phase B/C, Zachman Col 1 (What) / Col 3 (Where).", "Maps data flows against EU AI Act risk tiers (Prohibited, High-Risk, Limited).", "Identifies sub-processor DPA obligations and cross-border data rules."]},
-      {pillar: "MEASURE", t: "Algorithmic Bias, Safety & Red-Teaming", items: ["Plug-in Point: TOGAF Phase C/D, Zachman Col 2 (How), DoDAF OV-6a.", "Audits models for disparate impact under EEOC and NYC LL144 rules.", "Executes automated red-teaming for toxicity, hallucinations, and IP leakage."]},
-      {pillar: "MANAGE", t: "Ongoing Risk Mitigation & Explainability", items: ["Plug-in Point: TOGAF Phase G, Zachman Col 5 (When), DoDAF SV-1.", "Deploys real-time guardrails and adverse action explainability logs (ECOA/Reg B).", "Establishes model rollback protocols and vendor deprecation windows."]}
+      {pillar: "GOVERN", t: "NIST AI RMF 1.0 & ISO 42001 Governance", items: ["Plug-in Point: TOGAF Phase A/G, Zachman Col 6 (Why).", "Sets corporate AI risk tolerance, ethical rules, and accountability.", "Integrates executive oversight with vendor AI addenda (Common Paper/Bonterms).", "For defense: align with NDAA §1535 Futures Committee and NSCAI justified-confidence / democratic-values themes."]},
+      {pillar: "MAP", t: "System Categorization & Legal Context", items: ["Plug-in Point: TOGAF Phase B/C, Zachman Col 1 (What) / Col 3 (Where).", "Maps data flows against EU AI Act risk tiers (Prohibited, High-Risk, Limited).", "Identifies sub-processor DPA obligations and cross-border data rules.", "Maps DOD-facing models against §1532 covered-AI criteria and §1534 sandbox placement."]},
+      {pillar: "MEASURE", t: "Algorithmic Bias, Safety & Red-Teaming", items: ["Plug-in Point: TOGAF Phase C/D, Zachman Col 2 (How), DoDAF OV-6a.", "Audits models for disparate impact under EEOC and NYC LL144 rules.", "Executes automated red-teaming for toxicity, hallucinations, and IP leakage.", "Supports §1533 performance/security testing and §1512 AI/ML cybersecurity evaluations."]},
+      {pillar: "MANAGE", t: "Ongoing Risk Mitigation & Explainability", items: ["Plug-in Point: TOGAF Phase G, Zachman Col 5 (When), DoDAF SV-1.", "Deploys real-time guardrails and adverse action explainability logs (ECOA/Reg B).", "Establishes model rollback protocols and vendor deprecation windows.", "Keeps agentic/advanced AI under §1535 governance review before production expansion."]}
     ]
   },
 
@@ -6014,7 +6129,7 @@ const DATA = {
     {week:1,rung:100,pillar:"Foundations",type:"mc",question:"Which of these has the LEAST binding legal force on a private company?",options:["A statute enacted by Congress","A legislative rule issued by a federal agency after notice-and-comment","A non-binding agency guidance document or 'technical assistance'","A published federal court of appeals opinion in the company's circuit"],answer:"A non-binding agency guidance document or 'technical assistance'",explanation:"Sub-regulatory guidance states an agency's interpretation but carries no independent force of law, unlike statutes, notice-and-comment rules, or binding precedent. The EEOC's May 2023 technical assistance on selection-procedure AI illustrates this: it was removed from EEOC.gov in 2025 with no legislative process while Title VII itself was untouched. After Loper Bright Enterprises v. Raimondo, 603 U.S. 369 (2024), courts also no longer defer to an agency's reading of an ambiguous statute."},
     {week:1,rung:100,pillar:"IP",type:"mc",question:"Which IP regime is the primary protection for the trained weights of a proprietary model a company never publishes?",options:["Copyright","Patent","Trade secret","Trademark"],answer:"Trade secret",explanation:"Weights, training pipelines, and prompts are generally protected as trade secrets under the Defend Trade Secrets Act, 18 U.S.C. § 1836, and state UTSA analogues, because copyright protection for functional weight sets is contested and patents are a poor fit. The Copyright Office's Part 2 report (Jan. 2025) confirms the human-authorship limits on AI-related copyright; the criminal AI trade-secret prosecution in United States v. Linwei Ding (N.D. Cal., verdict Jan. 2026) shows the regime in use."},
     {week:1,rung:100,pillar:"IP",type:"mc",question:"Which best states the current US rule on copyright in AI outputs?",options:["A work generated solely by an AI system, with no human creative control, cannot be registered","AI outputs are copyrightable whenever the user paid for the AI service","AI outputs are always owned by the model developer","A sufficiently detailed text prompt is by itself enough authorship to register the output"],answer:"A work generated solely by an AI system, with no human creative control, cannot be registered",explanation:"Thaler v. Perlmutter, No. 23-5233 (D.C. Cir. Mar. 18, 2025), cert. denied (Mar. 2, 2026), holds the Copyright Act requires a human author, so a wholly machine-generated work cannot be registered. The Copyright Office's Part 2 report (Jan. 2025) and the Registration Guidance, 88 Fed. Reg. 16,190 (Mar. 16, 2023), add that prompts alone do not supply the required human control."},
-    {week:1,rung:100,pillar:"Regulatory",type:"mc",question:"Which statement about the US federal AI posture in 2026 is accurate?",options:["A comprehensive federal 'US AI Act' took effect in 2025","There is no comprehensive federal AI statute; policy is set by executive order and an action plan, and AI harms are pursued under generally applicable laws","EO 14110 (2023) remains the central federal AI framework","The FTC has been stripped of all authority to act on AI"],answer:"There is no comprehensive federal AI statute; policy is set by executive order and an action plan, and AI harms are pursued under generally applicable laws",explanation:"EO 14110 was rescinded Jan. 20, 2025 by EO 14148; EO 14179 (Jan. 23, 2025) and 'Winning the Race: America's AI Action Plan' (July 23, 2025) now set federal policy. Enforcement runs through generally applicable law such as FTC Act § 5, ECOA/FCRA, and Title VII. No omnibus federal AI statute exists as of 2026."},
+    {week:1,rung:100,pillar:"Regulatory",type:"mc",question:"Which statement about the US federal AI posture in 2026 is accurate?",options:["A comprehensive federal 'US AI Act' took effect in 2025","There is no comprehensive civilian federal AI statute; policy is set by executive order and an action plan, AI harms are pursued under generally applicable laws, and defense AI rules appear in the annual NDAA","EO 14110 (2023) remains the central federal AI framework","The FTC has been stripped of all authority to act on AI"],answer:"There is no comprehensive civilian federal AI statute; policy is set by executive order and an action plan, AI harms are pursued under generally applicable laws, and defense AI rules appear in the annual NDAA",explanation:"EO 14110 was rescinded Jan. 20, 2025 by EO 14148; EO 14179 (Jan. 23, 2025) and 'Winning the Race: America's AI Action Plan' (July 23, 2025) now set civilian federal policy. Enforcement runs through generally applicable law such as FTC Act § 5, ECOA/FCRA, and Title VII. Defense AI requirements appear in FY2026 NDAA (P.L. 119-60) §§1532–1535, which is not a civilian omnibus AI statute."},
     {week:1,rung:100,pillar:"Regulatory",type:"authority",question:"A US company deploys an LLM chat feature for EU consumers and never tells users they are talking to a machine. Which instrument imposes a disclosure duty, and from when?",answer:"EU AI Act Article 50 (Regulation (EU) 2024/1689): providers and deployers of certain AI systems must ensure natural persons are informed they are interacting with an AI system unless it is obvious from context. Article 50 obligations apply from Aug. 2, 2026.",explanation:"Art. 50 is the 'limited-risk' transparency tier of the AI Act, separate from the high-risk regime. Its application date (Aug. 2, 2026) is fixed by the Act's phased timeline and was not moved by the Digital Omnibus, which only deferred the high-risk (Annex III) obligations."},
 
     // --- Week 2 (5 Questions) ---
@@ -6041,7 +6156,7 @@ const DATA = {
     // --- Week 5 (5 Questions) ---
     {week:5,rung:200,pillar:"Regulatory",type:"mc",question:"Under OMB Memorandum M-25-21, what must US federal agencies complete before deploying a high-risk AI system?",options:["Obtain a patent from the USPTO","Conduct an AI Impact Assessment and obtain Chief AI Officer (CAIO) approval registered in the agency AI inventory","Publish all model source code on GitHub","Sign a custom agreement with the European AI Office"],answer:"Conduct an AI Impact Assessment and obtain Chief AI Officer (CAIO) approval registered in the agency AI inventory",explanation:"OMB M-25-21 requires federal agencies to perform impact assessments, implement continuous risk controls, and secure CAIO approval before deploying operational AI."},
     {week:5,rung:300,pillar:"Regulatory",type:"mc",question:"How does the FTC enforce against deceptive AI products under Section 5 of the FTC Act (e.g., Operation AI Comply)?",options:["By passing new federal statutes in Congress","By prosecuting companies that overstate AI capabilities, claim false human oversight, or sell automated income schemes","By revoking corporate trademark registrations","By banning open-source model downloads"],answer:"By prosecuting companies that overstate AI capabilities, claim false human oversight, or sell automated income schemes",explanation:"The FTC uses Section 5 to penalize deceptive marketing claims, unverified AI accuracy statements, algorithmic bias, and fake automation schemes."},
-    {week:5,rung:200,pillar:"Responsible AI",type:"mc",question:"Under the NIST AI Risk Management Framework (AI RMF 1.0), what metric is evaluated under sub-category MEASURE 2.1?",options:["Hardware GPU clock speeds","Selection rate disparities across protected demographic groups to detect algorithmic bias","API server uptime percentages","Total number of parameters in the foundation model"],answer:"Selection rate disparities across protected demographic groups to detect algorithmic bias",explanation:"NIST AI RMF MEASURE 2.1 focuses on evaluating model bias, fairness, and demographic selection disparities against benchmarks like the EEOC 80% rule."},
+    {week:5,rung:200,pillar:"National Security",type:"mc",question:"Under FY2026 NDAA §1532 (P.L. 119-60), which statement is accurate?",options:["DOD may freely acquire any commercial foundation model without provenance review","DOD is restricted from using or acquiring covered AI systems, including DeepSeek/High Flyer-linked systems and systems tied to covered nations, subject to limited SECDEF waivers","Section 1532 creates a civilian licensing regime for all US foundation models","Section 1532 only applies to open-source licenses, not commercial APIs"],answer:"DOD is restricted from using or acquiring covered AI systems, including DeepSeek/High Flyer-linked systems and systems tied to covered nations, subject to limited SECDEF waivers",explanation:"P.L. 119-60 §1532 restricts DOD use and acquisition of covered AI systems (including DeepSeek/High Flyer-associated systems and covered-nation systems), with case-by-case SECDEF waivers for research, testing, evaluation, training, and specified national-security missions. CRS IF13197 summarizes the AI subtitle."},
     {week:5,rung:200,pillar:"Regulatory",type:"mc",question:"What key compliance duty does Colorado SB 24-205 impose on deployers of high-risk AI systems?",options:["A complete prohibition on using cloud APIs","A duty of reasonable care to protect consumers from algorithmic discrimination, including consumer rights to appeal automated decisions","Mandatory open-sourcing of model weights","Exemption from all federal privacy laws"],answer:"A duty of reasonable care to protect consumers from algorithmic discrimination, including consumer rights to appeal automated decisions",explanation:"Colorado SB 24-205 requires deployers of high-risk AI (in employment, lending, housing, healthcare) to use reasonable care to prevent discrimination and provide consumer correction rights."},
     {week:5,rung:200,pillar:"Privacy",type:"authority",question:"Under GDPR Article 22, what right does an individual have when subjected to solely automated credit scoring resulting in a loan denial?",answer:"The right to obtain human intervention, express their point of view, and contest the automated decision.",explanation:"GDPR Article 22 grants data subjects the right not to be subject to solely automated decision-making producing legal effects, requiring human review exception gates."},
 
@@ -6132,6 +6247,7 @@ function renderDashboard(){
     <div class="card"><h3>Curriculum</h3><p style="color:var(--text-secondary);font-size:.86rem">Six weeks of module readings, action steps, artifact scenarios, and collapsible scenarios.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('curriculum')">Open curriculum →</button></div></div>
     <div class="card"><h3>Progress map</h3><p style="color:var(--text-secondary);font-size:.86rem">The 100 to 300 learning ladder per pillar. Self-rate your progress as not yet, shaky, or solid.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('map')">Open map →</button></div></div>
     <div class="card"><h3>Flashcards and Quiz</h3><p style="color:var(--text-secondary);font-size:.86rem">Keyboard-navigable spaced-repetition cards (Space, Arrow keys, 1-3) and self-assessment quizzes.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('flash')">Flashcards →</button><button class="b" onclick="go('quiz')">Quiz →</button></div></div>
+    <div class="card"><h3>Shorts gallery</h3><p style="color:var(--text-secondary);font-size:.86rem">Twenty vertical NotebookLM explainers covering contracts, IP, regulation, Responsible AI, NDAA defense AI, and NSCAI.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('shorts')">Open shorts →</button></div></div>
     <div class="card"><h3>Practice checklist</h3><p style="color:var(--text-secondary);font-size:.86rem">Pre-meeting checklist with expandable side-by-side comparisons of effective practices versus high-risk anti-patterns.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('counsel')">Practice →</button></div></div>
     <div class="card"><h3>EA mapping</h3><p style="color:var(--text-secondary);font-size:.86rem">Cross-walk mapping AI legal terms, IP assets, and compliance rules to <b>TOGAF</b>, <b>Zachman</b>, <b>DoDAF</b>, and <b>NIST AI RMF</b>.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('ea')">EA Mapping →</button></div></div>
     <div class="card"><h3>External references</h3><p style="color:var(--text-secondary);font-size:.86rem">Extracted index of ${totalLinks} external primary sources, court dockets, statutes, and law reviews.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('refs')">External References →</button></div></div>
@@ -6420,6 +6536,76 @@ function renderQuiz(){
 }
 
 /* ---- Glossary ---- */
+/* ---- Shorts gallery ---- */
+let shortItems=[];
+let shortI=0;
+async function loadShorts(){
+  try{
+    const res=await fetch("shorts-catalog.json?ts="+Date.now());
+    const data=await res.json();
+    shortItems=data.items||[];
+  }catch(e){
+    shortItems=[];
+  }
+  renderShorts();
+}
+function renderShorts(){
+  const el=$("#v-shorts");
+  if(!el) return;
+  const ready=shortItems.filter(it=>it.status==="ready").length;
+  const total=shortItems.length||20;
+  let h=`<h2 class="vh">Shorts gallery <span style="font-size:1rem;color:var(--text-dim)">${ready}/${total} ready</span></h2>
+  <p class="lead">Vertical NotebookLM explainers tied to the curriculum. Pick an episode from the rail. Educational only — not legal advice.</p>
+  <div class="shorts-gallery">
+    <div class="shorts-player">
+      <div class="row">
+        <button class="b" type="button" id="shortPrev">Prev</button>
+        <button class="b" type="button" id="shortNext">Next</button>
+        <span class="muted" id="shortMeta" style="font-size:.78rem;color:var(--text-dim)"></span>
+      </div>
+      <div class="carousel" id="carousel">
+        <div class="carousel-stage">
+          <video id="shortVideo" controls playsinline webkit-playsinline></video>
+        </div>
+        <div class="carousel-cap" id="shortCap">Waiting for downloads…</div>
+      </div>
+    </div>
+    <div class="thumbs" id="shortThumbs" aria-label="Shorts episode list"></div>
+  </div>`;
+  el.innerHTML=h;
+  const thumbs=$("#shortThumbs");
+  if(!shortItems.length){
+    thumbs.innerHTML=`<p style="color:var(--text-dim);font-size:.86rem">No catalog yet. Shorts appear here as NotebookLM videos finish generating.</p>`;
+  }else{
+    thumbs.innerHTML=shortItems.map((it,idx)=>
+      `<button type="button" class="${idx===shortI?"active":""} ${it.status==="ready"?"ready":"pending"}" data-i="${idx}">${esc(it.title||it.name)}<br><span class="tagpill">${esc(it.status||"pending")}</span></button>`
+    ).join("");
+    thumbs.querySelectorAll("button").forEach(b=>b.onclick=()=>{shortI=Number(b.dataset.i);showShort();});
+  }
+  const prev=$("#shortPrev"); const next=$("#shortNext");
+  if(prev) prev.onclick=()=>{if(!shortItems.length)return;shortI=(shortI-1+shortItems.length)%shortItems.length;showShort();};
+  if(next) next.onclick=()=>{if(!shortItems.length)return;shortI=(shortI+1)%shortItems.length;showShort();};
+  showShort();
+}
+function showShort(){
+  const it=shortItems[shortI];
+  if(!it){
+    const cap=$("#shortCap"); if(cap) cap.textContent="Waiting for downloads…";
+    return;
+  }
+  const v=$("#shortVideo");
+  const src=it.file||(`media/shorts/${it.name}.mp4`);
+  if(v && v.getAttribute("src")!==src){ v.src=src; }
+  const cap=$("#shortCap"); if(cap) cap.textContent=it.title||it.name;
+  const meta=$("#shortMeta"); if(meta) meta.textContent=`${shortI+1} / ${shortItems.length} · ${it.status||"?"}`;
+  const buttons=$$("#shortThumbs button");
+  buttons.forEach((b,idx)=>b.classList.toggle("active",idx===shortI));
+  const active=buttons[shortI];
+  if(active && typeof active.scrollIntoView==="function"){
+    active.scrollIntoView({behavior:"smooth",inline:"center",block:"nearest"});
+  }
+}
+
 function renderGlossary(){
   const el=$("#v-glossary");
   const q=(LS.get("gq","")||"").toLowerCase();
@@ -6671,6 +6857,41 @@ function renderEA(){
             <td>OV-6a / SV-1</td>
             <td><b>MANAGE:</b> Adverse action notices and real-time guardrails</td>
           </tr>
+          <tr>
+            <td><b>NDAA Covered AI Provenance (§1532)</b></td>
+            <td>Phase A, C &amp; D</td>
+            <td>Col 1 (What) &amp; Col 3 (Where)</td>
+            <td>StdV-1 / DIV-2 / SV-1</td>
+            <td><b>MAP / GOVERN:</b> Model-vendor lineage screen for DeepSeek, High Flyer, and covered-nation ties before DOD use</td>
+          </tr>
+          <tr>
+            <td><b>DOD AI Model Assessment Team (§1533)</b></td>
+            <td>Phase B &amp; G</td>
+            <td>Col 2 (How) &amp; Col 6 (Why)</td>
+            <td>OV-6a / StdV-1</td>
+            <td><b>MEASURE / GOVERN:</b> Performance standards, testing procedures, security requirements, ethical-AI compliance</td>
+          </tr>
+          <tr>
+            <td><b>DOD AI Sandboxes (§1534)</b></td>
+            <td>Phase D &amp; G</td>
+            <td>Col 3 (Where) &amp; Col 5 (When)</td>
+            <td>SV-1 / OV-1</td>
+            <td><b>MANAGE:</b> Isolated enclaves for experimentation, testing, and training before production ATO</td>
+          </tr>
+          <tr>
+            <td><b>AI Futures / Agentic AI Governance (§1535 + NSCAI)</b></td>
+            <td>Phase A &amp; G</td>
+            <td>Col 6 (Why) &amp; Col 5 (When)</td>
+            <td>AV-1 / StdV-2</td>
+            <td><b>GOVERN / MAP:</b> Advanced and agentic AI adoption policy, adversary-use analysis, NSCAI strategy backdrop</td>
+          </tr>
+          <tr>
+            <td><b>DOD AI/ML Cybersecurity Framework (§1512)</b></td>
+            <td>Phase C, D &amp; G</td>
+            <td>Col 2 (How) &amp; Col 3 (Where)</td>
+            <td>SV-1 / StdV-1</td>
+            <td><b>MANAGE / MEASURE:</b> Controls for data poisoning, jailbreaks, counterfeit parts, and unauthorized access</td>
+          </tr>
         </tbody>
       </table>
     </div>`;
@@ -6727,6 +6948,7 @@ function initTheme(){
 
 /* ---- Init ---- */
 initTheme();renderDashboard();renderCurriculum();renderMap();renderFlash();renderQuiz();renderGlossary();renderPrompts();renderCounsel();renderEA();renderReferences();
+loadShorts();
 (function restore(){const v=LS.get("view","dashboard");const b=$('#nav .nav-item[data-v="'+v+'"]');if(b&&v!=="dashboard")b.click();})();
 </script>
 </body>

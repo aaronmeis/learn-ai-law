@@ -2,7 +2,7 @@
 
 ## Local sources
 - `Learning/AI-Law/reference/readings-regulatory.md`
-- `Learning/AI-Law/reference/glossary.md` (US Regulation + EU AI Act + Privacy sections)
+- `Learning/AI-Law/reference/glossary.md` (US Regulation + National Security & Defense AI + EU AI Act + Privacy sections)
 - `Learning/AI-Law/assets-src/gamma/03-regulatory-deck.md`
 - `Learning/AI-Law/research/comparative-ai-governance-us-eu-uk-china.md`
 - `Learning/AI-Law/research/eu-ai-act-risk-classification-academic-analyses.md`
@@ -12,6 +12,10 @@
 - America's AI Action Plan — https://www.whitehouse.gov/wp-content/uploads/2025/07/Americas-AI-Action-Plan.pdf
 - EO 14365 (state preemption) — https://www.whitehouse.gov/presidential-actions/2025/12/eliminating-state-law-obstruction-of-national-artificial-intelligence-policy/
 - White & Case, "State AI Laws Under Federal Scrutiny: Key Takeaways from EO 14365" — https://www.whitecase.com/insight-alert/state-ai-laws-under-federal-scrutiny-key-takeaways-executive-order-establishing
+- FY2026 NDAA (P.L. 119-60) — https://www.congress.gov/119/plaws/publ60/PLAW-119publ60.pdf
+- CRS IF13197, Cyber and AI Provisions in the FY2026 NDAA — https://www.congress.gov/crs-product/IF13197
+- CRS IF13151, Agentic AI and Cyberattacks — https://www.congress.gov/crs-product/IF13151
+- NSCAI Final Report (2021) — https://reports.nscai.gov/final-report/
 - FTC, Operation AI Comply — https://www.ftc.gov/news-events/news/press-releases/2024/09/ftc-announces-crackdown-deceptive-ai-claims-schemes
 - Colorado SB 24-205 — https://leg.colorado.gov/bills/sb24-205
 - California SB 53 — https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202520260SB53
@@ -25,7 +29,7 @@
 - EDPB Opinion 28/2024 — https://www.edpb.europa.eu/system/files/2024-12/edpb_opinion_202428_ai-models_en.pdf
 
 ## Studio artifacts
-- **Audio overview** — "~18 minutes. Two halves: (1) US — no omnibus statute, the EO/action-plan posture, OMB memos, FTC §5 enforcement, and the binding state laws with their dates and current status (stress that Colorado is stayed and dates move). (2) EU AI Act for an architect — risk tiers, GPAI vs high-risk, provider vs deployer, Art. 11 docs, Art. 50 transparency, the Digital Omnibus deferral to Dec 2027, and extraterritorial reach. Then a short privacy coda on GDPR Art. 22 post-SCHUFA and the CPPA ADMT rules. No legal advice."
-- **Video short** — "3–4 minutes: the EU AI Act risk-tier pyramid with dates, then a US state-law status table."
+- **Audio overview** — "~20 minutes. Three beats: (1) US civilian posture — no omnibus statute, EO/action-plan, OMB memos, FTC §5, binding state laws (Colorado stayed; dates move). (2) Defense AI — FY2026 NDAA §§1532–1535 (covered AI restrictions, assessment team, sandboxes, Futures Committee) plus the NSCAI 2021 strategy backdrop; stress this is defense statutory law, not a civilian AI Act. (3) EU AI Act for an architect — risk tiers, GPAI vs high-risk, provider vs deployer, Art. 11 docs, Art. 50 transparency, Digital Omnibus deferral to Dec 2027, extraterritorial reach. Short privacy coda on GDPR Art. 22 post-SCHUFA and CPPA ADMT. No legal advice."
+- **Video short** — "3–4 minutes: NDAA §§1532–1535 one-screen checklist, then EU AI Act risk-tier pyramid with dates."
 
 Notebook title: `AI Law — Week 5 Regulation`. Output → `C:\output\obsidian\learning\ai-law\notebooklm\week-5\`.

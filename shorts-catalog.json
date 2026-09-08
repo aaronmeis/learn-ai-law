@@ -1,0 +1,169 @@
+{
+  "notebook_id": "5f447a3b-ecf4-48e6-a03b-4ccb9e49f15a",
+  "title": "Learn AI Law \u2014 20 shorts",
+  "total": 20,
+  "ready": 20,
+  "updated": "2026-09-08T14:56:01.397986",
+  "items": [
+    {
+      "id": "01-sources-of-law",
+      "name": "01-sources-of-law",
+      "title": "What actually binds you",
+      "file": "media/shorts/01-sources-of-law.mp4",
+      "artifact_id": "102943ad-dc84-4e0b-b230-ccd0cfc7829e",
+      "status": "ready"
+    },
+    {
+      "id": "02-civilian-federal-posture",
+      "name": "02-civilian-federal-posture",
+      "title": "Civilian federal AI posture",
+      "file": "media/shorts/02-civilian-federal-posture.mp4",
+      "artifact_id": "31536dec-12c5-463d-8fcf-1f0a043839b0",
+      "status": "ready"
+    },
+    {
+      "id": "03-ip-asset-matrix",
+      "name": "03-ip-asset-matrix",
+      "title": "IP asset matrix",
+      "file": "media/shorts/03-ip-asset-matrix.mp4",
+      "artifact_id": "70bb99dd-0e51-476d-aa14-03e542c066c9",
+      "status": "ready"
+    },
+    {
+      "id": "04-human-authorship-log",
+      "name": "04-human-authorship-log",
+      "title": "Human authorship log",
+      "file": "media/shorts/04-human-authorship-log.mp4",
+      "artifact_id": "bdd5b801-2d0c-4d6d-9b39-f9cdeb80674c",
+      "status": "ready"
+    },
+    {
+      "id": "05-fair-use-factor-four",
+      "name": "05-fair-use-factor-four",
+      "title": "Fair use Factor 4",
+      "file": "media/shorts/05-fair-use-factor-four.mp4",
+      "artifact_id": "fc7926a6-2ec9-4a31-888a-f088ed3426ea",
+      "status": "ready"
+    },
+    {
+      "id": "06-weights-trade-secret",
+      "name": "06-weights-trade-secret",
+      "title": "Protect the weights",
+      "file": "media/shorts/06-weights-trade-secret.mp4",
+      "artifact_id": "42eb5524-a6a4-4049-adb2-f8aecb7a80a0",
+      "status": "ready"
+    },
+    {
+      "id": "07-contract-precedence",
+      "name": "07-contract-precedence",
+      "title": "Order of precedence",
+      "file": "media/shorts/07-contract-precedence.mp4",
+      "artifact_id": "23291791-6a46-42c5-b481-4d77895a71b9",
+      "status": "ready"
+    },
+    {
+      "id": "08-indemnity-voiders",
+      "name": "08-indemnity-voiders",
+      "title": "What voids the shield",
+      "file": "media/shorts/08-indemnity-voiders.mp4",
+      "artifact_id": "f0c355b6-cd65-4928-9f41-958c44ee17fa",
+      "status": "ready"
+    },
+    {
+      "id": "09-zdr-training-rights",
+      "name": "09-zdr-training-rights",
+      "title": "ZDR and training rights",
+      "file": "media/shorts/09-zdr-training-rights.mp4",
+      "artifact_id": "037b5d09-7884-4a6b-961b-70577fb59e18",
+      "status": "ready"
+    },
+    {
+      "id": "10-deprecation-window",
+      "name": "10-deprecation-window",
+      "title": "Model deprecation windows",
+      "file": "media/shorts/10-deprecation-window.mp4",
+      "artifact_id": "55371571-f3a3-4be1-aaee-2e8c43ffaf64",
+      "status": "ready"
+    },
+    {
+      "id": "11-liability-carveouts",
+      "name": "11-liability-carveouts",
+      "title": "Caps and carve-outs",
+      "file": "media/shorts/11-liability-carveouts.mp4",
+      "artifact_id": "862acef7-07f7-40e1-b39c-d546f8034687",
+      "status": "ready"
+    },
+    {
+      "id": "12-cyber-ai-exclusions",
+      "name": "12-cyber-ai-exclusions",
+      "title": "Cyber policy AI gaps",
+      "file": "media/shorts/12-cyber-ai-exclusions.mp4",
+      "artifact_id": "42d0b0e9-53b0-421c-b2fa-ba98e8afcd7c",
+      "status": "ready"
+    },
+    {
+      "id": "13-ftc-claim-scrub",
+      "name": "13-ftc-claim-scrub",
+      "title": "Scrub the AI claims",
+      "file": "media/shorts/13-ftc-claim-scrub.mp4",
+      "artifact_id": "645ced09-f0dc-4db3-afe8-5eaa7ddc17d7",
+      "status": "ready"
+    },
+    {
+      "id": "14-state-date-board",
+      "name": "14-state-date-board",
+      "title": "State law date board",
+      "file": "media/shorts/14-state-date-board.mp4",
+      "artifact_id": "35590dff-c209-4704-a19e-1e9e92f8f597",
+      "status": "ready"
+    },
+    {
+      "id": "15-eu-tier-dates",
+      "name": "15-eu-tier-dates",
+      "title": "EU tiers and the Omnibus date",
+      "file": "media/shorts/15-eu-tier-dates.mp4",
+      "artifact_id": "ef8edcef-6d6a-4156-8dd7-5a462dd1daef",
+      "status": "ready"
+    },
+    {
+      "id": "16-deployer-role-pick",
+      "name": "16-deployer-role-pick",
+      "title": "Are you the deployer?",
+      "file": "media/shorts/16-deployer-role-pick.mp4",
+      "artifact_id": "aa4a23fb-ad98-4814-b899-0133b9e71a77",
+      "status": "ready"
+    },
+    {
+      "id": "17-art50-notice-ux",
+      "name": "17-art50-notice-ux",
+      "title": "Art. 50 notice UX",
+      "file": "media/shorts/17-art50-notice-ux.mp4",
+      "artifact_id": "b4fc5a00-1913-489e-8995-27cdd2eee8f6",
+      "status": "ready"
+    },
+    {
+      "id": "18-nist-build-gates",
+      "name": "18-nist-build-gates",
+      "title": "NIST RMF build gates",
+      "file": "media/shorts/18-nist-build-gates.mp4",
+      "artifact_id": "c1c846af-71ea-409d-869d-2068ff363695",
+      "status": "ready"
+    },
+    {
+      "id": "19-ndaa-1532-screen",
+      "name": "19-ndaa-1532-screen",
+      "title": "NDAA \u00a71532 provenance screen",
+      "file": "media/shorts/19-ndaa-1532-screen.mp4",
+      "artifact_id": "b36254f4-0439-478e-a35e-226f8e668f85",
+      "status": "ready"
+    },
+    {
+      "id": "20-nscai-to-futures",
+      "name": "20-nscai-to-futures",
+      "title": "NSCAI to Futures Committee",
+      "file": "media/shorts/20-nscai-to-futures.mp4",
+      "artifact_id": "3fde668c-149c-43b3-8147-7befbcf11893",
+      "status": "ready"
+    }
+  ]
+}

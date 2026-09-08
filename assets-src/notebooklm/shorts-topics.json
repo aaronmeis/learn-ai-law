@@ -1,0 +1,107 @@
+{
+  "title": "Learn AI Law — 20 shorts",
+  "format": "short",
+  "note": "Each short owns one job. Do not restate other episodes. Visual direction lives only in focus (short format rejects --style).",
+  "items": [
+    {
+      "name": "01-sources-of-law",
+      "title": "What actually binds you",
+      "focus": "Vertical short, clean classic educational motion graphics. ONE JOB: rank binding force for AI work — statute, APA legislative rule, executive order, sub-regulatory guidance, common law — and show where Loper Bright changes agency-guidance reliance. Do not cover EO 14179 policy details, EU tiers, or NDAA. End with: treat guidance as persuasive, not law. Educational only, not legal advice."
+    },
+    {
+      "name": "02-civilian-federal-posture",
+      "title": "Civilian federal AI posture",
+      "focus": "Vertical short, clean classic educational motion graphics. ONE JOB: 2026 US civilian federal posture only — EO 14110 rescinded; EO 14179 + America's AI Action Plan; OMB M-25-21/M-25-22; no civilian omnibus AI statute; harms via FTC Act §5 and generally applicable law. Explicitly exclude defense/NDAA and state statutes. Educational only, not legal advice."
+    },
+    {
+      "name": "03-ip-asset-matrix",
+      "title": "IP asset matrix",
+      "focus": "Vertical short, clean classic educational motion graphics. ONE JOB: classify one enterprise AI system into four boxes — training/RAG inputs (copyright), weights/prompts (trade secret), novel algorithms (patent), product brand (trademark). Do not argue fair use holdings or inventorship tests. Educational only, not legal advice."
+    },
+    {
+      "name": "04-human-authorship-log",
+      "title": "Human authorship log",
+      "focus": "Vertical short, clean classic educational motion graphics. ONE JOB: US human-authorship gate for copyright registration — Thaler rule, why prompts alone fail, and the concrete human-contribution / AI-disclaimer log an architect keeps before USCO filing. Skip training-data fair use. Educational only, not legal advice."
+    },
+    {
+      "name": "05-fair-use-factor-four",
+      "title": "Fair use Factor 4",
+      "focus": "Vertical short, clean classic educational motion graphics. ONE JOB: training-data fair use as contested — no categorical rule; Factor 4 market effect; contrast Thomson Reuters v. Ross (fair use rejected) with Bartz/Kadrey (training fair use but pirated-acquisition liability). Do not reteach the four IP regimes. Educational only, not legal advice."
+    },
+    {
+      "name": "06-weights-trade-secret",
+      "title": "Protect the weights",
+      "focus": "Vertical short, clean classic educational motion graphics. ONE JOB: why weights and system prompts are usually trade-secret/contract protected, secrecy measures that matter, and the employee paste-into-consumer-AI destruction risk. Do not explain OSAID or fair use cases. Educational only, not legal advice."
+    },
+    {
+      "name": "07-contract-precedence",
+      "title": "Order of precedence",
+      "focus": "Vertical short, clean classic educational motion graphics. ONE JOB: read a vendor pack as a stack — Order Form / AI addendum over DPA over MSA over online policies — and why architects check precedence before trusting a sales promise. Do not deep-dive indemnity carve-outs or ZDR headers. Educational only, not legal advice."
+    },
+    {
+      "name": "08-indemnity-voiders",
+      "title": "What voids the shield",
+      "focus": "Vertical short, clean classic educational motion graphics. ONE JOB: vendor copyright-shield / IP indemnity void conditions — disabled safety filters, intentional infringement prompts, fine-tune/RAG data exclusions — framed as a pre-production checklist. Do not re-explain the MSA stack. Educational only, not legal advice."
+    },
+    {
+      "name": "09-zdr-training-rights",
+      "title": "ZDR and training rights",
+      "focus": "Vertical short, clean classic educational motion graphics. ONE JOB: verify no-training-on-customer-content and Zero Data Retention on enterprise LLM APIs — Customer Data vs Usage Data boundary and what to confirm in the console/contract. Skip indemnity and liability caps. Educational only, not legal advice."
+    },
+    {
+      "name": "10-deprecation-window",
+      "title": "Model deprecation windows",
+      "focus": "Vertical short, clean classic educational motion graphics. ONE JOB: why RAG and prompt pipelines break when a foundation model retires, and why architects negotiate ~90-day deprecation notice as a walk-away floor. Do not cover insurance or indemnity. Educational only, not legal advice."
+    },
+    {
+      "name": "11-liability-carveouts",
+      "title": "Caps and carve-outs",
+      "focus": "Vertical short, clean classic educational motion graphics. ONE JOB: limitation of liability math — fees-paid caps vs carve-outs for IP indemnity, confidentiality, data breach, and willful misconduct — and what 'sole remedy' service credits leave uncovered. Skip cyber insurance. Educational only, not legal advice."
+    },
+    {
+      "name": "12-cyber-ai-exclusions",
+      "title": "Cyber policy AI gaps",
+      "focus": "Vertical short, clean classic educational motion graphics. ONE JOB: standard cyber liability policies often exclude losses from probabilistic AI errors/hallucinations — so contract caps and HITL gates are not optional. Do not reteach liability carve-out lists. Educational only, not legal advice."
+    },
+    {
+      "name": "13-ftc-claim-scrub",
+      "title": "Scrub the AI claims",
+      "focus": "Vertical short, clean classic educational motion graphics. ONE JOB: FTC Act §5 applied to AI marketing — deception vs unfairness, Operation AI Comply pattern, and rewriting '100% error-free autonomous' claims into human-reviewed language. Mention Rytr set-aside vs standing Rite Aid order only as enforcement posture, not a case brief. Educational only, not legal advice."
+    },
+    {
+      "name": "14-state-date-board",
+      "title": "State law date board",
+      "focus": "Vertical short, clean classic educational motion graphics. ONE JOB: status board of binding state AI rules with dates — Colorado stay + SB 26-189 (Jan 1 2027), Texas TRAIGA, California SB 53/AB 2013/SB 942, Illinois BIPA private right of action, NYC LL144 AEDT audits. Do not discuss EO 14365 preemption theory. Educational only, not legal advice."
+    },
+    {
+      "name": "15-eu-tier-dates",
+      "title": "EU tiers and the Omnibus date",
+      "focus": "Vertical short, clean classic educational motion graphics. ONE JOB: EU AI Act risk pyramid — prohibited / high-risk Annex III / limited Art. 50 / minimal — and the Digital Omnibus move of standalone high-risk duties to Dec 2 2027. Do not explain provider vs deployer duties. Educational only, not legal advice."
+    },
+    {
+      "name": "16-deployer-role-pick",
+      "title": "Are you the deployer?",
+      "focus": "Vertical short, clean classic educational motion graphics. ONE JOB: pick the EU role for a company wiring a vendor foundation model into a hiring/credit workflow — usually deployer — and contrast deployer Art. 26 oversight/notice duties with provider Art. 11 documentation. Do not restate the full risk-tier pyramid. Educational only, not legal advice."
+    },
+    {
+      "name": "17-art50-notice-ux",
+      "title": "Art. 50 notice UX",
+      "focus": "Vertical short, clean classic educational motion graphics. ONE JOB: Article 50 transparency as a product requirement from Aug 2 2026 — tell users they are interacting with AI; mark synthetic media — shown as a concrete chatbot banner / disclosure pattern. Skip Annex IV documentation. Educational only, not legal advice."
+    },
+    {
+      "name": "18-nist-build-gates",
+      "title": "NIST RMF build gates",
+      "focus": "Vertical short, clean classic educational motion graphics. ONE JOB: turn NIST AI RMF Govern/Map/Measure/Manage into four engineering gates (risk owner, context map, bias/red-team metrics, rollback/HITL). Mention ISO 42001 only as the certifiable management-system cousin. No EU articles, no NDAA. Educational only, not legal advice."
+    },
+    {
+      "name": "19-ndaa-1532-screen",
+      "title": "NDAA §1532 provenance screen",
+      "focus": "Vertical short, clean classic educational motion graphics. ONE JOB: FY2026 NDAA P.L. 119-60 §1532 covered-AI screen for DOD-facing work — DeepSeek/High Flyer and covered-nation ties, limited SECDEF waiver lanes, and a model-vendor lineage checklist. Stress this is defense statute, not a civilian AI Act. Do not cover sandboxes or Futures Committee. Educational only, not legal advice."
+    },
+    {
+      "name": "20-nscai-to-futures",
+      "title": "NSCAI to Futures Committee",
+      "focus": "Vertical short, clean classic educational motion graphics. ONE JOB: connect NSCAI Final Report (2021) strategy themes (readiness, competition, justified confidence, democratic guardrails) to FY2026 NDAA §1535 AI Futures Steering Committee for advanced/agentic AI planning. Mention §1533 assessment team and §1534 sandboxes only as sibling implementation pieces, one sentence each. Do not rehash §1532 bans. Educational only, not legal advice."
+    }
+  ]
+}
