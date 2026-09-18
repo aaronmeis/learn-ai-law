@@ -369,6 +369,10 @@
   .ea-table th,.ea-table td{border:1px solid var(--border-color);padding:.7rem .9rem;text-align:left}
   .ea-table th{background:var(--card-bg2);color:var(--accent-color);font-weight:600}
   .ea-table tr:nth-child(even){background:rgba(255,255,255,0.015)}
+  .eu-contrast-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+  @media (max-width:720px){
+    .eu-contrast-grid{grid-template-columns:1fr}
+  }
 
   /* Print-Only Header & Footer Hidden by Default on Screen */
   .print-header, .print-footer { display: none; }
@@ -6185,6 +6189,7 @@ const DATA = {
   euProducts: {
     updated: "2026-09-18",
     statute: "Regulation (EU) 2024/1689 (AI Act), as amended by the Digital Omnibus on AI (OJ L 2026/1744, in force 27 Jul 2026)",
+    usPosture: "No comprehensive civilian US AI Act. Product teams face FTC Act §5, state/local AI statutes, sector statutes (FDA, ECOA, Title VII), common-law product liability, and IP authorship rules (Thaler).",
     decisionSteps: [
       {n:1,t:"Is there an AI system or GPAI model in scope?",d:"Art. 3(1)–(2). Purely mechanical automation with no AI is out. A chatbot, recommender, computer-vision module, or foundation-model API call is usually in."},
       {n:2,t:"Where do outputs land?",d:"The Act reaches systems placed on the EU market, put into service in the EU, or whose output is used in the EU (Art. 2 territorial scope). A US SaaS serving EU users still counts."},
@@ -6265,19 +6270,54 @@ const DATA = {
       {t:"Align contracts: indemnity carve-outs, safety-filter requirements, deprecation windows, audit rights.",why:"Statutory roles and contractual risk allocation both matter."},
       {t:"Re-check after any substantial modification, new EU market, or new high-risk use case.",why:"Classification is not a one-time badge."}
     ],
+    usEuContrast: {
+      headline: "Same product, two legal machines",
+      blurb: "The EU runs a horizontal, ex ante AI product regime (classify → conform → mark → monitor). The US has no civilian omnibus AI Act. The same feature is usually policed in the US through consumer-protection claims, civil-rights and sector statutes, state/local AI laws, and tort/warranty after harm. Dual-market teams should map both columns before launch, not after the first questionnaire.",
+      rows: [
+        {topic:"Core statute for AI products",eu:"AI Act (Reg. 2024/1689), risk tiers, provider/deployer/importer/distributor roles, CE marking for high-risk systems.",us:"No federal 'US AI Act'. EO 14179 + July 2025 AI Action Plan set policy tone. Binding force comes from older statutes applied to AI."},
+        {topic:"Putting AI in a product / placing on market",eu:"Placing on the market or putting into service triggers role duties (Arts. 3, 16–26). Intended purpose drives Annex I vs Annex III high-risk.",us:"No general pre-market AI conformity gate. FDA SaMD, NHTSA, FCC, and similar sector gates apply only when the product already sits in that regime."},
+        {topic:"Using AI to create a product",eu:"Internal GenAI design tools rarely make the finished non-AI good an 'AI system'. Shipping AI-generated media to users can trigger Art. 50 marking/notice. Marketing claims still regulated.",us:"Same practical split: tool use ≠ AI product. FTC §5 hits deceptive 'AI-designed / error-free' claims. Copyright in outputs needs human authorship (Thaler v. Perlmutter). Patents need human inventors (Thaler v. Vidal)."},
+        {topic:"Transparency to end users",eu:"Art. 50: disclose AI interaction; machine-readable marking for synthetic content (largely from 2 Aug 2026).",us:"No single federal chatbot-label rule. CA SB 942 provenance/detection duties for covered GenAI providers; employment tools may need NYC LL144 notices; sector adverse-action notices (ECOA/Reg B) still apply."},
+        {topic:"High-risk / consequential decisions",eu:"Annex III list (employment, credit, biometrics, education, etc.) plus Annex I safety-component products. Full Art. 9–15 stack after Omnibus dates (2 Dec 2027 / 2 Aug 2028).",us:"Patchwork: Colorado SB 24-205 high-risk deployer/developer duties (watch current effective date / SB 26-189 amendments), NYC LL144 bias audits for AEDTs, Title VII / ECOA / FCRA / Section 1557 for discrimination and adverse action."},
+        {topic:"Roles in the supply chain",eu:"Statutory provider vs deployer vs importer vs distributor. Art. 25 can flip a white-label reseller into provider.",us:"No identical statutory quartet. Contracts allocate 'vendor vs customer'. Tort looks for manufacturer/seller. Agency guidance uses developer/deployer language in places (e.g., Colorado) but not as an EU-wide code."},
+        {topic:"Ex ante conformity vs ex post liability",eu:"High-risk systems need technical docs, risk management, conformity assessment, CE mark, post-market monitoring before/while selling.",us:"Ship first under general product rules; defend later under negligence, strict products liability, warranty, and misrepresentation. Evidence still wins cases."},
+        {topic:"Product liability for software/AI",eu:"PLD 2024/2853: software and AI are products; no-fault defect liability; disclosure/presumptions for opaque systems; transpose by 9 Dec 2026.",us:"State common law + UCC warranties. Software-as-product treatment varies by jurisdiction and fact pattern. No uniform federal AI PLD clone."},
+        {topic:"Deceptive product claims",eu:"Unfair commercial practices + AI Act transparency. Overstating autonomy or safety still risky.",us:"FTC Act §5 and Operation AI Comply: unsupported accuracy, 'fully automated', income guarantees, fake human oversight."},
+        {topic:"GPAI / foundation models inside the product",eu:"Model provider keeps Arts. 51–55 duties; you remain provider of the branded downstream system if you place it.",us:"Mostly contract (training rights, indemnity, ZDR) plus copyright litigation risk on training data. No federal GPAI registration/CE analogue."},
+        {topic:"Enforcement posture",eu:"Market surveillance authorities + AI Office (especially GPAI). Administrative fines up to the AI Act ceilings.",us:"FTC, DOJ, EEOC, CFPB, FDA, state AGs, private plaintiffs. Case-by-case and complaint-driven more than dossier-driven."}
+      ],
+      examples: [
+        {title:"Support chatbot in a B2B SaaS",eu:"Likely limited-risk Art. 50 system if it only answers tickets. Disclose that the user is talking to AI. If it starts denying refunds or ranking workers, re-screen for Annex III.",us:"No federal chatbot stamp. Scrub marketing under FTC §5. If used in hiring or lending decisions, pull in Title VII / ECOA / NYC LL144 / Colorado high-risk rules."},
+        {title:"Resume-screening feature",eu:"Annex III employment high-risk path (duties deferred to 2 Dec 2027, but design for them now). Provider docs, human oversight, logging, worker notices.",us:"NYC LL144 bias audit + notices if NYC AEDT. Title VII disparate-impact exposure nationwide. Colorado high-risk deployer duties if in scope. No CE mark."},
+        {title:"Vision model in industrial machinery",eu:"Annex I safety-component high-risk pathway (deferred to 2 Aug 2028) layered on machinery CE conformity.",us:"OSHA / general product liability / sector machine standards. No AI Act twin. Defect and warning theories dominate after an incident."},
+        {title:"GenAI used only to draft packaging copy or CAD",eu:"Finished kettle is usually not an AI system. Deployer AUP on the design tool; Art. 50 only if you ship synthetic media as such.",us:"Same. Keep human authorship for copyright registration. Do not claim 'AI guarantees perfect safety' (FTC §5). Trade-secret leakage into public models is a contract/IP problem."}
+      ],
+      takeaways: [
+        "EU asks 'what tier is this AI system and who is the provider?' before scale. US asks 'which existing consumer, civil-rights, sector, or tort rule already covers this harm?'",
+        "Art. 50 labeling can be required in the EU for a chat feature that the US still treats as ordinary UX plus advertising law.",
+        "Passing a US bias audit or FDA clearance does not finish EU Annex I/III work, and an EU CE file does not answer FTC claim substantiation.",
+        "Using AI as a build tool is usually not 'placing an AI system on the market' in either region. Shipping inference to users is.",
+        "Dual-market architecture reviews should keep two columns: EU role + tier + date, and US statute/state + claim theory + evidence."
+      ]
+    },
     sources: [
       {t:"Regulation (EU) 2024/1689 (AI Act) — EUR-Lex",u:"https://eur-lex.europa.eu/eli/reg/2024/1689/oj"},
       {t:"European Commission — AI Act overview (updated Omnibus dates)",u:"https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai"},
       {t:"Digital Omnibus on AI — Commission policy page",u:"https://digital-strategy.ec.europa.eu/en/policies/digital-rulebook"},
       {t:"Directive (EU) 2024/2853 — Product Liability Directive",u:"https://eur-lex.europa.eu/eli/dir/2024/2853/oj"},
       {t:"AI Office / GPAI Code of Practice materials",u:"https://digital-strategy.ec.europa.eu/en/policies/ai-office"},
-      {t:"Freshfields — Digital Omnibus on AI key amendments",u:"https://www.freshfields.com/en/our-thinking/blogs/technology-quotient/eu-ai-act-unpacked-34-the-final-digital-omnibus-on-ai"}
+      {t:"Freshfields — Digital Omnibus on AI key amendments",u:"https://www.freshfields.com/en/our-thinking/blogs/technology-quotient/eu-ai-act-unpacked-34-the-final-digital-omnibus-on-ai"},
+      {t:"FTC — Operation AI Comply / Section 5 AI enforcement",u:"https://www.ftc.gov/news-events/topics/competition-enforcement/artificial-intelligence"},
+      {t:"Thaler v. Perlmutter (D.C. Cir.) — human authorship for copyright",u:"https://www.copyright.gov/ai/"},
+      {t:"Colorado SB 24-205 — Consumer Protections for Artificial Intelligence",u:"https://leg.colorado.gov/bills/sb24-205"},
+      {t:"NYC Local Law 144 — automated employment decision tools",u:"https://www.nyc.gov/site/dca/about/automated-employment-decision-tools.page"}
     ],
     scenarios: [
       {title:"EU-facing support chatbot in a US SaaS",good:"Classify as limited-risk Art. 50 system; disclose AI interaction in the chat chrome; keep a provider record under your product name; treat the LLM vendor as GPAI provider; confirm no Annex III employment/credit use creeps in.",bad:"Ship an unlabeled bot that quietly ranks job applicants or denies refunds without human review, then claim 'we only use OpenAI so we are not a provider'."},
       {title:"Vision model inside a CE-marked machine",good:"Treat as Annex I safety-component pathway; fold AI evidence into the existing notified-body file; track the 2 Aug 2028 high-risk AI date while meeting current machinery rules now.",bad:"Assume machinery CE marking alone finishes AI Act work, or ignore post-market learning updates that change safety behavior."},
       {title:"Design team uses GenAI to draft a non-AI consumer product",good:"Keep GenAI as an internal tool under deployer AUP; human-author the final design file for IP; run ordinary product-safety conformity on the finished good.",bad:"Market the kettle as 'AI-designed for perfect safety' without evidence, or paste confidential CAD into a consumer LLM."},
-      {title:"White-label resume screener for EU HR departments",good:"High-risk Annex III employment use; plan Art. 9–15 controls for 2 Dec 2027; decide who is provider under Art. 25 if customers rebrand; ship Art. 50/worker notices early.",bad:"Sell 'neutral AI hiring' with no bias testing, no human override, and no technical documentation trail."}
+      {title:"White-label resume screener for EU HR departments",good:"High-risk Annex III employment use; plan Art. 9–15 controls for 2 Dec 2027; decide who is provider under Art. 25 if customers rebrand; ship Art. 50/worker notices early.",bad:"Sell 'neutral AI hiring' with no bias testing, no human override, and no technical documentation trail."},
+      {title:"Same hiring screener sold in both EU and US",good:"Keep one evidence pack that can feed EU Art. 11 docs and US bias-audit / adverse-action files. Map EU provider role separately from NYC LL144 deployer duties and Title VII testing.",bad:"Assume NYC LL144 compliance 'covers Europe', or assume an EU high-risk file answers FTC advertising substantiation and US disparate-impact discovery."}
     ]
   },
 
@@ -6406,7 +6446,7 @@ function renderDashboard(){
     <div class="card"><h3>Flashcards and Quiz</h3><p style="color:var(--text-secondary);font-size:.86rem">Keyboard-navigable spaced-repetition cards (Space, Arrow keys, 1-3) and self-assessment quizzes.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('flash')">Flashcards →</button><button class="b" onclick="go('quiz')">Quiz →</button></div></div>
     <div class="card"><h3>Shorts gallery</h3><p style="color:var(--text-secondary);font-size:.86rem">Twenty vertical NotebookLM explainers covering contracts, IP, regulation, Responsible AI, NDAA defense AI, and NSCAI.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('shorts')">Open shorts →</button></div></div>
     <div class="card"><h3>Practice checklist</h3><p style="color:var(--text-secondary);font-size:.86rem">Pre-meeting checklist with expandable side-by-side comparisons of effective practices versus high-risk anti-patterns.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('counsel')">Practice →</button></div></div>
-    <div class="card"><h3>EU AI products</h3><p style="color:var(--text-secondary);font-size:.86rem">Dedicated section on putting AI in products, using AI to create products, roles, Annex I/III risk, GPAI embeds, Art. 50, CE marking, and product liability.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('euproducts')">EU AI products →</button></div></div>
+    <div class="card"><h3>EU AI products</h3><p style="color:var(--text-secondary);font-size:.86rem">Putting AI in products, using AI to create products, roles, risk tiers, GPAI embeds, CE marking, product liability, plus an <b>EU vs US</b> contrast for the same product patterns.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('euproducts')">EU AI products →</button></div></div>
     <div class="card"><h3>EA mapping</h3><p style="color:var(--text-secondary);font-size:.86rem">Cross-walk mapping AI legal terms, IP assets, and compliance rules to <b>TOGAF</b>, <b>Zachman</b>, <b>DoDAF</b>, and <b>NIST AI RMF</b>.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('ea')">EA Mapping →</button></div></div>
     <div class="card"><h3>External references</h3><p style="color:var(--text-secondary);font-size:.86rem">Extracted index of ${totalLinks} external primary sources, court dockets, statutes, and law reviews.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('refs')">External References →</button></div></div>
   </div>`;
@@ -6877,6 +6917,7 @@ function renderEUProducts(){
     <button class="ea-tab-btn ${tab==="overview"?"active":""}" data-euptab="overview">Overview</button>
     <button class="ea-tab-btn ${tab==="inproduct"?"active":""}" data-euptab="inproduct">AI in products</button>
     <button class="ea-tab-btn ${tab==="create"?"active":""}" data-euptab="create">AI to create products</button>
+    <button class="ea-tab-btn ${tab==="contrast"?"active":""}" data-euptab="contrast">EU vs US</button>
     <button class="ea-tab-btn ${tab==="roles"?"active":""}" data-euptab="roles">Roles</button>
     <button class="ea-tab-btn ${tab==="risk"?"active":""}" data-euptab="risk">Risk tiers</button>
     <button class="ea-tab-btn ${tab==="gpai"?"active":""}" data-euptab="gpai">GPAI embeds</button>
@@ -6920,6 +6961,42 @@ function renderEUProducts(){
       h+=`<div class="ea-box"><h4>${esc(x.h)}</h4><p style="color:var(--text-secondary);margin:0">${esc(x.b)}</p></div>`;
     });
     h+=`</div></div>`;
+  }
+
+  if(tab==="contrast"){
+    const C=P.usEuContrast;
+    h+=`<div class="ea-card">
+      <h3>${esc(C.headline)}</h3>
+      <p style="color:var(--text-secondary);font-size:.86rem">${esc(C.blurb)}</p>
+      <div class="note danger" style="margin-top:1rem"><b>US posture in one line.</b> ${esc(P.usPosture)}</div>
+      <table class="ea-table" style="margin-top:1rem">
+        <thead><tr><th style="width:18%">Topic</th><th>EU AI Act / product lane</th><th>US law in the same area</th></tr></thead>
+        <tbody>`;
+    C.rows.forEach(r=>{
+      h+=`<tr><td><b>${esc(r.topic)}</b></td><td>${esc(r.eu)}</td><td>${esc(r.us)}</td></tr>`;
+    });
+    h+=`</tbody></table>
+    </div>
+    <div class="ea-card">
+      <h3>Contrast examples (same product pattern)</h3>
+      <p style="color:var(--text-secondary);font-size:.86rem">Read each row as one feature shipped to both markets. The failure mode is assuming one column clears the other.</p>`;
+    C.examples.forEach(ex=>{
+      h+=`<div style="margin:1rem 0 1.25rem;padding:1rem;border:1px solid var(--border-color);border-radius:10px;background:var(--card-bg2)">
+        <h4 style="margin:0 0 .7rem;color:var(--text-primary)">${esc(ex.title)}</h4>
+        <div class="eu-contrast-grid">
+          <div style="background:var(--card-bg);border:1px solid var(--border-color);border-radius:8px;padding:.8rem"><h5 style="color:var(--accent-color);margin:0 0 .35rem;font-size:.84rem">EU lane</h5><p style="margin:0;font-size:.84rem;color:var(--text-secondary)">${esc(ex.eu)}</p></div>
+          <div style="background:var(--card-bg);border:1px solid var(--border-color);border-radius:8px;padding:.8rem"><h5 style="color:var(--r200);margin:0 0 .35rem;font-size:.84rem">US lane</h5><p style="margin:0;font-size:.84rem;color:var(--text-secondary)">${esc(ex.us)}</p></div>
+        </div>
+      </div>`;
+    });
+    h+=`</div>
+    <div class="ea-card">
+      <h3>Architect takeaways</h3>
+      <ul style="color:var(--text-secondary);font-size:.88rem;line-height:1.55;padding-left:1.1rem">`;
+    C.takeaways.forEach(t=>{ h+=`<li style="margin-bottom:.45rem">${esc(t)}</li>`; });
+    h+=`</ul>
+      <div class="btnrow" style="margin-top:1rem"><button class="b" onclick="LS.set('euProdTab','scenarios');renderEUProducts();">Open dual-market hiring scenario →</button></div>
+    </div>`;
   }
 
   if(tab==="roles"){
