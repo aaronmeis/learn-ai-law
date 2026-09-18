@@ -103,7 +103,7 @@ while ((Get-Date) -lt $deadline) {
   $ready = @($items | Where-Object { $_.status -eq "ready" }).Count
   $catalog = [pscustomobject]@{
     notebook_id = $NotebookId
-    title = "Learn AI Law - 20 shorts"
+    title = "Learn AI Law - 25 shorts"
     total = $items.Count
     ready = $ready
     updated = (Get-Date).ToString("o")

@@ -100,8 +100,9 @@ if (-not $SkipIngest) {
     Write-Host "[shorts] source ingested"
   }
 
-  # Also add week-5 regulatory reading + glossary excerpts if present (optional enrichers)
+  # Also add EU products pack + week-5 regulatory reading + glossary (optional enrichers)
   $extra = @(
+    "C:\projects\claude\learn-ai-law\assets-src\notebooklm\eu-products-source-pack.md",
     "C:\obsidian\personal_research_2026\Learning\AI-Law\reference\readings-regulatory.md",
     "C:\obsidian\personal_research_2026\Learning\AI-Law\reference\glossary.md"
   )

@@ -6444,7 +6444,7 @@ function renderDashboard(){
     <div class="card"><h3>Curriculum</h3><p style="color:var(--text-secondary);font-size:.86rem">Six weeks of module readings, action steps, artifact scenarios, and collapsible scenarios.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('curriculum')">Open curriculum →</button></div></div>
     <div class="card"><h3>Progress map</h3><p style="color:var(--text-secondary);font-size:.86rem">The 100 to 300 learning ladder per pillar. Self-rate your progress as not yet, shaky, or solid.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('map')">Open map →</button></div></div>
     <div class="card"><h3>Flashcards and Quiz</h3><p style="color:var(--text-secondary);font-size:.86rem">Keyboard-navigable spaced-repetition cards (Space, Arrow keys, 1-3) and self-assessment quizzes.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('flash')">Flashcards →</button><button class="b" onclick="go('quiz')">Quiz →</button></div></div>
-    <div class="card"><h3>Shorts gallery</h3><p style="color:var(--text-secondary);font-size:.86rem">Twenty vertical NotebookLM explainers covering contracts, IP, regulation, Responsible AI, NDAA defense AI, and NSCAI.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('shorts')">Open shorts →</button></div></div>
+    <div class="card"><h3>Shorts gallery</h3><p style="color:var(--text-secondary);font-size:.86rem">Twenty-five vertical NotebookLM explainers covering contracts, IP, regulation, Responsible AI, NDAA defense AI, NSCAI, and EU AI products (AI in product, AI to create, EU vs US).</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('shorts')">Open shorts →</button></div></div>
     <div class="card"><h3>Practice checklist</h3><p style="color:var(--text-secondary);font-size:.86rem">Pre-meeting checklist with expandable side-by-side comparisons of effective practices versus high-risk anti-patterns.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('counsel')">Practice →</button></div></div>
     <div class="card"><h3>EU AI products</h3><p style="color:var(--text-secondary);font-size:.86rem">Putting AI in products, using AI to create products, roles, risk tiers, GPAI embeds, CE marking, product liability, plus an <b>EU vs US</b> contrast for the same product patterns.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('euproducts')">EU AI products →</button></div></div>
     <div class="card"><h3>EA mapping</h3><p style="color:var(--text-secondary);font-size:.86rem">Cross-walk mapping AI legal terms, IP assets, and compliance rules to <b>TOGAF</b>, <b>Zachman</b>, <b>DoDAF</b>, and <b>NIST AI RMF</b>.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('ea')">EA Mapping →</button></div></div>
@@ -6751,7 +6751,7 @@ function renderShorts(){
   const el=$("#v-shorts");
   if(!el) return;
   const ready=shortItems.filter(it=>it.status==="ready").length;
-  const total=shortItems.length||20;
+  const total=shortItems.length||25;
   let h=`<h2 class="vh">Shorts gallery <span style="font-size:1rem;color:var(--text-dim)">${ready}/${total} ready</span></h2>
   <p class="lead">Vertical NotebookLM explainers tied to the curriculum. Pick an episode from the rail. Educational only — not legal advice.</p>
   <div class="shorts-gallery">
@@ -6912,6 +6912,7 @@ function renderEUProducts(){
   let h=`<h2 class="vh">EU AI products</h2>
   <p class="lead">Study map for product and platform teams shipping into the EU: putting AI inside a product, using AI to design or generate product content, and the other AI Act pieces that change launch risk. Statute: <b>${esc(P.statute)}</b>. Content refreshed ${esc(P.updated)}. <b>Not legal advice.</b></p>
   <div class="note danger"><b>Two different questions.</b> "Does this product contain an AI system?" is an AI Act classification problem. "Did we use AI while building a non-AI product?" is mostly contracts, IP, and ordinary product safety unless the shipped good itself performs AI inference.</div>
+  <div class="note good" style="margin-top:.8rem"><b>Matching shorts (21–25).</b> Two product questions · AI inside the product · AI used to build the product · EU vs US product lanes · Same hiring bot, two markets. <button class="b" type="button" onclick="go('shorts')" style="margin-left:.35rem">Open shorts →</button></div>
 
   <div class="ea-subnav">
     <button class="ea-tab-btn ${tab==="overview"?"active":""}" data-euptab="overview">Overview</button>

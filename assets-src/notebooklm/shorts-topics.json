@@ -1,7 +1,7 @@
 {
-  "title": "Learn AI Law — 20 shorts",
+  "title": "Learn AI Law — 25 shorts",
   "format": "short",
-  "note": "Each short owns one job. Do not restate other episodes. Visual direction lives only in focus (short format rejects --style).",
+  "note": "Each short owns one job. Do not restate other episodes. Visual direction lives only in focus (short format rejects --style). Items 21–25 cover the EU AI products module (AI in product, AI to create, EU vs US).",
   "items": [
     {
       "name": "01-sources-of-law",
@@ -102,6 +102,31 @@
       "name": "20-nscai-to-futures",
       "title": "NSCAI to Futures Committee",
       "focus": "Vertical short, clean classic educational motion graphics. ONE JOB: connect NSCAI Final Report (2021) strategy themes (readiness, competition, justified confidence, democratic guardrails) to FY2026 NDAA §1535 AI Futures Steering Committee for advanced/agentic AI planning. Mention §1533 assessment team and §1534 sandboxes only as sibling implementation pieces, one sentence each. Do not rehash §1532 bans. Educational only, not legal advice."
+    },
+    {
+      "name": "21-two-ai-product-questions",
+      "title": "Two AI product questions",
+      "focus": "Vertical short, clean classic educational motion graphics. ONE JOB: split 'Does this product contain an AI system?' (AI Act classification) from 'Did we use AI while building a non-AI product?' (contracts, IP, ordinary product safety). End with: shipping inference to users is the AI-in-product lane; offline design copilots usually are not. Educational only, not legal advice."
+    },
+    {
+      "name": "22-ai-in-product-saas",
+      "title": "AI inside the product",
+      "focus": "Vertical short, clean classic educational motion graphics. ONE JOB: when a SaaS feature calls a foundation model you ship under your brand, you are usually provider of that AI system and customer of the GPAI vendor — Art. 50 chat notice if users talk to it, Annex III if hiring/credit/biometrics, GPAI Arts. 51–55 stay with the model provider. One beat on embedded Annex I safety-component hardware deferred to 2 Aug 2028. Educational only, not legal advice."
+    },
+    {
+      "name": "23-ai-to-create-product",
+      "title": "AI used to build the product",
+      "focus": "Vertical short, clean classic educational motion graphics. ONE JOB: GenAI as internal design assistant does not by itself make a finished non-AI good an AI system; shipping AI-generated media to customers can trigger Art. 50 from 2 Aug 2026; keep human authorship for copyright and scrub 'AI guarantees perfect safety' marketing. Educational only, not legal advice."
+    },
+    {
+      "name": "24-eu-vs-us-product-lanes",
+      "title": "EU vs US product lanes",
+      "focus": "Vertical short, clean classic educational motion graphics. ONE JOB: contrast the same product feature under two machines — EU horizontal ex ante AI Act (tier, provider/deployer, CE for high-risk, Art. 50 labels) versus US with no civilian omnibus AI Act (FTC §5, sector statutes, state/local AI laws, tort after harm). End with dual-column launch review: EU role+tier+date | US statute+claim+evidence. Educational only, not legal advice."
+    },
+    {
+      "name": "25-dual-market-hiring-bot",
+      "title": "Same hiring bot, two markets",
+      "focus": "Vertical short, clean classic educational motion graphics. ONE JOB: walk one resume-screening feature through both lanes — EU Annex III employment high-risk path (design now; duties deferred to 2 Dec 2027; Art. 25 white-label provider flip risk) versus US NYC LL144 bias audit/notices, Title VII disparate impact, Colorado high-risk if in scope, no CE mark. Stress one evidence pack can feed both; neither column clears the other. Educational only, not legal advice."
     }
   ]
 }

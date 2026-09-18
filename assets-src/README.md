@@ -17,6 +17,7 @@ agreement and no confidential text goes into any model or any generated asset.
 | 6 × weekly one-pager infographic | `gemini-infographic` | `infographics/week-1.md` … `week-6.md` | `C:\output\obsidian\learning\ai-law\infographics\` |
 | Master notebook "AI Law — Core Sources" | `notebooklm` | `notebooklm/master.md` (source manifest) | `C:\output\obsidian\learning\ai-law\notebooklm\master\` |
 | 6 × weekly notebook (audio overview + video short) | `notebooklm` | `notebooklm/week-1.md` … `week-6.md` | `C:\output\obsidian\learning\ai-law\notebooklm\week-N\` |
+| Curriculum shorts (25 vertical videos) | `notebooklm` | `notebooklm/shorts-topics.json` + `shorts-source-pack.md` + `eu-products-source-pack.md` | `C:\output\obsidian\learning\ai-law\notebooklm\shorts\` + site `media/shorts/` |
 
 ## Run order (cheapest / most reversible first)
 
