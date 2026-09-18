@@ -469,7 +469,7 @@
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:.5rem">
       <img id="sidebarHeroImg" src="assets/hero.jpg" alt="AI Law Emblem" style="width:46px;height:46px;border-radius:10px;border:1px solid rgba(56,189,248,0.35);box-shadow:0 0 12px rgba(56,189,248,0.25);object-fit:cover;flex-shrink:0">
       <div>
-        <div class="sidebar-badge" style="margin-bottom:.1rem">Console v2.0</div>
+        <div class="sidebar-badge" style="margin-bottom:.1rem">Console v2.1</div>
         <div class="sidebar-header" style="font-size:1.05rem">AI Law &amp; Gov</div>
       </div>
     </div>
@@ -478,6 +478,7 @@
   <ul class="nav-links" id="nav">
     <li class="nav-item active" data-v="dashboard"><span class="ni-ic">▪</span>Dashboard</li>
     <li class="nav-item" data-v="curriculum"><span class="ni-ic">▪</span>Curriculum</li>
+    <li class="nav-item" data-v="euproducts"><span class="ni-ic">▪</span>EU AI products</li>
     <li class="nav-item" data-v="map"><span class="ni-ic">▪</span>Progress map</li>
     <li class="nav-item" data-v="flash"><span class="ni-ic">▪</span>Flashcards</li>
     <li class="nav-item" data-v="shorts"><span class="ni-ic">▪</span>Shorts</li>
@@ -507,6 +508,7 @@
 <main class="main-content">
   <section class="view active" id="v-dashboard"></section>
   <section class="view" id="v-curriculum"></section>
+  <section class="view" id="v-euproducts"></section>
   <section class="view" id="v-map"></section>
   <section class="view" id="v-flash"></section>
   <section class="view" id="v-shorts"></section>
@@ -5132,6 +5134,62 @@ const EXPANDED_GLOSSARY = [
   },
   {
     "category": "Regulatory",
+    "term": "Placing on the market (EU AI Act)",
+    "definition": "First making an AI system or GPAI model available on the EU market (Art. 3(9)). Triggers provider duties even for free offerings.",
+    "rung": 200,
+    "essential": true
+  },
+  {
+    "category": "Regulatory",
+    "term": "Putting into service (EU AI Act)",
+    "definition": "First use of an AI system in the EU for its intended purpose by or for a deployer, including internal systems never sold (Art. 3(11)).",
+    "rung": 200,
+    "essential": true
+  },
+  {
+    "category": "Regulatory",
+    "term": "Annex I high-risk (product safety)",
+    "definition": "AI that is a product, or a safety component of a product, covered by listed EU product-safety laws and requiring third-party conformity assessment (Art. 6(1)).",
+    "rung": 200,
+    "essential": true
+  },
+  {
+    "category": "Regulatory",
+    "term": "Article 25 substantial modification",
+    "definition": "Downstream actor who rebrands, substantially modifies, or changes the intended purpose of a high-risk AI system becomes the provider of that modified system.",
+    "rung": 200,
+    "essential": true
+  },
+  {
+    "category": "Regulatory",
+    "term": "Importer (EU AI Act)",
+    "definition": "EU-established person who places on the market an AI system bearing the name or trademark of a non-EU provider (Art. 3(6)).",
+    "rung": 200,
+    "essential": false
+  },
+  {
+    "category": "Regulatory",
+    "term": "Distributor (EU AI Act)",
+    "definition": "Person in the supply chain, other than provider or importer, who makes an AI system available on the EU market (Art. 3(7)).",
+    "rung": 200,
+    "essential": false
+  },
+  {
+    "category": "Regulatory",
+    "term": "Product Liability Directive 2024/2853",
+    "definition": "EU no-fault liability regime treating software and AI as products; Member States transpose by 9 Dec 2026. Separate from AI Act compliance duties.",
+    "rung": 200,
+    "essential": true
+  },
+  {
+    "category": "Regulatory",
+    "term": "Digital Omnibus on AI (2026)",
+    "definition": "July 2026 amendments deferring Annex III high-risk duties to 2 Dec 2027 and Annex I product-safety AI duties to 2 Aug 2028; Art. 50 dates largely unchanged.",
+    "rung": 200,
+    "essential": true
+  },
+  {
+    "category": "Regulatory",
     "term": "FTC Act Section 5",
     "definition": "Federal statute prohibiting unfair or deceptive business practices, enforced against false AI claims and bias.",
     "rung": 200,
@@ -6124,6 +6182,105 @@ const DATA = {
     ]
   },
 
+  euProducts: {
+    updated: "2026-09-18",
+    statute: "Regulation (EU) 2024/1689 (AI Act), as amended by the Digital Omnibus on AI (OJ L 2026/1744, in force 27 Jul 2026)",
+    decisionSteps: [
+      {n:1,t:"Is there an AI system or GPAI model in scope?",d:"Art. 3(1)–(2). Purely mechanical automation with no AI is out. A chatbot, recommender, computer-vision module, or foundation-model API call is usually in."},
+      {n:2,t:"Where do outputs land?",d:"The Act reaches systems placed on the EU market, put into service in the EU, or whose output is used in the EU (Art. 2 territorial scope). A US SaaS serving EU users still counts."},
+      {n:3,t:"Who are you in the supply chain?",d:"Provider, deployer, importer, or distributor (Arts. 3(3)–(7)). Rebranding or substantial modification can flip you into provider status (Art. 25)."},
+      {n:4,t:"What risk tier?",d:"Prohibited (Art. 5), high-risk Annex I product-safety, high-risk Annex III use-case, limited-risk transparency (Art. 50), or minimal. Tier drives the duty set."},
+      {n:5,t:"Which dates bind you?",d:"Art. 5 and GPAI rules already apply. Art. 50 largely from 2 Aug 2026. Annex III high-risk deferred to 2 Dec 2027. Annex I product-safety AI deferred to 2 Aug 2028."},
+      {n:6,t:"What else stacks on top?",d:"Product Liability Directive 2024/2853 (software/AI as product), MDR/machinery/toys if Annex I, GDPR if personal data, sector rules, and your vendor contracts."}
+    ],
+    roles: [
+      {role:"Provider",art:"Art. 3(3)",duty:"Develops an AI system/GPAI model, or has it developed, and places it on the market or puts it into service under its own name or trademark. Owns conformity assessment, CE marking, Art. 11 technical docs, and post-market monitoring for high-risk systems."},
+      {role:"Deployer",art:"Art. 3(4)",duty:"Uses an AI system under its authority in a professional context. For high-risk systems: human oversight, input-data fitness, log retention, worker/user notices (Art. 26). Does not escape duty by calling the vendor 'the AI company'."},
+      {role:"Importer",art:"Art. 3(6)",duty:"EU-established actor that places a non-EU provider's AI system on the market under that provider's name. Must verify CE marking, docs, and contact details before first EU placement (Art. 23)."},
+      {role:"Distributor",art:"Art. 3(7)",duty:"Makes an AI system available further down the supply chain without being provider or importer. Must check marking and docs; must not place non-conforming systems (Art. 24)."},
+      {role:"Downstream provider flip",art:"Art. 25",duty:"If you put your brand on a high-risk system, substantially modify it, or change its intended purpose, you become the provider of the modified system. Thin wrappers and white-label resale are the classic trap."}
+    ],
+    putAiInProduct: [
+      {h:"SaaS feature that calls a foundation model",b:"You are usually the provider of the AI system you ship under your product name, and a deployer/customer of the GPAI model vendor. GPAI model duties (Arts. 51–55) stay with the model provider. Your system still needs its own risk classification, Art. 50 notices if users chat with it, and high-risk controls if Annex III applies (hiring bot, credit decisioning, biometric ID)."},
+      {h:"On-device or embedded model in hardware",b:"Medical devices, machinery, toys, radio equipment, and other Annex I products that use AI as a safety component are high-risk under Art. 6(1). Conformity runs through the product-safety regime plus AI Act requirements. Digital Omnibus pushes those high-risk duties to 2 Aug 2028."},
+      {h:"Internal-only tool never sold",b:"Putting into service (Art. 3(11)) still triggers the Act. An HR screening model used only inside an EU entity can be high-risk Annex III even with no commercial listing."},
+      {h:"Open-weight model you fine-tune and ship",b:"Fine-tuning plus placing under your trademark is provider conduct. Keep training-data summaries, eval evidence, and change logs ready for Art. 11 / Annex IV documentation if the use case is high-risk."},
+      {h:"Marketplace / app-store distribution",b:"Distributors and importers have gatekeeping duties. If you operate the EU storefront for a non-EU AI vendor, map Art. 23–24 before go-live."}
+    ],
+    useAiToCreate: [
+      {h:"GenAI as an internal design assistant",b:"Using Copilot, Midjourney, or a CAD-copilot to draft specs, UI, or mechanical designs does not, by itself, make the finished non-AI toaster or website an 'AI system' under the Act. You may still be a deployer of the design tool (notices, acceptable use, no prohibited practices). Copyright, trade-secret leakage, and product-safety law still apply to the finished goods."},
+      {h:"AI-generated assets shipped to customers",b:"If the product delivers AI-generated text, images, audio, or video to end users, Art. 50 transparency and machine-readable marking duties apply to the relevant providers/deployers from 2 Aug 2026 (with a short grace window for some marking of systems already on the market). Label deepfakes and synthetic media clearly."},
+      {h:"AI that designs another AI system",b:"Agentic pipelines that assemble models, prompts, and tools can create a new AI system you then place on the market. Role analysis restarts for that output system. Document human oversight over release gates."},
+      {h:"Training or fine-tuning on customer content to improve a product",b:"Training rights are a contract/IP problem first. Under the AI Act, if the resulting model is GPAI or the resulting system is high-risk, provider duties attach to whoever places it. Check GPAI Code of Practice expectations and copyright-reserve respect (Art. 53)."},
+      {h:"What does not flip you into AI Act provider for the finished good",b:"A bike frame optimized with an offline ML study, or marketing copy drafted with ChatGPT and then heavily edited by humans, is not automatically an AI product. The moment the shipped product itself performs AI inference for the user, you are back in the 'AI in product' lane."}
+    ],
+    riskTiers: [
+      {tier:"Prohibited (Art. 5)",when:"Social scoring, exploitative manipulation, untargeted facial-image scraping for recognition DBs, certain real-time remote biometric ID in public spaces (with narrow LE exceptions), and Omnibus additions such as specified nudifier-style misuse bans.",action:"Do not place on the market or put into service. Already enforceable."},
+      {tier:"High-risk Annex I",when:"AI is the product, or a safety component of a product, under listed EU harmonisation laws (MDR, machinery, toys, etc.) and third-party conformity assessment is required.",action:"Full high-risk provider stack via the product-safety pathway. Deferred to 2 Aug 2028 by Digital Omnibus."},
+      {tier:"High-risk Annex III",when:"Stand-alone systems in listed use cases: biometrics, critical infrastructure, education, employment/worker management, access to essential services (credit, insurance), law enforcement, migration, justice.",action:"Risk management (Art. 9), data governance (Art. 10), technical docs (Art. 11), logging (Art. 12), transparency to deployers (Art. 13), human oversight (Art. 14), accuracy/cybersecurity (Art. 15), conformity assessment, CE mark, registration. Deferred to 2 Dec 2027."},
+      {tier:"Limited risk (Art. 50)",when:"Chatbots, emotion recognition, biometric categorisation, and synthetic/deepfake content facing natural persons.",action:"Clear notices that the user interacts with AI; machine-readable marking of synthetic content. Mostly from 2 Aug 2026. Not deferred with high-risk."},
+      {tier:"Minimal / no specific AI Act duties",when:"Spam filters, inventory forecasting, many productivity copilots outside Annex III.",action:"Voluntary codes still useful. Product liability, consumer law, and GDPR can still bite."}
+    ],
+    gpaiNotes: [
+      "GPAI model providers (Arts. 51–55) must publish training-content summaries, respect copyright reservations, keep technical documentation, and cooperate with the AI Office.",
+      "Systemic-risk GPAI (compute threshold historically ~10^25 FLOPs, subject to AI Office designation) adds eval, adversarial testing, incident reporting, and cybersecurity duties.",
+      "Embedding a third-party GPAI model in your product does not transfer the model provider's Arts. 51–55 duties to you automatically.",
+      "You can still be provider of the downstream AI system you brand and ship. Classify that system on its intended purpose.",
+      "Same-provider GPAI model + AI system stacks can fall under exclusive AI Office supervision after Omnibus clarifications."
+    ],
+    conformity: [
+      {h:"Technical documentation (Art. 11 / Annex IV)",d:"Intended purpose, design specs, data lineage, risk controls, metrics, human-oversight design, change history. Build this while you build the product, not the week before CE marking."},
+      {h:"Quality and risk management",d:"Arts. 9 and 17. Continuous risk identification, residual-risk acceptance, and post-market monitoring (Art. 72)."},
+      {h:"Conformity assessment",d:"Internal control for many Annex III systems; third-party notified-body involvement where product-safety law or biometric systems require it. Align with existing MDR/machinery dossiers when Annex I applies."},
+      {h:"CE marking and EU declaration",d:"High-risk AI systems need CE marking and an EU declaration of conformity before placing on the market."},
+      {h:"Logging and serious-incident reporting",d:"Automatic logs for high-risk systems; report serious incidents to market surveillance authorities."}
+    ],
+    liability: [
+      {h:"AI Act vs Product Liability Directive",d:"The AI Act is ex ante regulation (can you place it?). PLD 2024/2853 is ex post no-fault liability when defective software/AI causes damage. Compliance with the AI Act helps evidence but does not immunize you from PLD claims."},
+      {h:"Software and AI are products",d:"PLD Art. 4 treats software, including AI systems and digital manufacturing files, as products. SaaS can be in scope. Defined non-commercial OSS carve-outs exist."},
+      {h:"Defect includes updates and security",d:"Defectiveness considers presentation, foreseeable use/misuse, learning after deployment, cybersecurity, and post-market updates (PLD Arts. 6–7)."},
+      {h:"Evidence tilting toward claimants",d:"Disclosure orders and presumptions of defect/causation where technical opacity blocks proof (PLD Arts. 8–10). Keep eval and change logs."},
+      {h:"Transposition clock",d:"Member States must transpose PLD by 9 Dec 2026. Product teams shipping into the EU in 2027 should assume the new regime is live."}
+    ],
+    timeline: [
+      {date:"1 Aug 2024",item:"AI Act entered into force"},
+      {date:"2 Feb 2025",item:"Art. 5 prohibitions + AI literacy duties applied"},
+      {date:"2 Aug 2025",item:"GPAI model obligations + governance/enforcement chapter applied"},
+      {date:"2 Aug 2026",item:"Art. 50 transparency duties apply (chatbots, synthetic media marking). High-risk Annex III was originally due here."},
+      {date:"27 Jul 2026",item:"Digital Omnibus on AI entered into force (OJ L 2026/1744)"},
+      {date:"2 Dec 2026",item:"Grace end for some Art. 50(2) machine-readable marking on systems already on market before 2 Aug 2026"},
+      {date:"9 Dec 2026",item:"PLD 2024/2853 national transposition deadline"},
+      {date:"2 Dec 2027",item:"Annex III stand-alone high-risk obligations apply (Omnibus deferral)"},
+      {date:"2 Aug 2028",item:"Annex I product-safety / safety-component high-risk obligations apply (Omnibus deferral)"}
+    ],
+    checklist: [
+      {t:"Inventory every AI touchpoint in the product (inference, RAG, ranking, vision, voice, offline batch).",why:"You cannot classify what you have not listed."},
+      {t:"Write the intended purpose in one paragraph and freeze it for classification.",why:"Annex III and Art. 6 turn on intended purpose, not marketing slogans."},
+      {t:"Assign provider / deployer / importer / distributor per component, including white-label cases.",why:"Art. 25 surprises kill launch plans."},
+      {t:"Run Annex I and Annex III screens; document any Art. 6(3) non-high-risk rationale if used.",why:"Self-assessment without a memo is how market surveillance wins."},
+      {t:"Wire Art. 50 notices into UX before 2 Aug 2026 for chat and synthetic media.",why:"Transparency dates were not deferred."},
+      {t:"For GPAI embeds: collect vendor Art. 53 docs, training summaries, and systemic-risk status.",why:"Downstream diligence evidence."},
+      {t:"Stand up Art. 11-style technical docs and eval harnesses even if high-risk duties are deferred.",why:"Deferral is not repeal; PLD evidence rules reward records."},
+      {t:"Map PLD exposure: who is 'manufacturer', what updates change defect analysis, what logs you can produce.",why:"No-fault liability lands on the product, not the slide deck."},
+      {t:"Align contracts: indemnity carve-outs, safety-filter requirements, deprecation windows, audit rights.",why:"Statutory roles and contractual risk allocation both matter."},
+      {t:"Re-check after any substantial modification, new EU market, or new high-risk use case.",why:"Classification is not a one-time badge."}
+    ],
+    sources: [
+      {t:"Regulation (EU) 2024/1689 (AI Act) — EUR-Lex",u:"https://eur-lex.europa.eu/eli/reg/2024/1689/oj"},
+      {t:"European Commission — AI Act overview (updated Omnibus dates)",u:"https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai"},
+      {t:"Digital Omnibus on AI — Commission policy page",u:"https://digital-strategy.ec.europa.eu/en/policies/digital-rulebook"},
+      {t:"Directive (EU) 2024/2853 — Product Liability Directive",u:"https://eur-lex.europa.eu/eli/dir/2024/2853/oj"},
+      {t:"AI Office / GPAI Code of Practice materials",u:"https://digital-strategy.ec.europa.eu/en/policies/ai-office"},
+      {t:"Freshfields — Digital Omnibus on AI key amendments",u:"https://www.freshfields.com/en/our-thinking/blogs/technology-quotient/eu-ai-act-unpacked-34-the-final-digital-omnibus-on-ai"}
+    ],
+    scenarios: [
+      {title:"EU-facing support chatbot in a US SaaS",good:"Classify as limited-risk Art. 50 system; disclose AI interaction in the chat chrome; keep a provider record under your product name; treat the LLM vendor as GPAI provider; confirm no Annex III employment/credit use creeps in.",bad:"Ship an unlabeled bot that quietly ranks job applicants or denies refunds without human review, then claim 'we only use OpenAI so we are not a provider'."},
+      {title:"Vision model inside a CE-marked machine",good:"Treat as Annex I safety-component pathway; fold AI evidence into the existing notified-body file; track the 2 Aug 2028 high-risk AI date while meeting current machinery rules now.",bad:"Assume machinery CE marking alone finishes AI Act work, or ignore post-market learning updates that change safety behavior."},
+      {title:"Design team uses GenAI to draft a non-AI consumer product",good:"Keep GenAI as an internal tool under deployer AUP; human-author the final design file for IP; run ordinary product-safety conformity on the finished good.",bad:"Market the kettle as 'AI-designed for perfect safety' without evidence, or paste confidential CAD into a consumer LLM."},
+      {title:"White-label resume screener for EU HR departments",good:"High-risk Annex III employment use; plan Art. 9–15 controls for 2 Dec 2027; decide who is provider under Art. 25 if customers rebrand; ship Art. 50/worker notices early.",bad:"Sell 'neutral AI hiring' with no bias testing, no human override, and no technical documentation trail."}
+    ]
+  },
+
   quiz:[
     // --- Week 1 (5 Questions) ---
     {week:1,rung:100,pillar:"Foundations",type:"mc",question:"Which of these has the LEAST binding legal force on a private company?",options:["A statute enacted by Congress","A legislative rule issued by a federal agency after notice-and-comment","A non-binding agency guidance document or 'technical assistance'","A published federal court of appeals opinion in the company's circuit"],answer:"A non-binding agency guidance document or 'technical assistance'",explanation:"Sub-regulatory guidance states an agency's interpretation but carries no independent force of law, unlike statutes, notice-and-comment rules, or binding precedent. The EEOC's May 2023 technical assistance on selection-procedure AI illustrates this: it was removed from EEOC.gov in 2025 with no legislative process while Title VII itself was untouched. After Loper Bright Enterprises v. Raimondo, 603 U.S. 369 (2024), courts also no longer defer to an agency's reading of an ambiguous statute."},
@@ -6249,6 +6406,7 @@ function renderDashboard(){
     <div class="card"><h3>Flashcards and Quiz</h3><p style="color:var(--text-secondary);font-size:.86rem">Keyboard-navigable spaced-repetition cards (Space, Arrow keys, 1-3) and self-assessment quizzes.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('flash')">Flashcards →</button><button class="b" onclick="go('quiz')">Quiz →</button></div></div>
     <div class="card"><h3>Shorts gallery</h3><p style="color:var(--text-secondary);font-size:.86rem">Twenty vertical NotebookLM explainers covering contracts, IP, regulation, Responsible AI, NDAA defense AI, and NSCAI.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('shorts')">Open shorts →</button></div></div>
     <div class="card"><h3>Practice checklist</h3><p style="color:var(--text-secondary);font-size:.86rem">Pre-meeting checklist with expandable side-by-side comparisons of effective practices versus high-risk anti-patterns.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('counsel')">Practice →</button></div></div>
+    <div class="card"><h3>EU AI products</h3><p style="color:var(--text-secondary);font-size:.86rem">Dedicated section on putting AI in products, using AI to create products, roles, Annex I/III risk, GPAI embeds, Art. 50, CE marking, and product liability.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('euproducts')">EU AI products →</button></div></div>
     <div class="card"><h3>EA mapping</h3><p style="color:var(--text-secondary);font-size:.86rem">Cross-walk mapping AI legal terms, IP assets, and compliance rules to <b>TOGAF</b>, <b>Zachman</b>, <b>DoDAF</b>, and <b>NIST AI RMF</b>.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('ea')">EA Mapping →</button></div></div>
     <div class="card"><h3>External references</h3><p style="color:var(--text-secondary);font-size:.86rem">Extracted index of ${totalLinks} external primary sources, court dockets, statutes, and law reviews.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('refs')">External References →</button></div></div>
   </div>`;
@@ -6704,6 +6862,174 @@ function renderCounsel(){
   });
 }
 
+/* ---- EU AI products (placing AI in products / using AI to create products) ---- */
+function renderEUProducts(){
+  const el=$("#v-euproducts");
+  if(!el||!DATA.euProducts) return;
+  const P=DATA.euProducts;
+  const tab=LS.get("euProdTab","overview");
+
+  let h=`<h2 class="vh">EU AI products</h2>
+  <p class="lead">Study map for product and platform teams shipping into the EU: putting AI inside a product, using AI to design or generate product content, and the other AI Act pieces that change launch risk. Statute: <b>${esc(P.statute)}</b>. Content refreshed ${esc(P.updated)}. <b>Not legal advice.</b></p>
+  <div class="note danger"><b>Two different questions.</b> "Does this product contain an AI system?" is an AI Act classification problem. "Did we use AI while building a non-AI product?" is mostly contracts, IP, and ordinary product safety unless the shipped good itself performs AI inference.</div>
+
+  <div class="ea-subnav">
+    <button class="ea-tab-btn ${tab==="overview"?"active":""}" data-euptab="overview">Overview</button>
+    <button class="ea-tab-btn ${tab==="inproduct"?"active":""}" data-euptab="inproduct">AI in products</button>
+    <button class="ea-tab-btn ${tab==="create"?"active":""}" data-euptab="create">AI to create products</button>
+    <button class="ea-tab-btn ${tab==="roles"?"active":""}" data-euptab="roles">Roles</button>
+    <button class="ea-tab-btn ${tab==="risk"?"active":""}" data-euptab="risk">Risk tiers</button>
+    <button class="ea-tab-btn ${tab==="gpai"?"active":""}" data-euptab="gpai">GPAI embeds</button>
+    <button class="ea-tab-btn ${tab==="conformity"?"active":""}" data-euptab="conformity">Conformity &amp; CE</button>
+    <button class="ea-tab-btn ${tab==="liability"?"active":""}" data-euptab="liability">Liability stack</button>
+    <button class="ea-tab-btn ${tab==="timeline"?"active":""}" data-euptab="timeline">Timeline</button>
+    <button class="ea-tab-btn ${tab==="checklist"?"active":""}" data-euptab="checklist">Launch checklist</button>
+    <button class="ea-tab-btn ${tab==="scenarios"?"active":""}" data-euptab="scenarios">Scenarios</button>
+    <button class="ea-tab-btn ${tab==="sources"?"active":""}" data-euptab="sources">Sources</button>
+  </div>`;
+
+  if(tab==="overview"){
+    h+=`<div class="ea-card">
+      <h3>Decision sequence before you ship</h3>
+      <p style="color:var(--text-secondary);font-size:.86rem">Work these in order. Skipping role assignment is how teams discover Art. 25 the hard way.</p>
+      <div class="ea-grid">`;
+    P.decisionSteps.forEach(s=>{
+      h+=`<div class="ea-box"><h4>Step ${s.n}. ${esc(s.t)}</h4><p style="color:var(--text-secondary);margin:0">${esc(s.d)}</p></div>`;
+    });
+    h+=`</div></div>
+    <div class="note good"><b>Digital Omnibus reality check.</b> High-risk Annex III duties move to <b>2 Dec 2027</b> and Annex I product-safety AI duties to <b>2 Aug 2028</b>. Article 50 transparency for chatbots and synthetic media still largely lands on <b>2 Aug 2026</b>. Deferral is not a holiday from inventory work.</div>`;
+  }
+
+  if(tab==="inproduct"){
+    h+=`<div class="ea-card">
+      <h3>Putting AI in a product</h3>
+      <p style="color:var(--text-secondary);font-size:.86rem">When the shipped product itself runs or exposes an AI system: chat features, ranking, vision, voice, on-device models, or safety components inside regulated hardware.</p>
+      <div class="ea-grid">`;
+    P.putAiInProduct.forEach(x=>{
+      h+=`<div class="ea-box"><h4>${esc(x.h)}</h4><p style="color:var(--text-secondary);margin:0">${esc(x.b)}</p></div>`;
+    });
+    h+=`</div></div>`;
+  }
+
+  if(tab==="create"){
+    h+=`<div class="ea-card">
+      <h3>Using AI to create a product</h3>
+      <p style="color:var(--text-secondary);font-size:.86rem">Design copilots, generative assets, and AI-assisted manufacturing. The finished good may stay outside the AI Act while the tool use still creates deployer, IP, and marketing-claim risk.</p>
+      <div class="ea-grid">`;
+    P.useAiToCreate.forEach(x=>{
+      h+=`<div class="ea-box"><h4>${esc(x.h)}</h4><p style="color:var(--text-secondary);margin:0">${esc(x.b)}</p></div>`;
+    });
+    h+=`</div></div>`;
+  }
+
+  if(tab==="roles"){
+    h+=`<div class="ea-card">
+      <h3>Supply-chain roles</h3>
+      <p style="color:var(--text-secondary);font-size:.86rem">One product can create multiple roles across components. Name them in the architecture review, not after a customer questionnaire arrives.</p>
+      <table class="ea-table"><thead><tr><th>Role</th><th>Hook</th><th>What it means for product teams</th></tr></thead><tbody>`;
+    P.roles.forEach(r=>{
+      h+=`<tr><td><b>${esc(r.role)}</b></td><td>${esc(r.art)}</td><td>${esc(r.duty)}</td></tr>`;
+    });
+    h+=`</tbody></table></div>`;
+  }
+
+  if(tab==="risk"){
+    h+=`<div class="ea-card">
+      <h3>Risk tiers that matter for products</h3>
+      <table class="ea-table"><thead><tr><th>Tier</th><th>When it hits a product</th><th>What to do</th></tr></thead><tbody>`;
+    P.riskTiers.forEach(r=>{
+      h+=`<tr><td><b>${esc(r.tier)}</b></td><td>${esc(r.when)}</td><td>${esc(r.action)}</td></tr>`;
+    });
+    h+=`</tbody></table></div>`;
+  }
+
+  if(tab==="gpai"){
+    h+=`<div class="ea-card">
+      <h3>GPAI models inside your product</h3>
+      <p style="color:var(--text-secondary);font-size:.86rem">Foundation-model APIs and open-weight bases are common. Keep model-provider duties and your system-provider duties separate on the whiteboard.</p>
+      <ul style="color:var(--text-secondary);font-size:.88rem;line-height:1.55;padding-left:1.1rem">`;
+    P.gpaiNotes.forEach(n=>{ h+=`<li style="margin-bottom:.45rem">${esc(n)}</li>`; });
+    h+=`</ul></div>`;
+  }
+
+  if(tab==="conformity"){
+    h+=`<div class="ea-card">
+      <h3>Conformity assessment, docs, and CE marking</h3>
+      <div class="ea-grid">`;
+    P.conformity.forEach(c=>{
+      h+=`<div class="ea-box"><h4>${esc(c.h)}</h4><p style="color:var(--text-secondary);margin:0">${esc(c.d)}</p></div>`;
+    });
+    h+=`</div></div>`;
+  }
+
+  if(tab==="liability"){
+    h+=`<div class="ea-card">
+      <h3>Liability stack beyond the AI Act</h3>
+      <div class="ea-grid">`;
+    P.liability.forEach(c=>{
+      h+=`<div class="ea-box"><h4>${esc(c.h)}</h4><p style="color:var(--text-secondary);margin:0">${esc(c.d)}</p></div>`;
+    });
+    h+=`</div></div>`;
+  }
+
+  if(tab==="timeline"){
+    h+=`<div class="ea-card">
+      <h3>Dates product teams should pin</h3>
+      <table class="ea-table"><thead><tr><th>Date</th><th>What changes</th></tr></thead><tbody>`;
+    P.timeline.forEach(t=>{
+      h+=`<tr><td><b>${esc(t.date)}</b></td><td>${esc(t.item)}</td></tr>`;
+    });
+    h+=`</tbody></table></div>`;
+  }
+
+  if(tab==="checklist"){
+    h+=`<div class="ea-card">
+      <h3>Pre-launch checklist</h3>
+      <p style="color:var(--text-secondary);font-size:.86rem">Use before an architecture review or EU go-live. Expand nothing fancy: each row is a yes/no with an owner.</p>
+      <table class="ea-table"><thead><tr><th>#</th><th>Check</th><th>Why it matters</th></tr></thead><tbody>`;
+    P.checklist.forEach((c,i)=>{
+      h+=`<tr><td>${i+1}</td><td><b>${esc(c.t)}</b></td><td>${esc(c.why)}</td></tr>`;
+    });
+    h+=`</tbody></table></div>`;
+  }
+
+  if(tab==="scenarios"){
+    h+=`<div class="ea-card">
+      <h3>Worked scenarios</h3>
+      <p style="color:var(--text-secondary);font-size:.86rem">Side-by-side patterns in the same style as the practice checklist.</p>`;
+    P.scenarios.forEach(s=>{
+      h+=`<div style="margin:1rem 0 1.25rem;padding:1rem;border:1px solid var(--border-color);border-radius:10px;background:var(--card-bg2)">
+        <h4 style="margin:0 0 .7rem;color:var(--text-primary)">${esc(s.title)}</h4>
+        <div class="gb-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem">
+          <div class="gb-box" style="background:var(--good-bg);border:1px solid var(--good);border-radius:8px;padding:.8rem"><h5 style="color:var(--good);margin:0 0 .35rem">Better pattern</h5><p style="margin:0;font-size:.84rem;color:var(--text-secondary)">${esc(s.good)}</p></div>
+          <div class="gb-box bad-box" style="border-radius:8px;padding:.8rem"><h5 style="margin:0 0 .35rem">Failure pattern</h5><p style="margin:0;font-size:.84rem;color:var(--text-secondary)">${esc(s.bad)}</p></div>
+        </div>
+      </div>`;
+    });
+    h+=`</div>`;
+  }
+
+  if(tab==="sources"){
+    h+=`<div class="ea-card">
+      <h3>Primary and practitioner sources</h3>
+      <ul style="list-style:none;padding:0">`;
+    P.sources.forEach(s=>{
+      h+=`<li style="margin-bottom:.55rem"><a href="${esc(s.u)}" target="_blank" rel="noopener" style="color:var(--accent-color)">${esc(s.t)}</a></li>`;
+    });
+    h+=`</ul>
+      <p style="color:var(--text-dim);font-size:.8rem;margin-top:1rem">Primary instruments beat this synthesis. Re-read EUR-Lex after every Omnibus-style amendment.</p>
+    </div>`;
+  }
+
+  el.innerHTML=h;
+  Array.from(el.querySelectorAll(".ea-tab-btn")).forEach(btn=>{
+    btn.onclick=()=>{
+      LS.set("euProdTab",btn.dataset.euptab);
+      renderEUProducts();
+    };
+  });
+}
+
 /* ---- EA Mapping (TOGAF, Zachman, DoDAF, Responsible AI) ---- */
 function renderEA(){
   const el=$("#v-ea");
@@ -6899,7 +7225,7 @@ function renderEA(){
 
   el.innerHTML=h;
 
-  $$(".ea-tab-btn",el).forEach(btn=>{
+  Array.from(el.querySelectorAll(".ea-tab-btn")).forEach(btn=>{
     btn.onclick=()=>{
       LS.set("eaTab",btn.dataset.eatab);
       renderEA();
@@ -6947,7 +7273,7 @@ function initTheme(){
 }
 
 /* ---- Init ---- */
-initTheme();renderDashboard();renderCurriculum();renderMap();renderFlash();renderQuiz();renderGlossary();renderPrompts();renderCounsel();renderEA();renderReferences();
+initTheme();renderDashboard();renderCurriculum();renderEUProducts();renderMap();renderFlash();renderQuiz();renderGlossary();renderPrompts();renderCounsel();renderEA();renderReferences();
 loadShorts();
 (function restore(){const v=LS.get("view","dashboard");const b=$('#nav .nav-item[data-v="'+v+'"]');if(b&&v!=="dashboard")b.click();})();
 </script>
