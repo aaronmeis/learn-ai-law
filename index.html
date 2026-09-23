@@ -483,6 +483,7 @@
     <li class="nav-item active" data-v="dashboard"><span class="ni-ic">▪</span>Dashboard</li>
     <li class="nav-item" data-v="curriculum"><span class="ni-ic">▪</span>Curriculum</li>
     <li class="nav-item" data-v="euproducts"><span class="ni-ic">▪</span>EU AI products</li>
+    <li class="nav-item" data-v="iso42001"><span class="ni-ic">▪</span>ISO 42001</li>
     <li class="nav-item" data-v="map"><span class="ni-ic">▪</span>Progress map</li>
     <li class="nav-item" data-v="flash"><span class="ni-ic">▪</span>Flashcards</li>
     <li class="nav-item" data-v="shorts"><span class="ni-ic">▪</span>Shorts</li>
@@ -513,6 +514,7 @@
   <section class="view active" id="v-dashboard"></section>
   <section class="view" id="v-curriculum"></section>
   <section class="view" id="v-euproducts"></section>
+  <section class="view" id="v-iso42001"></section>
   <section class="view" id="v-map"></section>
   <section class="view" id="v-flash"></section>
   <section class="view" id="v-shorts"></section>
@@ -537,6 +539,11 @@
    EXTRACTED EXTERNAL REFERENCES (Categorized from Obsidian)
    ============================================================ */
 const EXTERNAL_REFS = {
+  "AI management standards": [
+    {"url":"https://www.iso.org/standard/81230.html","anchor":"ISO — ISO/IEC 42001:2023","sources":["iso-42001 study view"]},
+    {"url":"https://www.iso.org/standard/77304.html","anchor":"ISO/IEC 23894:2023 AI risk management","sources":["iso-42001 study view"]},
+    {"url":"https://www.nist.gov/itl/ai-risk-management-framework","anchor":"NIST AI RMF 1.0","sources":["iso-42001 study view"]}
+  ],
   "Statutes, Regulations & Executive Orders": [
     {
       "url": "https://www.congress.gov/crs-product/LSB10922",
@@ -4221,9 +4228,42 @@ const EXPANDED_GLOSSARY = [
   {
     "category": "Responsible AI",
     "term": "ISO/IEC 42001 (AIMS)",
-    "definition": "International standard for an Artificial Intelligence Management System (AIMS), providing certifiable governance baselines.",
+    "definition": "ISO/IEC 42001:2023, the certifiable management-system standard for an Artificial Intelligence Management System. Clauses 4-10 are mandatory requirements. Annex A is a reference set of 38 controls (A.2-A.10) selected through a Statement of Applicability. A certificate covers the management system, not the safety of any one model. Adopted unmodified as EN ISO/IEC 42001:2026 (CEN, 13 Mar 2026). It is not an EU AI Act harmonised standard and does not create a presumption of conformity.",
     "rung": 200,
-    "essential": true
+    "essential": true,
+    "see_also": "Statement of Applicability"
+  },
+  {
+    "category": "Responsible AI",
+    "term": "Statement of Applicability",
+    "definition": "Clause 6.1.3 document that lists the controls judged necessary for the AIMS scope and justifies every inclusion and exclusion against the AI risk assessment. Auditors test the SoA, not a blanket claim that all 38 Annex A controls were adopted.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "ISO/IEC 42001 (AIMS)"
+  },
+  {
+    "category": "Responsible AI",
+    "term": "AI system impact assessment",
+    "definition": "Clause 6.1.4 process for consequences of an AI system on individuals, groups, and society across the lifecycle. Distinct from organisational AI risk (harm to the organisation). ISO/IEC 42005:2025 is the companion method.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "ISO/IEC 42001 (AIMS)"
+  },
+  {
+    "category": "Responsible AI",
+    "term": "ISO/IEC 23894",
+    "definition": "Guidance standard for AI risk management. ISO/IEC 42001 points to it as the method behind the Clause 6 risk process. Not itself a certifiable management system. Often used as the bridge to NIST AI RMF Map and Measure work.",
+    "rung": 200,
+    "essential": false,
+    "see_also": "NIST AI RMF 1.0"
+  },
+  {
+    "category": "Responsible AI",
+    "term": "ISO/IEC 42006",
+    "definition": "2025 standard for bodies that audit and certify an AIMS: competence, impartiality, and how audit time is calculated. It governs the certifier, not the organisation seeking the certificate.",
+    "rung": 300,
+    "essential": false,
+    "see_also": "ISO/IEC 42001 (AIMS)"
   },
   {
     "category": "Responsible AI",
@@ -5960,10 +6000,10 @@ const DATA = {
         action:"Audit marketing copy and system prompt claims against FTC Section 5 deceptive practice standards.",
         lookLike:"<b>What Does This Look Like in Practice? (FTC Section 5 Audit Review)</b><pre>Audit Object: External Web Landing Page Claim: '100% Error-Free Autonomous Legal Contracting'\nFinding: Deceptive claim under FTC Act § 5 (Probabilistic LLMs produce hallucinations)\nCorrection: 'AI-Assisted Contract Drafting Tool - Subject to Mandatory Human Attorney Review'</pre>",
         whyMatters:"The FTC penalizes deceptive AI claims, algorithmic bias, and unverified product claims under Section 5."},
-       {t:"Responsible AI frameworks: NIST AI RMF 1.0 (Govern, Map, Measure, Manage), ISO/IEC 42001, AI Bill of Rights",rl:"Responsible AI · 200",
-        action:"Perform a NIST AI RMF 1.0 Map & Measure risk audit for an enterprise production model.",
-        lookLike:"<b>What Does This Look Like in Practice? (NIST AI RMF Audit Ledger)</b><pre>Function: MEASURE | Sub-category: MEASURE 2.1 (Algorithmic Bias)\nMetric: Selection Rate Disparity across protected demographic groups\nResult: 84.2% Selection Rate Ratio (Exceeds EEOC 80% Four-Fifths threshold - PASSED)</pre>",
-        whyMatters:"NIST AI RMF and ISO 42001 provide engineering standards for auditing model bias, safety, explainability, and risk controls."},
+       {t:"Responsible AI frameworks: NIST AI RMF 1.0 (Govern, Map, Measure, Manage), ISO/IEC 42001 AIMS, AI Bill of Rights",rl:"Responsible AI · 200",
+        action:"Draft an ISO/IEC 42001 Statement of Applicability for one production system, then map the selected controls to NIST AI RMF Govern/Map/Measure/Manage. Use the ISO 42001 study view for the clause and Annex A map.",
+        lookLike:"<b>What Does This Look Like in Practice? (AIMS Statement of Applicability row)</b><pre>Scope: Customer-support assistant (provider of the system; deployer of the GPAI API)\nControl A.5 impact assessment: INCLUDED — customer appeals still affect individuals\nControl A.6 lifecycle: INCLUDED — change ticket required before model swap\nControl A.10 supplier: INCLUDED — ZDR addendum + model card on file\nCertificate claim: management system only, not model safety.</pre>",
+        whyMatters:"ISO/IEC 42001:2023 certifies an AI management system (Clauses 4-10 plus a justified Annex A selection). It does not certify a model, and it is not an EU AI Act harmonised standard. NIST AI RMF is the voluntary US operating framework that often fills the same Govern/Map/Measure/Manage work."},
        {t:"State laws: Colorado SB 24-205 / SB 26-189, Texas TRAIGA, California AB 2013 / SB 942, Illinois BIPA, NYC LL144",rl:"Regulatory · 200",
         action:"Cross-reference project schedule against Colorado SB 24-205 deployer duties and NYC LL144 bias audit rules.",
         lookLike:"<b>What Does This Look Like in Practice? (State Regulatory Compliance Schedule)</b><pre>State: Colorado SB 24-205 (Duty of Reasonable Care for High-Risk AI)\nDuty: Provide Consumer Right to Correct Inaccurate AI Decisions\nPipeline Integration: Implemented Opt-Out API endpoint + Human Appeal Routing Queue</pre>",
@@ -6321,6 +6361,68 @@ const DATA = {
     ]
   },
 
+
+  iso42001: {
+    updated: "2026-09-23",
+    citation: "ISO/IEC 42001:2023, Information technology — Artificial intelligence — Management system (first edition, December 2023, ISO/IEC JTC 1/SC 42). Adopted unmodified as EN ISO/IEC 42001:2026 (CEN, 13 March 2026).",
+    oneLine: "A certifiable management system for organisations that develop, provide, or use AI. The certificate is about the system of governance, not the safety of any one model.",
+    clauses: [
+      {id:"4", name:"Context of the organization", d:"Determine internal and external issues, interested parties, and the AIMS scope. Name your role for each AI system in scope: develop, provide, use, or more than one. Scope boundaries are what the auditor certifies."},
+      {id:"5", name:"Leadership", d:"Top management owns the AIMS: policy, roles, and integration into business processes. The AI policy has to match the organisation's purpose and exist as documented information. This is the GOVERN analogue, not a model card."},
+      {id:"6", name:"Planning", d:"AI risk assessment and treatment, plus a separate AI system impact assessment aimed at consequences for people and society, not only harm to the organisation. The Statement of Applicability records which controls apply, which do not, and why. You may add controls Annex A does not list."},
+      {id:"7", name:"Support", d:"Resources, competence, awareness, communication, and documented information. Same Harmonized Structure shape as ISO/IEC 27001 clause 7, so a combined audit is realistic if a security management system already exists."},
+      {id:"8", name:"Operation", d:"Plan and control the processes needed to meet requirements, including the AI system lifecycle controls you selected. Change control on models, data, and suppliers lives here."},
+      {id:"9", name:"Performance evaluation", d:"Monitor, measure, and analyse; run internal audit; hold management review. A policy with no audit trail fails Stage 2."},
+      {id:"10", name:"Improvement", d:"Nonconformity, corrective action, and continual improvement. Surveillance audits expect this loop to be real."}
+    ],
+    annex: [
+      {id:"A.2", name:"Policies related to AI", theme:"AI policy, alignment with other organisational policies, and review of the AI policy."},
+      {id:"A.3", name:"Internal organization", theme:"Roles and responsibilities for AI, and a route to report concerns."},
+      {id:"A.4", name:"Resources for AI systems", theme:"Document the data, tooling, compute, and human competence a system actually depends on."},
+      {id:"A.5", name:"Assessing impacts of AI systems", theme:"Process and records for impacts on individuals, groups, and society across the lifecycle."},
+      {id:"A.6", name:"AI system life cycle", theme:"Requirements, design, verification, deployment, operation, and monitoring. Not a single go-live checklist."},
+      {id:"A.7", name:"Data for AI systems", theme:"Acquisition, quality, provenance, and preparation of data used to develop or operate AI."},
+      {id:"A.8", name:"Information for interested parties", theme:"What users and affected people are told, and the documentation that supports that."},
+      {id:"A.9", name:"Use of AI systems", theme:"Responsible use, including objectives for use so intended use stays inside the assessed bounds."},
+      {id:"A.10", name:"Third-party and customer relationships", theme:"Suppliers, customers, and responsibilities allocated across the AI supply chain."}
+    ],
+    family: [
+      {std:"ISO/IEC 22989", role:"AI concepts and terminology. Audit arguments often collapse into a definition fight. This is the vocabulary 42001 is written in."},
+      {std:"ISO/IEC 23894:2023", role:"Guidance on AI risk management (ISO catalogue 77304). The method behind clause 6. Not certifiable by itself. Pairs with NIST AI RMF."},
+      {std:"ISO/IEC 42005:2025", role:"AI system impact assessment. The practical method for the impact-assessment obligation (consequences for people, not risk to the firm)."},
+      {std:"ISO/IEC 42006:2025", role:"Requirements for bodies that audit and certify an AIMS: competence, impartiality, and audit-time calculation. Read it before you pick a certifier."},
+      {std:"ISO/IEC 27001 / ISO 9001", role:"Same Harmonized Structure (clauses 4-10). Existing ISMS or QMS scaffolding is reusable. The AI-specific substance is not."},
+      {std:"prEN 18286 (draft)", role:"European draft aimed at the EU AI Act quality-management system (Article 17). 42001 is a head start, not this document."}
+    ],
+    crosswalk: [
+      {theme:"Accountability", iso:"Clause 5; A.3 roles", nist:"GOVERN 1-2", eu:"Art. 17 QMS for high-risk providers. Art. 26 deployer duties are a different role."},
+      {theme:"Policy", iso:"Clause 5.2; A.2", nist:"GOVERN policies and processes", eu:"Documented policies inside the Art. 17 QMS. Not identical text."},
+      {theme:"Risk to the organisation", iso:"Clause 6.1; ISO/IEC 23894", nist:"MAP then MANAGE", eu:"Art. 9 risk management for high-risk AI is product-level, not only organisational."},
+      {theme:"Impact on people", iso:"Impact assessment; A.5; ISO/IEC 42005", nist:"MAP context and impacts", eu:"Fundamental-rights and high-risk impact work. Not waived by a 42001 certificate."},
+      {theme:"Lifecycle and data", iso:"A.6 and A.7", nist:"MAP and MEASURE across the lifecycle", eu:"Arts. 10-15 for high-risk systems (data, docs, logging, transparency, oversight, accuracy, robustness)."},
+      {theme:"Suppliers", iso:"A.10", nist:"GOVERN and MAP third-party", eu:"Art. 25 role flip if you substantially modify or rebrand. GPAI duties stay with the model provider."},
+      {theme:"Check and improve", iso:"Clauses 9-10", nist:"MEASURE and MANAGE", eu:"Post-market monitoring (Art. 72) for high-risk providers."}
+    ],
+    myths: [
+      {claim:"A 42001 certificate means the model is safe, fair, and lawful.", fact:"It means an accredited body checked that you run an AI management system and follow it. Model performance, bias, and legality are separate evidence."},
+      {claim:"All 38 Annex A controls are mandatory.", fact:"Annex A is normative but selective. The Statement of Applicability justifies inclusions and exclusions. Adopting all 38 without a risk basis is its own audit problem."},
+      {claim:"ISO 42001 equals EU AI Act compliance.", fact:"It is not a harmonised standard cited in the Official Journal, so it gives no presumption of conformity under Article 40. It overlaps the organisational machinery of an Article 17 quality management system. prEN 18286 is the draft written for that system. National adoption of EN ISO/IEC 42001:2026 obliges standards bodies (deadline September 2026), not companies."},
+      {claim:"NIST AI RMF and 42001 are duplicates. Pick one.", fact:"NIST AI RMF 1.0 is voluntary US guidance (Govern, Map, Measure, Manage) and is not a certificate. 42001 is a certifiable management system. Use NIST and ISO/IEC 23894 as the risk method. Use 42001 when a customer or program wants an audited AIMS."}
+    ],
+    path: [
+      {n:"1", t:"Scope and role", d:"Write the AIMS boundary and the role per system (develop, provide, use). Leave shadow AI outside the certificate claim, or bring it in."},
+      {n:"2", t:"Risk and impact", d:"Run an AI risk assessment (23894 or NIST Map) and a separate impact assessment for systems that affect people."},
+      {n:"3", t:"Statement of Applicability", d:"Select controls, compare against Annex A so nothing necessary was skipped, and justify every exclusion in writing."},
+      {n:"4", t:"Operate clauses 4-10", d:"Policy, competence, documented information, operational controls, internal audit, management review, corrective action."},
+      {n:"5", t:"Stage 1 then Stage 2", d:"Stage 1 checks readiness and documentation. Stage 2 checks that the system operates. ISO/IEC 42006:2025 is what the certification body itself is assessed against. Surveillance follows."}
+    ],
+    sources: [
+      {t:"ISO/IEC 42001:2023 catalogue (ISO)", u:"https://www.iso.org/standard/81230.html"},
+      {t:"ISO/IEC 23894:2023 — AI risk management guidance", u:"https://www.iso.org/standard/77304.html"},
+      {t:"NIST AI Risk Management Framework", u:"https://www.nist.gov/itl/ai-risk-management-framework"},
+      {t:"EU AI Act, Regulation (EU) 2024/1689 (EUR-Lex)", u:"https://eur-lex.europa.eu/eli/reg/2024/1689/oj"}
+    ]
+  },
   quiz:[
     // --- Week 1 (5 Questions) ---
     {week:1,rung:100,pillar:"Foundations",type:"mc",question:"Which of these has the LEAST binding legal force on a private company?",options:["A statute enacted by Congress","A legislative rule issued by a federal agency after notice-and-comment","A non-binding agency guidance document or 'technical assistance'","A published federal court of appeals opinion in the company's circuit"],answer:"A non-binding agency guidance document or 'technical assistance'",explanation:"Sub-regulatory guidance states an agency's interpretation but carries no independent force of law, unlike statutes, notice-and-comment rules, or binding precedent. The EEOC's May 2023 technical assistance on selection-procedure AI illustrates this: it was removed from EEOC.gov in 2025 with no legislative process while Title VII itself was untouched. After Loper Bright Enterprises v. Raimondo, 603 U.S. 369 (2024), courts also no longer defer to an agency's reading of an ambiguous statute."},
@@ -6356,6 +6458,9 @@ const DATA = {
     {week:5,rung:200,pillar:"National Security",type:"mc",question:"Under FY2026 NDAA §1532 (P.L. 119-60), which statement is accurate?",options:["DOD may freely acquire any commercial foundation model without provenance review","DOD is restricted from using or acquiring covered AI systems, including DeepSeek/High Flyer-linked systems and systems tied to covered nations, subject to limited SECDEF waivers","Section 1532 creates a civilian licensing regime for all US foundation models","Section 1532 only applies to open-source licenses, not commercial APIs"],answer:"DOD is restricted from using or acquiring covered AI systems, including DeepSeek/High Flyer-linked systems and systems tied to covered nations, subject to limited SECDEF waivers",explanation:"P.L. 119-60 §1532 restricts DOD use and acquisition of covered AI systems (including DeepSeek/High Flyer-associated systems and covered-nation systems), with case-by-case SECDEF waivers for research, testing, evaluation, training, and specified national-security missions. CRS IF13197 summarizes the AI subtitle."},
     {week:5,rung:200,pillar:"Regulatory",type:"mc",question:"What key compliance duty does Colorado SB 24-205 impose on deployers of high-risk AI systems?",options:["A complete prohibition on using cloud APIs","A duty of reasonable care to protect consumers from algorithmic discrimination, including consumer rights to appeal automated decisions","Mandatory open-sourcing of model weights","Exemption from all federal privacy laws"],answer:"A duty of reasonable care to protect consumers from algorithmic discrimination, including consumer rights to appeal automated decisions",explanation:"Colorado SB 24-205 requires deployers of high-risk AI (in employment, lending, housing, healthcare) to use reasonable care to prevent discrimination and provide consumer correction rights."},
     {week:5,rung:200,pillar:"Privacy",type:"authority",question:"Under GDPR Article 22, what right does an individual have when subjected to solely automated credit scoring resulting in a loan denial?",answer:"The right to obtain human intervention, express their point of view, and contest the automated decision.",explanation:"GDPR Article 22 grants data subjects the right not to be subject to solely automated decision-making producing legal effects, requiring human review exception gates."},
+    {week:5,rung:200,pillar:"Responsible AI",type:"mc",question:"What does an ISO/IEC 42001 certificate actually attest?",options:["That a named production model is safe, fair, and lawful","That the organisation operates an Artificial Intelligence Management System which an accredited body has audited","That the organisation has a presumption of conformity with the EU AI Act","That all 38 Annex A controls have been implemented"],answer:"That the organisation operates an Artificial Intelligence Management System which an accredited body has audited",explanation:"ISO/IEC 42001:2023 certifies the management system (clauses 4-10 and the justified control set), not a model. It is not an EU harmonised standard, so it does not create a presumption of conformity. Annex A is selective via the Statement of Applicability."},
+    {week:5,rung:200,pillar:"Responsible AI",type:"mc",question:"Under ISO/IEC 42001, what is the Statement of Applicability for?",options:["A marketing claim that every Annex A control was adopted","The clause 6.1.3 record of which controls are included or excluded, with reasons tied to the risk assessment","A substitute for the EU AI Act technical documentation in Annex IV","The certification body's own competence standard"],answer:"The clause 6.1.3 record of which controls are included or excluded, with reasons tied to the risk assessment",explanation:"The SoA is the audit spine. Exclusions must be justified. ISO/IEC 42006:2025 is the standard for certification bodies, not the SoA. EU technical documentation remains an AI Act duty."},
+    {week:5,rung:300,pillar:"Responsible AI",type:"mc",question:"Which pairing is the right way to use NIST AI RMF with ISO/IEC 42001?",options:["Drop NIST once you hold a 42001 certificate, because they are the same instrument","Use NIST AI RMF (and ISO/IEC 23894) as the risk method inside a certifiable AIMS; do not treat the certificate as EU AI Act conformity","File the NIST RMF PDF as Annex A and skip the impact assessment","Treat 42001 as US law and NIST as EU law"],answer:"Use NIST AI RMF (and ISO/IEC 23894) as the risk method inside a certifiable AIMS; do not treat the certificate as EU AI Act conformity",explanation:"NIST AI RMF 1.0 is voluntary guidance. 42001 is a certifiable management system that points at 23894 for risk and requires a separate AI system impact assessment. Neither instrument is a harmonised standard for the AI Act."},
 
     // --- Week 6 (5 Questions) ---
     {week:6,rung:200,pillar:"Licensing",type:"mc",question:"Under the Open Source AI Definition 1.0 (OSAID), which component MUST be made available alongside code and weights for a model to be certified open source?",options:["A corporate credit card billing statement","Sufficiently detailed training data provenance summaries and data processing code","A signed non-disclosure agreement (NDA)","Private user telemetry logs"],answer:"Sufficiently detailed training data provenance summaries and data processing code",explanation:"OSAID 1.0 requires openness across data (provenance summaries & processing logic), code (training & inference), and model weights."},
@@ -6447,6 +6552,7 @@ function renderDashboard(){
     <div class="card"><h3>Shorts gallery</h3><p style="color:var(--text-secondary);font-size:.86rem">Twenty-five vertical NotebookLM explainers covering contracts, IP, regulation, Responsible AI, NDAA defense AI, NSCAI, and EU AI products (AI in product, AI to create, EU vs US).</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('shorts')">Open shorts →</button></div></div>
     <div class="card"><h3>Practice checklist</h3><p style="color:var(--text-secondary);font-size:.86rem">Pre-meeting checklist with expandable side-by-side comparisons of effective practices versus high-risk anti-patterns.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('counsel')">Practice →</button></div></div>
     <div class="card"><h3>EU AI products</h3><p style="color:var(--text-secondary);font-size:.86rem">Putting AI in products, using AI to create products, roles, risk tiers, GPAI embeds, CE marking, product liability, plus an <b>EU vs US</b> contrast for the same product patterns.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('euproducts')">EU AI products →</button></div></div>
+    <div class="card"><h3>ISO/IEC 42001</h3><p style="color:var(--text-secondary);font-size:.86rem">Certifiable AI management system: clauses 4-10, 38 Annex A controls, Statement of Applicability, and how it differs from NIST AI RMF and the EU AI Act.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('iso42001')">ISO 42001 →</button></div></div>
     <div class="card"><h3>EA mapping</h3><p style="color:var(--text-secondary);font-size:.86rem">Cross-walk mapping AI legal terms, IP assets, and compliance rules to <b>TOGAF</b>, <b>Zachman</b>, <b>DoDAF</b>, and <b>NIST AI RMF</b>.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('ea')">EA Mapping →</button></div></div>
     <div class="card"><h3>External references</h3><p style="color:var(--text-secondary);font-size:.86rem">Extracted index of ${totalLinks} external primary sources, court dockets, statutes, and law reviews.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('refs')">External References →</button></div></div>
   </div>`;
@@ -7108,6 +7214,78 @@ function renderEUProducts(){
   });
 }
 
+
+/* ---- ISO/IEC 42001 AIMS ---- */
+function renderISO42001(){
+  const el=$("#v-iso42001");
+  if(!el||!DATA.iso42001) return;
+  const P=DATA.iso42001;
+  const tab=LS.get("isoTab","overview");
+  let h=`<h2 class="vh">ISO/IEC 42001</h2>
+  <p class="lead">${esc(P.oneLine)} ${esc(P.citation)} Study notes refreshed ${esc(P.updated)}. <b>Not legal advice.</b> The standard text is copyrighted; this page paraphrases structure and does not reproduce it.</p>
+  <div class="note danger"><b>Certificate is not model safety and not AI Act conformity.</b> 42001 audits the management system. It does not score a model, and it is not a harmonised standard under EU AI Act Article 40.</div>
+  <div class="ea-subnav">
+    <button class="ea-tab-btn ${tab==="overview"?"active":""}" data-isotab="overview">Overview</button>
+    <button class="ea-tab-btn ${tab==="clauses"?"active":""}" data-isotab="clauses">Clauses 4-10</button>
+    <button class="ea-tab-btn ${tab==="annex"?"active":""}" data-isotab="annex">Annex A</button>
+    <button class="ea-tab-btn ${tab==="family"?"active":""}" data-isotab="family">Related standards</button>
+    <button class="ea-tab-btn ${tab==="crosswalk"?"active":""}" data-isotab="crosswalk">NIST and EU</button>
+    <button class="ea-tab-btn ${tab==="path"?"active":""}" data-isotab="path">Certification path</button>
+    <button class="ea-tab-btn ${tab==="myths"?"active":""}" data-isotab="myths">Misreads</button>
+    <button class="ea-tab-btn ${tab==="sources"?"active":""}" data-isotab="sources">Sources</button>
+  </div>`;
+  if(tab==="overview"){
+    h+=`<div class="ea-card"><h3>What to remember before an architecture review</h3>
+      <div class="ea-grid">
+        <div class="ea-box"><h4>Management system, not a model score</h4><p style="color:var(--text-secondary);margin:0">Same Harmonized Structure as ISO/IEC 27001. The object of certification is the AIMS inside a defined scope and role (develop, provide, and/or use).</p></div>
+        <div class="ea-box"><h4>Two assessments, not one</h4><p style="color:var(--text-secondary);margin:0">Clause 6 asks for AI risk to the organisation and a separate AI system impact assessment (people and society). ISO/IEC 23894 and 42005 are the companion methods. NIST Map is a workable risk method, not a substitute for the impact assessment.</p></div>
+        <div class="ea-box"><h4>38 controls, none automatic</h4><p style="color:var(--text-secondary);margin:0">Annex A (A.2 through A.10) is a reference set. The Statement of Applicability records what you included, what you excluded, and why. Annex B is implementation guidance.</p></div>
+        <div class="ea-box"><h4>Europe adopted the text, not a duty to certify</h4><p style="color:var(--text-secondary);margin:0">CEN approved EN ISO/IEC 42001:2026 on 13 March 2026 with no change to the ISO text. National standards bodies must adopt it by September 2026. That obligation is on the standards bodies. Buyers may start asking for it. It still does not equal AI Act compliance.</p></div>
+      </div></div>`;
+  }
+  if(tab==="clauses"){
+    h+=`<div class="ea-card"><h3>Requirements</h3><p style="color:var(--text-secondary);font-size:.86rem">These clauses are not optional. An auditor certifies against them.</p><table class="ea-table"><thead><tr><th>Clause</th><th>Name</th><th>Architect reading</th></tr></thead><tbody>`;
+    P.clauses.forEach(c=>{ h+=`<tr><td><b>${esc(c.id)}</b></td><td>${esc(c.name)}</td><td>${esc(c.d)}</td></tr>`; });
+    h+=`</tbody></table></div>`;
+  }
+  if(tab==="annex"){
+    h+=`<div class="ea-card"><h3>Annex A reference objectives</h3><p style="color:var(--text-secondary);font-size:.86rem">Nine objectives, 38 controls, numbered A.2 through A.10 (there is no A.1). Themes below are study labels, not the standard's control wording.</p><table class="ea-table"><thead><tr><th>Objective</th><th>Name</th><th>What it organises</th></tr></thead><tbody>`;
+    P.annex.forEach(c=>{ h+=`<tr><td><b>${esc(c.id)}</b></td><td>${esc(c.name)}</td><td>${esc(c.theme)}</td></tr>`; });
+    h+=`</tbody></table></div>`;
+  }
+  if(tab==="family"){
+    h+=`<div class="ea-card"><h3>Standards that answer a 42001 clause</h3><table class="ea-table"><thead><tr><th>Document</th><th>Why it is on the shelf</th></tr></thead><tbody>`;
+    P.family.forEach(c=>{ h+=`<tr><td><b>${esc(c.std)}</b></td><td>${esc(c.role)}</td></tr>`; });
+    h+=`</tbody></table></div>`;
+  }
+  if(tab==="crosswalk"){
+    h+=`<div class="ea-card"><h3>Theme crosswalk, not a clause-for-article map</h3><p style="color:var(--text-secondary);font-size:.86rem">These instruments are different types. A row is a shared theme, not equivalence.</p><table class="ea-table"><thead><tr><th>Theme</th><th>ISO/IEC 42001</th><th>NIST AI RMF 1.0</th><th>EU AI Act</th></tr></thead><tbody>`;
+    P.crosswalk.forEach(r=>{ h+=`<tr><td><b>${esc(r.theme)}</b></td><td>${esc(r.iso)}</td><td>${esc(r.nist)}</td><td>${esc(r.eu)}</td></tr>`; });
+    h+=`</tbody></table></div>`;
+  }
+  if(tab==="path"){
+    h+=`<div class="ea-card"><h3>How certification actually runs</h3><div class="ea-grid">`;
+    P.path.forEach(s=>{ h+=`<div class="ea-box"><h4>${esc(s.n)}. ${esc(s.t)}</h4><p style="color:var(--text-secondary);margin:0">${esc(s.d)}</p></div>`; });
+    h+=`</div></div>`;
+  }
+  if(tab==="myths"){
+    h+=`<div class="ea-card"><h3>Claims that fail a counsel or auditor read</h3>`;
+    P.myths.forEach(m=>{
+      h+=`<div style="margin:0 0 1rem;padding:1rem;border:1px solid var(--border-color);border-radius:10px;background:var(--card-bg2)"><h4 style="margin:0 0 .4rem">${esc(m.claim)}</h4><p style="margin:0;color:var(--text-secondary)">${esc(m.fact)}</p></div>`;
+    });
+    h+=`</div>`;
+  }
+  if(tab==="sources"){
+    h+=`<div class="ea-card"><h3>Where to read next</h3><ul style="list-style:none;padding:0">`;
+    P.sources.forEach(s=>{ h+=`<li style="margin-bottom:.55rem"><a href="${esc(s.u)}" target="_blank" rel="noopener">${esc(s.t)}</a></li>`; });
+    h+=`</ul><p style="color:var(--text-dim);font-size:.8rem;margin-top:1rem">Buy the standard from ISO or your national body. Do not paste the paid text into a model.</p></div>`;
+  }
+  el.innerHTML=h;
+  Array.from(el.querySelectorAll(".ea-tab-btn")).forEach(btn=>{
+    btn.onclick=()=>{ LS.set("isoTab", btn.dataset.isotab); renderISO42001(); };
+  });
+}
+
 /* ---- EA Mapping (TOGAF, Zachman, DoDAF, Responsible AI) ---- */
 function renderEA(){
   const el=$("#v-ea");
@@ -7351,7 +7529,7 @@ function initTheme(){
 }
 
 /* ---- Init ---- */
-initTheme();renderDashboard();renderCurriculum();renderEUProducts();renderMap();renderFlash();renderQuiz();renderGlossary();renderPrompts();renderCounsel();renderEA();renderReferences();
+initTheme();renderDashboard();renderCurriculum();renderEUProducts();renderISO42001();renderMap();renderFlash();renderQuiz();renderGlossary();renderPrompts();renderCounsel();renderEA();renderReferences();
 loadShorts();
 (function restore(){const v=LS.get("view","dashboard");const b=$('#nav .nav-item[data-v="'+v+'"]');if(b&&v!=="dashboard")b.click();})();
 </script>
