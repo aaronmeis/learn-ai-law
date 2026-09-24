@@ -5138,7 +5138,7 @@ const EXPANDED_GLOSSARY = [
   {
     "category": "Regulatory",
     "term": "Article 50 Transparency",
-    "definition": "EU AI Act duty requiring deployers to inform natural persons whenever they interact with an AI system.",
+    "definition": "Scope: Enterprise-wide. EU AI Act duty requiring deployers to inform natural persons whenever they interact with an AI system, and covering marking of synthetic content. Attaches to systems and outputs, including enterprise-deployed generative tools. Not the GPAI model-level Code of Practice.",
     "rung": 200,
     "essential": true
   },
@@ -5174,7 +5174,7 @@ const EXPANDED_GLOSSARY = [
   {
     "category": "Regulatory",
     "term": "Systemic Risk GPAI",
-    "definition": "GPAI models trained using high compute (>10^25 FLOPs) subject to stricter audit and incident reporting rules.",
+    "definition": "Scope: Frontier-lab only. GPAI models trained above 10^25 FLOPs, subject to the Article 55 safety-and-security chapter. Distinct from high-risk system duties in Articles 9-15. Model-level serious incidents follow the GPAI Code or Commission template, not the Article 73 clock.",
     "rung": 300,
     "essential": false,
     "see_also": "GPAI Code of Practice; California SB 53 (TFAIA)"
@@ -5275,7 +5275,7 @@ const EXPANDED_GLOSSARY = [
   {
     "category": "Regulatory",
     "term": "NYC LL144",
-    "definition": "New York City law requiring annual independent bias audits for automated employment decision tools (AEDTs).",
+    "definition": "Scope: Enterprise-wide. New York City law requiring annual independent bias audits for automated employment decision tools (AEDTs). Regulates consequential employment decisions inside the enterprise, not foundation-model training.",
     "rung": 200,
     "essential": true
   },
@@ -5374,10 +5374,10 @@ const EXPANDED_GLOSSARY = [
   {
     "category": "Regulatory",
     "term": "CAISI (formerly AISI)",
-    "definition": "Center for AI Standards and Innovation. June 2025 rename of the U.S. AI Safety Institute inside NIST. Mission shifted toward national-security evaluations, voluntary standards, and U.S. competitiveness. Same institutional home as AISI; not a second agency.",
+    "definition": "Scope: Frontier-lab primary. Center for AI Standards and Innovation. June 2025 rename of the U.S. AI Safety Institute inside NIST. Mission shifted toward national-security evaluations, voluntary standards, and U.S. competitiveness. Same institutional home as AISI; not a second agency. Pre-deployment testing arrangements are lab-facing. NIST AI 600-1 remains the enterprise measurement overlay.",
     "rung": 200,
     "essential": true,
-    "see_also": "AI Safety Institute (AISI); NIST AI RMF 1.0"
+    "see_also": "NIST AI 600-1 (Generative AI Profile); NIST AI RMF 1.0"
   },
   {
     "category": "Regulatory",
@@ -5494,7 +5494,7 @@ const EXPANDED_GLOSSARY = [
   {
     "category": "Privacy",
     "term": "CPPA ADMT Rules",
-    "definition": "California Privacy Protection Agency rules governing Automated Decision-Making Technology notices and opt-outs.",
+    "definition": "Scope: Enterprise-wide. California Privacy Protection Agency rules governing Automated Decision-Making Technology notices and opt-outs. Regulates consequential decisions inside the enterprise, not foundation-model training.",
     "rung": 200,
     "essential": true
   },
@@ -5865,7 +5865,7 @@ const EXPANDED_GLOSSARY = [
   {
     "category": "Regulatory",
     "term": "GPAI Code of Practice",
-    "definition": "Voluntary Article 56 instrument published 10 July 2025. The Commission and AI Board treated it as an adequate demonstration tool for Articles 53 and 55 from 1 August 2025. Three chapters: Transparency, Copyright, and Safety & Security (systemic-risk models only). Signing is not a presumption of conformity; that status is reserved for harmonised standards. Non-signatories must show alternative adequate means.",
+    "definition": "Scope: Frontier-lab primary. Enterprise deployers only need to know whether their vendor signed, and to collect the downstream documentation pack. Voluntary Article 56 instrument published 10 July 2025. The Commission and AI Board treated it as an adequate demonstration tool for Articles 53 and 55 from 1 August 2025. Three chapters: Transparency, Copyright, and Safety & Security (systemic-risk models only). Signing is not a presumption of conformity; that status is reserved for harmonised standards. Non-signatories must show alternative adequate means.",
     "rung": 200,
     "essential": true,
     "see_also": "General Purpose AI (GPAI); Systemic Risk GPAI; EU AI Act (Reg 2024/1689)"
@@ -5873,7 +5873,7 @@ const EXPANDED_GLOSSARY = [
   {
     "category": "Regulatory",
     "term": "Code of Practice on Transparency of AI-generated Content",
-    "definition": "Separate voluntary code supporting Article 50 marking and labelling duties for generative systems. It is not the GPAI model-level Code of Practice. Article 50 applies from 2 August 2026. A limited grace period for pre-existing systems on Article 50(2) marking runs to 2 December 2026.",
+    "definition": "Scope: Enterprise-wide. Attaches to systems and outputs, including enterprise-deployed generative tools that mark or label content. Separate voluntary code supporting Article 50 marking and labelling duties for generative systems. It is not the GPAI model-level Code of Practice. Article 50 applies from 2 August 2026. A limited grace period for pre-existing systems on Article 50(2) marking runs to 2 December 2026.",
     "rung": 200,
     "essential": true,
     "see_also": "Article 50 Transparency; C2PA (Content Credentials)"
@@ -5905,7 +5905,7 @@ const EXPANDED_GLOSSARY = [
   {
     "category": "Regulatory",
     "term": "Article 53 GPAI Obligations",
-    "definition": "Baseline duties on GPAI model providers since 2 August 2025: technical documentation, downstream information, a Union-copyright policy, and a public training-content summary. Open-source models get partial relief but still owe the copyright policy and training summary.",
+    "definition": "Scope: Frontier-lab primary. Downstream providers of systems inherit documentation, not the full model-provider stack. Baseline duties on GPAI model providers since 2 August 2025: technical documentation, downstream information, a Union-copyright policy, and a public training-content summary. Open-source models get partial relief but still owe the copyright policy and training summary.",
     "rung": 200,
     "essential": true,
     "see_also": "General Purpose AI (GPAI); Training Content Summary; GPAI Code of Practice"
@@ -5913,7 +5913,7 @@ const EXPANDED_GLOSSARY = [
   {
     "category": "Regulatory",
     "term": "Authorized Representative (EU AI Act)",
-    "definition": "EU-established person mandated in writing by a non-EU provider of a high-risk system or GPAI model before placing it on the Union market. GPAI appointment duty applied from August 2025; high-risk systems follow the high-risk calendar. Open-source GPAI can be exempt from the representative duty.",
+    "definition": "Scope: Frontier-lab primary on the GPAI limb (non-EU model providers). The high-risk system representative is separate and is enterprise-relevant if you place a high-risk system on the Union market from outside the EU. EU-established person mandated in writing before that placement. GPAI appointment duty applied from August 2025; high-risk systems follow the high-risk calendar. Open-source GPAI can be exempt from the representative duty.",
     "rung": 200,
     "essential": true,
     "see_also": "Provider (EU AI Act); Importer (EU AI Act)"
@@ -5921,7 +5921,7 @@ const EXPANDED_GLOSSARY = [
   {
     "category": "Regulatory",
     "term": "Training Content Summary",
-    "definition": "Article 53 public overview of data used to train a GPAI model, using the Commission template (sources, large datasets, top domains, processing notes). Designed so rightholders can exercise Union copyright and related rights. It is not a full corpus dump.",
+    "definition": "Scope: Frontier-lab primary. The public summary is a model-provider publication duty. Enterprise counsel uses it for copyright diligence and does not author it. Article 53 overview of data used to train a GPAI model, using the Commission template (sources, large datasets, top domains, processing notes). Designed so rightholders can exercise Union copyright and related rights. It is not a full corpus dump.",
     "rung": 200,
     "essential": true,
     "see_also": "Article 53 GPAI Obligations; California AB 2013"
@@ -5929,7 +5929,7 @@ const EXPANDED_GLOSSARY = [
   {
     "category": "Regulatory",
     "term": "California SB 53 (TFAIA)",
-    "definition": "Transparency in Frontier Artificial Intelligence Act, signed 29 September 2025, with core duties from 1 January 2026. Covers frontier models trained above 10^26 FLOPs. Large frontier developers must publish a Frontier AI Framework and catastrophic-risk assessments. All frontier developers publish pre-deployment transparency reports. Critical safety incidents go to Cal OES within 15 days.",
+    "definition": "Scope: Frontier-lab only. Ordinary enterprise deployers are out of scope unless they train above 10^26 FLOPs. Transparency in Frontier Artificial Intelligence Act, signed 29 September 2025, with core duties from 1 January 2026. Large frontier developers must publish a Frontier AI Framework and catastrophic-risk assessments. All frontier developers publish pre-deployment transparency reports. Critical safety incidents go to Cal OES within 15 days, or within 24 hours if there is an imminent public threat. That clock is not EU Article 73 and not the New York RAISE 72-hour report.",
     "rung": 200,
     "essential": true,
     "see_also": "Systemic Risk GPAI; America's AI Action Plan"
@@ -5937,7 +5937,7 @@ const EXPANDED_GLOSSARY = [
   {
     "category": "Regulatory",
     "term": "California SB 942 (AI Transparency Act)",
-    "definition": "Covered generative-AI developers (generally over 1 million monthly users) must provide a free detection tool plus manifest and latent disclosures for synthetic image, video, and audio. Operative 2 August 2026 after AB 853 aligned the date. Platform and capture-device duties phase in 2027-2028. Complements AB 2013 training-data summaries rather than replacing them.",
+    "definition": "Scope: Enterprise-wide. Attaches to systems and outputs, including enterprise-deployed generative tools that mark or label content. Covered generative-AI developers (generally over 1 million monthly users) must provide a free detection tool plus manifest and latent disclosures for synthetic image, video, and audio. Operative 2 August 2026 after AB 853 aligned the date. Platform and capture-device duties phase in 2027-2028. Complements AB 2013 training-data summaries rather than replacing them.",
     "rung": 200,
     "essential": true,
     "see_also": "C2PA (Content Credentials); Article 50 Transparency; California AB 2013"
@@ -5945,7 +5945,7 @@ const EXPANDED_GLOSSARY = [
   {
     "category": "Regulatory",
     "term": "Colorado SB 26-189 (ADMT Act)",
-    "definition": "May 2026 repeal-and-replace of SB 24-205. Narrower automated-decision-making-technology regime for systems that materially influence consequential decisions. Substantive duties scheduled 1 January 2027. Keep SB 24-205 as a historical cross-reference. Do not treat February 2026 as the live Colorado date.",
+    "definition": "Scope: Enterprise-wide. Regulates consequential decisions inside the enterprise, not foundation-model training. May 2026 repeal-and-replace of SB 24-205. Narrower automated-decision-making-technology regime for systems that materially influence consequential decisions. Substantive duties scheduled 1 January 2027. Keep SB 24-205 as a historical cross-reference. Do not treat February 2026 as the live Colorado date.",
     "rung": 300,
     "essential": true,
     "see_also": "Colorado SB 24-205; CPPA ADMT Rules; Algorithmic Discrimination"
@@ -6109,6 +6109,86 @@ const EXPANDED_GLOSSARY = [
     "rung": 200,
     "essential": false,
     "see_also": "NYC LL144; EEOC Title VII Guidance; Illinois BIPA"
+  },
+  {
+    "category": "Regulatory",
+    "term": "Article 9 Risk Management System",
+    "definition": "Scope: High-risk systems only. Enterprise-wide if you are the provider. Not live 2026 enforcement: Annex III from 2 Dec 2027, Annex I from 2 Aug 2028. Continuous, iterative lifecycle process for a high-risk AI system: identify known and reasonably foreseeable risks to health, safety, and fundamental rights in intended use and reasonably foreseeable misuse; evaluate residual risk from post-market monitoring (Art. 72); adopt targeted measures; test before placing on the market. Covers only risks that design or technical information can reasonably mitigate. Not the GPAI Art. 55 systemic-risk process and not ISO/IEC 23894 by itself.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "ISO/IEC 23894; ISO/IEC 42001 (AIMS); Annex III High-Risk Tiers"
+  },
+  {
+    "category": "Regulatory",
+    "term": "Article 15 Accuracy, Robustness and Cybersecurity",
+    "definition": "Scope: High-risk systems only. Enterprise-wide if you are the provider. Not live 2026 enforcement: Annex III from 2 Dec 2027, Annex I from 2 Aug 2028. High-risk systems must achieve an appropriate level of accuracy, robustness, and cybersecurity and hold it across the lifecycle. Accuracy levels and metrics must be declared in the instructions for use. Robustness includes errors, faults, environmental inconsistency, fail-safes, and feedback-loop control for systems that keep learning after release. Cybersecurity must address data poisoning, model poisoning, adversarial examples, and confidentiality attacks.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "Instructions for Use (Art. 13); Model Drift; Data Poisoning; Hallucination Rate"
+  },
+  {
+    "category": "Regulatory",
+    "term": "Instructions for Use (Art. 13)",
+    "definition": "Scope: High-risk systems only. Enterprise-wide: the provider writes the packet and the deployer operates from it. Not live 2026 enforcement: Annex III from 2 Dec 2027, Annex I from 2 Aug 2028. Mandatory digital or other packet that ships with a high-risk system: provider identity, intended purpose, capabilities and limits, Art. 15 accuracy metrics, known circumstances that degrade performance, human-oversight measures, and the incident-reporting channel. Deployer Art. 26 duties are measured against this document. If the instructions are wrong, both design and operational compliance fail.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "Article 14 Human Oversight; Article 26 Deployer Obligations; Article 15 Accuracy, Robustness and Cybersecurity"
+  },
+  {
+    "category": "Regulatory",
+    "term": "Serious Incident (Art. 3(49) / Art. 73)",
+    "definition": "Scope: High-risk systems only. Enterprise-wide for providers; deployers start the clock. Not live 2026 enforcement: Annex III from 2 Dec 2027, Annex I from 2 Aug 2028. An incident or malfunction that directly or indirectly leads to death or serious harm to health, a serious and irreversible disruption of critical infrastructure, infringement of obligations under Union law intended to protect fundamental rights, or serious harm to property or the environment. The provider reports to the market-surveillance authority of the Member State where it occurred. Default clock: immediately, and in any event within 15 days of awareness. Death: 10 days. Widespread infringement or irreversible critical-infrastructure disruption: 2 days. The deployer tells the provider first; if the provider is unreachable, Art. 73 applies to the deployer. Do not use this clock for California SB 53, New York RAISE, or GPAI Art. 55 model incidents.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "Market Surveillance Authority; Notified Body; Instructions for Use (Art. 13)"
+  },
+  {
+    "category": "Regulatory",
+    "term": "Notified Body",
+    "definition": "Scope: High-risk systems only. Enterprise-wide only if your conformity route is third-party. Conformity-assessment body designated under AI Act Chapter III, Section 4, to audit high-risk systems that cannot use self-assessment. Issues the certificate the provider needs before CE marking. Governs the auditor, not the model. Most Annex III systems still self-assess unless they are biometric identification or otherwise pulled into third-party assessment. Annex I product-safety AI follows the sectoral notified-body path.",
+    "rung": 200,
+    "essential": false,
+    "see_also": "Conformity Assessment; CE Marking for AI; ISO/IEC 42006"
+  },
+  {
+    "category": "Regulatory",
+    "term": "Market Surveillance Authority",
+    "definition": "Scope: Enterprise-wide for high-risk systems. GPAI models are enforced by the Commission and the AI Office, not by this authority. National authority applying Regulation (EU) 2019/1020 to AI systems on that Member State's market (Art. 74). Receives Art. 73 incident reports, must act within seven days, and can require withdrawal or corrective action. Do not confuse with the EU AI Office, which owns GPAI model enforcement.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "EU AI Office; Serious Incident (Art. 3(49) / Art. 73); Administrative Enforcement Order"
+  },
+  {
+    "category": "Responsible AI",
+    "term": "ISO/IEC TS 6254:2025",
+    "definition": "Scope: Enterprise-wide. Technical specification, not a certifiable standard, on objectives and methods for explainability and interpretability of machine-learning models and AI systems across the ISO/IEC 22989 life cycle. The engineering companion to explainable AI and to Art. 13 technical capabilities to explain outputs. Does not create a presumption of AI Act conformity.",
+    "rung": 200,
+    "essential": false,
+    "see_also": "Explainable AI (XAI); ISO/IEC 22989; ISO/IEC 12792:2025; Right to Explanation"
+  },
+  {
+    "category": "Responsible AI",
+    "term": "ISO/IEC 5259 (Data Quality series)",
+    "definition": "Scope: Enterprise-wide. Five-part SC 42 series on data quality for analytics and machine learning: 5259-1 concepts and data life cycle (2024), 5259-2 quality measures, 5259-3 management requirements, 5259-4 process framework including labelling, and 5259-5:2025 governance framework for the governing body. The usual mapping target for Art. 10 data-governance claims, RAG corpora, and representative-data statements in instructions for use. Pair with ISO/IEC 8183. Do not treat them as duplicates.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "ISO/IEC 8183:2023; Model Lineage; Disparate Impact Audit; Article 10 Data Governance"
+  },
+  {
+    "category": "Regulatory",
+    "term": "Article 10 Data Governance",
+    "definition": "Scope: High-risk systems only. Enterprise-wide if you are the provider. Not live 2026 enforcement: Annex III from 2 Dec 2027, Annex I from 2 Aug 2028. The high-risk data-governance duty. Map representative-data claims, RAG corpora, and lineage to ISO/IEC 5259 and ISO/IEC 8183. This card does not restate the article text.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "ISO/IEC 5259 (Data Quality series); ISO/IEC 8183:2023; Model Lineage"
+  },
+  {
+    "category": "Regulatory",
+    "term": "New York RAISE Act",
+    "definition": "Scope: Frontier-lab only. Ordinary enterprise users of those models have no deployer duties. Responsible AI Safety and Education Act. Signed December 2025 and chapter-amended March 2026 to track California SB 53 definitions. Takes effect 1 Jan 2027. Large frontier developers begin state registration in November 2026. Covers frontier models trained above 10^26 FLOPs. Large frontier developers are those with more than $500 million prior-year gross revenue. Duties: publish a Frontier AI Framework, report critical safety incidents to DFS or DIGIT within 72 hours, and file quarterly catastrophic-risk assessments. Civil penalties were scaled back in the chapter amendment; use the amended $1 million and $3 million caps, not the original $10 million and $30 million draft. A bank using a vendor model does not owe this 72-hour report unless it is itself a large frontier developer.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "California SB 53 (TFAIA); Systemic Risk GPAI; CAISI (formerly AISI)"
   }
 ];
 
@@ -6469,29 +6549,29 @@ const DATA = {
     togaf: [
       {phase: "Phase A: Architecture Vision", t: "AI Legal Risk Framing and Governance Principles", items: ["Align AI deployment goals with corporate risk policy.", "Establish core rules: no confidential text or unvetted data in public models.", "Identify applicable legal jurisdictions (US Federal, State, EU AI Act, FY2026 NDAA for DOD-facing work).", "For defense pathways, frame advanced/agentic AI against NSCAI strategy + NDAA §1535 Futures Committee expectations."]},
       {phase: "Phase B: Business Architecture", t: "Role Scoping and Process Compliance", items: ["Define legal role: Provider vs. Deployer (EU AI Act); Controller vs. Processor (GDPR).", "Establish Human-in-The-Loop (HITL) review workflows for high-risk decisions.", "Publish acceptable-use policies (AUP) and internal usage rules.", "Map DOD-facing model evaluation workflows to NDAA §1533 assessment/oversight duties."]},
-      {phase: "Phase C: Information Systems Architecture", t: "Data Lineage and IP Asset Classification", items: ["Data Architecture: Audit training datasets, RAG vector stores, and prompt trade secret protections.", "Application Architecture: Verify zero-data-retention (ZDR) API settings and sub-processor DPAs.", "Set up data subject opt-out controls and automated decision disclosures.", "Tag model-vendor provenance for NDAA §1532 covered-AI screening (DeepSeek / High Flyer / covered nations)."]},
+      {phase: "Phase C: Information Systems Architecture", t: "Data Lineage and IP Asset Classification", items: ["Data Architecture: Audit training datasets, RAG vector stores, and prompt trade secret protections.", "Application Architecture: Verify zero-data-retention (ZDR) API settings and sub-processor DPAs.", "Set up data subject opt-out controls and automated decision disclosures.", "Tag model-vendor provenance for NDAA Sec. 1532 covered-AI screening (DeepSeek / High Flyer / covered nations).", "ISO/IEC 5259 and ISO/IEC 8183 map lineage, RAG stores, and Art. 10 data-governance claims. They are not duplicates."]},
       {phase: "Phase D: Technology Architecture", t: "Model Infrastructure and Security Controls", items: ["Check open-weight model licenses (OSAID 1.0, Llama 4) for commercial limits.", "Deploy content filtering guardrails to maintain IP indemnity eligibility.", "Log model telemetry and inference history for Article 11 technical documentation.", "For DOD work: route prototypes through §1534 AI sandboxes; apply §1512 AI/ML cybersecurity controls (poisoning, jailbreaks, unauthorized access)."]},
-      {phase: "Phase G: Architecture Governance", t: "Contract Enforcement and Continuous Oversight", items: ["Execute Common Paper or Bonterms AI Contract Addenda with cloud vendors.", "Conduct annual algorithmic bias audits for hiring and lending tools.", "Maintain an active litigation tracker to adjust vendor indemnification caps.", "Track NDAA §1535 Futures Committee / advanced-AI governance gates for agentic workflows on defense programs."]}
+      {phase: "Phase G: Architecture Governance", t: "Contract Enforcement and Continuous Oversight", items: ["Execute Common Paper or Bonterms AI Contract Addenda with cloud vendors.", "Conduct annual algorithmic bias audits for hiring and lending tools.", "Maintain an active litigation tracker to adjust vendor indemnification caps.", "Track NDAA Sec. 1535 Futures Committee / advanced-AI governance gates for agentic workflows on defense programs.", "Art. 9 risk management for a high-risk system lands here, with ISO/IEC 23894 and ISO/IEC 42001 clause 6.1. Not the GPAI Art. 55 process. Not live until 2 Dec 2027 (Annex III) or 2 Aug 2028 (Annex I)."]},
     ],
     zachman: [
       {col: "Column 1: WHAT (Data)", t: "Data Lineage, IP Rights, and RAG Corpora", items: ["Copyrighted training inputs vs. licensed datasets.", "Trade secret protection for system prompts and model weights.", "Customer data retention rules and DPA deletion schedules.", "Model weight / vendor provenance tags for NDAA §1532 covered-AI checks."]},
-      {col: "Column 2: HOW (Function)", t: "Algorithms, Profiling, and Decision Logic", items: ["Automated decision logic (GDPR Art. 22, CPPA ADMT).", "Content moderation and guardrail filtering.", "Adverse action notice generation (ECOA, Regulation B).", "DOD model assessment / eval harness rules under NDAA §1533."]},
+      {col: "Column 2: HOW (Function)", t: "Algorithms, Profiling, and Decision Logic", items: ["Automated decision logic (GDPR Art. 22, CPPA ADMT).", "Content moderation and guardrail filtering.", "Adverse action notice generation (ECOA, Regulation B).", "DOD model assessment / eval harness rules under NDAA Sec. 1533.", "Art. 15 accuracy, robustness, and cybersecurity metrics belong in the model transparency register and in the SLA accuracy representations. High-risk systems only, and not live in 2026."]},
       {col: "Column 3: WHERE (Network)", t: "Data Residency and Cross-Border Flows", items: ["Data transfers (EU-US Data Privacy Framework).", "Regional API routing for GDPR and state privacy compliance.", "On-premises vs. cloud model hosting boundaries.", "Isolated §1534 AI sandbox enclaves vs production networks for defense experimentation."]},
       {col: "Column 4: WHO (People)", t: "Authorship, Roles, and Governance Liaisons", items: ["Human authorship rules for copyright (Thaler v. Perlmutter).", "Provider vs. Deployer accountability assignment.", "Architect to legal counsel liaison workflow.", "DOD AI Futures Steering Committee / CAIO escalation for advanced and agentic AI."]},
-      {col: "Column 5: WHEN (Time)", t: "Regulatory Dates and Deprecation Windows", items: ["Compliance timelines (EU AI Act phased enforcement dates).", "Vendor model deprecation notice windows (SLA terms).", "Data retention and deletion schedules under DPAs.", "NDAA §1535 stand-up (by Apr 1, 2026) and report (by Jan 31, 2027) milestones."]},
-      {col: "Column 6: WHY (Motivation)", t: "Legal Frameworks and Contract Rules", items: ["Statutory mandates (EU AI Act, State AI Acts, FTC Act § 5, FY2026 NDAA §§1532–1535).", "Contractual risk allocation (Indemnities, Liability limits, Warranties).", "Corporate risk policy and ethical AI guidelines.", "NSCAI Final Report (2021) national-security AI strategy backdrop for defense adoption."]}
+      {col: "Column 5: WHEN (Time)", t: "Regulatory Dates and Deprecation Windows", items: ["Compliance timelines (EU AI Act phased enforcement dates).", "Vendor model deprecation notice windows (SLA terms).", "Data retention and deletion schedules under DPAs.", "NDAA Sec. 1535 stand-up (by Apr 1, 2026) and report (by Jan 31, 2027) milestones.", "Keep incident clocks separate. Art. 73 high-risk systems: 15 days, 10 if death, 2 if widespread or irreversible critical-infrastructure harm. California SB 53 frontier developers: 15 days, or 24 hours if an imminent public threat. New York RAISE large frontier developers: 72 hours. GPAI Art. 55 follows the Code, not Art. 73."]},
+      {col: "Column 6: WHY (Motivation)", t: "Legal Frameworks and Contract Rules", items: ["Statutory mandates (EU AI Act, State AI Acts, FTC Act Sec. 5, FY2026 NDAA Sec. 1532-1535).", "Contractual risk allocation (Indemnities, Liability limits, Warranties).", "Corporate risk policy and ethical AI guidelines.", "NSCAI Final Report (2021) national-security AI strategy backdrop for defense adoption.", "Art. 13 instructions for use sit with the contract acceptable-use pack. The provider writes them. Deployer Art. 26 duties are measured against them."]}
     ],
     dodaf: [
       {view: "All Viewpoint (AV-1 / AV-2)", t: "Executive AI Vision and Dictionary", items: ["AV-1: High-level AI Architecture Vision and legal risk boundaries, including NDAA defense AI scope.", "AV-2: Integrated Dictionary of AI Legal Terms (includes National Security glossary section).", "AV-1 also carries NSCAI strategy themes (readiness, competition, justified confidence) for long-range planning."]},
       {view: "Operational Viewpoint (OV-1 / OV-3 / OV-6a)", t: "Operational Workflows and Compliance Nodes", items: ["OV-1: Concept of Operations (CONOPS) for AI workflows, including sandbox-to-production handoff (§1534).", "OV-3: Resource Flow Matrix for customer data vs. vendor APIs.", "OV-6a: Operational Rule Model embedding regulatory compliance rules, including §1533 assessment gates and §1532 covered-AI prohibitions."]},
       {view: "Data & Information Viewpoint (DIV-1 / DIV-2)", t: "Data Lineage and IP Metadata Tagging", items: ["DIV-1: Conceptual Data Model classifying Public, Internal, PII, and IP assets.", "DIV-2: Logical Data Model tracking RAG vector provenance, trade secret tags, and covered-AI vendor lineage (§1532)."]},
-      {view: "Standards Viewpoint (StdV-1 / StdV-2)", t: "Regulatory and Contractual Standards", items: ["StdV-1: Technical and Legal Standards Profile (NIST AI RMF, ISO/IEC 42001, EU AI Act, FY2026 NDAA §§1512–1535).", "StdV-2: Standards Forecast tracking litigation, AI legislation, and Futures Committee advanced/agentic AI guidance."]}
+      {view: "Standards Viewpoint (StdV-1 / StdV-2)", t: "Regulatory and Contractual Standards", items: ["StdV-1: Technical and Legal Standards Profile (NIST AI RMF, ISO/IEC 42001, EU AI Act, FY2026 NDAA Sec. 1512-1535).", "StdV-1 also names authority objects, not engineering controls: the notified body (third-party conformity) and the market surveillance authority (Art. 73 and Art. 74).", "StdV-2: Standards Forecast tracking litigation, AI legislation, and Futures Committee advanced/agentic AI guidance.", "Keep New York RAISE on the same shelf as California SB 53, NDAA covered AI, and GPAI Art. 55. It is not an enterprise-wide deployer duty."]}
     ],
     rai: [
       {pillar: "GOVERN", t: "NIST AI RMF 1.0 & ISO 42001 Governance", items: ["Plug-in Point: TOGAF Phase A/G, Zachman Col 6 (Why).", "Sets corporate AI risk tolerance, ethical rules, and accountability.", "Integrates executive oversight with vendor AI addenda (Common Paper/Bonterms).", "For defense: align with NDAA §1535 Futures Committee and NSCAI justified-confidence / democratic-values themes."]},
       {pillar: "MAP", t: "System Categorization & Legal Context", items: ["Plug-in Point: TOGAF Phase B/C, Zachman Col 1 (What) / Col 3 (Where).", "Maps data flows against EU AI Act risk tiers (Prohibited, High-Risk, Limited).", "Identifies sub-processor DPA obligations and cross-border data rules.", "Maps DOD-facing models against §1532 covered-AI criteria and §1534 sandbox placement."]},
       {pillar: "MEASURE", t: "Algorithmic Bias, Safety & Red-Teaming", items: ["Plug-in Point: TOGAF Phase C/D, Zachman Col 2 (How), DoDAF OV-6a.", "Audits models for disparate impact under EEOC and NYC LL144 rules.", "Executes automated red-teaming for toxicity, hallucinations, and IP leakage.", "Supports §1533 performance/security testing and §1512 AI/ML cybersecurity evaluations."]},
-      {pillar: "MANAGE", t: "Ongoing Risk Mitigation & Explainability", items: ["Plug-in Point: TOGAF Phase G, Zachman Col 5 (When), DoDAF SV-1.", "Deploys real-time guardrails and adverse action explainability logs (ECOA/Reg B).", "Establishes model rollback protocols and vendor deprecation windows.", "Keeps agentic/advanced AI under §1535 governance review before production expansion."]}
+      {pillar: "MANAGE", t: "Ongoing Risk Mitigation & Explainability", items: ["Plug-in Point: TOGAF Phase G, Zachman Col 5 (When), DoDAF SV-1.", "Deploys real-time guardrails and adverse action explainability logs (ECOA/Reg B).", "Establishes model rollback protocols and vendor deprecation windows.", "Keeps agentic/advanced AI under NDAA Sec. 1535 governance review before production expansion.", "Art. 73 is a runbook plus the provider contact already named in the instructions for use. Do not invent a separate severity taxonomy.", "ISO/IEC TS 6254 is the explainability method next to XAI and GDPR Art. 22. It is not a presumption of AI Act conformity."]}
     ]
   },
 
