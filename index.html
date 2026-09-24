@@ -498,6 +498,7 @@
     <li class="nav-item" data-v="iso22989"><span class="ni-ic">▪</span>ISO 22989</li>
     <li class="nav-item" data-v="stdmap"><span class="ni-ic">▪</span>Standards map</li>
     <li class="nav-item" data-v="nistmeasure"><span class="ni-ic">▪</span>Measure &amp; TEVV</li>
+    <li class="nav-item" data-v="securityrmf"><span class="ni-ic">▪</span>Security RMF</li>
     <li class="nav-item" data-v="map"><span class="ni-ic">▪</span>Progress map</li>
     <li class="nav-item" data-v="flash"><span class="ni-ic">▪</span>Flashcards</li>
     <li class="nav-item" data-v="shorts"><span class="ni-ic">▪</span>Shorts</li>
@@ -533,6 +534,7 @@
   <section class="view" id="v-iso22989"></section>
   <section class="view" id="v-stdmap"></section>
   <section class="view" id="v-nistmeasure"></section>
+  <section class="view" id="v-securityrmf"></section>
   <section class="view" id="v-map"></section>
   <section class="view" id="v-flash"></section>
   <section class="view" id="v-shorts"></section>
@@ -562,6 +564,10 @@ const EXTERNAL_REFS = {
     {"url":"https://www.iso.org/obp/ui/en/#iso:std:iso-iec:23894:ed-1:v1:en","anchor":"ISO/IEC 23894:2023 — Online Browsing Platform","sources":["iso-42001 study view"]},
     {"url":"https://www.nist.gov/itl/ai-risk-management-framework","anchor":"NIST AI RMF 1.0","sources":["iso-42001 study view"]},
     {"url":"https://doi.org/10.6028/NIST.AI.100-1","anchor":"NIST AI 100-1 (AI RMF 1.0), including Measure and TEVV","sources":["nist measure study view"]},
+    {"url":"https://csrc.nist.gov/pubs/sp/800/37/r2/final","anchor":"NIST SP 800-37 Rev. 2, security Risk Management Framework","sources":["security rmf study view"]},
+    {"url":"https://csrc.nist.gov/pubs/sp/800/53/r5/final","anchor":"NIST SP 800-53 Rev. 5 control catalog","sources":["security rmf study view"]},
+    {"url":"https://www.cyber.mil/stigs/","anchor":"DISA STIGs and SRGs","sources":["security rmf study view"]},
+    {"url":"https://aaronmeis.github.io/stig-nist-viewer/","anchor":"STIG and NIST viewer (study map, not official guidance)","sources":["security rmf study view"]},
     {"url":"https://www.nist.gov/ai-test-evaluation-validation-and-verification-tevv","anchor":"NIST AI TEVV program","sources":["nist measure study view"]},
     {"url":"https://www.iso.org/obp/ui/en/#iso:std:iso-iec:22989:ed-1:v1:en","anchor":"ISO/IEC 22989:2022 — free Online Browsing Platform text","sources":["iso-22989 study view"]}
   ],
@@ -4241,10 +4247,10 @@ const EXPANDED_GLOSSARY = [
   {
     "category": "Responsible AI",
     "term": "NIST AI RMF 1.0",
-    "definition": "NIST AI Risk Management Framework establishing 4 core functions: GOVERN, MAP, MEASURE, and MANAGE for trustworthy AI systems.",
+    "definition": "NIST AI Risk Management Framework (NIST AI 100-1). Four functions: Govern, Map, Measure, and Manage. Voluntary guidance for AI risk. Not the security Risk Management Framework in NIST SP 800-37, and not an authorization to operate.",
     "rung": 200,
     "essential": true,
-    "see_also": "NIST AI RMF MEASURE; TEVV; ISO/IEC 42001; NIST AI 600-1 (Generative AI Profile)"
+    "see_also": "NIST AI RMF MEASURE; TEVV; NIST RMF (SP 800-37); ISO/IEC 42001; NIST AI 600-1 (Generative AI Profile)"
   },
   {
     "category": "Responsible AI",
@@ -4260,7 +4266,55 @@ const EXPANDED_GLOSSARY = [
     "definition": "Test, evaluation, verification, and validation. In NIST AI RMF 1.0 this is work across the lifecycle, not a fifth function next to Govern, Map, Measure, and Manage. Appendix A splits the tasks by design, development, deployment, and operations, and says the people who verify and validate should ideally not be the people who test and evaluate. Measure is complete when those processes are in place, followed, and documented. AI 100-1 quotes ISO 9000 for validation only. It does not define the four words one by one.",
     "rung": 200,
     "essential": true,
-    "see_also": "NIST AI RMF MEASURE; NIST AI RMF 1.0"
+    "see_also": "NIST AI RMF MEASURE; NIST AI RMF 1.0; NIST RMF (SP 800-37)"
+  },
+  {
+    "category": "National Security",
+    "term": "NIST RMF (SP 800-37)",
+    "definition": "Security Risk Management Framework in NIST SP 800-37. Seven steps: prepare, categorize, select, implement, assess, authorize, and monitor. This is how a federal or DoD system reaches an authorization to operate. It is not NIST AI RMF 1.0, which uses Govern, Map, Measure, and Manage and does not authorize a system.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "NIST SP 800-53; DISA STIG; ATO and cATO; NIST AI RMF 1.0"
+  },
+  {
+    "category": "National Security",
+    "term": "NIST SP 800-53",
+    "definition": "Security and privacy control catalog, Revision 5, organized in 20 families. Controls are selected in the RMF Select step. A DISA STIG is a product baseline drawn from this catalog. The catalog is not the EU AI Act and not ISO/IEC 42001 Annex A.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "NIST RMF (SP 800-37); DISA STIG"
+  },
+  {
+    "category": "National Security",
+    "term": "DISA STIG",
+    "definition": "Security Technical Implementation Guide. A DISA baseline for a specific product, such as an operating system, Kubernetes, or a container platform. An SRG is the requirements guide behind a STIG. A passing STIG scan is not a NIST AI RMF Measure result.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "NIST SP 800-53; NIST RMF (SP 800-37); ATO and cATO"
+  },
+  {
+    "category": "National Security",
+    "term": "ATO and cATO",
+    "definition": "Authorization to Operate. The authorizing official decides the security risk is acceptable. Continuous ATO, often written cATO, supports that decision with ongoing automated evidence instead of a binder built once a year. It does not remove the official, and it is not an ISO/IEC 42001 certificate.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "NIST RMF (SP 800-37); DISA STIG; ISO/IEC 42001 (AIMS)"
+  },
+  {
+    "category": "Enterprise Architecture",
+    "term": "SBOM",
+    "definition": "Software bill of materials. An inventory of the components in a package, container image, or library stack. On a DoD-facing AI system, ask for an SBOM and for an AI bill of materials. An SBOM does not decide whether a model is covered AI under NDAA Sec. 1532.",
+    "rung": 200,
+    "essential": false,
+    "see_also": "AI Bill of Materials (AIBOM); DISA STIG; Covered AI System (NDAA Sec. 1532)"
+  },
+  {
+    "category": "National Security",
+    "term": "DoD Zero Trust",
+    "definition": "DoD design lens with seven pillars: user, device, application and workload, data, network and environment, automation and orchestration, and visibility and analytics. It arranges controls. It is not a statute and it does not replace the RMF authorization decision.",
+    "rung": 200,
+    "essential": false,
+    "see_also": "NIST RMF (SP 800-37); NIST SP 800-53"
   },
   {
     "category": "Responsible AI",
@@ -6058,7 +6112,7 @@ const EXPANDED_GLOSSARY = [
     "definition": "Inventory of model weights, datasets, adapters, eval suites, guardrails, MCP servers, and licenses for a deployed system. The architecture artifact that makes model lineage and the model transparency register procurable.",
     "rung": 200,
     "essential": false,
-    "see_also": "Model Lineage; Model Transparency Register; OSAID 1.0"
+    "see_also": "SBOM; Model Lineage; Model Transparency Register; OSAID 1.0"
   },
   {
     "category": "Enterprise Architecture",
@@ -6374,7 +6428,7 @@ const DATA = {
        {t:"Defense AI statute: FY2026 NDAA (P.L. 119-60) Secs. 1532–1535 + CRS IF13197; NSCAI Final Report (2021)",rl:"National Security · 200",
         action:"Inventory model provenance for DOD-facing work and map Secs. 1532–1535 duties (covered AI ban, assessment team, sandboxes, Futures Committee).",
         lookLike:"<b>What Does This Look Like in Practice? (NDAA Defense AI Compliance Checklist)</b><pre>Sec. 1532 Covered AI: Model vendor / weight lineage screened for DeepSeek, High Flyer, and covered-nation ties [PASS / WAIVER NEEDED]\nSec. 1533 Oversight: Model cards + eval harness aligned to DOD ethical-AI principles [IN PROGRESS]\nSec. 1534 Sandbox: Prototype runs only in isolated enclave before production ATO [REQUIRED]\nSec. 1535 Futures: Agentic workflow flagged for advanced-AI governance review [ESCALATE]</pre>",
-        whyMatters:"There is still no civilian US AI Act, but the NDAA already imposes hard defense AI rules. Contractors hosting or integrating models for DOD need provenance controls and sandboxable test paths."},
+        whyMatters:"There is still no civilian US AI Act, but the NDAA already imposes hard defense AI rules. Contractors hosting or integrating models for DOD need provenance controls and sandboxable test paths. A sandbox is not an authorization to operate. Production uses the security RMF in NIST SP 800-37. Open the Security RMF view. The STIG viewer is a lab map, not the authorization package."},
        {t:"US enforcement: FTC actions (Rite Aid, Rytr, Operation AI Comply) and state preemption debates",rl:"Regulatory · 300",
         action:"Audit marketing copy and system prompt claims against FTC Section 5 deceptive practice standards.",
         lookLike:"<b>What Does This Look Like in Practice? (FTC Section 5 Audit Review)</b><pre>Audit Object: External Web Landing Page Claim: '100% Error-Free Autonomous Legal Contracting'\nFinding: Deceptive claim under FTC Act Sec. 5 (Probabilistic LLMs produce hallucinations)\nCorrection: 'AI-Assisted Contract Drafting Tool - Subject to Mandatory Human Attorney Review'</pre>",
@@ -6423,8 +6477,8 @@ const DATA = {
         action:"Audit clinical decision support algorithms for HHS Section 1557 non-discrimination compliance.",
         lookLike:"<b>What Does This Look Like in Practice? (HHS Sec. 1557 Non-Discrimination Audit Log)</b><pre>Clinical Model: Sepsis Risk Score Generator\nData Hygiene: Stripped race/ethnicity proxy variables from training inputs\nValidation: Independent clinical trial verified equal sensitivity across demographic cohorts</pre>",
         whyMatters:"Clinical decision tools must prevent bias and protect patient health information (PHI)."},
-       {t:"Synthesis: Samuelson on remedies, NIST RMF Map/Measure integration, layered IP strategy",rl:"synthesis · 300",
-        action:"Build a unified Enterprise AI Architecture Blueprint integrating TOGAF, NIST RMF, and contract terms.",
+       {t:"Synthesis: Samuelson on remedies, NIST AI RMF Map and Measure, layered IP strategy",rl:"synthesis · 300",
+        action:"Build a unified Enterprise AI Architecture Blueprint integrating TOGAF, NIST AI RMF, and contract terms. Keep NIST SP 800-37 as the security authorization path. Do not merge the two RMFs.",
         lookLike:"<b>What Does This Look Like in Practice? (Master Enterprise Governance Blueprint)</b><pre>Layer 1 (Contractual): Executed Common Paper Addendum + ZDR Cloud API\nLayer 2 (IP Protection): Trade Secret Vault for System Prompts + Human Contribution Log\nLayer 3 (Regulatory): NIST AI RMF Measure 2.11 fairness evaluation, with Measure 2.1 recording the test sets and tools + Article 50 Disclosures</pre>",
         whyMatters:"Combines IP protection, trade secrets, regulatory compliance, and Responsible AI audits into one architecture plan."},
        {t:"Capstone: issue-spotter exam, contract redline memo, mock counsel meeting",rl:"capstone · 300",
@@ -6595,7 +6649,7 @@ const DATA = {
       {view: "All Viewpoint (AV-1 / AV-2)", t: "Executive AI Vision and Dictionary", items: ["AV-1: High-level AI Architecture Vision and legal risk boundaries, including NDAA defense AI scope.", "AV-2: Integrated Dictionary of AI Legal Terms (includes National Security glossary section).", "AV-1 also carries NSCAI strategy themes (readiness, competition, justified confidence) for long-range planning."]},
       {view: "Operational Viewpoint (OV-1 / OV-3 / OV-6a)", t: "Operational Workflows and Compliance Nodes", items: ["OV-1: Concept of Operations (CONOPS) for AI workflows, including sandbox-to-production handoff (Sec. 1534).", "OV-3: Resource Flow Matrix for customer data vs. vendor APIs.", "OV-6a: Operational Rule Model embedding regulatory compliance rules, including Sec. 1533 assessment gates and Sec. 1532 covered-AI prohibitions."]},
       {view: "Data & Information Viewpoint (DIV-1 / DIV-2)", t: "Data Lineage and IP Metadata Tagging", items: ["DIV-1: Conceptual Data Model classifying Public, Internal, PII, and IP assets.", "DIV-2: Logical Data Model tracking RAG vector provenance, trade secret tags, and covered-AI vendor lineage (Sec. 1532)."]},
-      {view: "Standards Viewpoint (StdV-1 / StdV-2)", t: "Regulatory and Contractual Standards", items: ["StdV-1: Technical and Legal Standards Profile (NIST AI RMF, ISO/IEC 42001, EU AI Act, FY2026 NDAA Sec. 1512-1535).", "StdV-1 also names authority objects, not engineering controls: the notified body (third-party conformity) and the market surveillance authority (Art. 73 and Art. 74).", "StdV-2: Standards Forecast tracking litigation, AI legislation, and Futures Committee advanced/agentic AI guidance.", "Keep New York RAISE on the same shelf as California SB 53, NDAA covered AI, and GPAI Art. 55. It is not an enterprise-wide deployer duty."]}
+      {view: "Standards Viewpoint (StdV-1 / StdV-2)", t: "Regulatory and Contractual Standards", items: ["StdV-1: Technical and Legal Standards Profile (NIST AI RMF, ISO/IEC 42001, EU AI Act, FY2026 NDAA Sec. 1512-1535).", "StdV-1 also separates the security RMF: SP 800-37 authorizes the system, SP 800-53 is the catalog, and a STIG hardens the product. None of those is an AI RMF function.", "StdV-1 also names authority objects, not engineering controls: the notified body (third-party conformity) and the market surveillance authority (Art. 73 and Art. 74).", "StdV-2: Standards Forecast tracking litigation, AI legislation, and Futures Committee advanced/agentic AI guidance.", "Keep New York RAISE on the same shelf as California SB 53, NDAA covered AI, and GPAI Art. 55. It is not an enterprise-wide deployer duty."]}
     ],
     rai: [
       {pillar: "GOVERN", t: "NIST AI RMF 1.0 & ISO 42001 Governance", items: ["Plug-in Point: TOGAF Phase A/G, Zachman Col 6 (Why).", "Sets corporate AI risk tolerance, ethical rules, and accountability.", "Integrates executive oversight with vendor AI addenda (Common Paper/Bonterms).", "For defense: align with NDAA Sec. 1535 Futures Committee and NSCAI justified-confidence / democratic-values themes."]},
@@ -6902,7 +6956,7 @@ const DATA = {
         {name:"ISO/IEC 17021-1 and ISO/IEC 42006:2025", kind:"Rules for certifiers", job:"17021-1 is the Stage 1 / Stage 2 / surveillance path. 42006 adds the AIMS-specific rules. Neither certifies you, and neither is a clause of 42001.", view:""}
       ]}
     ],
-    beside: "ISO/IEC 27001 sits beside 42001: same management-system shape (clauses 4–10 and a statement of applicability), different subject (information security, not AI). It is not a parent of 42001."
+    beside: "ISO/IEC 27001 sits beside 42001: same management-system shape (clauses 4-10 and a statement of applicability), different subject (information security, not AI). It is not a parent of 42001. NIST SP 800-37, the security Risk Management Framework, sits beside the AI RMF. Same agency, different job. 800-37 is how a system is authorized. The AI RMF does not authorize anything. Open the Security RMF view."
   },
 
   nistMeasure: {
@@ -6975,6 +7029,54 @@ const DATA = {
     ]
   },
 
+  securityRmf: {
+    updated: "2026-09-24",
+    citation: "NIST SP 800-37 Rev. 2 is the security Risk Management Framework. NIST SP 800-53 Rev. 5 is the control catalog. DISA STIGs are product baselines. DoD Zero Trust is a seven-pillar design lens.",
+    oneLine: "This is the authorization path for a federal or DoD system. It is not NIST AI RMF 1.0.",
+    checked: "Step names are the seven in SP 800-37 Rev. 2. Family count for SP 800-53 Rev. 5 is 20. The companion STIG and NIST viewer is a study map for a fictional classified lab. Its control notes are not copied here, and they are not official DISA or NIST text.",
+    why: "Week 5 already sends a DoD sandbox toward production. Production needs an authorizing official. People name that path NIST RMF and then mix it up with Govern, Map, Measure, and Manage. Those four words are a different NIST document.",
+    what: "SP 800-37 is a life-cycle process for security and privacy risk on information systems. You prepare the organization, categorize the system, select controls, implement them, assess them, get an authorization decision, and monitor. SP 800-53 Rev. 5 is the catalog you select from. A STIG tells you how a named product is hardened against that catalog.",
+    when: "When the system is in a federal or DoD authorization boundary, including a path from an NDAA sandbox into production. Not when you only need the voluntary AI risk method, and not as a substitute for the EU AI Act.",
+    howItems: [
+      "If an authorizing official is in the path, use the seven security-RMF steps. Do not rename them Govern, Map, Measure, and Manage.",
+      "Select controls from SP 800-53. Then apply the STIG or SRG for the product you actually run. A Kubernetes STIG does not harden a model.",
+      "Keep NIST AI RMF Measure and TEVV as the model-risk evidence inside that boundary. File them with the authorization package. Do not call a Measure worksheet an ATO.",
+      "Ask for an SBOM for images and libraries, and an AI bill of materials for weights, data, and evals. Neither document decides NDAA covered-AI status.",
+      "Use the STIG and NIST viewer when you want the lab picture: families, STIGs, Zero Trust pillars, and a fictional air-gapped AI lab. Then read the official publication for the words you will cite."
+    ],
+    steps: [
+      {id:"1", name:"Prepare", d:"Set roles, risk strategy, and common controls before you draw the system boundary."},
+      {id:"2", name:"Categorize", d:"Name the impact and the boundary. Classification and what the system is allowed to touch drive this step."},
+      {id:"3", name:"Select", d:"Choose the 800-53 baseline and overlays. Pick the STIG set that matches the products in the boundary."},
+      {id:"4", name:"Implement", d:"Put the controls in place. Hardening, infrastructure-as-code, and the transfer path live here."},
+      {id:"5", name:"Assess", d:"Test the controls. STIG scans and control tests are this step. They are not NIST AI RMF Measure."},
+      {id:"6", name:"Authorize", d:"The authorizing official accepts the risk, or does not. The output is an ATO, sometimes run as a continuous ATO. The official does not disappear in the continuous version."},
+      {id:"7", name:"Monitor", d:"Watch drift and reassess. Continuous evidence feeds the official. A dashboard is not a new authorization by itself."}
+    ],
+    shelf: [
+      {doc:"NIST SP 800-53 Rev. 5", job:"The control catalog. Twenty families. You select from it. You do not implement all of it because a blog listed a number."},
+      {doc:"DISA STIG and SRG", job:"Product and platform baselines. The SRG states requirements. The STIG states the product settings. Current downloads are on cyber.mil, not in a study page."},
+      {doc:"DoD Zero Trust", job:"Seven pillars: user, device, application and workload, data, network and environment, automation and orchestration, visibility and analytics. A design lens for arranging controls."},
+      {doc:"ATO and cATO", job:"The authorization decision, and the practice of keeping evidence current. Not a 42001 certificate and not an EU conformity assessment."},
+      {doc:"STIG and NIST viewer", job:"A separate study site for a generic classified AI lab. Useful for seeing diodes, SBOMs, workload pools, and how families sit next to STIGs. Not an authorization package."}
+    ],
+    myths: [
+      {claim:"NIST RMF means Govern, Map, Measure, Manage.", fact:"Those four functions are NIST AI RMF 1.0, in AI 100-1. The security RMF is SP 800-37, and its steps are Prepare through Monitor."},
+      {claim:"A STIG scan finishes Measure.", fact:"A STIG scan is evidence in the security RMF Assess step for a product baseline. Measure evaluates AI trustworthiness characteristics that Map already named."},
+      {claim:"An ISO/IEC 42001 certificate is an ATO.", fact:"42001 certifies an AI management system. An ATO is an authorizing official's acceptance of security risk for a named boundary. Neither one is EU AI Act conformity."},
+      {claim:"Continuous ATO means nobody has to authorize the system.", fact:"cATO changes how evidence is produced. The authorizing official still owns the risk decision."},
+      {claim:"The control identifiers on the STIG viewer are the requirement.", fact:"That site is a learning map. Cite SP 800-53, the current STIG, or your authorizing official's overlay. Do not cite the viewer as the control text."}
+    ],
+    sources: [
+      {t:"NIST SP 800-37 Rev. 2, Risk Management Framework", u:"https://csrc.nist.gov/pubs/sp/800/37/r2/final"},
+      {t:"NIST SP 800-53 Rev. 5, security and privacy controls", u:"https://csrc.nist.gov/pubs/sp/800/53/r5/final"},
+      {t:"DISA STIGs and SRGs", u:"https://www.cyber.mil/stigs/"},
+      {t:"DoD Zero Trust Strategy", u:"https://dodcio.defense.gov/Portals/0/Documents/Library/DoD-ZTStrategy.pdf"},
+      {t:"STIG and NIST viewer, study map only", u:"https://aaronmeis.github.io/stig-nist-viewer/"},
+      {t:"NIST AI 100-1, the other RMF", u:"https://doi.org/10.6028/NIST.AI.100-1"}
+    ]
+  },
+
   quiz:[
     // --- Week 1 (5 Questions) ---
     {week:1,rung:100,pillar:"Foundations",type:"mc",question:"Which of these has the LEAST binding legal force on a private company?",options:["A statute enacted by Congress","A legislative rule issued by a federal agency after notice-and-comment","A non-binding agency guidance document or 'technical assistance'","A published federal court of appeals opinion in the company's circuit"],answer:"A non-binding agency guidance document or 'technical assistance'",explanation:"Sub-regulatory guidance states an agency's interpretation but carries no independent force of law, unlike statutes, notice-and-comment rules, or binding precedent. The EEOC's May 2023 technical assistance on selection-procedure AI illustrates this: it was removed from EEOC.gov in 2025 with no legislative process while Title VII itself was untouched. After Loper Bright Enterprises v. Raimondo, 603 U.S. 369 (2024), courts also no longer defer to an agency's reading of an ambiguous statute."},
@@ -7017,6 +7119,7 @@ const DATA = {
     {week:5,rung:100,pillar:"Responsible AI",type:"mc",question:"What is ISO/IEC 22989:2022 for?",options:["Certifying that a model is safe","Setting the shared AI terminology and concepts used by later SC 42 standards","Replacing the EU AI Act","Listing the 38 Annex A controls of ISO/IEC 42001"],answer:"Setting the shared AI terminology and concepts used by later SC 42 standards",explanation:"ISO/IEC 22989:2022 establishes terminology and describes AI concepts so other standards and stakeholders share words. It is not a management system. The certificate is ISO/IEC 42001. The generative-AI amendment was still under development in September 2026."},
     {week:5,rung:200,pillar:"Responsible AI",type:"mc",question:"In NIST AI RMF 1.0, what is MEASURE?",options:["A certifiable audit stage, like Stage 2 under ISO/IEC 17021-1","The function that analyzes, assesses, benchmarks, and monitors the AI risks Map identified, using Table 3 of NIST AI 100-1","A synonym for EU AI Act Article 9","The bias-audit subcategory only"],answer:"The function that analyzes, assesses, benchmarks, and monitors the AI risks Map identified, using Table 3 of NIST AI 100-1",explanation:"Section 5.3 defines Measure and says it uses Map and informs Manage. Table 3 has four categories. Measure 2.1 records test sets, metrics, and tools. Fairness is Measure 2.11. The framework is voluntary and does not certify a model."},
     {week:5,rung:200,pillar:"Responsible AI",type:"mc",question:"What is TEVV in the NIST AI RMF?",options:["A fifth core function added after Manage","Test, evaluation, verification, and validation tasks that run across the lifecycle and that Measure is supposed to put in place","The EU notified-body procedure","Another name for Article 73 serious-incident reporting"],answer:"Test, evaluation, verification, and validation tasks that run across the lifecycle and that Measure is supposed to put in place",explanation:"Appendix A of NIST AI 100-1 places TEVV tasks in design, development, deployment, and operations. Ideally, verification and validation are done by different people than test and evaluation. AI 100-1 defines validation by quoting ISO 9000. It does not define the four words separately, and it does not make TEVV its own function."},
+    {week:5,rung:200,pillar:"National Security",type:"mc",question:"Which document is the security Risk Management Framework that leads to an authorization to operate?",options:["NIST AI RMF 1.0, with Govern, Map, Measure, and Manage","NIST SP 800-37, with prepare, categorize, select, implement, assess, authorize, and monitor","ISO/IEC 42001 Annex A","EU AI Act Article 9"],answer:"NIST SP 800-37, with prepare, categorize, select, implement, assess, authorize, and monitor",explanation:"SP 800-37 is the security RMF. SP 800-53 is the control catalog you select from, and a DISA STIG is a product baseline. NIST AI RMF 1.0 is a different, voluntary AI-risk framework. A 42001 certificate and an Article 9 risk system are not an ATO."},
 
     // --- Week 6 (5 Questions) ---
     {week:6,rung:200,pillar:"Licensing",type:"mc",question:"Under the Open Source AI Definition 1.0 (OSAID), which component MUST be made available alongside code and weights for a model to be certified open source?",options:["A corporate credit card billing statement","Sufficiently detailed training data provenance summaries and data processing code","A signed non-disclosure agreement (NDA)","Private user telemetry logs"],answer:"Sufficiently detailed training data provenance summaries and data processing code",explanation:"OSAID 1.0 requires openness across data (provenance summaries & processing logic), code (training & inference), and model weights."},
@@ -7113,6 +7216,7 @@ function renderDashboard(){
     <div class="card"><h3>ISO/IEC 23894</h3><p style="color:var(--text-secondary);font-size:.86rem">ISO/IEC 23894:2023 guidance, used with ISO 31000. Principles, framework, and risk process, plus the public annex headings. Not a certificate. Pairs with ISO/IEC 42001.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('iso23894')">ISO 23894 →</button></div></div>
     <div class="card"><h3>ISO/IEC 42001</h3><p style="color:var(--text-secondary);font-size:.86rem">Certifiable AI management system: clauses 4-10, 38 Annex A controls, Statement of Applicability, and how it differs from NIST AI RMF and the EU AI Act.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('iso42001')">ISO 42001 →</button></div></div>
     <div class="card"><h3>NIST Measure and TEVV</h3><p style="color:var(--text-secondary);font-size:.86rem">Why, what, how, and when for Measure in NIST AI RMF 1.0, Table 3, and test, evaluation, verification, and validation. Not a fifth function and not a certificate.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('nistmeasure')">Measure and TEVV →</button></div></div>
+    <div class="card"><h3>Security RMF</h3><p style="color:var(--text-secondary);font-size:.86rem">NIST SP 800-37, the control catalog in SP 800-53, and DISA STIGs. This is the authorization path. It is not the AI RMF. The STIG viewer is linked as a lab map only.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('securityrmf')">Security RMF →</button></div></div>
     <div class="card"><h3>EA mapping</h3><p style="color:var(--text-secondary);font-size:.86rem">Cross-walk mapping AI legal terms, IP assets, and compliance rules to <b>TOGAF</b>, <b>Zachman</b>, <b>DoDAF</b>, and <b>NIST AI RMF</b>.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('ea')">EA Mapping →</button></div></div>
     <div class="card"><h3>External references</h3><p style="color:var(--text-secondary);font-size:.86rem">Extracted index of ${totalLinks} external primary sources, court dockets, statutes, and law reviews.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('refs')">External References →</button></div></div>
   </div>`;
@@ -8002,6 +8106,60 @@ function renderNistMeasure(){
   });
 }
 
+/* ---- Security RMF (SP 800-37), not the AI RMF ---- */
+function renderSecurityRmf(){
+  const el=$("#v-securityrmf");
+  if(!el||!DATA.securityRmf) return;
+  const P=DATA.securityRmf;
+  const tab=LS.get("securityRmfTab","overview");
+  let h=`<h2 class="vh">Security RMF</h2>
+  <p class="lead">${esc(P.oneLine)} ${esc(P.citation)} Notes refreshed ${esc(P.updated)}. <b>Not legal, security, or accreditation advice.</b></p>
+  <div class="note danger"><b>What was checked.</b> ${esc(P.checked)}</div>
+  <div class="ea-subnav">
+    <button class="ea-tab-btn ${tab==="overview"?"active":""}" data-srmf="overview">Overview</button>
+    <button class="ea-tab-btn ${tab==="steps"?"active":""}" data-srmf="steps">Seven steps</button>
+    <button class="ea-tab-btn ${tab==="shelf"?"active":""}" data-srmf="shelf">What sits beside it</button>
+    <button class="ea-tab-btn ${tab==="myths"?"active":""}" data-srmf="myths">Misreads</button>
+    <button class="ea-tab-btn ${tab==="sources"?"active":""}" data-srmf="sources">Sources</button>
+  </div>`;
+  if(tab==="overview"){
+    h+=`<div class="ea-grid">
+      <div class="ea-box"><h4>Why</h4><p style="color:var(--text-secondary);margin:0">${esc(P.why)}</p></div>
+      <div class="ea-box"><h4>What</h4><p style="color:var(--text-secondary);margin:0">${esc(P.what)}</p></div>
+      <div class="ea-box"><h4>When</h4><p style="color:var(--text-secondary);margin:0">${esc(P.when)}</p></div>
+    </div>
+    <div class="ea-card" style="margin-top:1rem"><h3>How to use it</h3><ul style="color:var(--text-secondary);padding-left:1.1rem">`;
+    P.howItems.forEach(x=>{ h+=`<li style="margin-bottom:.45rem">${esc(x)}</li>`; });
+    h+=`</ul><div class="btnrow"><button class="b" onclick="go('nistmeasure')">Open Measure and TEVV</button><button class="b" onclick="go('stdmap')">Open the standards map</button></div></div>`;
+  }
+  if(tab==="steps"){
+    h+=`<div class="ea-card"><h3>SP 800-37 in seven steps</h3><p style="color:var(--text-secondary);font-size:.86rem">These are process steps, not clauses of a certifiable management system. Wording is paraphrased.</p><table class="ea-table"><thead><tr><th>Step</th><th>Name</th><th>What you are doing</th></tr></thead><tbody>`;
+    P.steps.forEach(c=>{ h+=`<tr><td><b>${esc(c.id)}</b></td><td>${esc(c.name)}</td><td>${esc(c.d)}</td></tr>`; });
+    h+=`</tbody></table></div>`;
+  }
+  if(tab==="shelf"){
+    h+=`<div class="ea-card"><h3>Documents that answer a different question</h3><table class="ea-table"><thead><tr><th>Document</th><th>Job</th></tr></thead><tbody>`;
+    P.shelf.forEach(c=>{ h+=`<tr><td><b>${esc(c.doc)}</b></td><td>${esc(c.job)}</td></tr>`; });
+    h+=`</tbody></table></div>`;
+  }
+  if(tab==="myths"){
+    h+=`<div class="ea-card"><h3>Claims that merge two frameworks</h3>`;
+    P.myths.forEach(m=>{
+      h+=`<div style="margin:0 0 1rem;padding:1rem;border:1px solid var(--border-color);border-radius:10px;background:var(--card-bg2)"><h4 style="margin:0 0 .4rem">${esc(m.claim)}</h4><p style="margin:0;color:var(--text-secondary)">${esc(m.fact)}</p></div>`;
+    });
+    h+=`</div>`;
+  }
+  if(tab==="sources"){
+    h+=`<div class="ea-card"><h3>Where to read next</h3><ul style="list-style:none;padding:0">`;
+    P.sources.forEach(s=>{ h+=`<li style="margin-bottom:.55rem"><a href="${esc(s.u)}" target="_blank" rel="noopener">${esc(s.t)}</a></li>`; });
+    h+=`</ul><p style="color:var(--text-dim);font-size:.8rem;margin-top:1rem">Cite the NIST and DISA publications. The viewer is there so you can practice the map. It is not the source you cite in an authorization package.</p></div>`;
+  }
+  el.innerHTML=h;
+  Array.from(el.querySelectorAll(".ea-tab-btn")).forEach(btn=>{
+    btn.onclick=()=>{ LS.set("securityRmfTab", btn.dataset.srmf); renderSecurityRmf(); };
+  });
+}
+
 /* ---- Words / methods / obligations ---- */
 function renderStdMap(){
   const el=$("#v-stdmap");
@@ -8266,7 +8424,7 @@ function initTheme(){
 }
 
 /* ---- Init ---- */
-initTheme();renderDashboard();renderCurriculum();renderEUProducts();renderISO42001();renderISO23894();renderISO22989();renderStdMap();renderNistMeasure();renderMap();renderFlash();renderQuiz();renderGlossary();renderPrompts();renderCounsel();renderEA();renderReferences();
+initTheme();renderDashboard();renderCurriculum();renderEUProducts();renderISO42001();renderISO23894();renderISO22989();renderStdMap();renderNistMeasure();renderSecurityRmf();renderMap();renderFlash();renderQuiz();renderGlossary();renderPrompts();renderCounsel();renderEA();renderReferences();
 loadShorts();
 (function restore(){const v=LS.get("view","dashboard");const b=$('#nav .nav-item[data-v="'+v+'"]');if(b&&v!=="dashboard")b.click();})();
 </script>
