@@ -13,7 +13,7 @@ something they don't cover — and for tuning the ones that don't quite land.
    Paste this every time; it sets register and stops the model hedging into
    uselessness or overclaiming into advice.
 
-2. **The rung.** 100 / 200 / 300 (Hub §2). Without it the model averages to a
+2. **The rung.** 100 / 200 / 300 (Hub Sec. 2). Without it the model averages to a
    mushy 150. Say which one and why ("I can read the AI Act, I want the
    contested layer").
 

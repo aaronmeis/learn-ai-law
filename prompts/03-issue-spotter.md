@@ -32,7 +32,7 @@ weights, patent/inventorship if outputs feed R&D.
 REGULATORY & LITIGATION — EU AI Act (role: provider/deployer? high-risk? GPAI?
 Art. 50 transparency?), US federal posture, binding state laws + effective
 dates, sector rules (hiring/health/credit), privacy (GDPR Art. 22, ADMT,
-DPA needs), FTC §5 exposure.
+DPA needs), FTC Sec. 5 exposure.
 
 For each issue give: (a) one-line statement, (b) the governing authority with a
 citation, (c) severity (blocker / material / monitor), (d) settled or unsettled.

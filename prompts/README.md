@@ -46,7 +46,7 @@ Plus [`building-your-own.md`](building-your-own.md) — how to write and tune ne
 
 1. **Set the rung.** Tell the model whether you want 100 (orient), 200 (read the
    instrument), or 300 (contested / unsettled). The curriculum ladder is in
-   Hub §2.
+   Hub Sec. 2.
 2. **Demand citations to primary sources.** Article number, section, paragraph,
    case name + court + year. If the model won't cite, don't trust the claim —
    go to the `reference/readings-*.md` ledgers.
@@ -64,5 +64,5 @@ Plus [`building-your-own.md`](building-your-own.md) — how to write and tune ne
 
 Build/briefing/first-pass work: **Sonnet 5**. Switch to **Opus 5** for the
 300-level Socratic examiner sessions (Weeks 2–6) and for capstone self-grading
-(Hub §5). Everything here works on either; the examiner prompts are noticeably
+(Hub Sec. 5). Everything here works on either; the examiner prompts are noticeably
 sharper on Opus.

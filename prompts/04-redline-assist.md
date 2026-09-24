@@ -9,7 +9,7 @@ deal.
 
 Use only: **published vendor terms** (OpenAI Business Terms, Anthropic Commercial
 Terms, Google Cloud Generative AI Indemnified Services, Azure OpenAI terms, AWS
-Service Terms §50), **standard templates** (Common Paper Standard AI Addendum,
+Service Terms Sec. 50), **standard templates** (Common Paper Standard AI Addendum,
 Bonterms Standard AI Addendum, SCL AI Clauses, oneNDA / oneDPA), or a **clause
 you or the model drafts as a teaching example**. Never a real agreement under
 negotiation.
@@ -22,7 +22,7 @@ negotiation.
 
 ```
 This is a PUBLIC exemplar for study — «name the source, e.g. "OpenAI Business
-Terms, May 2025, §7 (Indemnification)"». Text:
+Terms, May 2025, Sec. 7 (Indemnification)"». Text:
 
 «paste the clause»
 
@@ -109,6 +109,6 @@ neutralises it.
 From everything we've worked through in the Contracts pillar, draft my personal
 "AI vendor terms review checklist" — the clauses to find, the question to ask of
 each, the market default to compare against, and the red flags. Organise by the
-clause map in Hub §2 (Contracts 100). Output as a checklist I can keep in the
+clause map in Hub Sec. 2 (Contracts 100). Output as a checklist I can keep in the
 SPA.
 ```
