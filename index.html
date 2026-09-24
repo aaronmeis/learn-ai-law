@@ -546,10 +546,10 @@
    ============================================================ */
 const EXTERNAL_REFS = {
   "AI management standards": [
-    {"url":"https://www.iso.org/standard/81230.html","anchor":"ISO — ISO/IEC 42001:2023","sources":["iso-42001 study view"]},
-    {"url":"https://www.iso.org/standard/77304.html","anchor":"ISO/IEC 23894:2023 AI risk management","sources":["iso-42001 study view"]},
+    {"url":"https://www.iso.org/obp/ui/en/#iso:std:iso-iec:42001:ed-1:v1:en","anchor":"ISO/IEC 42001:2023 — Online Browsing Platform","sources":["iso-42001 study view"]},
+    {"url":"https://www.iso.org/obp/ui/en/#iso:std:iso-iec:23894:ed-1:v1:en","anchor":"ISO/IEC 23894:2023 — Online Browsing Platform","sources":["iso-42001 study view"]},
     {"url":"https://www.nist.gov/itl/ai-risk-management-framework","anchor":"NIST AI RMF 1.0","sources":["iso-42001 study view"]},
-    {"url":"https://www.iso.org/standard/74296.html","anchor":"ISO/IEC 22989:2022 AI concepts and terminology","sources":["iso-22989 study view"]}
+    {"url":"https://www.iso.org/obp/ui/en/#iso:std:iso-iec:22989:ed-1:v1:en","anchor":"ISO/IEC 22989:2022 — free Online Browsing Platform text","sources":["iso-22989 study view"]}
   ],
   "Statutes, Regulations & Executive Orders": [
     {
@@ -6432,8 +6432,8 @@ const DATA = {
       {n:"5", t:"Stage 1 then Stage 2", d:"Stage 1 checks readiness and documentation. Stage 2 checks that the system operates. ISO/IEC 42006:2025 is what the certification body itself is assessed against. Surveillance follows."}
     ],
     sources: [
-      {t:"ISO/IEC 42001:2023 catalogue (ISO)", u:"https://www.iso.org/standard/81230.html"},
-      {t:"ISO/IEC 23894:2023 — AI risk management guidance", u:"https://www.iso.org/standard/77304.html"},
+      {t:"ISO/IEC 42001:2023 — public preview on the ISO Online Browsing Platform", u:"https://www.iso.org/obp/ui/en/#iso:std:iso-iec:42001:ed-1:v1:en"},
+      {t:"ISO/IEC 23894:2023 — public preview on the ISO Online Browsing Platform", u:"https://www.iso.org/obp/ui/en/#iso:std:iso-iec:23894:ed-1:v1:en"},
       {t:"NIST AI Risk Management Framework", u:"https://www.nist.gov/itl/ai-risk-management-framework"},
       {t:"EU AI Act, Regulation (EU) 2024/1689 (EUR-Lex)", u:"https://eur-lex.europa.eu/eli/reg/2024/1689/oj"}
     ]
@@ -6477,10 +6477,10 @@ const DATA = {
     annexNote: "Annex A is objectives: what the organisation is trying to achieve or protect, which is what ISO 31000-style risk is assessed against. Annex B is risk sources. Annex C is one example of mapping the clause 6 process onto an AI system life cycle. The ISO contents preview confirms A.1 through A.6 and then truncates. Further objective titles are not listed here.",
     nist: "NIST AI RMF 1.0 is US voluntary guidance with Govern, Map, Measure, and Manage. 23894 is the ISO 31000 specialization from the same committee that wrote 42001. Use either as the risk method inside a 42001 system. Do not treat them as the same text, and do not treat either as a certificate or as EU AI Act conformity.",
     sources: [
-      {t:"ISO/IEC 23894:2023 catalogue", u:"https://www.iso.org/standard/77304.html"},
-      {t:"ISO Online Browsing Platform contents (edition 1)", u:"https://www.iso.org/obp/ui/en/#!iso:std:77304:en"},
-      {t:"ISO 31000 risk management guidelines", u:"https://www.iso.org/standard/65694.html"},
-      {t:"ISO/IEC 42001:2023 catalogue", u:"https://www.iso.org/standard/81230.html"},
+      {t:"ISO/IEC 23894:2023 — read the public text on the ISO Online Browsing Platform", u:"https://www.iso.org/obp/ui/en/#iso:std:iso-iec:23894:ed-1:v1:en"},
+      {t:"ISO Online Browsing Platform contents (edition 1)", u:"https://www.iso.org/obp/ui/en/#iso:std:iso-iec:23894:ed-1:v1:en"},
+      {t:"ISO 31000:2018 — public preview on the ISO Online Browsing Platform", u:"https://www.iso.org/obp/ui/en/#iso:std:iso:31000:ed-2:v1:en"},
+      {t:"ISO/IEC 42001:2023 — public preview on the ISO Online Browsing Platform", u:"https://www.iso.org/obp/ui/en/#iso:std:iso-iec:42001:ed-1:v1:en"},
       {t:"NIST AI Risk Management Framework", u:"https://www.nist.gov/itl/ai-risk-management-framework"}
     ]
   },
@@ -6509,8 +6509,8 @@ const DATA = {
     ],
     amend: "ISO/IEC 22989:2022/FDAmd 1 (generative AI) was still under development on the ISO catalogue as of 18 September 2026. It is not part of the 2022 edition. Do not cite draft generative-AI definitions as if they were in the published standard.",
     sources: [
-      {t:"ISO/IEC 22989:2022 catalogue", u:"https://www.iso.org/standard/74296.html"},
-      {t:"Amendment 1 (generative AI) — still under development", u:"https://www.iso.org/standard/88145.html"}
+      {t:"ISO/IEC 22989:2022 — free to read on the ISO Online Browsing Platform", u:"https://www.iso.org/obp/ui/en/#iso:std:iso-iec:22989:ed-1:v1:en"},
+      {t:"Amendment 1 (generative AI) — public draft view, not the 2022 edition", u:"https://www.iso.org/obp/ui/en/#iso:std:iso-iec:22989:ed-1:v1:amd:1:v1:en"}
     ]
   },
   stdMap: {
@@ -7395,7 +7395,7 @@ function renderISO42001(){
   if(tab==="sources"){
     h+=`<div class="ea-card"><h3>Where to read next</h3><ul style="list-style:none;padding:0">`;
     P.sources.forEach(s=>{ h+=`<li style="margin-bottom:.55rem"><a href="${esc(s.u)}" target="_blank" rel="noopener">${esc(s.t)}</a></li>`; });
-    h+=`</ul><p style="color:var(--text-dim);font-size:.8rem;margin-top:1rem">Buy the standard from ISO or your national body. Do not paste the paid text into a model.</p></div>`;
+    h+=`</ul><p style="color:var(--text-dim);font-size:.8rem;margin-top:1rem">Links open the ISO Online Browsing Platform, not the shop. 22989 is free to read in full. 42001 and 23894 show the public preview only; the rest of those texts is not free. Do not paste a paid standard into a model.</p></div>`;
   }
   el.innerHTML=h;
   Array.from(el.querySelectorAll(".ea-tab-btn")).forEach(btn=>{
