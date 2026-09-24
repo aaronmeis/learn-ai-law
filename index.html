@@ -320,9 +320,13 @@
   .carousel{width:100%;max-width:320px;aspect-ratio:9/16;max-height:min(70vh,620px);border:1px solid var(--border-color);background:#05080f;border-radius:16px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,.35);display:flex;flex-direction:column}
   .carousel-stage{flex:1 1 auto;min-height:0;background:#000;position:relative}
   .carousel video{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:contain;background:#000}
-  .deck-frame{width:100%;height:min(78vh,920px);border:1px solid var(--border-color);border-radius:12px;overflow:hidden;background:#05080f}
+  .deck-frame{width:min(100%,720px);aspect-ratio:16/9;height:auto;margin:0 auto;border:1px solid var(--border-color);border-radius:12px;overflow:hidden;background:#05080f}
   .deck-frame object,.deck-frame iframe{width:100%;height:100%;border:0;background:#fff}
   .deck-slide{width:100%;height:100%;object-fit:contain;background:#0b1220;display:block}
+  .deck-thumbs{display:flex;gap:.45rem;overflow-x:auto;margin:0.7rem auto 0;padding-bottom:.2rem;width:min(100%,720px)}
+  .deck-thumbs button{flex:0 0 108px;padding:0;border-radius:8px;border:1px solid var(--border-color);background:#05080f;cursor:pointer;overflow:hidden}
+  .deck-thumbs button img{display:block;width:100%;height:60px;object-fit:cover}
+  .deck-thumbs button.active,.deck-thumbs button:hover{border-color:var(--accent-color)}
   .carousel-cap{flex:0 0 auto;padding:.65rem .8rem;border-top:1px solid var(--border-color);font-size:.88rem;color:var(--accent-color);text-align:center;background:rgba(7,11,20,.92)}
   .thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.55rem;max-height:min(70vh,620px);overflow:auto;padding-right:2px;align-content:start}
   .thumbs button{width:100%;min-height:84px;text-align:left;font-family:inherit;font-size:.74rem;line-height:1.35;padding:.7rem .75rem;border-radius:10px;border:1px solid var(--border-color);background:var(--card-bg);color:var(--text-secondary);cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;gap:.45rem}
@@ -490,7 +494,7 @@
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:.5rem">
       <img id="sidebarHeroImg" src="assets/hero.jpg" alt="AI Law Emblem" style="width:46px;height:46px;border-radius:10px;border:1px solid rgba(56,189,248,0.35);box-shadow:0 0 12px rgba(56,189,248,0.25);object-fit:cover;flex-shrink:0">
       <div>
-        <div class="sidebar-badge" style="margin-bottom:.1rem">Console v2.5</div>
+        <div class="sidebar-badge" style="margin-bottom:.1rem">Console v2.6</div>
         <div class="sidebar-header" style="font-size:1.05rem">AI Law &amp; Gov</div>
       </div>
     </div>
@@ -7620,7 +7624,7 @@ function renderDecks(){
       <span style="color:var(--text-dim);font-size:.8rem" id="deckMeta"></span>
     </div>
     <div class="deck-frame"><img class="deck-slide" alt="Week ${week} slide ${deckSlide+1}" src="${esc(src)}"></div>
-    <div class="thumbs" style="margin-top:.7rem;max-height:120px">`+slides.map((s,idx)=>`<button type="button" class="${idx===deckSlide?"active":""}" data-ds="${idx}">${idx+1}</button>`).join("")+`</div>`;
+    <div class="deck-thumbs" aria-label="Slide thumbnails">`+slides.map((s,idx)=>`<button type="button" class="${idx===deckSlide?"active":""}" data-ds="${idx}" title="Slide ${idx+1}"><img alt="" src="${esc(s)}"></button>`).join("")+`</div>`;
   }
   el.innerHTML=h;
   $$("[data-dw]",el).forEach(b=>b.onclick=()=>{LS.set("deckWeek",+b.dataset.dw);deckSlide=0;renderDecks();});
@@ -7632,6 +7636,8 @@ function renderDecks(){
     if(prev) prev.onclick=()=>{deckSlide=(deckSlide-1+n)%n;renderDecks();};
     if(next) next.onclick=()=>{deckSlide=(deckSlide+1)%n;renderDecks();};
     $$("[data-ds]",el).forEach(b=>b.onclick=()=>{deckSlide=Number(b.dataset.ds)||0;renderDecks();});
+    const activeThumb=el.querySelector(".deck-thumbs button.active");
+    if(activeThumb&&activeThumb.scrollIntoView) activeThumb.scrollIntoView({inline:"center",block:"nearest"});
   }
 }
 document.addEventListener("keydown",ev=>{
