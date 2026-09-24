@@ -7603,7 +7603,7 @@ function renderDecks(){
   const it=deckItems.find(d=>Number(d.week)===week)||deckItems[0];
   const ready=deckItems.filter(d=>d.status==="ready").length;
   let h=`<h2 class="vh">Week decks <span style="font-size:1rem;color:var(--text-dim)">${ready}/${deckItems.length||6} ready</span></h2>
-  <p class="lead">One presenter deck per curriculum week. Pick a week, then use the slide controls or the PDF viewer's own page controls. Educational only — not legal advice.</p>
+  <p class="lead">One set of slide images per curriculum week. Pick a week, then move through the slides. Educational only — not legal advice.</p>
   <div class="btnrow">`+(deckItems.length?deckItems:[{week:1},{week:2},{week:3},{week:4},{week:5},{week:6}]).map(d=>`<button class="b ${Number(d.week)===week?"on":""}" data-dw="${d.week}">Week ${d.week}</button>`).join("")+`</div>`;
   if(!it || it.status!=="ready" || !it.file){
     h+=`<div class="card"><h3>Week ${week}</h3><p style="color:var(--text-secondary)">This deck is still generating in NotebookLM. It will show here when the PDF is on the site. You can keep reading the week in the curriculum.</p></div>`;
@@ -7613,14 +7613,11 @@ function renderDecks(){
       <button class="b" type="button" id="deckPrev">Previous slide</button>
       <button class="b" type="button" id="deckNext">Next slide</button>
       <span style="color:var(--text-dim);font-size:.8rem" id="deckMeta"></span>
-      <a class="b" href="${esc(it.file)}" target="_blank" rel="noopener">PDF</a>
-      ${it.pptx?`<a class="b" href="${esc(it.pptx)}" download>Download PowerPoint</a>`:""}
     </div>
     <div class="deck-frame"><img class="deck-slide" id="deckImg" alt="Week ${week} slide ${deckSlide+1}" src="${esc(src)}"></div>
     <div class="thumbs" style="margin-top:.7rem;max-height:140px">`+it.slides.map((s,idx)=>`<button type="button" class="${idx===deckSlide?"active":""}" data-ds="${idx}">Slide ${idx+1}</button>`).join("")+`</div>`;
   }else{
-    h+=`<div class="row" style="margin:.8rem 0"><a class="b" href="${esc(it.file)}" target="_blank" rel="noopener">Open PDF in a new tab</a></div>
-    <div class="deck-frame"><object data="${esc(it.file)}" type="application/pdf"><a href="${esc(it.file)}">Download the week ${week} deck</a></object></div>`;
+    h+=`<div class="card"><h3>Week ${week}</h3><p style="color:var(--text-secondary)">The slide images for this week are not on the site yet.</p></div>`;
   }
   el.innerHTML=h;
   $$("[data-dw]",el).forEach(b=>b.onclick=()=>{LS.set("deckWeek",+b.dataset.dw);deckSlide=0;renderDecks();});
