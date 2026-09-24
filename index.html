@@ -321,6 +321,7 @@
   .carousel-stage{flex:1 1 auto;min-height:0;background:#000;position:relative}
   .carousel video{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:contain;background:#000}
   .deck-frame{width:min(100%,1080px);aspect-ratio:16/9;height:auto;margin:0 auto;border:1px solid var(--border-color);border-radius:12px;overflow:hidden;background:#05080f}
+  .deck-video{width:min(100%,1080px);aspect-ratio:16/9;height:auto;margin:.85rem auto 0;display:block;border:1px solid var(--border-color);border-radius:12px;background:#05080f}
   .deck-frame object,.deck-frame iframe{width:100%;height:100%;border:0;background:#fff}
   .deck-slide{width:100%;height:100%;object-fit:contain;background:#0b1220;display:block}
   .deck-thumbs{display:flex;gap:.45rem;overflow-x:auto;margin:0.7rem auto 0;padding-bottom:.2rem;width:min(100%,1080px)}
@@ -494,7 +495,7 @@
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:.5rem">
       <img id="sidebarHeroImg" src="assets/hero.jpg" alt="AI Law Emblem" style="width:46px;height:46px;border-radius:10px;border:1px solid rgba(56,189,248,0.35);box-shadow:0 0 12px rgba(56,189,248,0.25);object-fit:cover;flex-shrink:0">
       <div>
-        <div class="sidebar-badge" style="margin-bottom:.1rem">Console v3.0</div>
+        <div class="sidebar-badge" style="margin-bottom:.1rem">Console v3.1</div>
         <div class="sidebar-header" style="font-size:1.05rem">AI Law &amp; Gov</div>
       </div>
     </div>
@@ -7616,6 +7617,7 @@ function renderQuiz(){
 /* ---- Week decks ---- */
 let deckItems=[];
 let deckSlide=0;
+const DECK_VIDEOS={1:"media/decks/week-1.mp4",2:"media/decks/week-2.mp4",3:"media/decks/week-3.mp4",5:"media/decks/week-5.mp4"};
 async function loadDecks(){
   try{
     const res=await fetch("decks-catalog.json?ts="+Date.now());
@@ -7631,7 +7633,7 @@ function renderDecks(){
   const it=deckItems.find(d=>Number(d.week)===week)||deckItems[0];
   const ready=deckItems.filter(d=>d.status==="ready").length;
   let h=`<h2 class="vh">Week decks <span style="font-size:1rem;color:var(--text-dim)">${ready}/${deckItems.length||6} ready</span></h2>
-  <p class="lead">One snapshot per slide, taken from the week PDF. Pick a week, then pull up one slide at a time. Educational only — not legal advice.</p>
+  <p class="lead">The week walkthrough plays at the same width as the slide viewer. Under it, pull up one snapshot at a time. Weeks 4 and 6 do not have a walkthrough yet. Educational only — not legal advice.</p>
   <div class="btnrow">`+(deckItems.length?deckItems:[{week:1},{week:2},{week:3},{week:4},{week:5},{week:6}]).map(d=>`<button class="b ${Number(d.week)===week?"on":""}" data-dw="${d.week}">Week ${d.week}</button>`).join("")+`</div>`;
   const slides=(it&&it.slides&&it.slides.length)?it.slides:[];
   if(deckSlide>slides.length-1) deckSlide=0;
@@ -7639,6 +7641,8 @@ function renderDecks(){
     h+=`<div class="card"><h3>Week ${week}</h3><p style="color:var(--text-secondary)">This deck is still generating. Slides show here once the PDF snapshots are on the site.</p></div>`;
   }else{
     const src=slides[deckSlide];
+    const vid=DECK_VIDEOS[week];
+    if(vid) h+=`<video class="deck-video" id="deckVideo" controls playsinline autoplay src="${esc(vid)}"></video>`;
     h+=`<div class="row" style="margin:.8rem 0">
       <button class="b" type="button" id="deckPrev">Previous slide</button>
       <button class="b" type="button" id="deckNext">Next slide</button>
@@ -7654,24 +7658,41 @@ function renderDecks(){
     const n=it.slides.length;
     const meta=$("#deckMeta");
     if(meta) meta.textContent=`Slide ${deckSlide+1} of ${n}`;
-    if(prev) prev.onclick=()=>{deckSlide=(deckSlide-1+n)%n;renderDecks();};
-    if(next) next.onclick=()=>{deckSlide=(deckSlide+1)%n;renderDecks();};
-    $$("[data-ds]",el).forEach(b=>b.onclick=()=>{deckSlide=Number(b.dataset.ds)||0;renderDecks();});
+    if(prev) prev.onclick=()=>{deckSlide=(deckSlide-1+n)%n;paintDeckSlide();};
+    if(next) next.onclick=()=>{deckSlide=(deckSlide+1)%n;paintDeckSlide();};
+    $$("[data-ds]",el).forEach(b=>b.onclick=()=>{deckSlide=Number(b.dataset.ds)||0;paintDeckSlide();});
     const activeThumb=el.querySelector(".deck-thumbs button.active");
     if(activeThumb&&activeThumb.scrollIntoView) activeThumb.scrollIntoView({inline:"center",block:"nearest"});
   }
+  const vidEl=$("#deckVideo");
+  if(vidEl) vidEl.play().catch(()=>{});
+}
+function paintDeckSlide(){
+  const el=$("#v-decks");
+  const week=Number(LS.get("deckWeek",1))||1;
+  const it=deckItems.find(d=>Number(d.week)===week);
+  const slides=(it&&it.slides)||[];
+  if(!el||!slides.length) return;
+  if(deckSlide<0||deckSlide>slides.length-1) deckSlide=0;
+  const img=$(".deck-slide",el);
+  if(img){ img.src=slides[deckSlide]; img.alt=`Week ${week} slide ${deckSlide+1}`; }
+  const meta=$("#deckMeta");
+  if(meta) meta.textContent=`Slide ${deckSlide+1} of ${slides.length}`;
+  $$("[data-ds]",el).forEach(b=>b.classList.toggle("active",Number(b.dataset.ds)===deckSlide));
+  const activeThumb=el.querySelector(".deck-thumbs button.active");
+  if(activeThumb&&activeThumb.scrollIntoView) activeThumb.scrollIntoView({inline:"center",block:"nearest"});
 }
 document.addEventListener("keydown",ev=>{
   const view=$("#v-decks");
   if(!view||!view.classList.contains("active")) return;
   const tag=(ev.target&&ev.target.tagName)||"";
-  if(tag==="INPUT"||tag==="TEXTAREA"||tag==="SELECT") return;
+  if(tag==="INPUT"||tag==="TEXTAREA"||tag==="SELECT"||tag==="VIDEO") return;
   const week=Number(LS.get("deckWeek",1))||1;
   const it=deckItems.find(d=>Number(d.week)===week);
   if(!it||!it.slides||!it.slides.length) return;
   const n=it.slides.length;
-  if(ev.key==="ArrowRight"){deckSlide=(deckSlide+1)%n;renderDecks();}
-  else if(ev.key==="ArrowLeft"){deckSlide=(deckSlide-1+n)%n;renderDecks();}
+  if(ev.key==="ArrowRight"){deckSlide=(deckSlide+1)%n;paintDeckSlide();}
+  else if(ev.key==="ArrowLeft"){deckSlide=(deckSlide-1+n)%n;paintDeckSlide();}
   else return;
   ev.preventDefault();
 });
