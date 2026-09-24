@@ -154,7 +154,7 @@
   section.view{display:none;animation:fadeIn .35s ease}
   section.view.active{display:block}
   @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-  h1{font-size:1.75rem;font-weight:700;letter-spacing:-.4px;background:linear-gradient(135deg, #f0f6fc 30%, #94a3b8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  h1{font-size:1.75rem;font-weight:700;letter-spacing:-.4px;color:var(--text-primary)}
   h2.vh{font-size:1.45rem;margin-bottom:1.4rem;border-bottom:1px solid var(--border-color);padding-bottom:.65rem;color:var(--text-primary)}
   .lead{color:var(--text-secondary);font-size:.92rem;margin:.5rem 0 1.5rem;max-width:75ch;line-height:1.6}
 
@@ -490,7 +490,7 @@
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:.5rem">
       <img id="sidebarHeroImg" src="assets/hero.jpg" alt="AI Law Emblem" style="width:46px;height:46px;border-radius:10px;border:1px solid rgba(56,189,248,0.35);box-shadow:0 0 12px rgba(56,189,248,0.25);object-fit:cover;flex-shrink:0">
       <div>
-        <div class="sidebar-badge" style="margin-bottom:.1rem">Console v2.2</div>
+        <div class="sidebar-badge" style="margin-bottom:.1rem">Console v2.3</div>
         <div class="sidebar-header" style="font-size:1.05rem">AI Law &amp; Gov</div>
       </div>
     </div>
@@ -535,7 +535,10 @@
 </nav>
 
 <main class="main-content">
-  <section class="view active" id="v-dashboard"></section>
+  <section class="view active" id="v-dashboard">
+    <h1>AI Law and Responsible AI Study Console</h1>
+    <p class="lead">Loading the study console…</p>
+  </section>
   <section class="view" id="v-curriculum"></section>
   <section class="view" id="v-euproducts"></section>
   <section class="view" id="v-iso42001"></section>
@@ -8642,7 +8645,13 @@ function initTheme(){
 }
 
 /* ---- Init ---- */
-initTheme();renderDashboard();renderCurriculum();renderEUProducts();renderISO42001();renderISO23894();renderISO22989();renderStdMap();renderNistMeasure();renderNist6001();renderSecurityRmf();renderMap();renderFlash();renderQuiz();renderGlossary();renderPrompts();renderCounsel();renderEA();renderReferences();loadShorts();loadDecks();
+try{
+  initTheme();renderDashboard();renderCurriculum();renderEUProducts();renderISO42001();renderISO23894();renderISO22989();renderStdMap();renderNistMeasure();renderNist6001();renderSecurityRmf();renderMap();renderFlash();renderQuiz();renderGlossary();renderPrompts();renderCounsel();renderEA();renderReferences();loadShorts();loadDecks();
+}catch(err){
+  const dash=document.getElementById("v-dashboard");
+  if(dash) dash.innerHTML='<h1>The study console did not finish loading</h1><p class="lead">'+esc(err&&err.message?err.message:String(err))+'</p>';
+  console.error(err);
+}
 (function restore(){const v=LS.get("view","dashboard");const b=$('#nav .nav-item[data-v="'+v+'"]');if(b&&v!=="dashboard")b.click();})();
 </script>
 </body>
