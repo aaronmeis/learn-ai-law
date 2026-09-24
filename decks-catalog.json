@@ -25,19 +25,77 @@
       "week": 2,
       "title": "Intellectual property",
       "file": "media/decks/week-2.pdf",
-      "status": "pending"
+      "status": "ready",
+      "artifact_id": "eff9951d-5c97-49df-a09d-486d60ab14b2",
+      "pages": 17,
+      "slides": [
+        "media/decks/week-2/slide-01.jpg",
+        "media/decks/week-2/slide-02.jpg",
+        "media/decks/week-2/slide-03.jpg",
+        "media/decks/week-2/slide-04.jpg",
+        "media/decks/week-2/slide-05.jpg",
+        "media/decks/week-2/slide-06.jpg",
+        "media/decks/week-2/slide-07.jpg",
+        "media/decks/week-2/slide-08.jpg",
+        "media/decks/week-2/slide-09.jpg",
+        "media/decks/week-2/slide-10.jpg",
+        "media/decks/week-2/slide-11.jpg",
+        "media/decks/week-2/slide-12.jpg",
+        "media/decks/week-2/slide-13.jpg",
+        "media/decks/week-2/slide-14.jpg",
+        "media/decks/week-2/slide-15.jpg",
+        "media/decks/week-2/slide-16.jpg",
+        "media/decks/week-2/slide-17.jpg"
+      ]
     },
     {
       "week": 3,
       "title": "Contracts I",
       "file": "media/decks/week-3.pdf",
-      "status": "pending"
+      "status": "ready",
+      "artifact_id": "672faa0e-4098-4d9c-8b93-b32d04a1f79e",
+      "pages": 18,
+      "slides": [
+        "media/decks/week-3/slide-01.jpg",
+        "media/decks/week-3/slide-02.jpg",
+        "media/decks/week-3/slide-03.jpg",
+        "media/decks/week-3/slide-04.jpg",
+        "media/decks/week-3/slide-05.jpg",
+        "media/decks/week-3/slide-06.jpg",
+        "media/decks/week-3/slide-07.jpg",
+        "media/decks/week-3/slide-08.jpg",
+        "media/decks/week-3/slide-09.jpg",
+        "media/decks/week-3/slide-10.jpg",
+        "media/decks/week-3/slide-11.jpg",
+        "media/decks/week-3/slide-12.jpg",
+        "media/decks/week-3/slide-13.jpg",
+        "media/decks/week-3/slide-14.jpg",
+        "media/decks/week-3/slide-15.jpg",
+        "media/decks/week-3/slide-16.jpg",
+        "media/decks/week-3/slide-17.jpg",
+        "media/decks/week-3/slide-18.jpg"
+      ]
     },
     {
       "week": 4,
       "title": "Contracts II",
       "file": "media/decks/week-4.pdf",
-      "status": "pending"
+      "status": "ready",
+      "artifact_id": "2346c3f7-d4cd-4283-a835-f0336eff8bd0",
+      "pages": 11,
+      "slides": [
+        "media/decks/week-4/slide-01.jpg",
+        "media/decks/week-4/slide-02.jpg",
+        "media/decks/week-4/slide-03.jpg",
+        "media/decks/week-4/slide-04.jpg",
+        "media/decks/week-4/slide-05.jpg",
+        "media/decks/week-4/slide-06.jpg",
+        "media/decks/week-4/slide-07.jpg",
+        "media/decks/week-4/slide-08.jpg",
+        "media/decks/week-4/slide-09.jpg",
+        "media/decks/week-4/slide-10.jpg",
+        "media/decks/week-4/slide-11.jpg"
+      ]
     },
     {
       "week": 5,
