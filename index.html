@@ -490,7 +490,7 @@
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:.5rem">
       <img id="sidebarHeroImg" src="assets/hero.jpg" alt="AI Law Emblem" style="width:46px;height:46px;border-radius:10px;border:1px solid rgba(56,189,248,0.35);box-shadow:0 0 12px rgba(56,189,248,0.25);object-fit:cover;flex-shrink:0">
       <div>
-        <div class="sidebar-badge" style="margin-bottom:.1rem">Console v2.4</div>
+        <div class="sidebar-badge" style="margin-bottom:.1rem">Console v2.5</div>
         <div class="sidebar-header" style="font-size:1.05rem">AI Law &amp; Gov</div>
       </div>
     </div>
@@ -7606,30 +7606,32 @@ function renderDecks(){
   const it=deckItems.find(d=>Number(d.week)===week)||deckItems[0];
   const ready=deckItems.filter(d=>d.status==="ready").length;
   let h=`<h2 class="vh">Week decks <span style="font-size:1rem;color:var(--text-dim)">${ready}/${deckItems.length||6} ready</span></h2>
-  <p class="lead">One PDF per curriculum week. Pick a week, then move through the pages. Educational only — not legal advice.</p>
+  <p class="lead">One snapshot per slide, taken from the week PDF. Pick a week, then pull up one slide at a time. Educational only — not legal advice.</p>
   <div class="btnrow">`+(deckItems.length?deckItems:[{week:1},{week:2},{week:3},{week:4},{week:5},{week:6}]).map(d=>`<button class="b ${Number(d.week)===week?"on":""}" data-dw="${d.week}">Week ${d.week}</button>`).join("")+`</div>`;
-  const pages=Math.max(1, Number(it&&it.pages)||1);
-  if(deckSlide>pages-1) deckSlide=0;
-  if(!it || it.status!=="ready" || !it.file){
-    h+=`<div class="card"><h3>Week ${week}</h3><p style="color:var(--text-secondary)">This deck is still generating. It will show here when the PDF is on the site.</p></div>`;
+  const slides=(it&&it.slides&&it.slides.length)?it.slides:[];
+  if(deckSlide>slides.length-1) deckSlide=0;
+  if(!it || it.status!=="ready" || !slides.length){
+    h+=`<div class="card"><h3>Week ${week}</h3><p style="color:var(--text-secondary)">This deck is still generating. Slides show here once the PDF snapshots are on the site.</p></div>`;
   }else{
-    const src=esc(it.file)+"#page="+(deckSlide+1);
+    const src=slides[deckSlide];
     h+=`<div class="row" style="margin:.8rem 0">
-      <button class="b" type="button" id="deckPrev">Previous page</button>
-      <button class="b" type="button" id="deckNext">Next page</button>
+      <button class="b" type="button" id="deckPrev">Previous slide</button>
+      <button class="b" type="button" id="deckNext">Next slide</button>
       <span style="color:var(--text-dim);font-size:.8rem" id="deckMeta"></span>
     </div>
-    <div class="deck-frame"><iframe title="Week ${week} deck" src="${src}"></iframe></div>`;
+    <div class="deck-frame"><img class="deck-slide" alt="Week ${week} slide ${deckSlide+1}" src="${esc(src)}"></div>
+    <div class="thumbs" style="margin-top:.7rem;max-height:120px">`+slides.map((s,idx)=>`<button type="button" class="${idx===deckSlide?"active":""}" data-ds="${idx}">${idx+1}</button>`).join("")+`</div>`;
   }
   el.innerHTML=h;
   $$("[data-dw]",el).forEach(b=>b.onclick=()=>{LS.set("deckWeek",+b.dataset.dw);deckSlide=0;renderDecks();});
   const prev=$("#deckPrev"), next=$("#deckNext");
-  if(it && it.status==="ready" && it.file){
-    const pages=Math.max(1, Number(it.pages)||1);
+  if(it && it.slides && it.slides.length){
+    const n=it.slides.length;
     const meta=$("#deckMeta");
-    if(meta) meta.textContent=`Page ${deckSlide+1} of ${pages}`;
-    if(prev) prev.onclick=()=>{deckSlide=(deckSlide-1+pages)%pages;renderDecks();};
-    if(next) next.onclick=()=>{deckSlide=(deckSlide+1)%pages;renderDecks();};
+    if(meta) meta.textContent=`Slide ${deckSlide+1} of ${n}`;
+    if(prev) prev.onclick=()=>{deckSlide=(deckSlide-1+n)%n;renderDecks();};
+    if(next) next.onclick=()=>{deckSlide=(deckSlide+1)%n;renderDecks();};
+    $$("[data-ds]",el).forEach(b=>b.onclick=()=>{deckSlide=Number(b.dataset.ds)||0;renderDecks();});
   }
 }
 document.addEventListener("keydown",ev=>{
@@ -7639,10 +7641,10 @@ document.addEventListener("keydown",ev=>{
   if(tag==="INPUT"||tag==="TEXTAREA"||tag==="SELECT") return;
   const week=Number(LS.get("deckWeek",1))||1;
   const it=deckItems.find(d=>Number(d.week)===week);
-  if(!it||it.status!=="ready"||!it.pages) return;
-  const pages=Math.max(1, Number(it.pages)||1);
-  if(ev.key==="ArrowRight"){deckSlide=(deckSlide+1)%pages;renderDecks();}
-  else if(ev.key==="ArrowLeft"){deckSlide=(deckSlide-1+pages)%pages;renderDecks();}
+  if(!it||!it.slides||!it.slides.length) return;
+  const n=it.slides.length;
+  if(ev.key==="ArrowRight"){deckSlide=(deckSlide+1)%n;renderDecks();}
+  else if(ev.key==="ArrowLeft"){deckSlide=(deckSlide-1+n)%n;renderDecks();}
   else return;
   ev.preventDefault();
 });

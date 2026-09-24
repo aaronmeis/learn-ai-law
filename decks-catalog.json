@@ -8,7 +8,18 @@
       "file": "media/decks/week-1.pdf",
       "status": "ready",
       "artifact_id": "a5d5d415-d341-4d38-854a-57093d1f7d7c",
-      "pages": 9
+      "pages": 9,
+      "slides": [
+        "media/decks/week-1/slide-01.jpg",
+        "media/decks/week-1/slide-02.jpg",
+        "media/decks/week-1/slide-03.jpg",
+        "media/decks/week-1/slide-04.jpg",
+        "media/decks/week-1/slide-05.jpg",
+        "media/decks/week-1/slide-06.jpg",
+        "media/decks/week-1/slide-07.jpg",
+        "media/decks/week-1/slide-08.jpg",
+        "media/decks/week-1/slide-09.jpg"
+      ]
     },
     {
       "week": 2,
