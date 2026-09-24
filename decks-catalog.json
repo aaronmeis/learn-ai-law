@@ -8,17 +8,7 @@
       "file": "media/decks/week-1.pdf",
       "status": "ready",
       "artifact_id": "a5d5d415-d341-4d38-854a-57093d1f7d7c",
-      "slides": [
-        "media/decks/week-1/slide-01.png",
-        "media/decks/week-1/slide-02.png",
-        "media/decks/week-1/slide-03.png",
-        "media/decks/week-1/slide-04.png",
-        "media/decks/week-1/slide-05.png",
-        "media/decks/week-1/slide-06.png",
-        "media/decks/week-1/slide-07.png",
-        "media/decks/week-1/slide-08.png",
-        "media/decks/week-1/slide-09.png"
-      ]
+      "pages": 9
     },
     {
       "week": 2,
