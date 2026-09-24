@@ -494,7 +494,7 @@
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:.5rem">
       <img id="sidebarHeroImg" src="assets/hero.jpg" alt="AI Law Emblem" style="width:46px;height:46px;border-radius:10px;border:1px solid rgba(56,189,248,0.35);box-shadow:0 0 12px rgba(56,189,248,0.25);object-fit:cover;flex-shrink:0">
       <div>
-        <div class="sidebar-badge" style="margin-bottom:.1rem">Console v2.8</div>
+        <div class="sidebar-badge" style="margin-bottom:.1rem">Console v2.9</div>
         <div class="sidebar-header" style="font-size:1.05rem">AI Law &amp; Gov</div>
       </div>
     </div>
@@ -7226,8 +7226,8 @@ const DATA = {
 /* ============================================================
    UI ENGINE & ROUTING
    ============================================================ */
-const $=s=>document.querySelector(s);
-const $$=s=>Array.from(document.querySelectorAll(s));
+const $=(s,root=document)=>(root||document).querySelector(s);
+const $$=(s,root=document)=>Array.from((root||document).querySelectorAll(s));
 const esc=t=>t?t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"):"" ;
 
 const LS={
@@ -7588,13 +7588,24 @@ function renderQuiz(){
   $$("[data-qw]",el).forEach(b=>b.onclick=()=>{LS.set("quizWeek",+b.dataset.qw);renderQuiz();});
   $$(".qcard",el).forEach(card=>{
     const qi=+card.dataset.qi,q=qs[qi];
-    $$(".qopts label",card).forEach(l=>l.onclick=()=>{
-      $$(".qopts label",card).forEach(x=>x.classList.remove("correct","wrong"));
-      if(l.dataset.o===q.answer)l.classList.add("correct");
-      else{l.classList.add("wrong");const ok=$$(".qopts label",card).find(x=>x.dataset.o===q.answer);if(ok)ok.classList.add("correct");}
+    $$(".qopts label",card).forEach(l=>l.onclick=ev=>{
+      ev.preventDefault();
+      const picked=l.dataset.o;
+      $$(".qopts label",card).forEach(x=>{
+        x.classList.remove("correct","wrong");
+        const input=$("input",x);
+        if(input) input.checked=x===l;
+      });
+      if(picked===q.answer) l.classList.add("correct");
+      else{
+        l.classList.add("wrong");
+        const ok=$$(".qopts label",card).find(x=>x.dataset.o===q.answer);
+        if(ok) ok.classList.add("correct");
+      }
       $(".qexp",card).classList.add("show");
     });
-    const rv=$(".reveal",card); if(rv)rv.onclick=()=>$(".qexp",card).classList.add("show");
+    const rv=$(".reveal",card);
+    if(rv) rv.onclick=()=>$(".qexp",card).classList.add("show");
   });
 }
 
