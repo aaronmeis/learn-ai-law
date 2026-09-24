@@ -7613,7 +7613,8 @@ function renderDecks(){
       <button class="b" type="button" id="deckPrev">Previous slide</button>
       <button class="b" type="button" id="deckNext">Next slide</button>
       <span style="color:var(--text-dim);font-size:.8rem" id="deckMeta"></span>
-      <a class="b" href="${esc(it.file)}" target="_blank" rel="noopener">Open PDF</a>
+      <a class="b" href="${esc(it.file)}" target="_blank" rel="noopener">PDF</a>
+      ${it.pptx?`<a class="b" href="${esc(it.pptx)}" download>Download PowerPoint</a>`:""}
     </div>
     <div class="deck-frame"><img class="deck-slide" id="deckImg" alt="Week ${week} slide ${deckSlide+1}" src="${esc(src)}"></div>
     <div class="thumbs" style="margin-top:.7rem;max-height:140px">`+it.slides.map((s,idx)=>`<button type="button" class="${idx===deckSlide?"active":""}" data-ds="${idx}">Slide ${idx+1}</button>`).join("")+`</div>`;
