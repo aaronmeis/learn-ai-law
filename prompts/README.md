@@ -28,7 +28,7 @@ These are reusable prompt templates for using an LLM as a study aid across the
 
 ---
 
-## The five categories
+## The categories
 
 | # | File | Use it to… | Default model |
 |---|---|---|---|
@@ -37,6 +37,8 @@ These are reusable prompt templates for using an LLM as a study aid across the
 | 3 | [`03-issue-spotter.md`](03-issue-spotter.md) | Run a fictional or public AI deployment through a legal-issue scan by pillar | Sonnet 5 (Opus 5 for capstone) |
 | 4 | [`04-redline-assist.md`](04-redline-assist.md) | Work a **public** contract clause-by-clause: what it does, who it favours, what the fallback ask is | Sonnet 5 |
 | 5 | [`05-translation.md`](05-translation.md) | Move between legalese ↔ plain English ↔ technical framing; prep for a counsel conversation | Sonnet 5 |
+| 6 | [`06-standards-discriminator.md`](06-standards-discriminator.md) | Separate labels that get merged: 42001 audit stages, 23894, 22989, Measure vs TEVV, SP 800-37 vs the AI RMF, AIBOM vs SBOM, high-risk vs frontier, AI 600-1 | Sonnet 5 |
+| 7 | [`07-genai-profile.md`](07-genai-profile.md) | Walk NIST AI 600-1 for one fictional generative use without treating the profile as a statute | Sonnet 5 |
 
 Plus [`building-your-own.md`](building-your-own.md) — how to write and tune new prompts, and the anti-patterns to avoid.
 
