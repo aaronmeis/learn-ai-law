@@ -487,6 +487,7 @@
     <li class="nav-item" data-v="iso23894"><span class="ni-ic">▪</span>ISO 23894</li>
     <li class="nav-item" data-v="iso22989"><span class="ni-ic">▪</span>ISO 22989</li>
     <li class="nav-item" data-v="stdmap"><span class="ni-ic">▪</span>Standards map</li>
+    <li class="nav-item" data-v="nistmeasure"><span class="ni-ic">▪</span>Measure &amp; TEVV</li>
     <li class="nav-item" data-v="map"><span class="ni-ic">▪</span>Progress map</li>
     <li class="nav-item" data-v="flash"><span class="ni-ic">▪</span>Flashcards</li>
     <li class="nav-item" data-v="shorts"><span class="ni-ic">▪</span>Shorts</li>
@@ -521,6 +522,7 @@
   <section class="view" id="v-iso23894"></section>
   <section class="view" id="v-iso22989"></section>
   <section class="view" id="v-stdmap"></section>
+  <section class="view" id="v-nistmeasure"></section>
   <section class="view" id="v-map"></section>
   <section class="view" id="v-flash"></section>
   <section class="view" id="v-shorts"></section>
@@ -549,6 +551,8 @@ const EXTERNAL_REFS = {
     {"url":"https://www.iso.org/obp/ui/en/#iso:std:iso-iec:42001:ed-1:v1:en","anchor":"ISO/IEC 42001:2023 — Online Browsing Platform","sources":["iso-42001 study view"]},
     {"url":"https://www.iso.org/obp/ui/en/#iso:std:iso-iec:23894:ed-1:v1:en","anchor":"ISO/IEC 23894:2023 — Online Browsing Platform","sources":["iso-42001 study view"]},
     {"url":"https://www.nist.gov/itl/ai-risk-management-framework","anchor":"NIST AI RMF 1.0","sources":["iso-42001 study view"]},
+    {"url":"https://doi.org/10.6028/NIST.AI.100-1","anchor":"NIST AI 100-1 (AI RMF 1.0), including Measure and TEVV","sources":["nist measure study view"]},
+    {"url":"https://www.nist.gov/ai-test-evaluation-validation-and-verification-tevv","anchor":"NIST AI TEVV program","sources":["nist measure study view"]},
     {"url":"https://www.iso.org/obp/ui/en/#iso:std:iso-iec:22989:ed-1:v1:en","anchor":"ISO/IEC 22989:2022 — free Online Browsing Platform text","sources":["iso-22989 study view"]}
   ],
   "Statutes, Regulations & Executive Orders": [
@@ -4230,7 +4234,23 @@ const EXPANDED_GLOSSARY = [
     "definition": "NIST AI Risk Management Framework establishing 4 core functions: GOVERN, MAP, MEASURE, and MANAGE for trustworthy AI systems.",
     "rung": 200,
     "essential": true,
-    "see_also": "ISO/IEC 42001; NIST AI 600-1 (Generative AI Profile)"
+    "see_also": "NIST AI RMF MEASURE; TEVV; ISO/IEC 42001; NIST AI 600-1 (Generative AI Profile)"
+  },
+  {
+    "category": "Responsible AI",
+    "term": "NIST AI RMF MEASURE",
+    "definition": "Third function of NIST AI RMF 1.0 (NIST AI 100-1, section 5.3 and Table 3). It analyzes, assesses, benchmarks, and monitors AI risk using what Map identified, and it feeds Manage. Four categories: choose methods and metrics, evaluate trustworthy characteristics, track risks over time, and check whether the measurement worked. Voluntary. Not a certificate.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "TEVV; NIST AI RMF 1.0; NIST AI 600-1 (Generative AI Profile)"
+  },
+  {
+    "category": "Responsible AI",
+    "term": "TEVV",
+    "definition": "Test, evaluation, verification, and validation. In NIST AI RMF 1.0 this is work across the lifecycle, not a fifth function next to Govern, Map, Measure, and Manage. Appendix A splits the tasks by design, development, deployment, and operations, and says the people who verify and validate should ideally not be the people who test and evaluate. Measure is complete when those processes are in place, followed, and documented. AI 100-1 quotes ISO 9000 for validation only. It does not define the four words one by one.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "NIST AI RMF MEASURE; NIST AI RMF 1.0"
   },
   {
     "category": "Responsible AI",
@@ -6395,7 +6415,7 @@ const DATA = {
         whyMatters:"Clinical decision tools must prevent bias and protect patient health information (PHI)."},
        {t:"Synthesis: Samuelson on remedies, NIST RMF Map/Measure integration, layered IP strategy",rl:"synthesis · 300",
         action:"Build a unified Enterprise AI Architecture Blueprint integrating TOGAF, NIST RMF, and contract terms.",
-        lookLike:"<b>What Does This Look Like in Practice? (Master Enterprise Governance Blueprint)</b><pre>Layer 1 (Contractual): Executed Common Paper Addendum + ZDR Cloud API\nLayer 2 (IP Protection): Trade Secret Vault for System Prompts + Human Contribution Log\nLayer 3 (Regulatory): NIST AI RMF Measure 2.1 Bias Audits + Article 50 Disclosures</pre>",
+        lookLike:"<b>What Does This Look Like in Practice? (Master Enterprise Governance Blueprint)</b><pre>Layer 1 (Contractual): Executed Common Paper Addendum + ZDR Cloud API\nLayer 2 (IP Protection): Trade Secret Vault for System Prompts + Human Contribution Log\nLayer 3 (Regulatory): NIST AI RMF Measure 2.11 fairness evaluation, with Measure 2.1 recording the test sets and tools + Article 50 Disclosures</pre>",
         whyMatters:"Combines IP protection, trade secrets, regulatory compliance, and Responsible AI audits into one architecture plan."},
        {t:"Capstone: issue-spotter exam, contract redline memo, mock counsel meeting",rl:"capstone · 300",
         action:"Execute the complete capstone issue-spotter exam, redline memo, and mock counsel presentation.",
@@ -6570,7 +6590,7 @@ const DATA = {
     rai: [
       {pillar: "GOVERN", t: "NIST AI RMF 1.0 & ISO 42001 Governance", items: ["Plug-in Point: TOGAF Phase A/G, Zachman Col 6 (Why).", "Sets corporate AI risk tolerance, ethical rules, and accountability.", "Integrates executive oversight with vendor AI addenda (Common Paper/Bonterms).", "For defense: align with NDAA §1535 Futures Committee and NSCAI justified-confidence / democratic-values themes."]},
       {pillar: "MAP", t: "System Categorization & Legal Context", items: ["Plug-in Point: TOGAF Phase B/C, Zachman Col 1 (What) / Col 3 (Where).", "Maps data flows against EU AI Act risk tiers (Prohibited, High-Risk, Limited).", "Identifies sub-processor DPA obligations and cross-border data rules.", "Maps DOD-facing models against §1532 covered-AI criteria and §1534 sandbox placement."]},
-      {pillar: "MEASURE", t: "Algorithmic Bias, Safety & Red-Teaming", items: ["Plug-in Point: TOGAF Phase C/D, Zachman Col 2 (How), DoDAF OV-6a.", "Audits models for disparate impact under EEOC and NYC LL144 rules.", "Executes automated red-teaming for toxicity, hallucinations, and IP leakage.", "Supports §1533 performance/security testing and §1512 AI/ML cybersecurity evaluations."]},
+      {pillar: "MEASURE", t: "Measure and TEVV", items: ["Plug-in Point: TOGAF Phase C/D, Zachman Col 2 (How), DoDAF OV-6a.", "NIST AI 100-1 Table 3 has four categories: choose metrics, evaluate trustworthy characteristics, track risks over time, and check whether the tests worked. TEVV runs across the lifecycle. It is not a fifth function. Open the Measure and TEVV view.", "Fairness is Measure 2.11. Measure 2.1 only records the test sets, metrics, and tools. A bias audit is not the whole function.", "Legal reviews may still ask for disparate-impact checks under EEOC and NYC LL144, red-teaming, and NDAA performance, security, and cybersecurity testing. Those are examples of what you might measure. They are not the Table 3 headings."]},
       {pillar: "MANAGE", t: "Ongoing Risk Mitigation & Explainability", items: ["Plug-in Point: TOGAF Phase G, Zachman Col 5 (When), DoDAF SV-1.", "Deploys real-time guardrails and adverse action explainability logs (ECOA/Reg B).", "Establishes model rollback protocols and vendor deprecation windows.", "Keeps agentic/advanced AI under NDAA Sec. 1535 governance review before production expansion.", "Art. 73 is a runbook plus the provider contact already named in the instructions for use. Do not invent a separate severity taxonomy.", "ISO/IEC TS 6254 is the explainability method next to XAI and GDPR Art. 22. It is not a presumption of AI Act conformity."]}
     ]
   },
@@ -6815,7 +6835,7 @@ const DATA = {
       {id:"A.6", name:"Fairness"}
     ],
     annexNote: "Annex A is objectives: what the organisation is trying to achieve or protect, which is what ISO 31000-style risk is assessed against. Annex B is risk sources. Annex C is one example of mapping the clause 6 process onto an AI system life cycle. The ISO contents preview confirms A.1 through A.6 and then truncates. Further objective titles are not listed here.",
-    nist: "NIST AI RMF 1.0 is US voluntary guidance with Govern, Map, Measure, and Manage. 23894 is the ISO 31000 specialization from the same committee that wrote 42001. Use either as the risk method inside a 42001 system. Do not treat them as the same text, and do not treat either as a certificate or as EU AI Act conformity.",
+    nist: "NIST AI RMF 1.0 is US voluntary guidance with Govern, Map, Measure, and Manage. Measure is Table 3. TEVV is the testing work inside that function, not a fifth function. Open the Measure and TEVV view. 23894 is the ISO 31000 specialization from the same committee that wrote 42001. Use either as the risk method inside a 42001 system. Do not treat them as the same text, and do not treat either as a certificate or as EU AI Act conformity.",
     sources: [
       {t:"ISO/IEC 23894:2023 — read the public text on the ISO Online Browsing Platform", u:"https://www.iso.org/obp/ui/en/#iso:std:iso-iec:23894:ed-1:v1:en"},
       {t:"ISO Online Browsing Platform contents (edition 1)", u:"https://www.iso.org/obp/ui/en/#iso:std:iso-iec:23894:ed-1:v1:en"},
@@ -6864,7 +6884,7 @@ const DATA = {
         {name:"ISO 31000:2018", kind:"Risk guidance", job:"General risk-management principles, framework, and process. 23894 says it is to be used with this.", view:""},
         {name:"ISO/IEC 23894:2023", kind:"AI risk guidance", job:"Specializes 31000 for organisations that develop, produce, deploy, or use AI. Not a certificate.", view:"iso23894"},
         {name:"ISO/IEC 42005", kind:"Impact assessment", job:"Companion for assessing consequences of an AI system for people. Not a substitute for the 23894 risk assessment.", view:""},
-        {name:"NIST AI RMF 1.0", kind:"US voluntary framework", job:"Govern, Map, Measure, Manage. Parallel method, not the same text as 23894 and not a certificate.", view:""}
+        {name:"NIST AI RMF 1.0", kind:"US voluntary framework", job:"Govern, Map, Measure, Manage. Measure is Table 3. TEVV is the testing work inside it, not a fifth function and not a certificate.", view:"nistmeasure"}
       ]},
       {band:"Obligations", items:[
         {name:"ISO/IEC 42001:2023", kind:"Certifiable management system", job:"Clauses 4–10 plus a justified Annex A selection. The certificate covers the management system, not a model.", view:"iso42001"},
@@ -6873,6 +6893,76 @@ const DATA = {
       ]}
     ],
     beside: "ISO/IEC 27001 sits beside 42001: same management-system shape (clauses 4–10 and a statement of applicability), different subject (information security, not AI). It is not a parent of 42001."
+  },
+
+  nistMeasure: {
+    updated: "2026-09-24",
+    citation: "NIST AI 100-1, Artificial Intelligence Risk Management Framework (AI RMF 1.0), 26 January 2023. Measure is section 5.3 and Table 3. TEVV is used in section 2 and specified as actor tasks in Appendix A.",
+    oneLine: "Measure is how you test the risks Map already named. TEVV is the testing work that makes Measure real. Neither one is a certificate.",
+    checked: "Category names and the TEVV task split are taken from NIST AI 100-1. Subcategory lines below are paraphrased. Playbook suggestions are not copied in as if they were requirements. On 24 September 2026 the NIST Trustworthy and Responsible AI Resource Center still published AI RMF 1.0 and said a revised version was in progress. Study 1.0 until NIST publishes the next edition.",
+    why: "Map can name a risk and still leave you with no evidence. Measure is the function that turns that list into methods, metrics, and a record. Without it, Manage is choosing mitigate, accept, or stop on a hunch.",
+    what: "NIST's own job statement for Measure: use quantitative, qualitative, or mixed methods to analyze, assess, benchmark, and monitor AI risk and related impacts. Use what Map found. Inform Manage. Test before deployment and again while the system is in operation. When Measure is done, objective, repeatable, or scalable TEVV processes are in place, followed, and documented.",
+    when: "After Map has named context, impacts, and the risks worth measuring. Again on a cadence while the system runs, and again when the model, data, or use changes. Not instead of a 42001 internal audit, and not instead of a high-risk AI Act risk system.",
+    howItems: [
+      "Start with the most significant risks from Map. Write down which risks or trustworthiness characteristics you will not measure, or cannot measure yet. That is Measure 1.1.",
+      "Record the test sets, metrics, and tools. That record is Measure 2.1. It is not itself a bias finding.",
+      "Have someone who did not build the system review the results, at a depth that matches your risk tolerance. Measure 1.3 calls that an internal expert or an independent assessor. It does not create a notified body.",
+      "Hand the results to Manage. Manage 1 decides whether the system still meets its purpose and whether to mitigate, transfer, avoid, or accept the risk.",
+      "If you are also running ISO/IEC 42001, these records are what Clause 9 can sample. They do not replace the Statement of Applicability.",
+      "The AI RMF Playbook lists suggested actions. They are voluntary. Do not cite a Playbook line as if it were a Table 3 subcategory."
+    ],
+    categories: [
+      {id:"1", name:"Appropriate methods and metrics are identified and applied", d:"Pick approaches for the risks Map listed, starting with the most significant. Document what you will not or cannot measure. Revisit whether the metrics and the existing controls still work. Involve people who did not build the system.", architect:"An architecture review asks for the metric list, the explicit exclusions, and the name of the reviewer who was not on the build team."},
+      {id:"2", name:"AI systems are evaluated for trustworthy characteristics", d:"Run TEVV against the characteristics Map flagged, in conditions like the real deployment, then keep watching the system in production. The characteristics in section 3 of AI 100-1 are valid and reliable, safe, secure and resilient, accountable and transparent, explainable and interpretable, privacy-enhanced, and fair with harmful bias managed. Table 3 also asks about environmental impact.", architect:"Do not stop at accuracy. If Map named safety, privacy, or bias, Measure 2 has a line for each. Measure 2.13 then asks whether the tests themselves were any good."},
+      {id:"3", name:"Mechanisms for tracking identified AI risks over time are in place", d:"Keep people and documents that find existing, unexpected, and new risks from how the system actually behaves. Plan for risks you cannot measure well yet. Give users and affected communities a way to report problems and appeal outcomes, and feed that into the metrics.", architect:"This is a tracking loop, not an incident-reporting statute. Art. 73, California SB 53, and New York RAISE keep their own clocks. Do not file those clocks here."},
+      {id:"4", name:"Feedback about efficacy of measurement is gathered and assessed", d:"Connect the measurement approach to the deployment context. Ask domain experts and users whether the results match intended use. Record where performance got better or worse.", architect:"Measure 4 is the check on the measurement program. A dashboard that nobody compares to field reports has not finished this category."}
+    ],
+    measure2: [
+      {id:"2.1", name:"TEVV record", d:"Document the test sets, the metrics, and the tools. This is the file an auditor or a later team can rerun. It is not a bias conclusion."},
+      {id:"2.2", name:"Human subjects", d:"Evaluations with human subjects meet the applicable protections and represent the relevant population."},
+      {id:"2.3-2.4", name:"Deployment and production", d:"Show performance in conditions similar to deployment. Then monitor functionality and behavior in production, for the components Map identified."},
+      {id:"2.5", name:"Valid and reliable", d:"Show the system is valid and reliable, and write down where the results do not generalize past the conditions you tested. Section 3.1 quotes ISO 9000:2015 for validation."},
+      {id:"2.6", name:"Safe", d:"Evaluate the safety risks Map identified. Residual negative risk stays inside tolerance. The system can fail safely, including past its knowledge limits."},
+      {id:"2.7", name:"Secure and resilient", d:"Evaluate and document security and resilience as Map framed them."},
+      {id:"2.8", name:"Transparency and accountability", d:"Examine and document the transparency and accountability risks Map identified."},
+      {id:"2.9", name:"Explainability", d:"Explain and document the model, and interpret output in the context Map described, so use and governance stay responsible."},
+      {id:"2.10", name:"Privacy", d:"Examine and document privacy risk as Map identified it."},
+      {id:"2.11", name:"Fairness and bias", d:"Evaluate fairness and harmful bias as Map identified them, and document the results. This is the bias line. It is not 2.1."},
+      {id:"2.12", name:"Environmental impact", d:"Assess the environmental impact of training and of managing the model, as Map identified it."},
+      {id:"2.13", name:"Did the tests work", d:"Evaluate and document whether the TEVV metrics and processes used in Measure were effective."}
+    ],
+    tevvNote: "AI 100-1 never splits TEVV into four dictionary entries. It quotes ISO 9000:2015 for one word, validation: objective evidence that the requirements for a specific intended use or application have been fulfilled. It quotes ISO/IEC TS 5723:2022 for reliability, which is a trustworthiness goal, not the definition of verification. Treat the other three words as the names of tasks in Appendix A, not as definitions this document forgot to print.",
+    tevvTasks: [
+      {id:"Design", d:"Internal and external checks on assumptions for system design, data collection, and measurements, against the context you intend to deploy into."},
+      {id:"Development", d:"Model validation and assessment while the model is being built."},
+      {id:"Deployment", d:"System validation and integration in production, including testing, recalibration, user experience, and whether the system still meets legal and ethical specifications."},
+      {id:"Operations", d:"Ongoing monitoring, periodic updates, subject-matter recalibration, incident and error tracking, emergent behavior, and a path for redress."}
+    ],
+    separation: "Appendix A says TEVV tasks run through the whole lifecycle. AI actors either examine the system or its components, or detect and remediate problems. Ideally, the actors who verify and validate are not the actors who test and evaluate. Tasks can start as early as design, when the tests are planned against the requirements.",
+    myths: [
+      {claim:"Measure 2.1 means run a bias audit.", fact:"Measure 2.1 documents test sets, metrics, and the tools used during TEVV. Fairness and bias are Measure 2.11, and only for risks Map already identified."},
+      {claim:"TEVV is a fifth function beside Govern, Map, Measure, and Manage.", fact:"The Core has four functions. TEVV is how testing, evaluation, verification, and validation happen inside them, especially inside Measure, and across design, development, deployment, and operations."},
+      {claim:"We finished Measure, so the model is certified.", fact:"AI RMF 1.0 is voluntary guidance. It issues no certificate. An ISO/IEC 42001 certificate still covers the management system, not a model score."},
+      {claim:"Red-teaming is the Measure function.", fact:"Red-teaming is one way to examine a system. Measure 2 also covers validity, safety, security, transparency, explainability, privacy, fairness, environmental impact, and whether the tests worked."},
+      {claim:"An independent assessor under Measure 1.3 is a notified body.", fact:"Measure 1.3 asks for reviewers who did not build the system, scaled to organizational risk tolerance. An EU notified body is a conformity actor under the AI Act. Different instrument."},
+      {claim:"The Playbook actions are mandatory subcategories.", fact:"NIST calls the Playbook voluntary suggested tactics. The outcome list in the framework is Table 3 of AI 100-1."},
+      {claim:"Serious-incident clocks belong in Measure 3.", fact:"Measure 3 tracks AI risks over time and takes reports from users and affected communities. Article 73, California SB 53, and the New York RAISE Act keep separate clocks and separate audiences. Do not merge them."}
+    ],
+    place: [
+      {theme:"Before you measure", here:"Map 1 through Map 5, including Map 2.3 on scientific integrity and TEVV considerations.", notThis:"A metric chosen because the tool already reports it."},
+      {theme:"After you measure", here:"Manage 1 prioritizes and responds. Options include mitigate, transfer, avoid, or accept. Manage 2.4 covers superseding or turning off a system that no longer matches intended use.", notThis:"A dashboard with no decision owner."},
+      {theme:"ISO/IEC 42001", here:"Clause 9 samples whether monitoring, measurement, internal audit, and management review actually ran.", notThis:"A substitute for the Statement of Applicability, or a presumption of EU AI Act conformity."},
+      {theme:"ISO/IEC 23894", here:"Clause 6.6 is monitoring and review of AI risk. Use it, or use Measure, as the method inside a 42001 system. Say which document you are following.", notThis:"Treating 23894 and the AI RMF as the same text."},
+      {theme:"EU AI Act, high-risk systems", here:"Articles 9, 15, and 72 are legal duties for accuracy, robustness, cybersecurity, risk management, and post-market monitoring. Dates still follow the Act, including the Digital Omnibus deferrals for Annex III and Annex I.", notThis:"Filing a NIST worksheet and calling Article 9 done."},
+      {theme:"NIST AI 600-1", here:"July 2024 Generative AI profile of the same four functions. It adds generative-AI risks and suggested actions. It does not replace Table 3.", notThis:"A second framework with its own Govern, Map, Measure, Manage."}
+    ],
+    sources: [
+      {t:"NIST AI 100-1, AI RMF 1.0 (26 January 2023)", u:"https://doi.org/10.6028/NIST.AI.100-1"},
+      {t:"AI RMF Core, section 5, on the NIST Trustworthy and Responsible AI Resource Center", u:"https://airc.nist.gov/airmf-resources/airmf/5-sec-core/"},
+      {t:"NIST AI test, evaluation, validation and verification (TEVV) program", u:"https://www.nist.gov/ai-test-evaluation-validation-and-verification-tevv"},
+      {t:"NIST AI Risk Management Framework landing page", u:"https://www.nist.gov/itl/ai-risk-management-framework"},
+      {t:"NIST AI 600-1, Generative Artificial Intelligence Profile (26 July 2024)", u:"https://doi.org/10.6028/NIST.AI.600-1"}
+    ]
   },
 
   quiz:[
@@ -6915,6 +7005,8 @@ const DATA = {
     {week:5,rung:300,pillar:"Responsible AI",type:"mc",question:"Which pairing is the right way to use NIST AI RMF with ISO/IEC 42001?",options:["Drop NIST once you hold a 42001 certificate, because they are the same instrument","Use NIST AI RMF (and ISO/IEC 23894) as the risk method inside a certifiable AIMS; do not treat the certificate as EU AI Act conformity","File the NIST RMF PDF as Annex A and skip the impact assessment","Treat 42001 as US law and NIST as EU law"],answer:"Use NIST AI RMF (and ISO/IEC 23894) as the risk method inside a certifiable AIMS; do not treat the certificate as EU AI Act conformity",explanation:"NIST AI RMF 1.0 is voluntary guidance. 42001 is a certifiable management system. ISO/IEC 23894:2023 is the ISO guidance, used with ISO 31000, for the risk assessment. 42001 also requires a separate AI system impact assessment. Neither instrument is a harmonised standard for the AI Act."},
     {week:5,rung:200,pillar:"Responsible AI",type:"mc",question:"What is ISO/IEC 23894:2023?",options:["A certifiable AI management system that replaces ISO/IEC 42001","Guidance, used with ISO 31000, on managing risk when an organisation develops, produces, deploys, or uses AI","The EU harmonised standard that creates a presumption of conformity with the AI Act","A list of 38 mandatory Annex A controls"],answer:"Guidance, used with ISO 31000, on managing risk when an organisation develops, produces, deploys, or uses AI",explanation:"ISO's own abstract calls 23894 guidance for organisations that develop, produce, deploy, or use AI, and says it is intended to be used with ISO 31000:2018. The certificate lives in ISO/IEC 42001, not here. The public contents list confirms a principles clause, a framework (clause 5), a risk process (clause 6), and annexes for objectives, risk sources, and an example lifecycle mapping."},
     {week:5,rung:100,pillar:"Responsible AI",type:"mc",question:"What is ISO/IEC 22989:2022 for?",options:["Certifying that a model is safe","Setting the shared AI terminology and concepts used by later SC 42 standards","Replacing the EU AI Act","Listing the 38 Annex A controls of ISO/IEC 42001"],answer:"Setting the shared AI terminology and concepts used by later SC 42 standards",explanation:"ISO/IEC 22989:2022 establishes terminology and describes AI concepts so other standards and stakeholders share words. It is not a management system. The certificate is ISO/IEC 42001. The generative-AI amendment was still under development in September 2026."},
+    {week:5,rung:200,pillar:"Responsible AI",type:"mc",question:"In NIST AI RMF 1.0, what is MEASURE?",options:["A certifiable audit stage, like Stage 2 under ISO/IEC 17021-1","The function that analyzes, assesses, benchmarks, and monitors the AI risks Map identified, using Table 3 of NIST AI 100-1","A synonym for EU AI Act Article 9","The bias-audit subcategory only"],answer:"The function that analyzes, assesses, benchmarks, and monitors the AI risks Map identified, using Table 3 of NIST AI 100-1",explanation:"Section 5.3 defines Measure and says it uses Map and informs Manage. Table 3 has four categories. Measure 2.1 records test sets, metrics, and tools. Fairness is Measure 2.11. The framework is voluntary and does not certify a model."},
+    {week:5,rung:200,pillar:"Responsible AI",type:"mc",question:"What is TEVV in the NIST AI RMF?",options:["A fifth core function added after Manage","Test, evaluation, verification, and validation tasks that run across the lifecycle and that Measure is supposed to put in place","The EU notified-body procedure","Another name for Article 73 serious-incident reporting"],answer:"Test, evaluation, verification, and validation tasks that run across the lifecycle and that Measure is supposed to put in place",explanation:"Appendix A of NIST AI 100-1 places TEVV tasks in design, development, deployment, and operations. Ideally, verification and validation are done by different people than test and evaluation. AI 100-1 defines validation by quoting ISO 9000. It does not define the four words separately, and it does not make TEVV its own function."},
 
     // --- Week 6 (5 Questions) ---
     {week:6,rung:200,pillar:"Licensing",type:"mc",question:"Under the Open Source AI Definition 1.0 (OSAID), which component MUST be made available alongside code and weights for a model to be certified open source?",options:["A corporate credit card billing statement","Sufficiently detailed training data provenance summaries and data processing code","A signed non-disclosure agreement (NDA)","Private user telemetry logs"],answer:"Sufficiently detailed training data provenance summaries and data processing code",explanation:"OSAID 1.0 requires openness across data (provenance summaries & processing logic), code (training & inference), and model weights."},
@@ -7010,6 +7102,7 @@ function renderDashboard(){
     <div class="card"><h3>ISO/IEC 22989</h3><p style="color:var(--text-secondary);font-size:.86rem">Why, what, how, and when for the AI concepts and terminology standard. The dictionary behind 42001 and 23894. Not a certificate.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('iso22989')">ISO 22989 →</button></div></div>
     <div class="card"><h3>ISO/IEC 23894</h3><p style="color:var(--text-secondary);font-size:.86rem">ISO/IEC 23894:2023 guidance, used with ISO 31000. Principles, framework, and risk process, plus the public annex headings. Not a certificate. Pairs with ISO/IEC 42001.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('iso23894')">ISO 23894 →</button></div></div>
     <div class="card"><h3>ISO/IEC 42001</h3><p style="color:var(--text-secondary);font-size:.86rem">Certifiable AI management system: clauses 4-10, 38 Annex A controls, Statement of Applicability, and how it differs from NIST AI RMF and the EU AI Act.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('iso42001')">ISO 42001 →</button></div></div>
+    <div class="card"><h3>NIST Measure and TEVV</h3><p style="color:var(--text-secondary);font-size:.86rem">Why, what, how, and when for Measure in NIST AI RMF 1.0, Table 3, and test, evaluation, verification, and validation. Not a fifth function and not a certificate.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('nistmeasure')">Measure and TEVV →</button></div></div>
     <div class="card"><h3>EA mapping</h3><p style="color:var(--text-secondary);font-size:.86rem">Cross-walk mapping AI legal terms, IP assets, and compliance rules to <b>TOGAF</b>, <b>Zachman</b>, <b>DoDAF</b>, and <b>NIST AI RMF</b>.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('ea')">EA Mapping →</button></div></div>
     <div class="card"><h3>External references</h3><p style="color:var(--text-secondary);font-size:.86rem">Extracted index of ${totalLinks} external primary sources, court dockets, statutes, and law reviews.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('refs')">External References →</button></div></div>
   </div>`;
@@ -7816,6 +7909,73 @@ function renderISO22989(){
   el.innerHTML=h;
 }
 
+/* ---- NIST AI RMF Measure and TEVV ---- */
+function renderNistMeasure(){
+  const el=$("#v-nistmeasure");
+  if(!el||!DATA.nistMeasure) return;
+  const P=DATA.nistMeasure;
+  const tab=LS.get("nistMeasureTab","overview");
+  let h=`<h2 class="vh">NIST Measure and TEVV</h2>
+  <p class="lead">${esc(P.oneLine)} ${esc(P.citation)} Notes refreshed ${esc(P.updated)}. <b>Not legal advice.</b></p>
+  <div class="note danger"><b>What was checked.</b> ${esc(P.checked)}</div>
+  <div class="ea-subnav">
+    <button class="ea-tab-btn ${tab==="overview"?"active":""}" data-nm="overview">Overview</button>
+    <button class="ea-tab-btn ${tab==="categories"?"active":""}" data-nm="categories">Measure 1-4</button>
+    <button class="ea-tab-btn ${tab==="measure2"?"active":""}" data-nm="measure2">Measure 2</button>
+    <button class="ea-tab-btn ${tab==="tevv"?"active":""}" data-nm="tevv">TEVV</button>
+    <button class="ea-tab-btn ${tab==="place"?"active":""}" data-nm="place">Where it sits</button>
+    <button class="ea-tab-btn ${tab==="myths"?"active":""}" data-nm="myths">Misreads</button>
+    <button class="ea-tab-btn ${tab==="sources"?"active":""}" data-nm="sources">Sources</button>
+  </div>`;
+  if(tab==="overview"){
+    h+=`<div class="ea-grid">
+      <div class="ea-box"><h4>Why</h4><p style="color:var(--text-secondary);margin:0">${esc(P.why)}</p></div>
+      <div class="ea-box"><h4>What</h4><p style="color:var(--text-secondary);margin:0">${esc(P.what)}</p></div>
+      <div class="ea-box"><h4>When</h4><p style="color:var(--text-secondary);margin:0">${esc(P.when)}</p></div>
+    </div>
+    <div class="ea-card" style="margin-top:1rem"><h3>How to use it</h3><ul style="color:var(--text-secondary);padding-left:1.1rem">`;
+    P.howItems.forEach(x=>{ h+=`<li style="margin-bottom:.45rem">${esc(x)}</li>`; });
+    h+=`</ul><div class="btnrow"><button class="b" onclick="go('stdmap')">Open the standards map</button></div></div>`;
+  }
+  if(tab==="categories"){
+    h+=`<div class="ea-card"><h3>Table 3, in four rows</h3><p style="color:var(--text-secondary);font-size:.86rem">These are the category outcomes in NIST AI 100-1. The subcategory sentences are paraphrased. Actions in the Playbook are suggestions, not extra rows.</p><table class="ea-table"><thead><tr><th>Category</th><th>Outcome</th><th>What it asks you to do</th><th>Architect reading</th></tr></thead><tbody>`;
+    P.categories.forEach(c=>{ h+=`<tr><td><b>Measure ${esc(c.id)}</b></td><td>${esc(c.name)}</td><td>${esc(c.d)}</td><td>${esc(c.architect)}</td></tr>`; });
+    h+=`</tbody></table></div>`;
+  }
+  if(tab==="measure2"){
+    h+=`<div class="ea-card"><h3>Measure 2 is wider than a bias audit</h3><p style="color:var(--text-secondary);font-size:.86rem">Measure 2 evaluates the trustworthy characteristics Map already identified. Lines below follow Table 3's numbering. Wording is paraphrased.</p><table class="ea-table"><thead><tr><th>Line</th><th>Topic</th><th>Study note</th></tr></thead><tbody>`;
+    P.measure2.forEach(c=>{ h+=`<tr><td><b>${esc(c.id)}</b></td><td>${esc(c.name)}</td><td>${esc(c.d)}</td></tr>`; });
+    h+=`</tbody></table></div>`;
+  }
+  if(tab==="tevv"){
+    h+=`<div class="ea-card"><h3>What NIST actually says TEVV is</h3><p style="color:var(--text-secondary)">${esc(P.tevvNote)}</p><p style="color:var(--text-secondary)">${esc(P.separation)}</p></div>
+    <div class="ea-card"><h3>Appendix A task split</h3><table class="ea-table"><thead><tr><th>When</th><th>What the TEVV tasks cover</th></tr></thead><tbody>`;
+    P.tevvTasks.forEach(c=>{ h+=`<tr><td><b>${esc(c.id)}</b></td><td>${esc(c.d)}</td></tr>`; });
+    h+=`</tbody></table></div>`;
+  }
+  if(tab==="place"){
+    h+=`<div class="ea-card"><h3>Same theme, different instrument</h3><p style="color:var(--text-secondary);font-size:.86rem">A row is a place to file the work. It is not equivalence.</p><table class="ea-table"><thead><tr><th>Theme</th><th>Use Measure and TEVV here</th><th>Do not treat it as</th></tr></thead><tbody>`;
+    P.place.forEach(r=>{ h+=`<tr><td><b>${esc(r.theme)}</b></td><td>${esc(r.here)}</td><td>${esc(r.notThis)}</td></tr>`; });
+    h+=`</tbody></table><div class="btnrow" style="margin-top:1rem"><button class="b" onclick="go('iso42001')">Open the ISO 42001 view</button><button class="b" onclick="go('ea')">Open the EA mapping</button></div></div>`;
+  }
+  if(tab==="myths"){
+    h+=`<div class="ea-card"><h3>Claims that fail a close read of AI 100-1</h3>`;
+    P.myths.forEach(m=>{
+      h+=`<div style="margin:0 0 1rem;padding:1rem;border:1px solid var(--border-color);border-radius:10px;background:var(--card-bg2)"><h4 style="margin:0 0 .4rem">${esc(m.claim)}</h4><p style="margin:0;color:var(--text-secondary)">${esc(m.fact)}</p></div>`;
+    });
+    h+=`</div>`;
+  }
+  if(tab==="sources"){
+    h+=`<div class="ea-card"><h3>Where to read next</h3><ul style="list-style:none;padding:0">`;
+    P.sources.forEach(s=>{ h+=`<li style="margin-bottom:.55rem"><a href="${esc(s.u)}" target="_blank" rel="noopener">${esc(s.t)}</a></li>`; });
+    h+=`</ul><p style="color:var(--text-dim);font-size:.8rem;margin-top:1rem">NIST AI 100-1 is a U.S. government publication. The Playbook is a separate voluntary companion and is not reproduced here.</p></div>`;
+  }
+  el.innerHTML=h;
+  Array.from(el.querySelectorAll(".ea-tab-btn")).forEach(btn=>{
+    btn.onclick=()=>{ LS.set("nistMeasureTab", btn.dataset.nm); renderNistMeasure(); };
+  });
+}
+
 /* ---- Words / methods / obligations ---- */
 function renderStdMap(){
   const el=$("#v-stdmap");
@@ -8080,7 +8240,7 @@ function initTheme(){
 }
 
 /* ---- Init ---- */
-initTheme();renderDashboard();renderCurriculum();renderEUProducts();renderISO42001();renderISO23894();renderISO22989();renderStdMap();renderMap();renderFlash();renderQuiz();renderGlossary();renderPrompts();renderCounsel();renderEA();renderReferences();
+initTheme();renderDashboard();renderCurriculum();renderEUProducts();renderISO42001();renderISO23894();renderISO22989();renderStdMap();renderNistMeasure();renderMap();renderFlash();renderQuiz();renderGlossary();renderPrompts();renderCounsel();renderEA();renderReferences();
 loadShorts();
 (function restore(){const v=LS.get("view","dashboard");const b=$('#nav .nav-item[data-v="'+v+'"]');if(b&&v!=="dashboard")b.click();})();
 </script>
