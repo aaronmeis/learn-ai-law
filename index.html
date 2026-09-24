@@ -163,6 +163,16 @@
   .pill.r100{color:var(--r100);border-color:rgba(74,222,128,0.3);background:var(--good-bg)}
   .pill.r200{color:var(--r200);border-color:rgba(56,189,248,0.3);background:var(--hover-bg)}
   .pill.r300{color:var(--r300);border-color:rgba(192,132,252,0.3);background:rgba(192,132,252,0.08)}
+  .has-tip{position:relative;cursor:help}
+  .has-tip:hover::after,.has-tip:focus-visible::after{
+    content:attr(data-tip);
+    position:absolute;left:0;top:calc(100% + 6px);z-index:30;
+    width:max-content;max-width:260px;white-space:normal;
+    background:var(--card-bg);color:var(--text-primary);
+    border:1px solid var(--border-color);border-radius:8px;
+    padding:.45rem .6rem;font-size:.75rem;font-weight:500;line-height:1.35;
+    letter-spacing:0;text-transform:none;box-shadow:0 8px 24px rgba(0,0,0,.2)
+  }
 
   .card{
     background:var(--card-bg);border:1px solid var(--border-color);
@@ -7236,11 +7246,11 @@ function renderFlash(){
   
   const c=fcQueue[fcIdx];
   h+=`<div class="fc-meta">
-      <span>Card ${fcIdx+1} / ${fcQueue.length} · box ${fcState(c.term).box} · rung ${c.rung}</span>
+      <span>Card ${fcIdx+1} / ${fcQueue.length} · box ${fcState(c.term).box} · ${rungPill(c.rung)}</span>
       <span>${learned} / ${currentSource.length} in long-term memory</span>
     </div>
     <div class="fc-stage" id="fcStage" title="Click or Press Space to flip">
-      <div class="fc-cat">${esc(c.category)} ${c.essential?'<span class="pill r100">Essential</span>':''}</div>
+      <div class="fc-cat">${esc(c.category)} ${c.essential?essentialPill():''}</div>
       <div class="fc-term">${esc(c.term)}</div>
       ${fcShown?`<div class="fc-def">${esc(c.definition)}</div>${c.see_also?`<div class="fc-hint">see also: ${esc(c.see_also)}</div>`:""}`:`<div class="fc-hint">Click card or Press <span class="kbd-shortcut">Space</span> to flip card</div>`}
     </div>
@@ -7370,7 +7380,7 @@ function renderQuiz(){
   <div class="btnrow">`+weeks.map(w=>`<button class="b ${w==sel?"on":""}" data-qw="${w}">Week ${w}</button>`).join("")+`</div>`;
   const qs=DATA.quiz.filter(q=>q.week==sel);
   qs.forEach((q,qi)=>{
-    h+=`<div class="qcard" data-qi="${qi}"><div class="qq">${esc(q.question)} <span class="pill r${q.rung}">${q.rung}</span> <span class="pill">${esc(q.pillar)}</span></div>`;
+    h+=`<div class="qcard" data-qi="${qi}"><div class="qq">${esc(q.question)} ${rungPill(q.rung)} <span class="pill">${esc(q.pillar)}</span></div>`;
     if(q.type==="mc"&&q.options){h+=`<div class="qopts">`+q.options.map(o=>`<label data-o="${esc(o)}"><input type="radio" name="q${qi}" style="margin-right:8px">${esc(o)}</label>`).join("")+`</div>`;}
     else{h+=`<button class="reveal">Show model answer</button>`;}
     h+=`<div class="qexp"><b>Answer:</b> ${esc(q.answer)}<br><br><b>Explanation:</b> ${esc(q.explanation)}</div></div>`;
@@ -7460,13 +7470,29 @@ function showShort(){
   }
 }
 
+function rungTip(n){
+  const map={
+    100:"Rung 100, orient. Name the rule and where it sits. You are not yet reading the statute, contract, or standard line by line.",
+    200:"Rung 200, read the instrument. Work from the statute, contract, standard, or case itself, not only a summary.",
+    300:"Rung 300, unsettled. Argue the open points, and say where courts or counsel disagree."
+  };
+  return map[Number(n)]||("Rung "+n+". Depth on the 100 / 200 / 300 ladder. Not a score.");
+}
+const ESSENTIAL_TIP="Essential means this term is in the Quick Essentials flashcard deck. A term without this badge is only in the Full Mastery deck.";
+function rungPill(n){
+  return `<span class="pill has-tip r${n}" tabindex="0" data-tip="${esc(rungTip(n))}" title="${esc(rungTip(n))}">${n}</span>`;
+}
+function essentialPill(){
+  return `<span class="pill has-tip r100" tabindex="0" data-tip="${esc(ESSENTIAL_TIP)}" title="${esc(ESSENTIAL_TIP)}">Essential</span>`;
+}
+
 function renderGlossary(){
   const el=$("#v-glossary");
   const q=(LS.get("gq","")||"").toLowerCase();
   const cat=LS.get("gcat","all");
   const cats=[...new Set(DATA.glossary.map(g=>g.category))];
   let h=`<h2 class="vh">Glossary <span style="font-size:1rem;color:var(--text-dim)">${DATA.glossary.length} terms</span></h2>
-  <p class="lead">Feeds the flashcard deck. Search terms, definitions, and cross-references.</p>
+  <p class="lead">Feeds the flashcard deck. Search terms, definitions, and cross-references. The number on a card is a learning rung, not a score. Hover it. 100 is orient, 200 is read the instrument, 300 is unsettled. Essential means the term is in the Quick Essentials deck.</p>
   <input class="search" id="gSearch" placeholder="filter terms…" value="${esc(q)}">
   <div class="gfilters"><button class="b ${cat==="all"?"on":""}" data-gc="all">All (${DATA.glossary.length})</button>`+cats.map(c=>{
     const count = DATA.glossary.filter(g=>g.category===c).length;
@@ -7477,7 +7503,7 @@ function renderGlossary(){
     const items=DATA.glossary.filter(g=>g.category===c&&(!q||(g.term+g.definition+(g.see_also||"")).toLowerCase().includes(q)));
     if(!items.length)return;
     h+=`<h3 style="margin:1.1rem 0 .5rem;font-size:.95rem">${esc(c)} <span style="color:var(--text-dim);font-weight:400">· ${items.length}</span></h3>`;
-    items.forEach(g=>h+=`<div class="gterm"><h4>${esc(g.term)} <span class="pill r${g.rung}">${g.rung}</span> ${g.essential?'<span class="pill r100">Essential</span>':''}</h4><p>${esc(g.definition)}</p>${g.see_also?`<div class="sa">see also: ${esc(g.see_also)}</div>`:""}</div>`);
+    items.forEach(g=>h+=`<div class="gterm"><h4>${esc(g.term)} ${rungPill(g.rung)} ${g.essential?essentialPill():''}</h4><p>${esc(g.definition)}</p>${g.see_also?`<div class="sa">see also: ${esc(g.see_also)}</div>`:""}</div>`);
   });
   el.innerHTML=h;
   const s=$("#gSearch");
