@@ -1,9 +1,9 @@
 {
   "notebook_id": "5f447a3b-ecf4-48e6-a03b-4ccb9e49f15a",
-  "title": "Learn AI Law - 35 shorts",
-  "total": 35,
-  "ready": 35,
-  "updated": "2026-09-18T14:56:16.0636722-05:00",
+  "title": "Learn AI Law - 51 shorts",
+  "total": 51,
+  "ready": 51,
+  "updated": "2026-09-24T14:57:35.460358-05:00",
   "items": [
     {
       "id": "01-sources-of-law",
@@ -283,6 +283,134 @@
       "title": "The certificate covers the system",
       "file": "media/shorts/35-certificate-covers-the-system.mp4",
       "artifact_id": "e24212e3-5d33-463d-9754-88fd9c38f1ac",
+      "status": "ready"
+    },
+    {
+      "id": "36-state-laws-with-dates",
+      "name": "36-state-laws-with-dates",
+      "title": "State laws and their dates",
+      "file": "media/shorts/36-state-laws-with-dates.mp4",
+      "artifact_id": "87defa6e-1198-4c34-996a-777fd08c8954",
+      "status": "ready"
+    },
+    {
+      "id": "37-weights-secrets-not-copyright",
+      "name": "37-weights-secrets-not-copyright",
+      "title": "Weights are secrets, not copyright",
+      "file": "media/shorts/37-weights-secrets-not-copyright.mp4",
+      "artifact_id": "0ac4bf67-17f5-4ec8-acd4-ce0d30bdc3a4",
+      "status": "ready"
+    },
+    {
+      "id": "38-fair-use-no-categorical-rule",
+      "name": "38-fair-use-no-categorical-rule",
+      "title": "No categorical fair-use rule",
+      "file": "media/shorts/38-fair-use-no-categorical-rule.mp4",
+      "artifact_id": "0c880dff-79a7-458a-b4c8-509f94b967b5",
+      "status": "ready"
+    },
+    {
+      "id": "39-art11-docs-and-art50",
+      "name": "39-art11-docs-and-art50",
+      "title": "Art. 11 docs and Art. 50 notices",
+      "file": "media/shorts/39-art11-docs-and-art50.mp4",
+      "artifact_id": "d729b06c-d541-4f37-8915-95e49a01385d",
+      "status": "ready"
+    },
+    {
+      "id": "40-eu-risk-tiers-and-deferral",
+      "name": "40-eu-risk-tiers-and-deferral",
+      "title": "EU tiers and the 2027 deferral",
+      "file": "media/shorts/40-eu-risk-tiers-and-deferral.mp4",
+      "artifact_id": "8edebac7-89cb-436f-8d0a-f70369a926a2",
+      "status": "ready"
+    },
+    {
+      "id": "41-ftc-rytr-and-rite-aid",
+      "name": "41-ftc-rytr-and-rite-aid",
+      "title": "FTC: Rytr set aside, Rite Aid stands",
+      "file": "media/shorts/41-ftc-rytr-and-rite-aid.mp4",
+      "artifact_id": "9ba619df-e9a3-4707-9655-c5e710e78980",
+      "status": "ready"
+    },
+    {
+      "id": "42-thaler-contribution-log",
+      "name": "42-thaler-contribution-log",
+      "title": "Thaler and the contribution log",
+      "file": "media/shorts/42-thaler-contribution-log.mp4",
+      "artifact_id": "83a51f68-bc65-471e-91a8-3c76567a2aed",
+      "status": "ready"
+    },
+    {
+      "id": "43-caps-deprecation-and-cyber",
+      "name": "43-caps-deprecation-and-cyber",
+      "title": "Caps, deprecation, cyber gaps",
+      "file": "media/shorts/43-caps-deprecation-and-cyber.mp4",
+      "artifact_id": "970c5cc8-d6b6-4fb9-9241-7588b639c18c",
+      "status": "ready"
+    },
+    {
+      "id": "44-indemnity-shield-check",
+      "name": "44-indemnity-shield-check",
+      "title": "Check the copyright shield",
+      "file": "media/shorts/44-indemnity-shield-check.mp4",
+      "artifact_id": "dc36021f-a440-4479-9e81-66ab71141d78",
+      "status": "ready"
+    },
+    {
+      "id": "45-msa-order-sla-dpa",
+      "name": "45-msa-order-sla-dpa",
+      "title": "MSA, order, SLA, DPA",
+      "file": "media/shorts/45-msa-order-sla-dpa.mp4",
+      "artifact_id": "d217d8b3-343d-4533-abc2-42fe2e34553a",
+      "status": "ready"
+    },
+    {
+      "id": "46-provider-deployer-split",
+      "name": "46-provider-deployer-split",
+      "title": "Provider versus deployer duties",
+      "file": "media/shorts/46-provider-deployer-split.mp4",
+      "artifact_id": "1c045169-6d62-4c56-8de9-35023a4791a8",
+      "status": "ready"
+    },
+    {
+      "id": "47-customer-data-vs-usage",
+      "name": "47-customer-data-vs-usage",
+      "title": "Customer data versus usage data",
+      "file": "media/shorts/47-customer-data-vs-usage.mp4",
+      "artifact_id": "9c072b33-a604-4f93-8603-d0c2542d048e",
+      "status": "ready"
+    },
+    {
+      "id": "48-common-paper-bonterms",
+      "name": "48-common-paper-bonterms",
+      "title": "Common Paper and Bonterms",
+      "file": "media/shorts/48-common-paper-bonterms.mp4",
+      "artifact_id": "ada6ff85-6451-4221-b828-be416bb5ff62",
+      "status": "ready"
+    },
+    {
+      "id": "49-sources-and-loper-bright",
+      "name": "49-sources-and-loper-bright",
+      "title": "Binding force and Loper Bright",
+      "file": "media/shorts/49-sources-and-loper-bright.mp4",
+      "artifact_id": "f446fced-d1b4-42a0-9f99-c6e99544b55a",
+      "status": "ready"
+    },
+    {
+      "id": "50-four-regime-asset-map",
+      "name": "50-four-regime-asset-map",
+      "title": "Four IP regimes, one system",
+      "file": "media/shorts/50-four-regime-asset-map.mp4",
+      "artifact_id": "3502b921-129b-4862-b144-f55ade31036d",
+      "status": "ready"
+    },
+    {
+      "id": "51-civilian-posture-no-omnibus",
+      "name": "51-civilian-posture-no-omnibus",
+      "title": "No civilian AI statute",
+      "file": "media/shorts/51-civilian-posture-no-omnibus.mp4",
+      "artifact_id": "14b4c85e-3de8-42bd-b3dc-245a54ec3e1f",
       "status": "ready"
     }
   ]
