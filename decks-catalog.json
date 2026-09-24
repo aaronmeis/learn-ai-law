@@ -101,7 +101,29 @@
       "week": 5,
       "title": "Regulation and Responsible AI",
       "file": "media/decks/week-5.pdf",
-      "status": "pending"
+      "status": "ready",
+      "artifact_id": "68c15191-e74d-46ca-8a3d-8ea7d98ee45b",
+      "pages": 18,
+      "slides": [
+        "media/decks/week-5/slide-01.jpg",
+        "media/decks/week-5/slide-02.jpg",
+        "media/decks/week-5/slide-03.jpg",
+        "media/decks/week-5/slide-04.jpg",
+        "media/decks/week-5/slide-05.jpg",
+        "media/decks/week-5/slide-06.jpg",
+        "media/decks/week-5/slide-07.jpg",
+        "media/decks/week-5/slide-08.jpg",
+        "media/decks/week-5/slide-09.jpg",
+        "media/decks/week-5/slide-10.jpg",
+        "media/decks/week-5/slide-11.jpg",
+        "media/decks/week-5/slide-12.jpg",
+        "media/decks/week-5/slide-13.jpg",
+        "media/decks/week-5/slide-14.jpg",
+        "media/decks/week-5/slide-15.jpg",
+        "media/decks/week-5/slide-16.jpg",
+        "media/decks/week-5/slide-17.jpg",
+        "media/decks/week-5/slide-18.jpg"
+      ]
     },
     {
       "week": 6,
