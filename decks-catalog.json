@@ -1,0 +1,54 @@
+{
+  "title": "Learn AI Law \u2014 six week decks",
+  "updated": "2026-09-24",
+  "items": [
+    {
+      "week": 1,
+      "title": "Foundations and legal landscape",
+      "file": "media/decks/week-1.pdf",
+      "status": "ready",
+      "artifact_id": "a5d5d415-d341-4d38-854a-57093d1f7d7c",
+      "slides": [
+        "media/decks/week-1/slide-01.png",
+        "media/decks/week-1/slide-02.png",
+        "media/decks/week-1/slide-03.png",
+        "media/decks/week-1/slide-04.png",
+        "media/decks/week-1/slide-05.png",
+        "media/decks/week-1/slide-06.png",
+        "media/decks/week-1/slide-07.png",
+        "media/decks/week-1/slide-08.png",
+        "media/decks/week-1/slide-09.png"
+      ]
+    },
+    {
+      "week": 2,
+      "title": "Intellectual property",
+      "file": "media/decks/week-2.pdf",
+      "status": "pending"
+    },
+    {
+      "week": 3,
+      "title": "Contracts I",
+      "file": "media/decks/week-3.pdf",
+      "status": "pending"
+    },
+    {
+      "week": 4,
+      "title": "Contracts II",
+      "file": "media/decks/week-4.pdf",
+      "status": "pending"
+    },
+    {
+      "week": 5,
+      "title": "Regulation and Responsible AI",
+      "file": "media/decks/week-5.pdf",
+      "status": "pending"
+    },
+    {
+      "week": 6,
+      "title": "Licensing, sectors, and capstone",
+      "file": "media/decks/week-6.pdf",
+      "status": "pending"
+    }
+  ]
+}

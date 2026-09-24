@@ -320,6 +320,9 @@
   .carousel{width:100%;max-width:320px;aspect-ratio:9/16;max-height:min(70vh,620px);border:1px solid var(--border-color);background:#05080f;border-radius:16px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,.35);display:flex;flex-direction:column}
   .carousel-stage{flex:1 1 auto;min-height:0;background:#000;position:relative}
   .carousel video{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:contain;background:#000}
+  .deck-frame{width:100%;height:min(78vh,920px);border:1px solid var(--border-color);border-radius:12px;overflow:hidden;background:#05080f}
+  .deck-frame object,.deck-frame iframe{width:100%;height:100%;border:0;background:#fff}
+  .deck-slide{width:100%;height:100%;object-fit:contain;background:#0b1220;display:block}
   .carousel-cap{flex:0 0 auto;padding:.65rem .8rem;border-top:1px solid var(--border-color);font-size:.88rem;color:var(--accent-color);text-align:center;background:rgba(7,11,20,.92)}
   .thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.55rem;max-height:min(70vh,620px);overflow:auto;padding-right:2px;align-content:start}
   .thumbs button{width:100%;min-height:84px;text-align:left;font-family:inherit;font-size:.74rem;line-height:1.35;padding:.7rem .75rem;border-radius:10px;border:1px solid var(--border-color);background:var(--card-bg);color:var(--text-secondary);cursor:pointer;display:flex;flex-direction:column;justify-content:space-between;gap:.45rem}
@@ -487,7 +490,7 @@
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:.5rem">
       <img id="sidebarHeroImg" src="assets/hero.jpg" alt="AI Law Emblem" style="width:46px;height:46px;border-radius:10px;border:1px solid rgba(56,189,248,0.35);box-shadow:0 0 12px rgba(56,189,248,0.25);object-fit:cover;flex-shrink:0">
       <div>
-        <div class="sidebar-badge" style="margin-bottom:.1rem">Console v2.1</div>
+        <div class="sidebar-badge" style="margin-bottom:.1rem">Console v2.2</div>
         <div class="sidebar-header" style="font-size:1.05rem">AI Law &amp; Gov</div>
       </div>
     </div>
@@ -502,10 +505,12 @@
     <li class="nav-item" data-v="iso22989"><span class="ni-ic">▪</span>ISO 22989</li>
     <li class="nav-item" data-v="stdmap"><span class="ni-ic">▪</span>Standards map</li>
     <li class="nav-item" data-v="nistmeasure"><span class="ni-ic">▪</span>Measure &amp; TEVV</li>
+    <li class="nav-item" data-v="nist6001"><span class="ni-ic">▪</span>GenAI profile</li>
     <li class="nav-item" data-v="securityrmf"><span class="ni-ic">▪</span>Security RMF</li>
     <li class="nav-item" data-v="map"><span class="ni-ic">▪</span>Progress map</li>
     <li class="nav-item" data-v="flash"><span class="ni-ic">▪</span>Flashcards</li>
     <li class="nav-item" data-v="shorts"><span class="ni-ic">▪</span>Shorts</li>
+    <li class="nav-item" data-v="decks"><span class="ni-ic">▪</span>Week decks</li>
     <li class="nav-item" data-v="quiz"><span class="ni-ic">▪</span>Quiz</li>
     <li class="nav-item" data-v="glossary"><span class="ni-ic">▪</span>Glossary</li>
     <li class="nav-item" data-v="prompts"><span class="ni-ic">▪</span>Prompts</li>
@@ -538,10 +543,12 @@
   <section class="view" id="v-iso22989"></section>
   <section class="view" id="v-stdmap"></section>
   <section class="view" id="v-nistmeasure"></section>
+  <section class="view" id="v-nist6001"></section>
   <section class="view" id="v-securityrmf"></section>
   <section class="view" id="v-map"></section>
   <section class="view" id="v-flash"></section>
   <section class="view" id="v-shorts"></section>
+  <section class="view" id="v-decks"></section>
   <section class="view" id="v-quiz"></section>
   <section class="view" id="v-glossary"></section>
   <section class="view" id="v-prompts"></section>
@@ -6041,7 +6048,7 @@ const EXPANDED_GLOSSARY = [
   {
     "category": "National Security",
     "term": "NIST AI 600-1 (Generative AI Profile)",
-    "definition": "July 2024 companion profile to NIST AI RMF 1.0 for generative systems. Twelve generative-AI risk categories and more than 400 suggested actions. Still the practical U.S. measurement overlay after AISI was renamed CAISI.",
+    "definition": "Scope: Enterprise-wide for generative systems. July 26, 2024 cross-sectoral profile of NIST AI RMF 1.0 (NIST AI 600-1). It names twelve risks unique to or exacerbated by generative AI and suggests actions under Govern, Map, Measure, and Manage. Voluntary guidance, not a statute, not a certificate, and not an authorization to operate. EO 14110 commissioned it and was later rescinded; the NIST publication still stands. Open the Generative AI Profile view. Do not treat the twelve risks as a replacement for Table 3.",
     "rung": 200,
     "essential": true,
     "see_also": "NIST AI RMF 1.0"
@@ -6964,7 +6971,8 @@ const DATA = {
         {name:"ISO 31000:2018", kind:"Risk guidance", job:"General risk-management principles, framework, and process. 23894 says it is to be used with this.", view:""},
         {name:"ISO/IEC 23894:2023", kind:"AI risk guidance", job:"Specializes 31000 for organisations that develop, produce, deploy, or use AI. Not a certificate.", view:"iso23894"},
         {name:"ISO/IEC 42005", kind:"Impact assessment", job:"Companion for assessing consequences of an AI system for people. Not a substitute for the 23894 risk assessment.", view:""},
-        {name:"NIST AI RMF 1.0", kind:"US voluntary framework", job:"Govern, Map, Measure, Manage. Measure is Table 3. TEVV is the testing work inside it, not a fifth function and not a certificate.", view:"nistmeasure"}
+        {name:"NIST AI RMF 1.0", kind:"US voluntary framework", job:"Govern, Map, Measure, Manage. Measure is Table 3. TEVV is the testing work inside it, not a fifth function and not a certificate.", view:"nistmeasure"},
+        {name:"NIST AI 600-1", kind:"Cross-sectoral profile", job:"July 2024 Generative AI Profile. Twelve GAI risks and suggested actions on the same four functions. Not a second framework.", view:"nist6001"}
       ]},
       {band:"Obligations", items:[
         {name:"ISO/IEC 42001:2023", kind:"Certifiable management system", job:"Clauses 4–10 plus a justified Annex A selection. The certificate covers the management system, not a model.", view:"iso42001"},
@@ -7042,6 +7050,60 @@ const DATA = {
       {t:"NIST AI test, evaluation, validation and verification (TEVV) program", u:"https://www.nist.gov/ai-test-evaluation-validation-and-verification-tevv"},
       {t:"NIST AI Risk Management Framework landing page", u:"https://www.nist.gov/itl/ai-risk-management-framework"},
       {t:"NIST AI 600-1, Generative Artificial Intelligence Profile (26 July 2024)", u:"https://doi.org/10.6028/NIST.AI.600-1"}
+    ]
+  },
+
+  nist6001: {
+    updated: "2026-09-24",
+    citation: "NIST AI 600-1, Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile, 26 July 2024. DOI 10.6028/NIST.AI.600-1. Companion to NIST AI 100-1 (AI RMF 1.0).",
+    oneLine: "A cross-sectoral profile of the AI RMF for generative AI. Same four functions. Twelve extra risks. Suggested actions, not duties.",
+    checked: "Risk names and the short definitions follow section 2 of the 26 July 2024 profile. The April 2024 public draft used a few different headings (for example Toxicity, Bias, and Homogenization). Those draft headings are not the published list. Action text is not copied here. EO 14110 commissioned the profile and was rescinded in January 2025. The NIST publication was not withdrawn.",
+    why: "Generative systems fail in ways a generic model card does not name: fluent falsehoods, synthetic media, third-party weights you did not train, and content harms. The AI RMF already has Govern, Map, Measure, and Manage. This profile tells you which generative risks to hang on those functions.",
+    what: "NIST AI 600-1 is a cross-sectoral profile, the kind of profile section 6 of AI RMF 1.0 describes for risks that show up across sectors. It is not a new framework, not a certifiable management system, and not a control catalog. Section 2 lists twelve risks NIST treats as unique to or exacerbated by generative AI, limited to risks with an evidence base at the time of writing. Later sections suggest actions under the existing subcategories and tag them to AI actors.",
+    when: "When the system generates content, code, or decisions from a foundation model, a fine-tune, or a retrieval pipeline on top of one. Use it in design review and in the Measure plan. Do not use it as the authorization package, as an ISO/IEC 42001 certificate, or as proof of EU AI Act conformity.",
+    howItems: [
+      "Keep AI RMF 1.0 as the spine. File 600-1 risks under Govern, Map, Measure, and Manage. Do not invent a fifth function for generative AI.",
+      "Name which of the twelve risks apply to this system. A internal coding assistant and a public chatbot do not share the same set.",
+      "Use NIST's word confabulation for fluent false output. Hallucination is the colloquial name, not the profile's heading.",
+      "Separate content harms. Dangerous, violent, or hateful content is not the same row as obscene, degrading, or abusive content, and neither row is information integrity.",
+      "Treat value-chain risk as a supplier problem: weights, data, plugins, and tools you did not build. An AIBOM is evidence for that row. It is not the profile.",
+      "Put tests for the risks you kept into Measure (Table 3) and TEVV. The profile does not replace Table 3.",
+      "If counsel cites EO 14110 as if it still binds agencies, separate the rescinded order from the NIST publication. The profile is voluntary guidance either way."
+    ],
+    risks: [
+      {id:"1", name:"CBRN information or capabilities", d:"Easier access to, or synthesis of, information or design help related to chemical, biological, radiological, or nuclear weapons or other dangerous materials."},
+      {id:"2", name:"Confabulation", d:"Confidently stated but erroneous or false content. NIST's term for what people call hallucination or fabrication. Users can be misled because the wording sounds sure."},
+      {id:"3", name:"Dangerous, violent, or hateful content", d:"Easier production of violent, inciting, radicalizing, or threatening content, including recommendations to self-harm or to commit illegal acts."},
+      {id:"4", name:"Data privacy", d:"Leakage or inference of personal or sensitive information from training data, prompts, or outputs, including memorization."},
+      {id:"5", name:"Environmental impacts", d:"Energy, water, and other resource costs of training and running generative systems. NIST lists this as a risk of the technology, not as a compliance checkbox."},
+      {id:"6", name:"Harmful bias and homogenization", d:"Discriminatory or skewed outputs, plus a narrowing of styles and viewpoints as models train on machine-generated content."},
+      {id:"7", name:"Human-AI configuration", d:"Harm from how people are set up to rely on the system: over-trust, automation complacency, and unclear handoffs. The risk is the configuration, not only the model weights."},
+      {id:"8", name:"Information integrity", d:"Synthetic media and false or misleading content that degrades the information environment, including misinformation and disinformation at scale."},
+      {id:"9", name:"Information security", d:"New attack surface: prompt injection, data poisoning, model manipulation, and other ways generative systems can be turned against their operators or users."},
+      {id:"10", name:"Intellectual property", d:"Training-data provenance, output ownership, and infringement risk. The profile names the risk. It does not decide fair use."},
+      {id:"11", name:"Obscene, degrading, and/or abusive content", d:"Non-consensual intimate imagery, sexual content involving minors, and other degrading or abusive material. A separate row from violent or hateful content."},
+      {id:"12", name:"Value chain and component integration", d:"Third-party data, pretrained models, libraries, and plugins that are hard to trace or were not vetted. Downstream users inherit the gap."}
+    ],
+    place: [
+      {theme:"AI RMF 1.0", here:"600-1 is a profile of the same four functions.", notThis:"A replacement core, or a fifth function called Generative."},
+      {theme:"Measure and TEVV", here:"Tests for confabulation, bias, security, and content harms belong in Table 3.", notThis:"A reason to skip Measure 2.1's record of test sets and tools."},
+      {theme:"ISO/IEC 42001", here:"A source you might cite inside clause 6 risk planning.", notThis:"A certifiable management system, or Annex A."},
+      {theme:"SP 800-37", here:"Security evidence you may attach to an authorization package.", notThis:"An authorization to operate. Information security in 600-1 is a GAI risk, not the seven RMF steps."},
+      {theme:"EU AI Act", here:"A voluntary method for risks a statute may also regulate.", notThis:"Conformity, a harmonised standard, or Art. 50 notice text."}
+    ],
+    myths: [
+      {claim:"EO 14110 was rescinded, so AI 600-1 is dead.", fact:"The order was the reason NIST wrote the profile. Rescission does not unpublish a NIST report. Treat 600-1 as voluntary guidance that still exists. Do not cite the order as current agency law."},
+      {claim:"The twelve risks replace Govern, Map, Measure, and Manage.", fact:"They are inputs to those functions. The profile's actions are filed under the existing subcategory numbers."},
+      {claim:"Following 600-1 certifies the model.", fact:"Nothing in the profile is a certificate, a Statement of Applicability, or an authorization decision."},
+      {claim:"Confabulation and information integrity are the same risk.", fact:"Confabulation is the system stating false content with confidence. Information integrity is the broader harm to the information environment, including synthetic media and disinformation campaigns."},
+      {claim:"The April 2024 draft list is the list to memorize.", fact:"The published 26 July 2024 headings differ in places from the draft. Study the publication, not the comment draft."}
+    ],
+    sources: [
+      {t:"NIST AI 600-1 (26 July 2024), DOI", u:"https://doi.org/10.6028/NIST.AI.600-1"},
+      {t:"NIST publications record for the Generative AI Profile", u:"https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence"},
+      {t:"NIST AI RMF landing page (notes the 26 July 2024 profile)", u:"https://www.nist.gov/itl/ai-risk-management-framework"},
+      {t:"AI RMF 1.0 section 6, what a profile is", u:"https://airc.nist.gov/airmf-resources/airmf/6-sec-profile/"},
+      {t:"Measure and TEVV study view", u:"#"}
     ]
   },
 
@@ -7224,13 +7286,15 @@ function renderDashboard(){
     <div class="card"><h3>Curriculum</h3><p style="color:var(--text-secondary);font-size:.86rem">Six weeks of module readings, action steps, artifact scenarios, and collapsible scenarios.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('curriculum')">Open curriculum →</button></div></div>
     <div class="card"><h3>Progress map</h3><p style="color:var(--text-secondary);font-size:.86rem">The 100 to 300 learning ladder per pillar. Self-rate your progress as not yet, shaky, or solid.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('map')">Open map →</button></div></div>
     <div class="card"><h3>Flashcards and Quiz</h3><p style="color:var(--text-secondary);font-size:.86rem">Keyboard-navigable spaced-repetition cards (Space, Arrow keys, 1-3) and self-assessment quizzes.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('flash')">Flashcards →</button><button class="b" onclick="go('quiz')">Quiz →</button></div></div>
-    <div class="card"><h3>Shorts gallery</h3><p style="color:var(--text-secondary);font-size:.86rem">Twenty-five vertical NotebookLM explainers covering contracts, IP, regulation, Responsible AI, NDAA defense AI, NSCAI, and EU AI products (AI in product, AI to create, EU vs US).</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('shorts')">Open shorts →</button></div></div>
+    <div class="card"><h3>Shorts gallery</h3><p style="color:var(--text-secondary);font-size:.86rem">Vertical NotebookLM explainers for the curriculum, plus ten new ones on the September standards, Measure and TEVV, security RMF, and AIBOM pages.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('shorts')">Open shorts →</button></div></div>
+    <div class="card"><h3>Week decks</h3><p style="color:var(--text-secondary);font-size:.86rem">One presenter deck per curriculum week. Move between weeks, then through the slides. Educational only.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('decks')">Open week decks →</button></div></div>
     <div class="card"><h3>Practice checklist</h3><p style="color:var(--text-secondary);font-size:.86rem">Pre-meeting checklist with expandable side-by-side comparisons of effective practices versus high-risk anti-patterns.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('counsel')">Practice →</button></div></div>
     <div class="card"><h3>EU AI products</h3><p style="color:var(--text-secondary);font-size:.86rem">Putting AI in products, using AI to create products, roles, risk tiers, GPAI embeds, CE marking, product liability, plus an <b>EU vs US</b> contrast for the same product patterns.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('euproducts')">EU AI products →</button></div></div>
     <div class="card"><h3>Standards map</h3><p style="color:var(--text-secondary);font-size:.86rem">Three bands: words (22989), methods (23894, 31000, 42005, NIST AI RMF), and obligations (42001, the EU AI Act, 42006). Not a family tree.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('stdmap')">Standards map →</button></div></div>
     <div class="card"><h3>ISO/IEC 22989</h3><p style="color:var(--text-secondary);font-size:.86rem">Why, what, how, and when for the AI concepts and terminology standard. The dictionary behind 42001 and 23894. Not a certificate.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('iso22989')">ISO 22989 →</button></div></div>
     <div class="card"><h3>ISO/IEC 23894</h3><p style="color:var(--text-secondary);font-size:.86rem">ISO/IEC 23894:2023 guidance, used with ISO 31000. Principles, framework, and risk process, plus the public annex headings. Not a certificate. Pairs with ISO/IEC 42001.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('iso23894')">ISO 23894 →</button></div></div>
     <div class="card"><h3>ISO/IEC 42001</h3><p style="color:var(--text-secondary);font-size:.86rem">Certifiable AI management system: clauses 4-10, 38 Annex A controls, Statement of Applicability, and how it differs from NIST AI RMF and the EU AI Act.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('iso42001')">ISO 42001 →</button></div></div>
+    <div class="card"><h3>Generative AI Profile</h3><p style="color:var(--text-secondary);font-size:.86rem">NIST AI 600-1 (26 July 2024). Twelve generative-AI risks on top of Govern, Map, Measure, and Manage. Not a statute and not a second framework.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('nist6001')">GenAI profile →</button></div></div>
     <div class="card"><h3>NIST Measure and TEVV</h3><p style="color:var(--text-secondary);font-size:.86rem">Why, what, how, and when for Measure in NIST AI RMF 1.0, Table 3, and test, evaluation, verification, and validation. Not a fifth function and not a certificate.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('nistmeasure')">Measure and TEVV →</button></div></div>
     <div class="card"><h3>Security RMF</h3><p style="color:var(--text-secondary);font-size:.86rem">NIST SP 800-37, the control catalog in SP 800-53, and DISA STIGs. This is the authorization path. It is not the AI RMF. The STIG viewer is linked as a lab map only.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('securityrmf')">Security RMF →</button></div></div>
     <div class="card"><h3>EA mapping</h3><p style="color:var(--text-secondary);font-size:.86rem">Cross-walk mapping AI legal terms, IP assets, and compliance rules to <b>TOGAF</b>, <b>Zachman</b>, <b>DoDAF</b>, and <b>NIST AI RMF</b>.</p><div class="btnrow" style="margin:.8rem 0 0"><button class="b" onclick="go('ea')">EA Mapping →</button></div></div>
@@ -7270,11 +7334,13 @@ function renderCurriculum(){
             ${m.whyMatters?`<details class="why-matters"><summary>Why This Matters to an AI Architect</summary><p style="margin-top:.4rem">${esc(m.whyMatters)}</p></details>`:""}
           </div>`;}).join("")}
         <div class="deliv"><b>Deliverables:</b> ${esc(w.deliv)}</div>
+        <div class="btnrow" style="margin:.6rem 0 0"><button class="b" type="button" data-deck="${w.n}">Open week ${w.n} deck</button></div>
         <div class="vidlist"><b>Primary Videos:</b>${w.vids.map(v=>`<a href="${v.u}" target="_blank" rel="noopener">• ${esc(v.t)} <span class="meta">${esc(v.m)}</span></a>`).join("")}</div>
       </div></div>`;
   });
   el.innerHTML=h;
   $$(".weekhead",el).forEach(hd=>hd.onclick=()=>$("#wb-"+hd.dataset.wk).classList.toggle("open"));
+  $$("[data-deck]",el).forEach(b=>b.onclick=(ev)=>{ev.stopPropagation();LS.set("deckWeek",+b.dataset.deck);go("decks");renderDecks();});
   if(!LS.get("seenCurric",false)){$("#wb-1").classList.add("open");LS.set("seenCurric",true);}
   $$('input[data-mk]',el).forEach(cb=>cb.onchange=()=>{
     LS.set(cb.dataset.mk,cb.checked);
@@ -7518,6 +7584,66 @@ function renderQuiz(){
     const rv=$(".reveal",card); if(rv)rv.onclick=()=>$(".qexp",card).classList.add("show");
   });
 }
+
+/* ---- Week decks ---- */
+let deckItems=[];
+let deckSlide=0;
+async function loadDecks(){
+  try{
+    const res=await fetch("decks-catalog.json?ts="+Date.now());
+    const data=await res.json();
+    deckItems=data.items||[];
+  }catch(e){ deckItems=[]; }
+  renderDecks();
+}
+function renderDecks(){
+  const el=$("#v-decks");
+  if(!el) return;
+  const week=Number(LS.get("deckWeek",1))||1;
+  const it=deckItems.find(d=>Number(d.week)===week)||deckItems[0];
+  const ready=deckItems.filter(d=>d.status==="ready").length;
+  let h=`<h2 class="vh">Week decks <span style="font-size:1rem;color:var(--text-dim)">${ready}/${deckItems.length||6} ready</span></h2>
+  <p class="lead">One presenter deck per curriculum week. Pick a week, then use the slide controls or the PDF viewer's own page controls. Educational only — not legal advice.</p>
+  <div class="btnrow">`+(deckItems.length?deckItems:[{week:1},{week:2},{week:3},{week:4},{week:5},{week:6}]).map(d=>`<button class="b ${Number(d.week)===week?"on":""}" data-dw="${d.week}">Week ${d.week}</button>`).join("")+`</div>`;
+  if(!it || it.status!=="ready" || !it.file){
+    h+=`<div class="card"><h3>Week ${week}</h3><p style="color:var(--text-secondary)">This deck is still generating in NotebookLM. It will show here when the PDF is on the site. You can keep reading the week in the curriculum.</p></div>`;
+  }else if(it.slides && it.slides.length){
+    const src=it.slides[Math.min(deckSlide, it.slides.length-1)];
+    h+=`<div class="row" style="margin:.8rem 0">
+      <button class="b" type="button" id="deckPrev">Previous slide</button>
+      <button class="b" type="button" id="deckNext">Next slide</button>
+      <span style="color:var(--text-dim);font-size:.8rem" id="deckMeta"></span>
+      <a class="b" href="${esc(it.file)}" target="_blank" rel="noopener">Open PDF</a>
+    </div>
+    <div class="deck-frame"><img class="deck-slide" id="deckImg" alt="Week ${week} slide ${deckSlide+1}" src="${esc(src)}"></div>
+    <div class="thumbs" style="margin-top:.7rem;max-height:140px">`+it.slides.map((s,idx)=>`<button type="button" class="${idx===deckSlide?"active":""}" data-ds="${idx}">Slide ${idx+1}</button>`).join("")+`</div>`;
+  }else{
+    h+=`<div class="row" style="margin:.8rem 0"><a class="b" href="${esc(it.file)}" target="_blank" rel="noopener">Open PDF in a new tab</a></div>
+    <div class="deck-frame"><object data="${esc(it.file)}" type="application/pdf"><a href="${esc(it.file)}">Download the week ${week} deck</a></object></div>`;
+  }
+  el.innerHTML=h;
+  $$("[data-dw]",el).forEach(b=>b.onclick=()=>{LS.set("deckWeek",+b.dataset.dw);deckSlide=0;renderDecks();});
+  const prev=$("#deckPrev"), next=$("#deckNext");
+  if(it && it.slides && it.slides.length){
+    const meta=$("#deckMeta");
+    if(meta) meta.textContent=`Slide ${deckSlide+1} of ${it.slides.length}`;
+    if(prev) prev.onclick=()=>{deckSlide=(deckSlide-1+it.slides.length)%it.slides.length;renderDecks();};
+    if(next) next.onclick=()=>{deckSlide=(deckSlide+1)%it.slides.length;renderDecks();};
+    $$("[data-ds]",el).forEach(b=>b.onclick=()=>{deckSlide=Number(b.dataset.ds)||0;renderDecks();});
+  }
+}
+document.addEventListener("keydown",ev=>{
+  const view=$("#v-decks");
+  if(!view||!view.classList.contains("active")) return;
+  const tag=(ev.target&&ev.target.tagName)||"";
+  if(tag==="INPUT"||tag==="TEXTAREA"||tag==="SELECT") return;
+  const week=Number(LS.get("deckWeek",1))||1;
+  const it=deckItems.find(d=>Number(d.week)===week);
+  if(!it||!it.slides||!it.slides.length) return;
+  if(ev.key==="ArrowRight"){deckSlide=(deckSlide+1)%it.slides.length;renderDecks();}
+  else if(ev.key==="ArrowLeft"){deckSlide=(deckSlide-1+it.slides.length)%it.slides.length;renderDecks();}
+  else return;
+  ev.preventDefault();
 
 /* ---- Glossary ---- */
 /* ---- Shorts gallery ---- */
@@ -8128,6 +8254,63 @@ function renderNistMeasure(){
   });
 }
 
+/* ---- NIST AI 600-1 Generative AI Profile ---- */
+function renderNist6001(){
+  const el=$("#v-nist6001");
+  if(!el||!DATA.nist6001) return;
+  const P=DATA.nist6001;
+  const tab=LS.get("nist6001Tab","overview");
+  let h=`<h2 class="vh">NIST AI 600-1</h2>
+  <p class="lead">${esc(P.oneLine)} ${esc(P.citation)} Notes refreshed ${esc(P.updated)}. <b>Not legal advice.</b></p>
+  <div class="note danger"><b>What was checked.</b> ${esc(P.checked)}</div>
+  <div class="ea-subnav">
+    <button class="ea-tab-btn ${tab==="overview"?"active":""}" data-n6="overview">Overview</button>
+    <button class="ea-tab-btn ${tab==="risks"?"active":""}" data-n6="risks">Twelve risks</button>
+    <button class="ea-tab-btn ${tab==="place"?"active":""}" data-n6="place">Where it sits</button>
+    <button class="ea-tab-btn ${tab==="myths"?"active":""}" data-n6="myths">Misreads</button>
+    <button class="ea-tab-btn ${tab==="sources"?"active":""}" data-n6="sources">Sources</button>
+  </div>`;
+  if(tab==="overview"){
+    h+=`<div class="ea-grid">
+      <div class="ea-box"><h4>Why</h4><p style="color:var(--text-secondary);margin:0">${esc(P.why)}</p></div>
+      <div class="ea-box"><h4>What</h4><p style="color:var(--text-secondary);margin:0">${esc(P.what)}</p></div>
+      <div class="ea-box"><h4>When</h4><p style="color:var(--text-secondary);margin:0">${esc(P.when)}</p></div>
+    </div>
+    <div class="ea-card" style="margin-top:1rem"><h3>How to use it</h3><ul style="color:var(--text-secondary);padding-left:1.1rem">`;
+    P.howItems.forEach(x=>{ h+=`<li style="margin-bottom:.45rem">${esc(x)}</li>`; });
+    h+=`</ul><div class="btnrow"><button class="b" onclick="go('nistmeasure')">Open Measure and TEVV</button><button class="b" onclick="go('stdmap')">Open the standards map</button></div></div>`;
+  }
+  if(tab==="risks"){
+    h+=`<div class="ea-card"><h3>Section 2, twelve risks</h3><p style="color:var(--text-secondary);font-size:.86rem">Names match the 26 July 2024 profile. The sentences are study paraphrases, not the full subsections. NIST limited the list to risks with an evidence base when the profile was written.</p><table class="ea-table"><thead><tr><th></th><th>Risk</th><th>Study note</th></tr></thead><tbody>`;
+    P.risks.forEach(c=>{ h+=`<tr><td><b>${esc(c.id)}</b></td><td>${esc(c.name)}</td><td>${esc(c.d)}</td></tr>`; });
+    h+=`</tbody></table></div>`;
+  }
+  if(tab==="place"){
+    h+=`<div class="ea-card"><h3>Same theme, different instrument</h3><p style="color:var(--text-secondary);font-size:.86rem">A row is a place to file the work. It is not equivalence.</p><table class="ea-table"><thead><tr><th>Theme</th><th>Use the profile here</th><th>Do not treat it as</th></tr></thead><tbody>`;
+    P.place.forEach(r=>{ h+=`<tr><td><b>${esc(r.theme)}</b></td><td>${esc(r.here)}</td><td>${esc(r.notThis)}</td></tr>`; });
+    h+=`</tbody></table><div class="btnrow" style="margin-top:1rem"><button class="b" onclick="go('nistmeasure')">Open Measure and TEVV</button><button class="b" onclick="go('securityrmf')">Open the security RMF</button><button class="b" onclick="go('iso42001')">Open ISO 42001</button></div></div>`;
+  }
+  if(tab==="myths"){
+    h+=`<div class="ea-card"><h3>Claims that fail a close read</h3>`;
+    P.myths.forEach(m=>{
+      h+=`<div style="margin:0 0 1rem;padding:1rem;border:1px solid var(--border-color);border-radius:10px;background:var(--card-bg2)"><h4 style="margin:0 0 .4rem">${esc(m.claim)}</h4><p style="margin:0;color:var(--text-secondary)">${esc(m.fact)}</p></div>`;
+    });
+    h+=`</div>`;
+  }
+  if(tab==="sources"){
+    h+=`<div class="ea-card"><h3>Where to read next</h3><ul style="list-style:none;padding:0">`;
+    P.sources.forEach(s=>{
+      if(s.u==="#") h+=`<li style="margin-bottom:.55rem"><button class="b" onclick="go('nistmeasure')">${esc(s.t)}</button></li>`;
+      else h+=`<li style="margin-bottom:.55rem"><a href="${esc(s.u)}" target="_blank" rel="noopener">${esc(s.t)}</a></li>`;
+    });
+    h+=`</ul><p style="color:var(--text-dim);font-size:.8rem;margin-top:1rem">Read the PDF for the action tables. This page does not reproduce them. Suggested actions are not requirements.</p></div>`;
+  }
+  el.innerHTML=h;
+  Array.from(el.querySelectorAll(".ea-tab-btn")).forEach(btn=>{
+    btn.onclick=()=>{ LS.set("nist6001Tab", btn.dataset.n6); renderNist6001(); };
+  });
+}
+
 /* ---- Security RMF (SP 800-37), not the AI RMF ---- */
 function renderSecurityRmf(){
   const el=$("#v-securityrmf");
@@ -8460,8 +8643,7 @@ function initTheme(){
 }
 
 /* ---- Init ---- */
-initTheme();renderDashboard();renderCurriculum();renderEUProducts();renderISO42001();renderISO23894();renderISO22989();renderStdMap();renderNistMeasure();renderSecurityRmf();renderMap();renderFlash();renderQuiz();renderGlossary();renderPrompts();renderCounsel();renderEA();renderReferences();
-loadShorts();
+initTheme();renderDashboard();renderCurriculum();renderEUProducts();renderISO42001();renderISO23894();renderISO22989();renderStdMap();renderNistMeasure();renderNist6001();renderSecurityRmf();renderMap();renderFlash();renderQuiz();renderGlossary();renderPrompts();renderCounsel();renderEA();renderReferences();loadShorts();loadDecks();
 (function restore(){const v=LS.get("view","dashboard");const b=$('#nav .nav-item[data-v="'+v+'"]');if(b&&v!=="dashboard")b.click();})();
 </script>
 </body>
