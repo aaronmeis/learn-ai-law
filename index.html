@@ -4230,7 +4230,7 @@ const EXPANDED_GLOSSARY = [
     "definition": "NIST AI Risk Management Framework establishing 4 core functions: GOVERN, MAP, MEASURE, and MANAGE for trustworthy AI systems.",
     "rung": 200,
     "essential": true,
-    "see_also": "ISO/IEC 42001"
+    "see_also": "ISO/IEC 42001; NIST AI 600-1 (Generative AI Profile)"
   },
   {
     "category": "Responsible AI",
@@ -5168,14 +5168,16 @@ const EXPANDED_GLOSSARY = [
     "term": "General Purpose AI (GPAI)",
     "definition": "EU AI Act classification for foundation models capable of performing a wide range of distinct tasks.",
     "rung": 200,
-    "essential": true
+    "essential": true,
+    "see_also": "GPAI Code of Practice; Article 53 GPAI Obligations"
   },
   {
     "category": "Regulatory",
     "term": "Systemic Risk GPAI",
     "definition": "GPAI models trained using high compute (>10^25 FLOPs) subject to stricter audit and incident reporting rules.",
     "rung": 300,
-    "essential": false
+    "essential": false,
+    "see_also": "GPAI Code of Practice; California SB 53 (TFAIA)"
   },
   {
     "category": "Regulatory",
@@ -5243,9 +5245,10 @@ const EXPANDED_GLOSSARY = [
   {
     "category": "Regulatory",
     "term": "Digital Omnibus on AI (2026)",
-    "definition": "July 2026 amendments deferring Annex III high-risk duties to 2 Dec 2027 and Annex I product-safety AI duties to 2 Aug 2028; Art. 50 dates largely unchanged.",
+    "definition": "Regulation (EU) 2026/1744. Live AI Act dates: GPAI duties untouched (from 2 Aug 2025); Annex III high-risk deferred to 2 Dec 2027; Annex I product-safety AI deferred to 2 Aug 2028; Article 50 largely from 2 Aug 2026. This is the AI-specific instrument, not the broader Digital Omnibus package.",
     "rung": 200,
-    "essential": true
+    "essential": true,
+    "see_also": "Digital Omnibus (EU); Article 50 Transparency; Article 4 AI Literacy"
   },
   {
     "category": "Regulatory",
@@ -5264,9 +5267,10 @@ const EXPANDED_GLOSSARY = [
   {
     "category": "Regulatory",
     "term": "Colorado SB 24-205",
-    "definition": "State law establishing deployer duty of reasonable care to avoid algorithmic discrimination in high-risk AI.",
+    "definition": "Historical cross-reference only. The 2024 high-risk AI deployer statute was repealed and replaced in substance by Colorado SB 26-189 (May 2026). Do not treat February 2026, or SB 24-205 itself, as the live Colorado date.",
     "rung": 200,
-    "essential": true
+    "essential": true,
+    "see_also": "Colorado SB 26-189 (ADMT Act)"
   },
   {
     "category": "Regulatory",
@@ -5341,9 +5345,10 @@ const EXPANDED_GLOSSARY = [
   {
     "category": "Regulatory",
     "term": "Digital Omnibus (EU)",
-    "definition": "EU legislative proposal harmonizing enforcement timelines across digital regulations and high-risk AI rules.",
+    "definition": "Broader EU digital-law package. Do not use this card for AI Act dates. Those live on Digital Omnibus on AI (2026): GPAI from 2 Aug 2025, Article 50 largely 2 Aug 2026, Annex III high-risk 2 Dec 2027, Annex I product-safety AI 2 Aug 2028.",
     "rung": 300,
-    "essential": false
+    "essential": false,
+    "see_also": "Digital Omnibus on AI (2026)"
   },
   {
     "category": "Regulatory",
@@ -5368,10 +5373,11 @@ const EXPANDED_GLOSSARY = [
   },
   {
     "category": "Regulatory",
-    "term": "AI Safety Institute (AISI)",
-    "definition": "Government research body evaluating foundation model safety, dangerous capabilities, and red-teaming benchmarks.",
+    "term": "CAISI (formerly AISI)",
+    "definition": "Center for AI Standards and Innovation. June 2025 rename of the U.S. AI Safety Institute inside NIST. Mission shifted toward national-security evaluations, voluntary standards, and U.S. competitiveness. Same institutional home as AISI; not a second agency.",
     "rung": 200,
-    "essential": false
+    "essential": true,
+    "see_also": "AI Safety Institute (AISI); NIST AI RMF 1.0"
   },
   {
     "category": "Regulatory",
@@ -5855,6 +5861,254 @@ const EXPANDED_GLOSSARY = [
     "definition": "Role performed by enterprise architects translating legal rules into engineering specs and explaining technical trade-offs to counsel.",
     "rung": 200,
     "essential": true
+  },
+  {
+    "category": "Regulatory",
+    "term": "GPAI Code of Practice",
+    "definition": "Voluntary Article 56 instrument published 10 July 2025. The Commission and AI Board treated it as an adequate demonstration tool for Articles 53 and 55 from 1 August 2025. Three chapters: Transparency, Copyright, and Safety & Security (systemic-risk models only). Signing is not a presumption of conformity; that status is reserved for harmonised standards. Non-signatories must show alternative adequate means.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "General Purpose AI (GPAI); Systemic Risk GPAI; EU AI Act (Reg 2024/1689)"
+  },
+  {
+    "category": "Regulatory",
+    "term": "Code of Practice on Transparency of AI-generated Content",
+    "definition": "Separate voluntary code supporting Article 50 marking and labelling duties for generative systems. It is not the GPAI model-level Code of Practice. Article 50 applies from 2 August 2026. A limited grace period for pre-existing systems on Article 50(2) marking runs to 2 December 2026.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "Article 50 Transparency; C2PA (Content Credentials)"
+  },
+  {
+    "category": "Regulatory",
+    "term": "Article 4 AI Literacy",
+    "definition": "Provider and deployer duty to take measures supporting AI literacy of staff and other persons operating systems on their behalf. In force since 2 February 2025. Digital Omnibus text (Reg. 2026/1744) reframed it as support rather than a guaranteed individual competence level. Still the predicate for effective Article 14 and Article 26 oversight.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "Article 14 Human Oversight; Human-in-the-Loop (HITL)"
+  },
+  {
+    "category": "Regulatory",
+    "term": "Article 14 Human Oversight",
+    "definition": "High-risk design duty: the system must be overseen by natural persons who can understand limits, detect anomalies, resist automation bias, disregard or override output, and interrupt operation. Measures may be built in by the provider, implemented by the deployer, or both.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "Human-in-the-Loop (HITL); Automation Bias; Article 4 AI Literacy"
+  },
+  {
+    "category": "Regulatory",
+    "term": "Article 26 Deployer Obligations",
+    "definition": "Operational duties on the professional user of a high-risk system: use according to instructions, assign competent overseers, monitor, keep logs, and perform a fundamental-rights impact assessment where required. Distinct from provider design duties.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "Deployer (EU AI Act); Article 14 Human Oversight"
+  },
+  {
+    "category": "Regulatory",
+    "term": "Article 53 GPAI Obligations",
+    "definition": "Baseline duties on GPAI model providers since 2 August 2025: technical documentation, downstream information, a Union-copyright policy, and a public training-content summary. Open-source models get partial relief but still owe the copyright policy and training summary.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "General Purpose AI (GPAI); Training Content Summary; GPAI Code of Practice"
+  },
+  {
+    "category": "Regulatory",
+    "term": "Authorized Representative (EU AI Act)",
+    "definition": "EU-established person mandated in writing by a non-EU provider of a high-risk system or GPAI model before placing it on the Union market. GPAI appointment duty applied from August 2025; high-risk systems follow the high-risk calendar. Open-source GPAI can be exempt from the representative duty.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "Provider (EU AI Act); Importer (EU AI Act)"
+  },
+  {
+    "category": "Regulatory",
+    "term": "Training Content Summary",
+    "definition": "Article 53 public overview of data used to train a GPAI model, using the Commission template (sources, large datasets, top domains, processing notes). Designed so rightholders can exercise Union copyright and related rights. It is not a full corpus dump.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "Article 53 GPAI Obligations; California AB 2013"
+  },
+  {
+    "category": "Regulatory",
+    "term": "California SB 53 (TFAIA)",
+    "definition": "Transparency in Frontier Artificial Intelligence Act, signed 29 September 2025, with core duties from 1 January 2026. Covers frontier models trained above 10^26 FLOPs. Large frontier developers must publish a Frontier AI Framework and catastrophic-risk assessments. All frontier developers publish pre-deployment transparency reports. Critical safety incidents go to Cal OES within 15 days.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "Systemic Risk GPAI; America's AI Action Plan"
+  },
+  {
+    "category": "Regulatory",
+    "term": "California SB 942 (AI Transparency Act)",
+    "definition": "Covered generative-AI developers (generally over 1 million monthly users) must provide a free detection tool plus manifest and latent disclosures for synthetic image, video, and audio. Operative 2 August 2026 after AB 853 aligned the date. Platform and capture-device duties phase in 2027-2028. Complements AB 2013 training-data summaries rather than replacing them.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "C2PA (Content Credentials); Article 50 Transparency; California AB 2013"
+  },
+  {
+    "category": "Regulatory",
+    "term": "Colorado SB 26-189 (ADMT Act)",
+    "definition": "May 2026 repeal-and-replace of SB 24-205. Narrower automated-decision-making-technology regime for systems that materially influence consequential decisions. Substantive duties scheduled 1 January 2027. Keep SB 24-205 as a historical cross-reference. Do not treat February 2026 as the live Colorado date.",
+    "rung": 300,
+    "essential": true,
+    "see_also": "Colorado SB 24-205; CPPA ADMT Rules; Algorithmic Discrimination"
+  },
+  {
+    "category": "Responsible AI",
+    "term": "NIST AI 600-1 (Generative AI Profile)",
+    "definition": "July 2024 companion profile to NIST AI RMF 1.0 for generative systems. Twelve generative-AI risk categories and more than 400 suggested actions. Still the practical U.S. measurement overlay after AISI was renamed CAISI.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "NIST AI RMF 1.0"
+  },
+  {
+    "category": "Responsible AI",
+    "term": "ISO/IEC 5338:2023",
+    "definition": "AI system life-cycle processes built on ISO/IEC/IEEE 15288 and 12207. The engineering companion to ISO/IEC 42001: acquisition through retirement, including data preparation and model training processes.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "ISO/IEC 42001 (AIMS); ISO/IEC 22989"
+  },
+  {
+    "category": "Responsible AI",
+    "term": "ISO/IEC 8183:2023",
+    "definition": "Data life-cycle framework for AI: conception through preparation, model building, and decommissioning. The usual mapping target for lineage, RAG stores, and deletion or unlearning claims.",
+    "rung": 200,
+    "essential": false,
+    "see_also": "Model Lineage; Model Deletion / Unlearning"
+  },
+  {
+    "category": "Responsible AI",
+    "term": "ISO/IEC 12792:2025",
+    "definition": "Transparency taxonomy of information elements for AI systems at context, system, and model levels. Useful when an architect must turn Article 50, California SB 942, or C2PA duties into a disclosure schema.",
+    "rung": 200,
+    "essential": false,
+    "see_also": "Explainable AI (XAI); Article 50 Transparency"
+  },
+  {
+    "category": "Responsible AI",
+    "term": "ISO/IEC 25059:2023",
+    "definition": "SQuaRE quality model extended to AI systems. Quality characteristics for evaluation under operational conditions. Pairs with ISO/IEC 5338 (process) and ISO/IEC 42001 (management system).",
+    "rung": 200,
+    "essential": false,
+    "see_also": "ISO/IEC 5338:2023; Hallucination Rate"
+  },
+  {
+    "category": "Responsible AI",
+    "term": "Automation Bias",
+    "definition": "Human tendency to over-rely on automated output. Named risk in EU AI Act Article 14. The reason a human-in-the-loop step is not a paper control.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "Article 14 Human Oversight; Human-in-the-Loop (HITL)"
+  },
+  {
+    "category": "Enterprise Architecture",
+    "term": "Retrieval-Augmented Generation (RAG)",
+    "definition": "Architecture that retrieves external documents at inference time and conditions the model on them. Shifts copyright, privacy, and prompt-injection risk from training weights to the retrieval corpus and chunking pipeline.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "Indirect Prompt Injection; Vector Embedding Privacy; Model Lineage"
+  },
+  {
+    "category": "Enterprise Architecture",
+    "term": "Model Context Protocol (MCP)",
+    "definition": "Open protocol for connecting agents to tools, resources, and prompts. Creates a supply-chain surface: tool poisoning, mutable tool descriptions, missing caller identity, and weak audit trails. Treat each MCP server as a production dependency.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "Indirect Prompt Injection; Agentic AI (Defense Framing); Flow-Down Provision"
+  },
+  {
+    "category": "Enterprise Architecture",
+    "term": "Tool Poisoning",
+    "definition": "Attack that tampers with a tool's natural-language description or schema so an agent invokes it, or passes extra parameters, in ways the user never authorized. Distinct from classic prompt injection because the malicious instruction lives in tool metadata.",
+    "rung": 200,
+    "essential": false,
+    "see_also": "Model Context Protocol (MCP); Indirect Prompt Injection"
+  },
+  {
+    "category": "Enterprise Architecture",
+    "term": "AI Bill of Materials (AIBOM)",
+    "definition": "Inventory of model weights, datasets, adapters, eval suites, guardrails, MCP servers, and licenses for a deployed system. The architecture artifact that makes model lineage and the model transparency register procurable.",
+    "rung": 200,
+    "essential": false,
+    "see_also": "Model Lineage; Model Transparency Register; OSAID 1.0"
+  },
+  {
+    "category": "Enterprise Architecture",
+    "term": "Policy Enforcement Point (PEP) for Agents",
+    "definition": "Runtime gate that authorizes or denies tool calls from an agent against identity, data-sensitivity, and rate-limit policy, with a hash-chained audit log. Needed once a human is no longer on every step.",
+    "rung": 200,
+    "essential": false,
+    "see_also": "Human-out-of-the-Loop (HOOTL); Audit Rights Clause"
+  },
+  {
+    "category": "IP",
+    "term": "Memorization",
+    "definition": "Phenomenon where a model can emit long stretches of a training work. Separates a claim that training is fair use from output-level infringement, and from Article 53 copyright-policy design.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "Substantial Similarity Test; Hallucination Rate; Bartz v. Anthropic"
+  },
+  {
+    "category": "IP",
+    "term": "Shadow Library",
+    "definition": "Pirated corpus (Books3, LibGen, and similar) used as training input. Bartz treated lawful acquisition plus training as fair use but let the piracy-and-retention theory proceed. Acquisition path is a contract and diligence fact, not a footnote.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "Bartz v. Anthropic; Kadrey v. Meta; Fair Use (17 U.S.C. § 107)"
+  },
+  {
+    "category": "IP",
+    "term": "EU TDM Exception / Rights Reservation",
+    "definition": "Articles 3 and 4 of the CDSM Directive. Text-and-data-mining exceptions, with the commercial exception waivable by a machine-readable reservation. The legal hook behind the GPAI Code copyright chapter and the training-content summary.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "Article 53 GPAI Obligations; Training Content Summary"
+  },
+  {
+    "category": "IP",
+    "term": "Doe v. GitHub (9th Cir. 2026)",
+    "definition": "Ninth Circuit held generative coding outputs are newly generated works, not stripped copies, for DMCA section 1202(b) copyright-management-information removal analysis. Did not decide ordinary copyright infringement of memorized code.",
+    "rung": 300,
+    "essential": false,
+    "see_also": "DMCA § 1202 (CMI); Substantial Similarity Test"
+  },
+  {
+    "category": "Contracts",
+    "term": "Training-Data License",
+    "definition": "Standalone or addendum grant to reproduce works for model training, distinct from output ownership and from API terms. After Bartz and Kadrey, the commercial alternative to a pure fair-use bet.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "AI Addendum; Fair Use (17 U.S.C. § 107); Output Ownership Assignment"
+  },
+  {
+    "category": "Contracts",
+    "term": "Electronic Agent / Binding Authority",
+    "definition": "Contract and UETA/E-SIGN question: when an autonomous software agent can form or vary a contract for its principal. Becomes material once agents send mail, file tickets, or accept vendor terms.",
+    "rung": 200,
+    "essential": false,
+    "see_also": "Agentic AI (Defense Framing); Human-out-of-the-Loop (HOOTL); SaaS Click-Through Terms"
+  },
+  {
+    "category": "Privacy",
+    "term": "Automated Decision-Making Technology (ADMT)",
+    "definition": "Cross-cutting U.S. term of art, used in CPPA rules and Colorado SB 26-189, for systems that materially influence consequential decisions. Broader than GDPR Article 22 solely automated decisions.",
+    "rung": 200,
+    "essential": true,
+    "see_also": "CPPA ADMT Rules; Colorado SB 26-189 (ADMT Act); GDPR Article 22"
+  },
+  {
+    "category": "Privacy",
+    "term": "Tennessee ELVIS Act",
+    "definition": "Name, image, voice, and likeness statute aimed at unauthorized AI voice and likeness cloning. Prototype for a state right-of-publicity overlay on generative media.",
+    "rung": 200,
+    "essential": false,
+    "see_also": "Biometric Data Privacy; C2PA (Content Credentials)"
+  },
+  {
+    "category": "Regulatory",
+    "term": "Illinois HB 3773",
+    "definition": "2026 amendment to the Illinois Human Rights Act covering AI in employment decisions. Sits next to the older AI Video Interview Act and BIPA.",
+    "rung": 200,
+    "essential": false,
+    "see_also": "NYC LL144; EEOC Title VII Guidance; Illinois BIPA"
   }
 ];
 
