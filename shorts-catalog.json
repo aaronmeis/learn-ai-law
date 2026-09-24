@@ -2,7 +2,7 @@
   "notebook_id": "5f447a3b-ecf4-48e6-a03b-4ccb9e49f15a",
   "title": "Learn AI Law - 35 shorts",
   "total": 35,
-  "ready": 25,
+  "ready": 35,
   "updated": "2026-09-18T14:56:16.0636722-05:00",
   "items": [
     {
@@ -210,80 +210,80 @@
       "name": "26-clauses-not-audit-stages",
       "title": "Clauses are not audit stages",
       "file": "media/shorts/26-clauses-not-audit-stages.mp4",
-      "artifact_id": "",
-      "status": "pending"
+      "artifact_id": "4b479a2a-702a-4fd1-bdcc-a5c2e703bcf9",
+      "status": "ready"
     },
     {
       "id": "27-stage1-versus-stage2",
       "name": "27-stage1-versus-stage2",
       "title": "Stage 1 versus Stage 2",
       "file": "media/shorts/27-stage1-versus-stage2.mp4",
-      "artifact_id": "",
-      "status": "pending"
+      "artifact_id": "15912332-b958-4a18-85ae-d31d9be2574e",
+      "status": "ready"
     },
     {
       "id": "28-23894-not-a-certificate",
       "name": "28-23894-not-a-certificate",
       "title": "23894 is guidance, not a certificate",
       "file": "media/shorts/28-23894-not-a-certificate.mp4",
-      "artifact_id": "",
-      "status": "pending"
+      "artifact_id": "0da0afa9-62b8-441c-b471-ebc9a2f341c1",
+      "status": "ready"
     },
     {
       "id": "29-words-methods-obligations",
       "name": "29-words-methods-obligations",
       "title": "Words, methods, obligations",
       "file": "media/shorts/29-words-methods-obligations.mp4",
-      "artifact_id": "",
-      "status": "pending"
+      "artifact_id": "01b50300-7019-40ec-837b-cc7e9315a8fc",
+      "status": "ready"
     },
     {
       "id": "30-measure-is-table-three",
       "name": "30-measure-is-table-three",
       "title": "Measure is Table 3",
       "file": "media/shorts/30-measure-is-table-three.mp4",
-      "artifact_id": "",
-      "status": "pending"
+      "artifact_id": "e209188a-d291-407c-aea9-8afa931d4d8a",
+      "status": "ready"
     },
     {
       "id": "31-two-different-rmfs",
       "name": "31-two-different-rmfs",
       "title": "Two RMFs, two jobs",
       "file": "media/shorts/31-two-different-rmfs.mp4",
-      "artifact_id": "",
-      "status": "pending"
+      "artifact_id": "a9f875a3-7d5a-4658-a20b-609e5b46b7bf",
+      "status": "ready"
     },
     {
       "id": "32-aibom-versus-sbom",
       "name": "32-aibom-versus-sbom",
       "title": "AIBOM is not an SBOM",
       "file": "media/shorts/32-aibom-versus-sbom.mp4",
-      "artifact_id": "",
-      "status": "pending"
+      "artifact_id": "d13c426e-004c-42df-b426-74bcbeaa90eb",
+      "status": "ready"
     },
     {
       "id": "33-high-risk-versus-frontier",
       "name": "33-high-risk-versus-frontier",
       "title": "High-risk is not frontier",
       "file": "media/shorts/33-high-risk-versus-frontier.mp4",
-      "artifact_id": "",
-      "status": "pending"
+      "artifact_id": "470a1b68-e3af-4d18-890e-e0495238a134",
+      "status": "ready"
     },
     {
       "id": "34-genai-profile-not-statute",
       "name": "34-genai-profile-not-statute",
       "title": "The GenAI profile is not a statute",
       "file": "media/shorts/34-genai-profile-not-statute.mp4",
-      "artifact_id": "",
-      "status": "pending"
+      "artifact_id": "279383e7-962e-4bfe-a8c6-e01019fb6c6e",
+      "status": "ready"
     },
     {
       "id": "35-certificate-covers-the-system",
       "name": "35-certificate-covers-the-system",
       "title": "The certificate covers the system",
       "file": "media/shorts/35-certificate-covers-the-system.mp4",
-      "artifact_id": "",
-      "status": "pending"
+      "artifact_id": "e24212e3-5d33-463d-9754-88fd9c38f1ac",
+      "status": "ready"
     }
   ]
 }
