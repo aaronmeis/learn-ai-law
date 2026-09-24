@@ -308,6 +308,10 @@
   .gterm h4{font-size:.9rem;display:flex;align-items:center;gap:.25rem}
   .gterm p{font-size:.84rem;color:var(--text-secondary);margin-top:.2rem;line-height:1.55}
   .gterm .sa{font-size:.76rem;color:var(--text-dim);margin-top:.35rem}
+  .gex{margin-top:.85rem}
+  .gex-label{font-size:.75rem;font-weight:700;color:var(--accent-color)}
+  .gex p{margin:.2rem 0 .4rem}
+  .gterm pre{font-family:ui-monospace,"Cascadia Code",Consolas,monospace;font-size:.78rem;color:var(--text-primary);background:var(--card-bg2);border:1px solid var(--border-color);padding:.65rem .75rem;border-radius:6px;margin:0;overflow-x:auto;white-space:pre-wrap;line-height:1.45}
 
   /* Shorts gallery (vertical phone frame + episode rail) */
   .shorts-gallery{display:grid;grid-template-columns:minmax(0,1fr);gap:1.1rem;align-items:start}
@@ -6109,10 +6113,22 @@ const EXPANDED_GLOSSARY = [
   {
     "category": "Enterprise Architecture",
     "term": "AI Bill of Materials (AIBOM)",
-    "definition": "Inventory of model weights, datasets, adapters, eval suites, guardrails, MCP servers, and licenses for a deployed system. The architecture artifact that makes model lineage and the model transparency register procurable.",
+    "definition": "Inventory of model weights, datasets, adapters, eval suites, guardrails, MCP servers, and licenses for a deployed system. The architecture artifact that makes model lineage and the model transparency register procurable. The two inventories under this card are study examples, not a required schema.",
     "rung": 200,
     "essential": false,
-    "see_also": "SBOM; Model Lineage; Model Transparency Register; OSAID 1.0"
+    "see_also": "SBOM; Model Lineage; Model Transparency Register; OSAID 1.0",
+    "examples": [
+      {
+        "label": "Basic",
+        "note": "One assistant, one pinned vendor API, one corpus. Enough to answer who supplies the model and what we added.",
+        "body": "System: Helpdesk assistant. One product, one cloud tenant.\nOur role: deployer of a vendor model API. We do not hold the weights.\nModel: Vendor Chat Large, API id chat-large-2026-04, pinned.\nSupplier data: vendor's training corpus. We do not have it.\nOur data: public help-center articles, snapshot 2026-03-01, internal use.\nAdapter: none.\nEval: 30-question answer check, run monthly by support ops.\nGuardrail: vendor filter left on.\nTools: none.\nLicense: vendor enterprise terms. No training on our prompts.\nOwner: support platform lead.\nChange rule: a new model id needs a ticket before cutover.\nThis inventory is not an ATO, a covered-AI call, or a model score."
+      },
+      {
+        "label": "More complex",
+        "note": "Same idea, plus an adapter, a retrieval snapshot, tools, a software bill of materials, and an explicit list of what the inventory does not prove.",
+        "body": "System: Internal policy assistant for counsel research. Not a hiring or credit tool.\nOur role: provider of the assistant, deployer of the base API, trainer of one adapter.\nBase model: Vendor Chat Large, API id chat-large-2026-04. ZDR addendum on file. Weights not held.\nSupplier papers: vendor model card and license PDF in the contract file.\nAdapter: policy-lora-3. Illustrative hash prefix 9f3c, not a real digest. Trained on firm-owned memos through 2025-12-01.\nRetrieval corpus: matter notes marked Internal. Index snapshot 2026-06-12. Embedding model vendor-embed-3.\nEval suite: citation-present check and a refusal check on privileged prompts. Owner: knowledge engineering. Last run 2026-08-02. This is not a fairness audit.\nGuardrails: vendor filter on, plus internal refusal list version 14.\nMCP servers: dms-search, read-only, firm-operated. calendar-hold, firm-operated. Tool-list hash recorded on the change ticket.\nSBOM: container assistant-api 1.8.2. Illustrative digest prefix ab12, not a real digest. Generated at build.\nLicenses: vendor terms (no training on prompts), memo corpus firm-owned, MCP servers internal.\nLineage to keep together: base id, adapter hash, corpus snapshot, image digest.\nSuppliers: model vendor and embedding vendor. Subprocessors named in the DPA.\nChange rule: a swap of base, adapter, corpus, or MCP server needs a ticket and a rerun of the eval suite.\nStill not: an authorization to operate, an NDAA Sec. 1532 covered-AI determination, an Article 10 file, or a claim the model is safe."
+      }
+    ]
   },
   {
     "category": "Enterprise Architecture",
@@ -7604,10 +7620,16 @@ function renderGlossary(){
   }).join("")+`</div>`;
   
   cats.filter(c=>cat==="all"||c===cat).forEach(c=>{
-    const items=DATA.glossary.filter(g=>g.category===c&&(!q||(g.term+g.definition+(g.see_also||"")).toLowerCase().includes(q)));
+    const items=DATA.glossary.filter(g=>{
+      const extra=(g.examples||[]).map(e=>e.label+" "+e.note+" "+e.body).join(" ");
+      return g.category===c&&(!q||(g.term+g.definition+(g.see_also||"")+extra).toLowerCase().includes(q));
+    });
     if(!items.length)return;
     h+=`<h3 style="margin:1.1rem 0 .5rem;font-size:.95rem">${esc(c)} <span style="color:var(--text-dim);font-weight:400">· ${items.length}</span></h3>`;
-    items.forEach(g=>h+=`<div class="gterm"><h4>${esc(g.term)} ${rungPill(g.rung)} ${g.essential?essentialPill():''}</h4><p>${esc(g.definition)}</p>${g.see_also?`<div class="sa">see also: ${esc(g.see_also)}</div>`:""}</div>`);
+    items.forEach(g=>{
+      const ex=(g.examples||[]).map(e=>`<div class="gex"><div class="gex-label">${esc(e.label)}</div><p>${esc(e.note)}</p><pre>${esc(e.body)}</pre></div>`).join("");
+      h+=`<div class="gterm"><h4>${esc(g.term)} ${rungPill(g.rung)} ${g.essential?essentialPill():''}</h4><p>${esc(g.definition)}</p>${ex}${g.see_also?`<div class="sa">see also: ${esc(g.see_also)}</div>`:""}</div>`;
+    });
   });
   el.innerHTML=h;
   const s=$("#gSearch");
