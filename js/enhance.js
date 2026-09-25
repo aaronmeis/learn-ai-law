@@ -162,11 +162,14 @@ const players = new Set();
 let ytReady=null;
 function loadYT(){
   if(ytReady) return ytReady;
-  ytReady=new Promise(res=>{
+  ytReady=new Promise((res,rej)=>{
     if(window.YT&&window.YT.Player) return res();
     const prev=window.onYouTubeIframeAPIReady;
     window.onYouTubeIframeAPIReady=()=>{if(prev)prev();res();};
-    const s=document.createElement("script"); s.src="https://www.youtube.com/iframe_api"; document.head.appendChild(s);
+    const s=document.createElement("script"); s.src="https://www.youtube.com/iframe_api";
+    s.onerror=()=>{ytReady=null;rej(new Error("YouTube player script blocked"));};
+    setTimeout(()=>{ if(!(window.YT&&window.YT.Player)){ytReady=null;rej(new Error("YouTube player script timed out"));} },8000);
+    document.head.appendChild(s);
   });
   return ytReady;
 }
@@ -177,11 +180,17 @@ function mountPlayer(host,it,opts){
   if(it.youtube){
     const div=document.createElement("div"); host.appendChild(div);
     let yp=null, dead=false;
+    const fallback=why=>{ // removed, private, embedding off, or YouTube blocked: play the MP4 while it still exists
+      console.warn("[shorts] YouTube could not play "+it.id+" ("+it.youtube+"): "+why);
+      if(dead) return; dead=true; try{yp&&yp.destroy();}catch(x){} host.innerHTML="";
+      if(it.file){ const fb=mountPlayer(host,Object.assign({},it,{youtube:""}),opts); api.pause=fb.pause; api.play=fb.play; api.el=fb.el; const d0=api.destroy; api.destroy=()=>{fb.destroy();d0();}; }
+      else host.innerHTML='<p style="color:#fff;padding:1rem;text-align:center">This video is not available on YouTube.</p>';
+    };
     loadYT().then(()=>{ if(dead) return;
       yp=new YT.Player(div,{host:"https://www.youtube-nocookie.com",videoId:it.youtube,width:"100%",height:"100%",
         playerVars:{playsinline:1,rel:0,modestbranding:1,autoplay:opts.autoplay?1:0,mute:opts.muted?1:0},
-        events:{onStateChange:e=>{ if(e.data===0) done(); }}});
-    });
+        events:{onStateChange:e=>{ if(e.data===0) done(); }, onError:e=>fallback("error "+e.data)}});
+    }).catch(err=>fallback(err.message));
     api={destroy(){dead=true;try{yp&&yp.destroy();}catch(e){} host.innerHTML="";},pause(){try{yp&&yp.pauseVideo();}catch(e){}},play(){try{yp&&yp.playVideo();}catch(e){}},el:div};
   }else{
     const v=document.createElement("video");

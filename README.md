@@ -2,34 +2,82 @@
 
 ![Learn AI Law: Contracts, Intellectual Property, US Regulation, EU AI Act, Privacy](assets/readme/header.png)
 
-A personal, self-contained study console for a 6-week study program covering AI contracts, intellectual property, regulation, and Responsible AI. Built for an enterprise architect audience.
-
-**Not legal advice.** Study material only.
+A personal study console for a six-week program on AI contracts, intellectual property, regulation, and Responsible AI, written for enterprise architects. It runs in the browser on desktop and phone, installs to a home screen, and keeps your progress on your own device.
 
 **Live:** https://aaronmeis.github.io/learn-ai-law/
 
-## What's here
+**Not legal advice.** Study material only. Every exercise uses public exemplars: published terms, standard templates, statutes, opinions, and synthetic data. Primary sources take priority over this synthesis.
 
-- `index.html` (+ `assets/` + `media/shorts/`): the study console. A single-page app, no build step, no external dependencies beyond Google Fonts, with a knowledge base, quiz bank, glossary, case tracker, **35 vertical NotebookLM shorts** (25 curriculum plus 10 on the September 2026 standards, Measure and TEVV, security RMF, and AIBOM pages), **six week presenter decks**, and a dedicated **EU AI products** section and **ISO/IEC 42001**, **23894**, and **22989** study views plus a standards map (words, methods, obligations) and a NIST Measure and TEVV study view (AIMS clauses and Annex A; AI risk guidance on ISO 31000, objectives, and risk sources) (AI in products, AI-assisted product creation, EU vs US contrast, roles, risk tiers, GPAI embeds, conformity, and product liability). Published via GitHub Pages from the repo root.
-- `assets-src/`: source material behind the console, including Gamma deck outlines, NotebookLM prompts, and infographic briefs.
-- `prompts/`: reusable prompt templates for studying (Socratic examiner, issue-spotter, redline assist, translation, briefing).
+## What you can do
 
-## Layout
+| Area | What's there |
+| --- | --- |
+| **Today** | Home screen. Daily goal (1 Short + 5 reviews), streak, the next Short to watch, cards due, progress by pillar, and the last 7 days. |
+| **Learn** | Six-week curriculum, 51 vertical NotebookLM Shorts, week presenter decks, and study views for EU AI products, ISO/IEC 42001, 23894, and 22989, NIST Measure and TEVV, the Generative AI Profile (NIST AI 600-1), and the security RMF (SP 800-37). |
+| **Practice** | Spaced-repetition flashcards (280 terms), quiz by week, practice checklist, and study prompts. |
+| **Reference** | Standards map, 100/200/300 progress map, glossary, EA mapping (TOGAF, Zachman, DoDAF, NIST AI RMF), and external references. |
 
-- `index.html`: page shell, grouped navigation, mobile tab bar.
-- `css/base.css`: themes and the original view styles. `css/enhance.css`: Today, Shorts feed, mobile chrome, search.
-- `js/data.js`: study content (references, glossary, weeks, ladder, quiz). `js/app.js`: the original views. `js/enhance.js`: routing (`#/today`, `#/shorts/<id>`), Today screen, Shorts feed and checks, streaks, search (Ctrl/Cmd K), export and import.
-- `shorts-meta.json`: pillar, keywords, duration, poster and `youtube` ID per Short. Kept apart from `shorts-catalog.json` so the download scripts can rewrite the catalog. Run `python scripts/enrich_shorts_meta.py` after adding Shorts.
-- `manifest.webmanifest` and `sw.js`: install to a phone home screen; notes, cards and quizzes work offline.
+After each Short, **Check yourself** shows matching quiz questions and key terms from the glossary, with a button to drill those terms as flashcards.
 
-## Moving Shorts to YouTube
+**Keyboard:** Ctrl/⌘ K search everything · J/K next and previous Short · Q jump to the Short's questions · Space, arrows and 1–3 in flashcards.
 
-Upload each MP4 as an **unlisted** video, then paste its video ID (the part after `v=`) into that Short's `"youtube"` field in `shorts-meta.json`. Shorts with an ID play from YouTube; the rest keep playing from `media/shorts/`. Once every Short has an ID you can delete the MP4s from the repo.
+**Phone:** bottom tab bar (Today, Shorts, Practice, Learn, More), a full-screen Shorts feed you swipe through, and flashcard swipes (→ Good, ← Again, ↑ Hard). Use your browser's **Add to Home Screen** to install it. Notes, cards, and quizzes then work offline. Videos need a connection.
+
+**Your progress** is saved in the browser you use, per device. Use **Export progress** (sidebar, or More on a phone) to save a file, and **Import** it on another device.
+
+## Files
+
+| Path | Purpose |
+| --- | --- |
+| `index.html` | Page shell, grouped navigation, mobile tab bar, search dialog. |
+| `css/base.css` | Themes (GitHub, Geist, Catppuccin; light and dark) and styles for the study views. |
+| `css/enhance.css` | Today, Shorts, mobile layout, search, accessibility. |
+| `js/data.js` | Study content: external references, glossary, weeks, ladder, quiz. Edit content here. |
+| `js/app.js` | The study views (curriculum, flashcards, quiz, standards, decks...). |
+| `js/enhance.js` | Routing (`#/today`, `#/shorts/<id>`), Today, Shorts player and feed, streaks, search, export and import. |
+| `shorts-catalog.json` | Shorts list, written by the NotebookLM download scripts. |
+| `shorts-meta.json` | Per Short: pillar, keywords for Check yourself, duration, poster, and `youtube` ID. Kept separate so the download scripts can rewrite the catalog without losing these fields. |
+| `decks-catalog.json` | Week deck slides. |
+| `media/shorts/`, `media/posters/`, `media/decks/` | Short MP4s, poster frames, deck slides and walkthrough videos. |
+| `manifest.webmanifest`, `sw.js` | Home-screen install and offline cache. |
+| `assets-src/`, `prompts/` | Source material (Gamma outlines, NotebookLM prompts, infographic briefs) and reusable study prompts. |
+| `scripts/` | NotebookLM Shorts pipeline, `enrich_shorts_meta.py`, `check_youtube.py`. |
+
+## Adding Shorts
+
+1. Download them with the existing NotebookLM scripts, which update `shorts-catalog.json` and `media/shorts/`.
+2. Run `python scripts/enrich_shorts_meta.py` to add the duration and a poster frame for each new Short (needs ffmpeg).
+3. In `shorts-meta.json`, set each new Short's `pillar` (Foundations, Contracts, IP, Regulatory, or Responsible AI) and a few `keywords`. Check yourself uses the keywords to find matching quiz questions and glossary terms.
+
+## Hosting Shorts on YouTube
+
+The site plays a Short from YouTube when its entry in `shorts-meta.json` has a `youtube` ID, and from `media/shorts/` otherwise. If YouTube can't play a video (private, deleted, embedding off, or YouTube blocked on that network), the site falls back to the MP4 automatically.
+
+1. Upload each MP4 in YouTube Studio with **Visibility: Unlisted**. Under **Show more**, make sure **Allow embedding** is checked.
+2. Make a CSV with two columns, the Short id and its YouTube link:
+   ```
+   32-aibom-versus-sbom,https://youtube.com/shorts/AbCdEfGhIjK
+   ```
+3. Import the IDs and check them:
+   ```
+   python scripts/check_youtube.py --import youtube-ids.csv
+   ```
+   Each line prints `OK` or `FAIL` with the reason. Run `python scripts/check_youtube.py` any time to recheck.
+4. Serve the site locally, open a Short, and confirm the player shows YouTube's controls.
+5. Only when every Short passes, delete the MP4s from `media/shorts/`. The fallback needs them until then.
+
+Unlisted videos are not private: anyone with the link can watch them.
 
 ## Running locally
 
-Serve the folder (the Shorts and deck catalogs are loaded with `fetch`, which does not work from a double-clicked file):
+Serve the folder. The Shorts and deck catalogs load with `fetch`, which doesn't work from a double-clicked file.
 
 ```
 npx serve .
 ```
+
+Then open the address it prints. On a phone on the same Wi-Fi, use the Network address it shows.
+
+## Publishing
+
+GitHub Pages publishes the `main` branch from the repo root. There's no build step: push to `main` and the site updates within a minute or two. If an installed copy looks out of date, reload once; pages and data load from the network first, with the offline copy used only when there's no connection.
