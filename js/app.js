@@ -5,6 +5,8 @@ const $=(s,root=document)=>(root||document).querySelector(s);
 const $$=(s,root=document)=>Array.from((root||document).querySelectorAll(s));
 const esc=t=>t?t.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"):"" ;
 
+function defaultMode(){try{return window.matchMedia&&matchMedia("(prefers-color-scheme: light)").matches?"light":"dark";}catch(e){return "dark";}}
+
 const LS={
   get(k,d=null){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d;}catch(e){return d;}},
   set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}},
@@ -21,7 +23,7 @@ function go(v){
 $$("#nav .nav-item").forEach(el=>el.onclick=()=>go(el.dataset.v));
 
 function iconPath(name){
-  const mode = LS.get("appMode", "dark");
+  const mode = LS.get("appMode", defaultMode());
   return mode === "light" ? `assets/${name}_light.jpg` : `assets/${name}.jpg`;
 }
 
@@ -1445,31 +1447,31 @@ function applyTheme(palette, mode){
 
 function initTheme(){
   const savedPalette = LS.get("appPalette", "github");
-  const savedMode = LS.get("appMode", "dark");
+  const savedMode = LS.get("appMode", defaultMode());
   applyTheme(savedPalette, savedMode);
   
   const btn = $("#themeToggleBtn");
   const select = $("#themeSelect");
   if(btn){
     btn.onclick = () => {
-      const currentMode = LS.get("appMode", "dark");
+      const currentMode = LS.get("appMode", defaultMode());
       const newMode = currentMode === "dark" ? "light" : "dark";
       applyTheme(LS.get("appPalette", "github"), newMode);
     };
   }
   if(select){
     select.onchange = () => {
-      applyTheme(select.value, LS.get("appMode", "dark"));
+      applyTheme(select.value, LS.get("appMode", defaultMode()));
     };
   }
 }
 
 /* ---- Init ---- */
 try{
-  initTheme();renderDashboard();renderCurriculum();renderEUProducts();renderISO42001();renderISO23894();renderISO22989();renderStdMap();renderNistMeasure();renderNist6001();renderSecurityRmf();renderMap();renderFlash();renderQuiz();renderGlossary();renderPrompts();renderCounsel();renderEA();renderReferences();loadShorts();loadDecks();
+  initTheme();renderDashboard();renderCurriculum();renderEUProducts();renderISO42001();renderISO23894();renderISO22989();renderStdMap();renderNistMeasure();renderNist6001();renderSecurityRmf();renderMap();renderFlash();renderQuiz();renderGlossary();renderPrompts();renderCounsel();renderEA();renderReferences();loadDecks();
 }catch(err){
   const dash=document.getElementById("v-dashboard");
   if(dash) dash.innerHTML='<h1>The study console did not finish loading</h1><p class="lead">'+esc(err&&err.message?err.message:String(err))+'</p>';
   console.error(err);
 }
-(function restore(){const v=LS.get("view","dashboard");const b=$('#nav .nav-item[data-v="'+v+'"]');if(b&&v!=="dashboard")b.click();})();
+/* Initial view and hash routing are handled in js/enhance.js. */
