@@ -1,0 +1,622 @@
+{
+  "_about": "Extra fields for shorts-catalog.json items, keyed by id. Paste an unlisted YouTube video ID into \"youtube\" to play from YouTube instead of media/shorts. scripts/enrich_shorts_meta.py fills duration and poster for new shorts.",
+  "items": {
+    "01-sources-of-law": {
+      "pillar": "Foundations",
+      "keywords": [
+        "statute",
+        "regulation",
+        "case law",
+        "binding",
+        "sources of law",
+        "soft law"
+      ],
+      "youtube": "",
+      "duration": 83,
+      "poster": "media/posters/01-sources-of-law.webp"
+    },
+    "02-civilian-federal-posture": {
+      "pillar": "Regulatory",
+      "keywords": [
+        "federal",
+        "executive order",
+        "OMB",
+        "civilian",
+        "agency"
+      ],
+      "youtube": "",
+      "duration": 87,
+      "poster": "media/posters/02-civilian-federal-posture.webp"
+    },
+    "03-ip-asset-matrix": {
+      "pillar": "IP",
+      "keywords": [
+        "copyright",
+        "patent",
+        "trade secret",
+        "trademark",
+        "IP regimes"
+      ],
+      "youtube": "",
+      "duration": 79,
+      "poster": "media/posters/03-ip-asset-matrix.webp"
+    },
+    "04-human-authorship-log": {
+      "pillar": "IP",
+      "keywords": [
+        "human authorship",
+        "copyright office",
+        "USCO",
+        "disclaim",
+        "Thaler"
+      ],
+      "youtube": "",
+      "duration": 80,
+      "poster": "media/posters/04-human-authorship-log.webp"
+    },
+    "05-fair-use-factor-four": {
+      "pillar": "IP",
+      "keywords": [
+        "fair use",
+        "factor",
+        "market effect",
+        "transformative"
+      ],
+      "youtube": "",
+      "duration": 78,
+      "poster": "media/posters/05-fair-use-factor-four.webp"
+    },
+    "06-weights-trade-secret": {
+      "pillar": "IP",
+      "keywords": [
+        "weights",
+        "trade secret",
+        "reasonable measures"
+      ],
+      "youtube": "",
+      "duration": 79,
+      "poster": "media/posters/06-weights-trade-secret.webp"
+    },
+    "07-contract-precedence": {
+      "pillar": "Contracts",
+      "keywords": [
+        "order of precedence",
+        "MSA",
+        "order form",
+        "conflict"
+      ],
+      "youtube": "",
+      "duration": 73,
+      "poster": "media/posters/07-contract-precedence.webp"
+    },
+    "08-indemnity-voiders": {
+      "pillar": "Contracts",
+      "keywords": [
+        "indemnity",
+        "indemnification",
+        "void",
+        "copyright shield",
+        "exclusion"
+      ],
+      "youtube": "",
+      "duration": 64,
+      "poster": "media/posters/08-indemnity-voiders.webp"
+    },
+    "09-zdr-training-rights": {
+      "pillar": "Contracts",
+      "keywords": [
+        "zero data retention",
+        "ZDR",
+        "training",
+        "customer data"
+      ],
+      "youtube": "",
+      "duration": 83,
+      "poster": "media/posters/09-zdr-training-rights.webp"
+    },
+    "10-deprecation-window": {
+      "pillar": "Contracts",
+      "keywords": [
+        "deprecation",
+        "model version",
+        "notice period"
+      ],
+      "youtube": "",
+      "duration": 83,
+      "poster": "media/posters/10-deprecation-window.webp"
+    },
+    "11-liability-carveouts": {
+      "pillar": "Contracts",
+      "keywords": [
+        "liability cap",
+        "carve-out",
+        "limitation of liability",
+        "super cap",
+        "uncapped"
+      ],
+      "youtube": "",
+      "duration": 78,
+      "poster": "media/posters/11-liability-carveouts.webp"
+    },
+    "12-cyber-ai-exclusions": {
+      "pillar": "Contracts",
+      "keywords": [
+        "cyber",
+        "insurance",
+        "exclusion"
+      ],
+      "youtube": "",
+      "duration": 80,
+      "poster": "media/posters/12-cyber-ai-exclusions.webp"
+    },
+    "13-ftc-claim-scrub": {
+      "pillar": "Regulatory",
+      "keywords": [
+        "FTC",
+        "deceptive",
+        "AI claims",
+        "Section 5",
+        "substantiation"
+      ],
+      "youtube": "",
+      "duration": 77,
+      "poster": "media/posters/13-ftc-claim-scrub.webp"
+    },
+    "14-state-date-board": {
+      "pillar": "Regulatory",
+      "keywords": [
+        "state law",
+        "Colorado",
+        "effective date",
+        "Texas",
+        "California"
+      ],
+      "youtube": "",
+      "duration": 83,
+      "poster": "media/posters/14-state-date-board.webp"
+    },
+    "15-eu-tier-dates": {
+      "pillar": "Regulatory",
+      "keywords": [
+        "EU AI Act",
+        "risk tier",
+        "Omnibus",
+        "high-risk",
+        "prohibited"
+      ],
+      "youtube": "",
+      "duration": 78,
+      "poster": "media/posters/15-eu-tier-dates.webp"
+    },
+    "16-deployer-role-pick": {
+      "pillar": "Regulatory",
+      "keywords": [
+        "deployer",
+        "provider",
+        "role",
+        "EU AI Act"
+      ],
+      "youtube": "",
+      "duration": 77,
+      "poster": "media/posters/16-deployer-role-pick.webp"
+    },
+    "17-art50-notice-ux": {
+      "pillar": "Regulatory",
+      "keywords": [
+        "Article 50",
+        "transparency",
+        "notice",
+        "chatbot",
+        "deepfake"
+      ],
+      "youtube": "",
+      "duration": 71,
+      "poster": "media/posters/17-art50-notice-ux.webp"
+    },
+    "18-nist-build-gates": {
+      "pillar": "Responsible AI",
+      "keywords": [
+        "NIST AI RMF",
+        "MEASURE",
+        "TEVV"
+      ],
+      "youtube": "",
+      "duration": 90,
+      "poster": "media/posters/18-nist-build-gates.webp"
+    },
+    "19-ndaa-1532-screen": {
+      "pillar": "Regulatory",
+      "keywords": [
+        "NDAA",
+        "provenance",
+        "national security",
+        "DoD",
+        "covered"
+      ],
+      "youtube": "",
+      "duration": 82,
+      "poster": "media/posters/19-ndaa-1532-screen.webp"
+    },
+    "20-nscai-to-futures": {
+      "pillar": "Regulatory",
+      "keywords": [
+        "NSCAI",
+        "national security",
+        "NDAA"
+      ],
+      "youtube": "",
+      "duration": 87,
+      "poster": "media/posters/20-nscai-to-futures.webp"
+    },
+    "21-two-ai-product-questions": {
+      "pillar": "Regulatory",
+      "keywords": [
+        "product",
+        "AI in products",
+        "AI-assisted",
+        "EU AI Act"
+      ],
+      "youtube": "",
+      "duration": 65,
+      "poster": "media/posters/21-two-ai-product-questions.webp"
+    },
+    "22-ai-in-product-saas": {
+      "pillar": "Regulatory",
+      "keywords": [
+        "AI inside the product",
+        "SaaS",
+        "provider",
+        "CE marking"
+      ],
+      "youtube": "",
+      "duration": 67,
+      "poster": "media/posters/22-ai-in-product-saas.webp"
+    },
+    "23-ai-to-create-product": {
+      "pillar": "Regulatory",
+      "keywords": [
+        "product liability",
+        "AI-assisted",
+        "Product Liability Directive"
+      ],
+      "youtube": "",
+      "duration": 76,
+      "poster": "media/posters/23-ai-to-create-product.webp"
+    },
+    "24-eu-vs-us-product-lanes": {
+      "pillar": "Regulatory",
+      "keywords": [
+        "EU vs US",
+        "product",
+        "liability",
+        "conformity"
+      ],
+      "youtube": "",
+      "duration": 84,
+      "poster": "media/posters/24-eu-vs-us-product-lanes.webp"
+    },
+    "25-dual-market-hiring-bot": {
+      "pillar": "Regulatory",
+      "keywords": [
+        "hiring",
+        "employment",
+        "Annex III",
+        "bias audit",
+        "NYC"
+      ],
+      "youtube": "",
+      "duration": 86,
+      "poster": "media/posters/25-dual-market-hiring-bot.webp"
+    },
+    "26-clauses-not-audit-stages": {
+      "pillar": "Responsible AI",
+      "keywords": [
+        "ISO/IEC 42001",
+        "Stage 1",
+        "Stage 2",
+        "AIMS",
+        "certification"
+      ],
+      "youtube": "",
+      "duration": 77,
+      "poster": "media/posters/26-clauses-not-audit-stages.webp"
+    },
+    "27-stage1-versus-stage2": {
+      "pillar": "Responsible AI",
+      "keywords": [
+        "Stage 1",
+        "Stage 2",
+        "certification audit",
+        "ISO 17021"
+      ],
+      "youtube": "",
+      "duration": 65,
+      "poster": "media/posters/27-stage1-versus-stage2.webp"
+    },
+    "28-23894-not-a-certificate": {
+      "pillar": "Responsible AI",
+      "keywords": [
+        "ISO/IEC 23894",
+        "ISO 31000",
+        "risk management"
+      ],
+      "youtube": "",
+      "duration": 81,
+      "poster": "media/posters/28-23894-not-a-certificate.webp"
+    },
+    "29-words-methods-obligations": {
+      "pillar": "Responsible AI",
+      "keywords": [
+        "ISO/IEC 22989",
+        "ISO/IEC 23894",
+        "ISO/IEC 42001",
+        "terminology"
+      ],
+      "youtube": "",
+      "duration": 86,
+      "poster": "media/posters/29-words-methods-obligations.webp"
+    },
+    "30-measure-is-table-three": {
+      "pillar": "Responsible AI",
+      "keywords": [
+        "Measure",
+        "TEVV",
+        "Table 3",
+        "NIST AI RMF"
+      ],
+      "youtube": "",
+      "duration": 73,
+      "poster": "media/posters/30-measure-is-table-three.webp"
+    },
+    "31-two-different-rmfs": {
+      "pillar": "Responsible AI",
+      "keywords": [
+        "SP 800-37",
+        "security RMF",
+        "AI RMF",
+        "authorization"
+      ],
+      "youtube": "",
+      "duration": 73,
+      "poster": "media/posters/31-two-different-rmfs.webp"
+    },
+    "32-aibom-versus-sbom": {
+      "pillar": "Responsible AI",
+      "keywords": [
+        "AIBOM",
+        "SBOM",
+        "bill of materials",
+        "provenance"
+      ],
+      "youtube": "",
+      "duration": 76,
+      "poster": "media/posters/32-aibom-versus-sbom.webp"
+    },
+    "33-high-risk-versus-frontier": {
+      "pillar": "Regulatory",
+      "keywords": [
+        "high-risk",
+        "frontier",
+        "GPAI",
+        "systemic risk"
+      ],
+      "youtube": "",
+      "duration": 75,
+      "poster": "media/posters/33-high-risk-versus-frontier.webp"
+    },
+    "34-genai-profile-not-statute": {
+      "pillar": "Responsible AI",
+      "keywords": [
+        "NIST AI 600-1",
+        "generative AI profile",
+        "GenAI"
+      ],
+      "youtube": "",
+      "duration": 77,
+      "poster": "media/posters/34-genai-profile-not-statute.webp"
+    },
+    "35-certificate-covers-the-system": {
+      "pillar": "Responsible AI",
+      "keywords": [
+        "ISO/IEC 42001",
+        "certificate",
+        "AIMS"
+      ],
+      "youtube": "",
+      "duration": 87,
+      "poster": "media/posters/35-certificate-covers-the-system.webp"
+    },
+    "36-state-laws-with-dates": {
+      "pillar": "Regulatory",
+      "keywords": [
+        "state law",
+        "Colorado",
+        "effective date",
+        "California"
+      ],
+      "youtube": "",
+      "duration": 88,
+      "poster": "media/posters/36-state-laws-with-dates.webp"
+    },
+    "37-weights-secrets-not-copyright": {
+      "pillar": "IP",
+      "keywords": [
+        "weights",
+        "trade secret",
+        "copyright"
+      ],
+      "youtube": "",
+      "duration": 80,
+      "poster": "media/posters/37-weights-secrets-not-copyright.webp"
+    },
+    "38-fair-use-no-categorical-rule": {
+      "pillar": "IP",
+      "keywords": [
+        "fair use",
+        "transformative",
+        "market effect"
+      ],
+      "youtube": "",
+      "duration": 90,
+      "poster": "media/posters/38-fair-use-no-categorical-rule.webp"
+    },
+    "39-art11-docs-and-art50": {
+      "pillar": "Regulatory",
+      "keywords": [
+        "Article 11",
+        "technical documentation",
+        "Article 50"
+      ],
+      "youtube": "",
+      "duration": 82,
+      "poster": "media/posters/39-art11-docs-and-art50.webp"
+    },
+    "40-eu-risk-tiers-and-deferral": {
+      "pillar": "Regulatory",
+      "keywords": [
+        "EU AI Act",
+        "risk tier",
+        "deferral",
+        "2027",
+        "Omnibus"
+      ],
+      "youtube": "",
+      "duration": 77,
+      "poster": "media/posters/40-eu-risk-tiers-and-deferral.webp"
+    },
+    "41-ftc-rytr-and-rite-aid": {
+      "pillar": "Regulatory",
+      "keywords": [
+        "FTC",
+        "Rytr",
+        "Rite Aid",
+        "Section 5",
+        "deceptive"
+      ],
+      "youtube": "",
+      "duration": 81,
+      "poster": "media/posters/41-ftc-rytr-and-rite-aid.webp"
+    },
+    "42-thaler-contribution-log": {
+      "pillar": "IP",
+      "keywords": [
+        "Thaler",
+        "human authorship",
+        "copyright office",
+        "contribution"
+      ],
+      "youtube": "",
+      "duration": 68,
+      "poster": "media/posters/42-thaler-contribution-log.webp"
+    },
+    "43-caps-deprecation-and-cyber": {
+      "pillar": "Contracts",
+      "keywords": [
+        "liability cap",
+        "deprecation",
+        "cyber insurance"
+      ],
+      "youtube": "",
+      "duration": 78,
+      "poster": "media/posters/43-caps-deprecation-and-cyber.webp"
+    },
+    "44-indemnity-shield-check": {
+      "pillar": "Contracts",
+      "keywords": [
+        "indemnity",
+        "copyright shield",
+        "indemnification"
+      ],
+      "youtube": "",
+      "duration": 73,
+      "poster": "media/posters/44-indemnity-shield-check.webp"
+    },
+    "45-msa-order-sla-dpa": {
+      "pillar": "Contracts",
+      "keywords": [
+        "MSA",
+        "SLA",
+        "DPA",
+        "order form",
+        "precedence"
+      ],
+      "youtube": "",
+      "duration": 67,
+      "poster": "media/posters/45-msa-order-sla-dpa.webp"
+    },
+    "46-provider-deployer-split": {
+      "pillar": "Regulatory",
+      "keywords": [
+        "provider",
+        "deployer",
+        "obligations",
+        "EU AI Act"
+      ],
+      "youtube": "",
+      "duration": 82,
+      "poster": "media/posters/46-provider-deployer-split.webp"
+    },
+    "47-customer-data-vs-usage": {
+      "pillar": "Contracts",
+      "keywords": [
+        "customer data",
+        "usage data",
+        "telemetry",
+        "training"
+      ],
+      "youtube": "",
+      "duration": 80,
+      "poster": "media/posters/47-customer-data-vs-usage.webp"
+    },
+    "48-common-paper-bonterms": {
+      "pillar": "Contracts",
+      "keywords": [
+        "Common Paper",
+        "Bonterms",
+        "standard template"
+      ],
+      "youtube": "",
+      "duration": 80,
+      "poster": "media/posters/48-common-paper-bonterms.webp"
+    },
+    "49-sources-and-loper-bright": {
+      "pillar": "Foundations",
+      "keywords": [
+        "Loper Bright",
+        "Chevron",
+        "deference",
+        "binding",
+        "statute"
+      ],
+      "youtube": "",
+      "duration": 83,
+      "poster": "media/posters/49-sources-and-loper-bright.webp"
+    },
+    "50-four-regime-asset-map": {
+      "pillar": "IP",
+      "keywords": [
+        "copyright",
+        "patent",
+        "trade secret",
+        "trademark",
+        "IP regimes"
+      ],
+      "youtube": "",
+      "duration": 65,
+      "poster": "media/posters/50-four-regime-asset-map.webp"
+    },
+    "51-civilian-posture-no-omnibus": {
+      "pillar": "Regulatory",
+      "keywords": [
+        "federal",
+        "civilian",
+        "statute",
+        "Omnibus",
+        "executive order"
+      ],
+      "youtube": "",
+      "duration": 87,
+      "poster": "media/posters/51-civilian-posture-no-omnibus.webp"
+    }
+  }
+}
